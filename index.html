@@ -1,28 +1,37 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>СМП Шпаргалки</title>
-  <link rel="manifest" href="manifest.json">
-  <link rel="icon" type="image/png" href="icon.png">
-  <style>
-    body {
-      margin: 0;
-      background: transparent;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-    }
-    img {
-      width: 100vw;
-      height: 100vh;
-      object-fit: contain;
-    }
-  </style>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" type="image/png" href="icon.png" />
 </head>
 <body>
-  <img src="icon.png" alt="СМП Шпаргалки">
+  <div class="container">
+    <h1>СМП Шпаргалки</h1>
+
+    <input type="text" id="search" placeholder="Поиск раздела..." />
+
+    <div id="sections" class="sections">
+      <button class="section-btn">Поиск</button>
+      <button class="section-btn">Шаблоны карт вызовов</button>
+      <button class="section-btn">Шпаргалки</button>
+      <button class="section-btn">Сказать спасибо</button>
+    </div>
+  </div>
+
+  <script>
+    const searchInput = document.getElementById('search');
+    const sectionButtons = document.querySelectorAll('.section-btn');
+
+    searchInput.addEventListener('input', () => {
+      const value = searchInput.value.toLowerCase();
+      sectionButtons.forEach(btn => {
+        const text = btn.textContent.toLowerCase();
+        btn.style.display = text.includes(value) ? 'block' : 'none';
+      });
+    });
+  </script>
 </body>
 </html>
