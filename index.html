@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>СМП Шпаргалки</title>
+  <link rel="icon" type="image/png" href="icon.png" />
+  <link rel="manifest" href="manifest.json" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <h1>СМП Шпаргалки</h1>
+  <input type="text" id="search" placeholder="Поиск по разделам..." />
+  <div class="menu" id="menu">
+    <button>Акушерство и гинекология</button>
+    <button>Анестезиология и реанимация</button>
+    <button>Инфекционные заболевания</button>
+    <button>Кардиология</button>
+    <button>Констатация</button>
+    <button>Неврология</button>
+    <button>Оториноларингология</button>
+    <button>Офтальмология</button>
+    <button>Педиатрия</button>
+    <button>Стоматология</button>
+    <button>Терапия</button>
+    <button>Токсикология</button>
+    <button>Травматология</button>
+    <button>Урология</button>
+    <button>Хирургия</button>
+    <button>Прочее</button>
+    <button>Шпаргалки</button>
+  </div>
+  <script>
+    const search = document.getElementById('search');
+    const buttons = document.querySelectorAll('.menu button');
+    search.addEventListener('input', () => {
+      const query = search.value.toLowerCase();
+      buttons.forEach(btn => {
+        btn.style.display = btn.textContent.toLowerCase().includes(query)
+          ? 'block'
+          : 'none';
+      });
+    });
+    buttons.forEach(button => {
+      button.addEventListener('click', () => {
+        button.classList.add('active');
+        setTimeout(() => button.classList.remove('active'), 150);
+      });
+    });
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('service-worker.js');
+    }
+  </script>
+</body>
+</html>
