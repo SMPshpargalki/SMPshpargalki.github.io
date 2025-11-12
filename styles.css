@@ -1,18 +1,15 @@
 body {
-  font-family: "Segoe UI", Roboto, Arial, sans-serif;
+  font-family: "Segoe UI", sans-serif;
+  text-align: center;
   background-color: #ffffff;
-  color: #222;
   margin: 0;
   padding: 0;
-  display: flex;
-  justify-content: center;
 }
 
 .container {
-  max-width: 400px;
-  width: 90%;
-  margin-top: 50px;
-  text-align: center;
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 20px;
 }
 
 h1 {
@@ -20,42 +17,35 @@ h1 {
   margin-bottom: 20px;
 }
 
-#search {
+input[type="text"] {
   width: 100%;
-  padding: 12px;
-  font-size: 16px;
-  border: 2px solid #ddd;
+  padding: 14px;
+  font-size: 18px;
+  border: 2px solid #ccc;
   border-radius: 12px;
-  margin-bottom: 20px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  outline: none;
-  transition: border-color 0.3s ease;
-}
-
-#search:focus {
-  border-color: #e53935;
+  margin-bottom: 25px;
+  box-sizing: border-box;
 }
 
 .sections {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 10px;
+  flex-direction: column;
+  gap: 16px;
 }
 
 .section-btn {
-  background-color: #e53935;
+  background-color: #e63946;
   color: white;
+  font-size: 20px;
+  padding: 18px;
   border: none;
-  padding: 12px 18px;
-  border-radius: 12px;
-  font-size: 15px;
+  border-radius: 14px;
   cursor: pointer;
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
-  transition: all 0.2s ease;
+  width: 100%;
+  transition: all 0.2s ease-in-out;
 }
 
 .section-btn:hover {
-  background-color: #c62828;
-  transform: translateY(-2px);
+  background-color: #b71c1c;
+  transform: scale(1.03);
 }
