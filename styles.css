@@ -1,40 +1,61 @@
 body {
-    font-family: sans-serif;
-    margin: 20px;
-    background: transparent;
+  font-family: "Segoe UI", Roboto, Arial, sans-serif;
+  background-color: #ffffff;
+  color: #222;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
 }
 
-/* Заголовки */
+.container {
+  max-width: 400px;
+  width: 90%;
+  margin-top: 50px;
+  text-align: center;
+}
+
 h1 {
-    font-size: 26px;
-    text-align: center;
-    margin-bottom: 20px;
+  font-size: 28px;
+  margin-bottom: 20px;
 }
 
-/* Поле поиска */
 #search {
-    width: 100%;
-    padding: 14px;
-    font-size: 20px;
-    border-radius: 10px;
-    border: 1px solid #ccc;
-    margin-bottom: 20px;
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+  border: 2px solid #ddd;
+  border-radius: 12px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  outline: none;
+  transition: border-color 0.3s ease;
 }
 
-/* Контейнер меню */
-.menu {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
+#search:focus {
+  border-color: #e53935;
 }
 
-/* Кнопки */
-.menu button {
-    width: 100%;
-    padding: 18px;
-    font-size: 20px;
-    border-radius: 10px;
-    border: 1px solid #888;
-    background: #fff;
-    cursor: pointer;
+.sections {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+}
+
+.section-btn {
+  background-color: #e53935;
+  color: white;
+  border: none;
+  padding: 12px 18px;
+  border-radius: 12px;
+  font-size: 15px;
+  cursor: pointer;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+  transition: all 0.2s ease;
+}
+
+.section-btn:hover {
+  background-color: #c62828;
+  transform: translateY(-2px);
 }
