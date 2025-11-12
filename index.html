@@ -1,7 +1,14 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>СМП Шпаргалки</title>
+  <link rel="stylesheet" href="style.css">
+</head>
 <body>
   <div class="container">
     <h1>СМП Шпаргалки</h1>
-
     <input type="text" id="search" placeholder="Поиск раздела..." />
 
     <div id="sections" class="sections">
@@ -25,16 +32,17 @@
         <button class="sub-btn">Хирургия</button>
         <button class="sub-btn">Прочее</button>
       </div>
-
-      <button class="section-btn">Шпаргалки</button>
-      <button class="section-btn">Сказать спасибо</button>
     </div>
+
+    <button class="section-btn">Шпаргалки</button>
+    <button class="section-btn">Сказать спасибо</button>
   </div>
 
   <script>
     function toggleSubsections() {
-      const subs = document.getElementById("subsections");
-      subs.style.display = subs.style.display === "none" ? "flex" : "none";
+      const el = document.getElementById("subsections");
+      el.style.display = el.style.display === "none" ? "block" : "none";
     }
   </script>
 </body>
+</html>
