@@ -1,3 +1,4 @@
+/* Общие стили */
 body {
   font-family: "Segoe UI", sans-serif;
   text-align: center;
@@ -6,49 +7,56 @@ body {
   padding: 0;
 }
 
+/* Контейнер */
 .container {
   max-width: 500px;
   margin: 0 auto;
   padding: 20px;
 }
 
+/* Заголовок */
 h1 {
   font-size: 28px;
   margin-bottom: 20px;
 }
 
+/* Поле поиска */
 input[type="text"] {
   width: 100%;
   padding: 14px;
   font-size: 18px;
-  border: 2px solid #ccc;
+  border: 2px solid #000000;
   border-radius: 12px;
   margin-bottom: 25px;
   box-sizing: border-box;
 }
 
+/* Основные разделы */
 .sections {
   display: flex;
   flex-direction: column;
   gap: 16px;
 }
 
+/* Кнопки разделов */
 .section-btn {
   background-color: #e63946;
   color: white;
-  font-size: 20px;
-  padding: 18px;
   border: none;
-  border-radius: 14px;
+  padding: 20px;
+  font-size: 20px;
+  border-radius: 18px;
   cursor: pointer;
+  transition: background-color 0.2s;
   width: 100%;
-  transition: all 0.2s ease-in-out;
+  box-sizing: border-box;
 }
 
 .section-btn:hover {
-  background-color: #b71c1c;
-  transform: scale(1.03);
+  background-color: #d62828;
 }
+
+/* Подразделы */
 .subsections {
   display: none;
   flex-direction: column;
@@ -56,6 +64,7 @@ input[type="text"] {
   margin-top: 12px;
 }
 
+/* Кнопки подразделов */
 .sub-btn {
   background-color: #ffffff;
   color: #e63946;
@@ -72,4 +81,21 @@ input[type="text"] {
 .sub-btn:hover {
   background-color: #ffe6e6;
   color: #b22222;
+}
+
+/* Анимация появления (необязательно, но красиво) */
+.show {
+  display: flex;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
