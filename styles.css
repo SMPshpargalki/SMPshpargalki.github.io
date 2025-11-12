@@ -49,3 +49,24 @@ input[type="text"] {
   background-color: #b71c1c;
   transform: scale(1.03);
 }
+.subsections {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.sub-btn {
+  background-color: #f5f5f5;
+  color: #333;
+  border: 2px solid #e63946;
+  padding: 14px;
+  font-size: 18px;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.sub-btn:hover {
+  background-color: #ffe6e6;
+}
