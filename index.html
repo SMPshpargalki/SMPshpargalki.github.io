@@ -15,22 +15,50 @@
     
     <!-- Раздел: Шаблоны карт вызовов -->
     <div id="templates" class="subsections" style="display: none;">
-      <button class="sub-btn">Акушерство и гинекология</button>
-      <button class="sub-btn">Анестезиология и реанимация</button>
-      <button class="sub-btn">Инфекционные заболевания</button>
-      <button class="sub-btn">Кардиология</button>
-      <button class="sub-btn">Констатация</button>
-      <button class="sub-btn">Неврология</button>
-      <button class="sub-btn">Оториноларингология</button>
-      <button class="sub-btn">Офтальмология</button>
-      <button class="sub-btn">Педиатрия</button>
-      <button class="sub-btn">Стоматология</button>
-      <button class="sub-btn">Терапия</button>
-      <button class="sub-btn">Токсикология</button>
-      <button class="sub-btn">Травматология</button>
-      <button class="sub-btn">Урология</button>
-      <button class="sub-btn">Хирургия</button>
-      <button class="sub-btn">Прочее</button>
+      <button class="sub-btn" onclick="toggleSubsections('obstetrics')">Акушерство и гинекология</button>
+      <div id="obstetrics" class="subsections" style="display: none;">
+        <button class="sub-btn">1 период родов</button>
+        <button class="sub-btn">Абсцесс бартолиновой железы</button>
+        <button class="sub-btn">Альгоменорея</button>
+        <button class="sub-btn">Апоплексия яичника</button>
+        <button class="sub-btn">Бартолинит</button>
+        <button class="sub-btn">Вагинит</button>
+        <button class="sub-btn">Внематочная беременность</button>
+        <button class="sub-btn">Выпадение матки</button>
+        <button class="sub-btn">Дисфункциональные маточное кровотечение (ДМК)</button>
+        <button class="sub-btn">Инородное тело влагалища</button>
+        <button class="sub-btn">Кровотечение в постменопаузе</button>
+        <button class="sub-btn">Лактостаз</button>
+        <button class="sub-btn">Мастит гнойный</button>
+        <button class="sub-btn">Мастит негнойный</button>
+        <button class="sub-btn">Неполный медицинский аборт</button>
+        <button class="sub-btn">Неразвивающаяся беременность</button>
+        <button class="sub-btn">Несостоятельность рубца на матке</button>
+        <button class="sub-btn">Перекрут кисты яичника</button>
+        <button class="sub-btn">Преждевременная отслойка плаценты</button>
+        <button class="sub-btn">Преэкламсия</button>
+        <button class="sub-btn">Разрыв околоплодных оболочек</button>
+        <button class="sub-btn">Роды в машине (ребенок)</button>
+        <button class="sub-btn">Роды в машине (роженица)</button>
+        <button class="sub-btn">Сальпингоофорит</button>
+        <button class="sub-btn">Самопроизвольный аборт</button>
+        <button class="sub-btn">Угрожающий аборт</button>
+        <button class="sub-btn">Угроза преждевременных родов</button>
+        <button class="sub-btn">Чрезмерная рвота</button>
+        <button class="sub-btn">Эндометрит</button>
+      </div>
+
+      <button class="sub-btn" onclick="toggleSubsections('anesthesia')">Анестезиология и реанимация</button>
+      <div id="anesthesia" class="subsections" style="display: none;">
+        <!-- Добавьте аналогичные кнопки для подразделов Анестезиологии -->
+        <button class="sub-btn">Пример подраздела</button>
+      </div>
+
+      <button class="sub-btn" onclick="toggleSubsections('infectious')">Инфекционные заболевания</button>
+      <div id="infectious" class="subsections" style="display: none;">
+        <!-- Добавьте аналогичные кнопки для подразделов Инфекционных заболеваний -->
+        <button class="sub-btn">Пример подраздела</button>
+      </div>
     </div>
 
     <!-- Кнопка: Шпаргалки -->
