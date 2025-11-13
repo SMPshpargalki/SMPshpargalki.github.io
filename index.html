@@ -81,8 +81,12 @@
     </div>
 
     <!-- Кнопка: Сказать спасибо -->
-    <button class="main-btn">Сказать спасибо</button>
-  </div>
+    <button class="main-btn" onclick="toggleSubsections('thankYou')">Сказать спасибо</button>
+    
+    <!-- Текст, который откроется при нажатии на кнопку "Сказать спасибо" -->
+    <div id="thankYou" class="subsections" style="display: none;">
+      <p>Спасибо за использование приложения! Ваш вклад важен для нас!</p>
+    </div>
 
   <script>
     // Функция для отображения/скрытия подразделов
