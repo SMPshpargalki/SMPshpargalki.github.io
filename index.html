@@ -123,17 +123,9 @@
 
   <script>
     // Функция для отображения/скрытия подразделов
-    function toggleSubsections(sectionId) {
-      const sections = document.querySelectorAll('.subsections');
-      
-      // Скрываем все разделы
-      sections.forEach((sec) => {
-        sec.style.display = 'none';
-      });
-
-      // Показываем тот, на который был клик
-      const section = document.getElementById(sectionId);
-      section.style.display = section.style.display === 'none' ? 'block' : 'none';
+    function toggleSubsections(section) {
+      const sectionElement = document.getElementById(section);
+      sectionElement.style.display = sectionElement.style.display === 'none' ? 'block' : 'none';
     }
   </script>
 </body>
