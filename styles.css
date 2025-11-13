@@ -1,95 +1,70 @@
-/* Базовые стили */
-* { box-sizing: border-box; }
 body {
+  background-color: #ffffff;
   font-family: Arial, sans-serif;
-  background: #fff;
-  margin: 0;
-  padding: 16px;
   text-align: center;
-  color: #222;
 }
 
 h1 {
-  font-size: 24px;
-  margin-bottom: 12px;
+  font-size: 32px;
+  margin-top: 20px;
+  color: #333333;
 }
 
-/* Контейнер кнопок */
 .container {
   display: flex;
   flex-direction: column;
-  gap: 12px;
   align-items: center;
+  margin-top: 30px;
+  gap: 15px;
 }
 
-/* Главные кнопки */
+/* Основные кнопки */
 .main-btn {
-  width: 100%;
-  max-width: 520px;
-  padding: 16px;
-  font-size: 18px;
+  background-color: #e63946;
+  color: #ffffff;
+  font-size: 20px;
+  width: 90%;
+  padding: 20px;
+  border: none;
   border-radius: 12px;
-  border: none;
-  background: #e63946;
-  color: #fff;
   cursor: pointer;
 }
 
-/* Списки подразделов */
+/* Подразделы */
 .subsections {
-  width: 100%;
-  max-width: 520px;
-  margin: 8px auto 0;
-  display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 10px;
+  width: 90%;
+  margin-top: 20px;
 }
 
-/* Кнопки подразделов */
-.sub-btn, .leaf-btn {
+.sub-btn {
+  background-color: #f1faee;
+  color: #e63946;
+  font-size: 18px;
   width: 100%;
-  padding: 12px;
-  font-size: 16px;
-  border-radius: 10px;
+  padding: 15px;
   border: none;
+  border-radius: 10px;
   cursor: pointer;
 }
 
-/* Внешний вид кнопок уровней */
-.sub-btn {
-  background: #fff;
-  color: #e63946;
-  border: 1px solid #e63946;
+.sub-btn:hover {
+  background-color: #e63946;
+  color: #ffffff;
 }
 
-.leaf-btn {
-  background: #f7f7f7;
-  color: #b2222f;
-  border: 1px solid #ddd;
+#thankYou {
+  margin-top: 20px;
+  font-size: 18px;
+  color: #333;
+  background-color: #f1faee;
+  padding: 20px;
+  border-radius: 10px;
 }
 
-/* Контент (текст) */
-.content {
-  width: 100%;
-  max-width: 520px;
-  margin: 12px auto 0;
-  text-align: left;
-}
-
-/* Сохранение переносов и читаемость */
 .text-block {
-  white-space: pre-line; /* сохранием переносы \n */
-  font-size: 16px;
+  white-space: pre-line;
+  font-size: 18px;
   line-height: 1.5;
-  background: #f1f1f1;
-  padding: 12px;
-  border-radius: 8px;
-  color: #111;
-}
-
-/* Мобильная адаптация: чуть крупнее кнопки */
-@media (max-width: 480px) {
-  .main-btn { font-size: 18px; padding: 18px; }
-  .sub-btn, .leaf-btn { font-size: 17px; padding: 14px; }
-  .text-block { font-size: 17px; }
 }
