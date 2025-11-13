@@ -37,7 +37,7 @@ h1 {
   width: 90%; /* Ширина кнопки - на 90% от ширины экрана */
   padding: 20px;
   border: none;
-  border-radius: 25px; /* Закругление углов */
+  border-radius: 10px;
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
@@ -47,3 +47,29 @@ h1 {
   background-color: #d32f2f; /* Более тёмный красный при наведении */
 }
 
+/* Стиль подразделов */
+.subsections {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+/* Кнопки подразделов */
+.sub-btn {
+  background-color: #f1faee;
+  color: #e63946;
+  font-size: 18px;
+  width: 80%;
+  padding: 15px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.sub-btn:hover {
+  background-color: #e63946;
+  color: #ffffff;
+}
