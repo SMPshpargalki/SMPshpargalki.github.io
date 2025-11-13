@@ -1,1 +1,49 @@
+/* Сброс стандартных отступов */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Основной фон страницы */
+body {
+  background-color: #ffffff;
+  font-family: Arial, sans-serif;
+  text-align: center;
+}
+
+/* Заголовок */
+h1 {
+  font-size: 32px;
+  margin-top: 20px;
+  color: #333333;
+}
+
+/* Контейнер для кнопок */
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+  gap: 20px;
+}
+
+/* Стиль кнопок */
+.main-btn {
+  background-color: #e63946; /* Красный цвет */
+  color: #ffffff; /* Белый цвет текста */
+  font-size: 20px;
+  width: 90%; /* Ширина кнопки - на 90% от ширины экрана */
+  padding: 20px;
+  border: none;
+  border-radius: 25px; /* Закругление углов */
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+/* Эффект при наведении */
+.main-btn:hover {
+  background-color: #d32f2f; /* Более тёмный красный при наведении */
+}
 
