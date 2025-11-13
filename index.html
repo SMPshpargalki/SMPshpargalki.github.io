@@ -10,39 +10,57 @@
   <h1>СМП Шпаргалки</h1>
 
   <div class="container">
-    <!-- Кнопки -->
+    <!-- Кнопка: Шаблоны карт вызовов -->
     <button class="main-btn" onclick="toggleSubsections('templates')">Шаблоны карт вызовов</button>
-    <button class="main-btn">Шпаргалки</button>
+    
+    <!-- Раздел: Шаблоны карт вызовов -->
+    <div id="templates" class="subsections" style="display: none;">
+      <button class="sub-btn">Акушерство и гинекология</button>
+      <button class="sub-btn">Анестезиология и реанимация</button>
+      <button class="sub-btn">Инфекционные заболевания</button>
+      <button class="sub-btn">Кардиология</button>
+      <button class="sub-btn">Констатация</button>
+      <button class="sub-btn">Неврология</button>
+      <button class="sub-btn">Оториноларингология</button>
+      <button class="sub-btn">Офтальмология</button>
+      <button class="sub-btn">Педиатрия</button>
+      <button class="sub-btn">Стоматология</button>
+      <button class="sub-btn">Терапия</button>
+      <button class="sub-btn">Токсикология</button>
+      <button class="sub-btn">Травматология</button>
+      <button class="sub-btn">Урология</button>
+      <button class="sub-btn">Хирургия</button>
+      <button class="sub-btn">Прочее</button>
+    </div>
+
+    <!-- Кнопка: Шпаргалки -->
+    <button class="main-btn" onclick="toggleSubsections('cheatsheets')">Шпаргалки</button>
+    
+    <!-- Раздел: Шпаргалки -->
+    <div id="cheatsheets" class="subsections" style="display: none;">
+      <button class="sub-btn">Беспризорный</button>
+      <button class="sub-btn">Гололед</button>
+      <button class="sub-btn">Детские дозы</button>
+      <button class="sub-btn">Диагноза нет в алгоритмах</button>
+      <button class="sub-btn">Не получилось снять ЭКГ</button>
+      <button class="sub-btn">Описание молочных желез</button>
+      <button class="sub-btn">Описание родничка</button>
+      <button class="sub-btn">Описание урапидила</button>
+      <button class="sub-btn">Расчет кислорода</button>
+      <button class="sub-btn">Реанимация если один</button>
+      <button class="sub-btn">Реанимация если вдвоем</button>
+      <button class="sub-btn">Сыпь (локальный статус)</button>
+    </div>
+
+    <!-- Кнопка: Сказать спасибо -->
     <button class="main-btn">Сказать спасибо</button>
   </div>
 
-  <!-- Раздел: Шаблоны карт вызовов -->
-  <div id="templates" class="subsections" style="display: none;">
-    <button class="sub-btn">Акушерство и гинекология</button>
-    <button class="sub-btn">Анестезиология и реанимация</button>
-    <button class="sub-btn">Инфекционные заболевания</button>
-    <button class="sub-btn">Кардиология</button>
-    <button class="sub-btn">Констатация</button>
-    <button class="sub-btn">Неврология</button>
-    <button class="sub-btn">Оториноларингология</button>
-    <button class="sub-btn">Офтальмология</button>
-    <button class="sub-btn">Педиатрия</button>
-    <button class="sub-btn">Стоматология</button>
-    <button class="sub-btn">Терапия</button>
-    <button class="sub-btn">Токсикология</button>
-    <button class="sub-btn">Травматология</button>
-    <button class="sub-btn">Урология</button>
-    <button class="sub-btn">Хирургия</button>
-    <button class="sub-btn">Прочее</button>
-  </div>
-
-  <!-- Скрипт для открытия/закрытия подразделов -->
   <script>
     // Функция для отображения/скрытия подразделов
-    function toggleSubsections() {
-      const section = document.getElementById('templates');
-      // Меняем display только при повторном нажатии
-      section.style.display = section.style.display === 'none' ? 'block' : 'none';
+    function toggleSubsections(section) {
+      const sectionElement = document.getElementById(section);
+      sectionElement.style.display = sectionElement.style.display === 'none' ? 'block' : 'none';
     }
   </script>
 </body>
