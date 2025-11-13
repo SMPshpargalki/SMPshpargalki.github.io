@@ -14,5 +14,18 @@
     <button class="main-btn">Шпаргалки</button>
     <button class="main-btn">Сказать спасибо</button>
   </div>
+
+  <!-- Регистрация Service Worker -->
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('/service-worker.js')
+        .then(() => {
+          console.log('✅ Service Worker зарегистрирован успешно');
+        })
+        .catch((err) => {
+          console.log('❌ Ошибка регистрации Service Worker:', err);
+        });
+    }
+  </script>
 </body>
 </html>
