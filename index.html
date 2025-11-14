@@ -4,7 +4,80 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>СМП Шпаргалки</title>
-  <link rel="stylesheet" href="styles.css">
+  <style>
+    body {
+      background-color: #ffffff;
+      font-family: Arial, sans-serif;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 32px;
+      margin-top: 20px;
+      color: #333333;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 30px;
+      gap: 15px;
+    }
+
+    /* Основные кнопки */
+    .main-btn {
+      background-color: #e63946;
+      color: #ffffff;
+      font-size: 20px;
+      width: 90%;
+      padding: 20px;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+    }
+
+    /* Подразделы */
+    .subsections {
+      flex-direction: column;
+      gap: 10px;
+      width: 90%;
+      margin-top: 20px;
+      display: none;
+    }
+
+    .sub-btn {
+      background-color: #1d3557;
+      color: #ffffff;
+      font-size: 18px;
+      width: 100%;
+      padding: 15px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+
+    .child-btn {
+      background-color: #2a9d8f;
+      color: #ffffff;
+      font-size: 18px;
+      width: 100%;
+      padding: 15px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+
+    .text-block {
+      white-space: pre-line;
+      font-size: 18px;
+      line-height: 1.5;
+      display: none;
+      background: #f1faee;
+      padding: 15px;
+      border-radius: 10px;
+    }
+  </style>
 </head>
 <body>
   <h1>СМП Шпаргалки</h1>
@@ -15,15 +88,15 @@
     <button class="main-btn" onclick="toggleSection('templates')">Шаблоны карт вызовов</button>
 
     <div id="templates" class="subsections">
-      <!-- "Акушерство и гинекология" -->
+
+      <!-- Акушерство -->
       <button class="sub-btn" onclick="toggleSection('obstetrics')">Акушерство и гинекология</button>
       <div id="obstetrics" class="subsections">
-        <!-- Вложенные подразделы акушерства -->
+
         <button class="child-btn" onclick="toggleSection('period1')">1 период родов</button>
         <div id="period1" class="text-block">
 Беременность "00" недель. Вторые роды в головном предлежании. 1 период 1640 О80.0
-Жалобы: нерегулярные, схваткообразные боли средней интенсивности внизу живота...
-(здесь можно добавить остальной текст — переносы сохранятся)
+Жалобы: нерегулярные, схваткообразные боли средней интенсивности...
         </div>
 
         <button class="child-btn">Абсцесс бартолиновой железы</button>
@@ -33,7 +106,7 @@
         <button class="child-btn">Вагинит</button>
         <button class="child-btn">Внематочная беременность</button>
         <button class="child-btn">Выпадение матки</button>
-        <button class="child-btn">Дисфункциональные маточное кровотечение (ДМК)</button>
+        <button class="child-btn">ДМК</button>
         <button class="child-btn">Инородное тело влагалища</button>
         <button class="child-btn">Кровотечение в постменопаузе</button>
         <button class="child-btn">Лактостаз</button>
@@ -43,31 +116,31 @@
         <button class="child-btn">Неразвивающаяся беременность</button>
         <button class="child-btn">Несостоятельность рубца на матке</button>
         <button class="child-btn">Перекрут кисты яичника</button>
-        <button class="child-btn">Преждевременная отслойка плаценты</button>
+        <button class="child-btn">ПОНРП</button>
         <button class="child-btn">Преэкламсия</button>
-        <button class="child-btn">Разрыв околоплодных оболочек</button>
+        <button class="child-btn">Разрыв оболочек</button>
         <button class="child-btn">Роды в машине (ребенок)</button>
         <button class="child-btn">Роды в машине (роженица)</button>
         <button class="child-btn">Сальпингоофорит</button>
         <button class="child-btn">Самопроизвольный аборт</button>
         <button class="child-btn">Угрожающий аборт</button>
-        <button class="child-btn">Угроза преждевременных родов</button>
+        <button class="child-btn">Угроза ПР</button>
         <button class="child-btn">Чрезмерная рвота</button>
         <button class="child-btn">Эндометрит</button>
       </div>
 
-      <!-- Другие разделы того же уровня -->
+      <!-- Анестезиология -->
       <button class="sub-btn" onclick="toggleSection('anesthesia')">Анестезиология и реанимация</button>
       <div id="anesthesia" class="subsections">
         <button class="child-btn">Пример подраздела Анестезиологии</button>
       </div>
 
+      <!-- Инфекции -->
       <button class="sub-btn" onclick="toggleSection('infectious')">Инфекционные заболевания</button>
       <div id="infectious" class="subsections">
         <button class="child-btn">Пример подраздела Инфекционных</button>
       </div>
 
-      <!-- остальные верхние подразделы можно добавить аналогично -->
     </div>
 
     <!-- 2. Шпаргалки -->
@@ -76,15 +149,15 @@
       <button class="sub-btn">Беспризорный</button>
       <button class="sub-btn">Гололед</button>
       <button class="sub-btn">Детские дозы</button>
-      <button class="sub-btn">Диагноза нет в алгоритмах</button>
-      <button class="sub-btn">Не получилось снять ЭКГ</button>
+      <button class="sub-btn">Диагноза нет</button>
+      <button class="sub-btn">Не получилось ЭКГ</button>
       <button class="sub-btn">Описание молочных желез</button>
       <button class="sub-btn">Описание родничка</button>
       <button class="sub-btn">Описание урапидила</button>
       <button class="sub-btn">Расчет кислорода</button>
-      <button class="sub-btn">Реанимация если один</button>
-      <button class="sub-btn">Реанимация если вдвоем</button>
-      <button class="sub-btn">Сыпь (локальный статус)</button>
+      <button class="sub-btn">Реанимация один</button>
+      <button class="sub-btn">Реанимация вдвоем</button>
+      <button class="sub-btn">Сыпь</button>
     </div>
 
     <!-- 3. Сказать спасибо -->
@@ -92,64 +165,51 @@
     <div id="thankYou" class="subsections">
       <div class="text-block" style="display:block;">
 Здравствуй, коллега!
-Здесь можно отблагодарить автора/админов  хуйня
+Здесь можно отблагодарить автора.
       </div>
     </div>
+
   </div>
 
   <script>
-    // Скрыть всех .subsections
     function hideAllSections(){
-      document.querySelectorAll('.subsections').forEach(s => s.style.display = 'none');
+      document.querySelectorAll('.subsections, .text-block').forEach(s => s.style.display = 'none');
     }
 
-    // Скрыть все дочерние .subsections внутри элемента el (рекурсивно)
     function hideDescendants(el){
-      el.querySelectorAll('.subsections').forEach(s => s.style.display = 'none');
+      el.querySelectorAll('.subsections, .text-block').forEach(s => s.style.display = 'none');
     }
 
-    // Показать/скрыть раздел с учётом требований:
-    // - при открытии показываем цепочку предков + сам раздел и скрываем все остальные;
-    // - при повторном нажатии (если раздел видим) — полностью скрываем его и все его вложения.
-    function toggleSection(sectionId){
-      const el = document.getElementById(sectionId);
+    function toggleSection(id){
+      const el = document.getElementById(id);
       if(!el) return;
 
-      const currentlyVisible = window.getComputedStyle(el).display !== 'none';
+      const visible = window.getComputedStyle(el).display !== 'none';
 
-      if(currentlyVisible){
-        // если видим — скрываем его и всех его потомков
+      if(visible){
         hideDescendants(el);
         el.style.display = 'none';
         return;
       }
 
-      // Если собираемся показать el — прячем всё прежде, затем покажем цепочку предков и el
       hideAllSections();
 
-      // вычислим и покажем предков (если есть)
-      const ancestors = [];
       let p = el.parentElement;
+      const ancestors = [];
       while(p){
-        if(p.classList && p.classList.contains('subsections') && p.id){
-          ancestors.push(p.id);
-        }
+        if(p.classList && p.classList.contains('subsections') && p.id){ ancestors.push(p.id); }
         p = p.parentElement;
       }
-      // показать предков сверху вниз
-      ancestors.reverse().forEach(id => {
-        const a = document.getElementById(id);
-        if(a) a.style.display = 'block';
+
+      ancestors.reverse().forEach(aid => {
+        const block = document.getElementById(aid);
+        if(block) block.style.display = 'block';
       });
 
-      // показать сам раздел
-      el.style.display = (el.classList.contains('text-block') ? 'block' : 'block');
+      el.style.display = 'block';
     }
 
-    // Дополнительно: при загрузке страницы можно скрыть все (по умолчанию уже скрыты)
-    document.addEventListener('DOMContentLoaded', () => {
-      hideAllSections();
-    });
+    document.addEventListener('DOMContentLoaded', hideAllSections);
   </script>
 </body>
 </html>
