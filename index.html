@@ -99,12 +99,18 @@
 4279380676533096</p>
     </div>
 
-  <script>
-    // Функция для отображения/скрытия подразделов
-    function toggleSubsections(section) {
-      const sectionElement = document.getElementById(section);
-      sectionElement.style.display = sectionElement.style.display === 'none' ? 'block' : 'none';
-    }
-  </script>
+ <script>
+function toggleSubsections(sectionId) {
+  const clicked = document.getElementById(sectionId);
+
+  // 1 — закрываем ВСЕ уровни
+  document.querySelectorAll(".subsections").forEach(sec => {
+    if (sec.id !== sectionId) sec.style.display = "none";
+  });
+
+  // 2 — переключаем нужный раздел (открыть/закрыть)
+  clicked.style.display = clicked.style.display === "block" ? "none" : "block";
+}
+</script>
 </body>
 </html>
