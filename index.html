@@ -115,7 +115,7 @@
     <button class="main-btn" onclick="toggleSection('thankYou')">Сказать спасибо</button>
     <div id="thankYou" class="text-block">
 Здравствуй, коллега!
-Здесь можно отблагодарить автора.хуй
+Здесь можно отблагодарить автора.хуйня
       </div>
     </div>
 
@@ -175,42 +175,65 @@
   </script>
 
   <!-- МОДАЛЬНОЕ ОКНО -->
-  <div id="modal" style="
-    display:none;
-    position:fixed;
-    top:0; left:0;
-    width:100%; height:100%;
-    background:rgba(0,0,0,0.6);
-    backdrop-filter:blur(3px);
-    justify-content:center;
-    align-items:center;
-    padding:20px;">
-    
+ <div id="modal" style="
+  display:none;
+  position:fixed;
+  top:0; left:0;
+  width:100%; height:100%;
+  background:rgba(0,0,0,0.6);
+  backdrop-filter:blur(3px);
+  justify-content:center;
+  align-items:center;
+  padding:0;
+  z-index:9999;
+">
+
+  <div style="
+    background:#ffffff;
+    width:100%;
+    height:100%;
+    max-width:650px;
+    border-radius:0;
+    display:flex;
+    flex-direction:column;
+  ">
+
+    <!-- Верхняя панель -->
     <div style="
-        background:#ffffff;
-        max-width:600px; width:100%;
-        padding:20px;
-        border-radius:12px;
-        text-align:left;
-        position:relative;
-        max-height:80%;
-        overflow-y:auto;">
-      
+      padding:15px;
+      background:#ffffff;
+      border-bottom:1px solid #ddd;
+      position:sticky;
+      top:0;
+      z-index:1000;
+      display:flex;
+      justify-content:flex-end;
+    ">
       <button onclick="closeModal()" style="
-        position:absolute;
-        top:10px; right:10px;
         background:#e63946;
         color:#fff;
         border:none;
-        padding:8px 12px;
+        padding:8px 14px;
         border-radius:8px;
-        cursor:pointer;">
+        font-size:16px;
+        cursor:pointer;
+      ">
         Закрыть
       </button>
-
-      <div id="modalContent" style="white-space:pre-line; font-size:18px; line-height:1.5;"></div>
     </div>
+
+    <!-- Контент -->
+    <div id="modalContent" style="
+      padding:20px;
+      overflow-y:auto;
+      font-size:18px;
+      line-height:1.5;
+      white-space:pre-line;
+      flex:1;
+    "></div>
+
   </div>
+</div>
 
 </body>
 </html>
