@@ -23,7 +23,7 @@
         <button class="child-btn" onclick="toggleSection('period1')">1 период родов</button>
         <div id="period1" class="text-block">
 Беременность "00" недель. Вторые роды в головном предлежании. 1 период 1640 О80.0
-Жалобы: нерегулярные, схваткообразные боли средней интенсивности... хуй
+Жалобы: нерегулярные, схваткообразные боли средней интенсивности...писька
         </div>
 
         <button class="child-btn">Абсцесс бартолиновой железы</button>
@@ -92,7 +92,7 @@
     <div id="thankYou" class="subsections">
       <div class="text-block" style="display:block;">
 Здравствуй, коллега!
-Здесь можно отблагодарить автора.
+Здесь можно отблагодарить автора. писька
       </div>
     </div>
 
@@ -108,36 +108,6 @@
     }
 
     function toggleSection(id){
-      const el = document.getElementById(id);
-      if(!el) return;
-
-      // Всегда скрываем ВСЕ text-block при нажатии на любую child-btn
-      document.querySelectorAll('.text-block').forEach(tb => tb.style.display = 'none');
-
-      const visible = window.getComputedStyle(el).display !== 'none';
-
-      if(visible){
-        hideDescendants(el);
-        el.style.display = 'none';
-        return;
-      }
-
-      hideAllSections();
-
-      let p = el.parentElement;
-      const ancestors = [];
-      while(p){
-        if(p.classList && p.classList.contains('subsections') && p.id){ ancestors.push(p.id); }
-        p = p.parentElement;
-      }
-
-      ancestors.reverse().forEach(aid => {
-        const block = document.getElementById(aid);
-        if(block) block.style.display = 'block';
-      });
-
-      el.style.display = 'block';
-    }(id){
       const el = document.getElementById(id);
       if(!el) return;
 
