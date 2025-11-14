@@ -20,11 +20,14 @@
       <button class="sub-btn" onclick="toggleSection('obstetrics')">Акушерство и гинекология</button>
       <div id="obstetrics" class="subsections">
 
-        <button class="child-btn" onclick="toggleSection('period1')">1 период родов</button>
-        <div id="period1" class="text-block">
-Беременность "00" недель. Вторые роды в головном предлежании. 1 период 1640 О80.0
-Жалобы: нерегулярные, схваткообразные боли средней интенсивности...
-        </div>
+        <!-- Открытие текста теперь через modal -->
+        <button class="child-btn" onclick="openModal(`Беременность '00' недель. Вторые роды в головном предлежании. 1 период 1640 О80.0
+Жалобы: нерегулярные, схваткообразные боли средней интенсивности...`)">
+          1 период родов
+        </button>
+
+        <!-- Пустой div оставлен, чтобы не ломать логику скрипта -->
+        <div id="period1" class="text-block"></div>
 
         <button class="child-btn">Абсцесс бартолиновой железы</button>
         <button class="child-btn">Альгоменорея</button>
@@ -91,7 +94,7 @@
     <button class="main-btn" onclick="toggleSection('thankYou')">Сказать спасибо</button>
     <div id="thankYou" class="text-block">
 Здравствуй, коллега!
-Здесь можно отблагодарить автора.
+Здесь можно отблагодарить автора.хуй
       </div>
     </div>
 
@@ -136,6 +139,57 @@
     }
 
     document.addEventListener('DOMContentLoaded', hideAllSections);
+
+
+    /* --- МОДАЛЬНОЕ ОКНО --- */
+
+    function openModal(text){
+      document.getElementById('modalContent').innerText = text;
+      document.getElementById('modal').style.display = 'flex';
+    }
+
+    function closeModal(){
+      document.getElementById('modal').style.display = 'none';
+    }
   </script>
+
+  <!-- МОДАЛЬНОЕ ОКНО -->
+  <div id="modal" style="
+    display:none;
+    position:fixed;
+    top:0; left:0;
+    width:100%; height:100%;
+    background:rgba(0,0,0,0.6);
+    backdrop-filter:blur(3px);
+    justify-content:center;
+    align-items:center;
+    padding:20px;">
+    
+    <div style="
+        background:#ffffff;
+        max-width:600px; width:100%;
+        padding:20px;
+        border-radius:12px;
+        text-align:left;
+        position:relative;
+        max-height:80%;
+        overflow-y:auto;">
+      
+      <button onclick="closeModal()" style="
+        position:absolute;
+        top:10px; right:10px;
+        background:#e63946;
+        color:#fff;
+        border:none;
+        padding:8px 12px;
+        border-radius:8px;
+        cursor:pointer;">
+        Закрыть
+      </button>
+
+      <div id="modalContent" style="white-space:pre-line; font-size:18px; line-height:1.5;"></div>
+    </div>
+  </div>
+
 </body>
 </html>
