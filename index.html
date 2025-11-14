@@ -111,6 +111,36 @@
       const el = document.getElementById(id);
       if(!el) return;
 
+      // Всегда скрываем ВСЕ text-block при нажатии на любую child-btn
+      document.querySelectorAll('.text-block').forEach(tb => tb.style.display = 'none');
+
+      const visible = window.getComputedStyle(el).display !== 'none';
+
+      if(visible){
+        hideDescendants(el);
+        el.style.display = 'none';
+        return;
+      }
+
+      hideAllSections();
+
+      let p = el.parentElement;
+      const ancestors = [];
+      while(p){
+        if(p.classList && p.classList.contains('subsections') && p.id){ ancestors.push(p.id); }
+        p = p.parentElement;
+      }
+
+      ancestors.reverse().forEach(aid => {
+        const block = document.getElementById(aid);
+        if(block) block.style.display = 'block';
+      });
+
+      el.style.display = 'block';
+    }(id){
+      const el = document.getElementById(id);
+      if(!el) return;
+
       const visible = window.getComputedStyle(el).display !== 'none';
 
       if(visible){
