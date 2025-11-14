@@ -39,8 +39,8 @@ h1 {
 }
 
 .sub-btn {
-  background-color: #f1faee;
-  color: #e63946;
+  background-color: #ADD8E6; /* Голубой цвет */
+  color: #ffffff; /* Белый текст */
   font-size: 18px;
   width: 100%;
   padding: 15px;
@@ -50,8 +50,8 @@ h1 {
 }
 
 .sub-btn:hover {
-  background-color: #e63946;
-  color: #ffffff;
+  background-color: #87CEEB; /* Более яркий голубой при наведении */
+  color: #ffffff; /* Белый текст при наведении */
 }
 
 #thankYou {
