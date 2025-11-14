@@ -1,74 +1,90 @@
-body {
-  background-color: #ffffff;
-  font-family: Arial, sans-serif;
-  text-align: center;
-}
+ body{
+      background:#ffffff;
+      font-family: Arial, sans-serif;
+      margin:0;
+      padding:0;
+      text-align:center;
+      color:#222;
+    }
+    h1{
+      font-size:34px;
+      margin:22px 0 8px;
+    }
+    .container{
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      gap:14px;
+      padding:0 12px 30px;
+    }
 
-h1 {
-  font-size: 32px;
-  margin-top: 20px;
-  color: #333333;
-}
+    /* Основные кнопки (красные) */
+    .main-btn{
+      background:#e63946;
+      color:#fff;
+      font-size:20px;
+      width:100%;
+      max-width:720px;
+      padding:18px;
+      border:0;
+      border-radius:14px;
+      cursor:pointer;
+      box-sizing:border-box;
+    }
 
-.container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-top: 30px;
-  gap: 15px;
-}
+    /* Верхние подразделы (синие) */
+    .sub-btn{
+      background:#4682B4;
+      color:#fff;
+      font-size:18px;
+      width:100%;
+      padding:14px;
+      border:0;
+      border-radius:12px;
+      cursor:pointer;
+      box-sizing:border-box;
+      margin-top:8px;
+    }
 
-/* Основные кнопки */
-.main-btn {
-  background-color: #e63946;
-  color: #ffffff;
-  font-size: 20px;
-  width: 90%;
-  padding: 20px;
-  border: none;
-  border-radius: 12px;
-  cursor: pointer;
-}
+    /* Внутренние подразделы (зелёные) */
+    .child-btn{
+      background:#4CAF50;
+      color:#fff;
+      font-size:18px;
+      width:100%;
+      padding:14px;
+      border:0;
+      border-radius:12px;
+      cursor:pointer;
+      box-sizing:border-box;
+      margin-top:8px;
+    }
 
-/* Верхние подразделы — синие */
-.sub-btn {
-  background-color: #4682B4;
-  color: #ffffff;
-  font-size: 18px;
-  width: 100%;
-  padding: 15px;
-  border: none;
-  border-radius: 10px;
-  cursor: pointer;
-}
+    /* контейнеры подразделов: отрисовываем как колонку с отступом */
+    .subsections{
+      display:none; /* по умолчанию скрыты */
+      width:100%;
+      max-width:720px;
+      box-sizing:border-box;
+      margin-top:6px;
+    }
 
-.sub-btn:hover {
-  background-color: #5a9bd5;
-  color: #ffffff;
-}
+    /* Текстовый блок (статья) */
+    .text-block{
+      display:none;
+      background:#f7f7f7;
+      color:#222;
+      padding:18px;
+      border-radius:10px;
+      margin:14px 0;
+      text-align:left;
+      white-space:pre-line; /* сохранять переносы */
+      font-size:16px;
+      line-height:1.45;
+    }
 
-/* Внутренние подразделы — зеленые */
-.child-btn {
-  background-color: #4CAF50; /* зеленый */
-  color: #ffffff;
-}
-
-.child-btn:hover {
-  background-color: #45a049; /* светло-зеленый */
-  color: #ffffff;
-}
-
-#thankYou {
-  margin-top: 20px;
-  font-size: 18px;
-  color: #333;
-  background-color: #f1faee;
-  padding: 20px;
-  border-radius: 10px;
-}
-
-.text-block {
-  white-space: pre-line;
-  font-size: 18px;
-  line-height: 1.5;
-}
+    /* небольшой адаптив — чтобы кнопки были не слишком широкие на планшете */
+    @media (max-width:420px){
+      h1{ font-size:30px; }
+      .main-btn{ font-size:18px; padding:16px; }
+    }
