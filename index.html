@@ -20,10 +20,11 @@
       <button class="sub-btn" onclick="toggleSection('obstetrics')">Акушерство и гинекология</button>
       <div id="obstetrics" class="subsections">
 
-        <button class="child-btn" onclick="toggleSection('period1')">1 период родов</button>
-        <div id="period1" class="text-block">
-Беременность "00" недель. Вторые роды в головном предлежании. 1 период 1640 О80.0
-Жалобы: нерегулярные, схваткообразные боли средней интенсивности...
+       <button class="child-btn" onclick="openModal(`Беременность недель.
+Вторые роды в головном предлежании. 1 период 1640 О80.0
+Жалобы: нерегулярные, схваткообразные боли средней интенсивности...`)">
+  1 период родов
+</button>
         </div>
 
         <button class="child-btn">Абсцесс бартолиновой железы</button>
@@ -97,6 +98,17 @@
     </div>
 
   </div>
+  
+<script>
+  function openModal(text){
+    document.getElementById('modalContent').innerText = text;
+    document.getElementById('modal').style.display = 'flex';
+  }
+
+  function closeModal(){
+    document.getElementById('modal').style.display = 'none';
+  }
+</script>
 
   <script>
     function hideAllSections(){
