@@ -47,14 +47,14 @@ h1 {
   color: #ffffff;
 }
 
-/* Внутренние подразделы — фиолетовые */
+/* Внутренние подразделы — зеленые */
 .child-btn {
-  background-color: #4CAF50; /* фиолетовый */
+  background-color: #4CAF50; /* зеленый */
   color: #ffffff;
 }
 
 .child-btn:hover {
-  background-color: #45a049; /* светло-фиолетовый */
+  background-color: #45a049; /* светло-зеленый */
   color: #ffffff;
 }
 
