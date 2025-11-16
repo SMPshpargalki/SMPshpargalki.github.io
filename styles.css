@@ -115,3 +115,32 @@
     font-weight: 600;
     color: #d35400;
 }
+.calc-container {
+  background: #fff;
+  padding: 15px;
+  border-radius: 12px;
+  margin-top: 20px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.calc-row {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.calc-row select {
+  width: 50%;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #aaa;
+  font-size: 16px;
+}
+
+.calc-result {
+  padding: 10px;
+  background: #f2f2f2;
+  border-radius: 8px;
+  font-size: 18px;
+  line-height: 1.5;
+}
