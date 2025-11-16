@@ -135,11 +135,8 @@
     <button class="main-btn" onclick="toggleSection('cheatsheets')"><b>Шпаргалки</b></button>
     <div id="cheatsheets" class="subsections">
       <button class="sub-btn" onclick="openModal(`<img src='icon.png' style='max-width:100%; height:auto;'>`)">Беспризорный</button>
-      <button class="sub-btn" onclick="openModal(`
-  <div class='img-wrap'>
-    <img src='icon.png' class='zoom-img'>
-  </div>
-`)">Гололед</button>
+      <button class="sub-btn" onclick="openModal(`<img src='icon.png' onclick="openImgModal style='width:200px; cursor:pointer; border-radius:10px;'>
+        `)">Гололед</button>
       <button class="sub-btn">Детские дозы</button>
       <button class="sub-btn">Диагноза нет</button>
       <button class="sub-btn">Не получилось ЭКГ</button>
@@ -179,7 +176,7 @@
     <!-- 4. Сказать спасибо -->
     <button class="main-btn" onclick="toggleSection('thankYou')"><b>Сказать спасибо</b></button>
     <div id="thankYou" class="text-block">
-Здравствуй, коллега! хуй
+Здравствуй, коллега! хуйня
 Здесь ты можешь отблагодарить админа 
 <b>Канала СМП Шпаргалки</b>
 <b>МедЧата</b>
@@ -248,7 +245,25 @@
       document.getElementById('modal').style.display = 'none';
     }
   </script>
-
+  
+<!-- Модальное окно для увеличенной картинки -->
+<div id="imgModal" style="
+  display:none;
+  position:fixed;
+  top:0; left:0;
+  width:100%; height:100%;
+  background:rgba(0,0,0,0.9);
+  justify-content:center;
+  align-items:center;
+  z-index:9999;
+">
+  <img id="imgModalContent" style="
+    max-width:90%;
+    max-height:90%;
+    border-radius:10px;
+  ">
+</div>
+  
   <!-- МОДАЛЬНОЕ ОКНО -->
  <div id="modal" style="
   display:none;
