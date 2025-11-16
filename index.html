@@ -543,55 +543,7 @@
     <!-- 3. Калькуляторы -->
 <button class="main-btn" onclick="toggleSection('kalc')"><b>Калькуляторы</b></button>
 <div id="kalc" class="subsections">
-<div class="calc-container">
-  <h3>Калькулятор детских норм</h3>
-
-  <div class="calc-row">
-    <select id="ageSelect" onchange="updateValues()">
-      <option value="">Выберите возраст</option>
-      <option>Новорожденные</option>
-      <option>1 месяц</option>
-      <option>2 месяца</option>
-      <option>3 месяца</option>
-      <option>4 месяца</option>
-      <option>5 месяцев</option>
-      <option>6 месяцев</option>
-      <option>7 месяцев</option>
-      <option>8 месяцев</option>
-      <option>9 месяцев</option>
-      <option>10 месяцев</option>
-      <option>11 месяцев</option>
-      <option>1 год</option>
-      <option>2 года</option>
-      <option>3 года</option>
-      <option>4 года</option>
-      <option>5 лет</option>
-      <option>6 лет</option>
-      <option>7 лет</option>
-      <option>8 лет</option>
-      <option>9 лет</option>
-      <option>10 лет</option>
-      <option>11 лет</option>
-      <option>12 лет</option>
-      <option>13 лет</option>
-      <option>14 лет</option>
-      <option>15 лет</option>
-      <option>16 лет</option>
-      <option>17 лет</option>
-    </select>
-
-    <select id="sexSelect" onchange="updateValues()">
-      <option value="">Пол</option>
-      <option value="girl">Девочка</option>
-      <option value="boy">Мальчик</option>
-    </select>
-  </div>
-
-  <div class="calc-result" id="resultBox">
-    Выберите возраст и пол.
-  </div>
-</div>
-
+<button class="sub-btn" onclick="openCalculator()">Калькулятор норм</button>
 </div>
 
     
@@ -762,6 +714,67 @@
       text-align:left;
     "></div>
 
+     <!-- Калькулятор -->
+    <div id="calcModal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeCalc()">&times;</span>
+
+    <h2>Калькулятор детских норм</h2>
+
+    <!-- Выбор возраста -->
+    <label>Возраст:</label>
+    <select id="ageSelect" onchange="updateValues()">
+      <option value="">Выберите возраст</option>
+      <option value="n0">Новорождённый</option>
+      <option value="m1">1 месяц</option>
+      <option value="m2">2 месяца</option>
+      <option value="m3">3 месяца</option>
+      <option value="m4">4 месяца</option>
+      <option value="m5">5 месяцев</option>
+      <option value="m6">6 месяцев</option>
+      <option value="m7">7 месяцев</option>
+      <option value="m8">8 месяцев</option>
+      <option value="m9">9 месяцев</option>
+      <option value="m10">10 месяцев</option>
+      <option value="m11">11 месяцев</option>
+      <option value="y1">1 год</option>
+      <option value="y2">2 года</option>
+      <option value="y3">3 года</option>
+      <option value="y4">4 года</option>
+      <option value="y5">5 лет</option>
+      <option value="y6">6 лет</option>
+      <option value="y7">7 лет</option>
+      <option value="y8">8 лет</option>
+      <option value="y9">9 лет</option>
+      <option value="y10">10 лет</option>
+      <option value="y11">11 лет</option>
+      <option value="y12">12 лет</option>
+      <option value="y13">13 лет</option>
+      <option value="y14">14 лет</option>
+      <option value="y15">15 лет</option>
+      <option value="y16">16 лет</option>
+      <option value="y17">17 лет</option>
+    </select>
+
+    <!-- Выбор пола -->
+    <label>Пол:</label>
+    <select id="sexSelect" onchange="updateValues()">
+      <option value="">Выберите пол</option>
+      <option value="girl">Девочка</option>
+      <option value="boy">Мальчик</option>
+    </select>
+
+    <hr>
+
+    <!-- Результат -->
+    <div id="result">
+      <p><b>Рост:</b> —</p>
+      <p><b>Вес:</b> —</p>
+      <p><b>ЧСС:</b> —</p>
+      <p><b>ЧДД:</b> —</p>
+      <p><b>АД:</b> —</p>
+    </div>
+
   </div>
 </div>
 <script>
@@ -911,174 +924,62 @@ clearBtn.addEventListener("click", () => {
     input.dispatchEvent(new Event("input"));  // перезапуск поиска
 });
 </script>
-  <script>
-const norms = {
-  "Новорожденные": {
-    girl: {height: 49.5, weight: 3.3},
-    boy: {height: 50.4, weight: 3.5},
-    chss: "130-140", chdd: "40-60", ad: "70/40"
-  },
-  "1 месяц": {
-    girl: {height: 53.5, weight: 4.1},
-    boy: {height: 54.5, weight: 4.3},
-    chss: "130-140", chdd: "40-60", ad: "70/40"
-  },
-  "2 месяца": {
-    girl: {height: 56.9, weight: 5},
-    boy: {height: 57.7, weight: 5.3},
-    chss: "120-130", chdd: "35-40", ad: "85/40"
-  },
-  "3 месяца": {
-    girl: {height: 60.2, weight: 5.8},
-    boy: {height: 61.3, weight: 6.2},
-    chss: "120-130", chdd: "35-40", ad: "85/40"
-  },
-  "4 месяца": {
-    girl: {height: 62.1, weight: 6.5},
-    boy: {height: 63.5, weight: 6.9},
-    chss: "120-130", chdd: "35-40", ad: "85/40"
-  },
-  "5 месяцев": {
-    girl: {height: 63.9, weight: 7.2},
-    boy: {height: 66.9, weight: 7.8},
-    chss: "120-125", chdd: "33-35", ad: "90/55"
-  },
-  "6 месяцев": {
-    girl: {height: 66.6, weight: 7.9},
-    boy: {height: 67.9, weight: 8.7},
-    chss: "120-125", chdd: "33-35", ad: "90/55"
-  },
-  "7 месяцев": {
-    girl: {height: 67.4, weight: 8.5},
-    boy: {height: 69.9, weight: 9.3},
-    chss: "120-125", chdd: "33-35", ad: "90/55"
-  },
-  "8 месяцев": {
-    girl: {height: 69.8, weight: 8.3},
-    boy: {height: 71.2, weight: 9.3},
-    chss: "120-125", chdd: "33-35", ad: "90/55"
-  },
-  "9 месяцев": {
-    girl: {height: 70.6, weight: 9},
-    boy: {height: 72.8, weight: 9.8},
-    chss: "120-125", chdd: "33-35", ad: "90/55"
-  },
-  "10 месяцев": {
-    girl: {height: 72.1, weight: 9.5},
-    boy: {height: 73.9, weight: 10.3},
-    chss: "120-125", chdd: "33-35", ad: "90/55"
-  },
-  "11 месяцев": {
-    girl: {height: 73.6, weight: 9.7},
-    boy: {height: 74.9, weight: 10.4},
-    chss: "120-125", chdd: "33-35", ad: "90/55"
-  },
-  "1 год": {
-    girl: {height: 74.8, weight: 10.1},
-    boy: {height: 75.7, weight: 10.8},
-    chss: "120", chdd: "30-32", ad: "92/56"
-  },
-  "2 года": {
-    girl: {height: 86.1, weight: 12.6},
-    boy: {height: 88.2, weight: 13},
-    chss: "110-115", chdd: "26-30", ad: "94/56"
-  },
-  "3 года": {
-    girl: {height: 97.3, weight: 14.8},
-    boy: {height: 95.7, weight: 14.9},
-    chss: "100-105", chdd: "24-26", ad: "98/56"
-  },
-  "4 года": {
-    girl: {height: 100.6, weight: 16},
-    boy: {height: 102.4, weight: 17.1},
-    chss: "100", chdd: "24-26", ad: "98/56"
-  },
-  "5 лет": {
-    girl: {height: 109, weight: 18.3},
-    boy: {height: 110.4, weight: 19.7},
-    chss: "100", chdd: "24-26", ad: "100/60"
-  },
-  "6 лет": {
-    girl: {height: 115.7, weight: 21},
-    boy: {height: 115.2, weight: 21.9},
-    chss: "90-95", chdd: "23-25", ad: "100/60"
-  },
-  "7 лет": {
-    girl: {height: 123.6, weight: 24.5},
-    boy: {height: 123.9, weight: 24.9},
-    chss: "85-92", chdd: "21-23", ad: "100/60"
-  },
-  "8 лет": {
-    girl: {height: 129, weight: 27.4},
-    boy: {height: 129.7, weight: 27.8},
-    chss: "80-85", chdd: "21-23", ad: "105/70"
-  },
-  "9 лет": {
-    girl: {height: 136.9, weight: 31},
-    boy: {height: 134.6, weight: 30.6},
-    chss: "78-84", chdd: "18-21", ad: "105/70"
-  },
-  "10 лет": {
-    girl: {height: 140.3, weight: 34.3},
-    boy: {height: 140.3, weight: 33.7},
-    chss: "78-84", chdd: "18-21", ad: "105/70"
-  },
-  "11 лет": {
-    girl: {height: 144.5, weight: 37.4},
-    boy: {height: 143.4, weight: 35.4},
-    chss: "75-82", chdd: "18-21", ad: "110/70"
-  },
-  "12 лет": {
-    girl: {height: 152.8, weight: 44},
-    boy: {height: 150, weight: 41.2},
-    chss: "75-82", chdd: "18-21", ad: "110/70"
-  },
-  "13 лет": {
-    girl: {height: 156.8, weight: 48.5},
-    boy: {height: 156.6, weight: 45.8},
-    chss: "72-78", chdd: "16-18", ad: "110/70"
-  },
-  "14 лет": {
-    girl: {height: 160.8, weight: 51.8},
-    boy: {height: 162.6, weight: 51.2},
-    chss: "72-78", chdd: "16-18", ad: "120/70"
-  },
-  "15 лет": {
-    girl: {height: 162.5, weight: 51.8},
-    boy: {height: 170.1, weight: 56},
-    chss: "70-72", chdd: "16-18", ad: "120/70"
-  },
-  "16 лет": {
-    girl: {height: 162.6, weight: 55.6},
-    boy: {height: 173.6, weight: 62},
-    chss: "70-72", chdd: "16-18", ad: "120/80"
-  },
-  "17 лет": {
-    girl: {height: 162.9, weight: 56.4},
-    boy: {height: 175.3, weight: 66.8},
-    chss: "70-72", chdd: "16-18", ad: "120/80"
-  }
+ <script>
+function openCalculator() {
+  document.getElementById("calcModal").style.display = "block";
+}
+
+function closeCalc() {
+  document.getElementById("calcModal").style.display = "none";
+}
+
+// База данных из твоей таблицы
+const data = {
+  n0: { girl:{h:49.5,w:3.3}, boy:{h:50.4,w:3.5}, chss:"130-140", cdd:"40-60", ad:"70/40" },
+  m1: { girl:{h:53.5,w:4.1}, boy:{h:54.5,w:4.3}, chss:"130-140", cdd:"40-60", ad:"70/40" },
+  m2: { girl:{h:56.9,w:5.0}, boy:{h:57.7,w:5.3}, chss:"120-130", cdd:"35-40", ad:"85/40" },
+  m3: { girl:{h:60.2,w:6.0}, boy:{h:61.3,w:6.2}, chss:"120-130", cdd:"35-40", ad:"85/40" },
+  m4: { girl:{h:62.1,w:6.5}, boy:{h:63.6,w:6.9}, chss:"120-130", cdd:"33-35", ad:"90/55" },
+  m5: { girl:{h:63.9,w:7.2}, boy:{h:66.9,w:7.8}, chss:"120-125", cdd:"33-35", ad:"90/55" },
+  m6: { girl:{h:66.6,w:7.9}, boy:{h:67.9,w:8.0}, chss:"120-125", cdd:"33-35", ad:"90/55" },
+  m7: { girl:{h:67.4,w:8.1}, boy:{h:69.2,w:8.7}, chss:"120-125", cdd:"33-35", ad:"90/55" },
+  m8: { girl:{h:69.8,w:8.3}, boy:{h:71.2,w:9.3}, chss:"120-125", cdd:"33-35", ad:"90/55" },
+  m9: { girl:{h:70.6,w:9.0}, boy:{h:72.8,w:9.8}, chss:"120-125", cdd:"33-35", ad:"90/55" },
+  m10:{ girl:{h:72.1,w:9.5}, boy:{h:73.9,w:10.3}, chss:"120", cdd:"30-32", ad:"92/56" },
+  m11:{ girl:{h:73.6,w:9.8}, boy:{h:74.9,w:10.4}, chss:"120", cdd:"30-32", ad:"92/56" },
+  y1: { girl:{h:74.8,w:10.1}, boy:{h:75.7,w:10.8}, chss:"120", cdd:"30-32", ad:"92/56" },
+  y2: { girl:{h:86.1,w:12.6}, boy:{h:88.2,w:13.0}, chss:"110-115", cdd:"26-30", ad:"94/56" },
+  y3: { girl:{h:97.3,w:14.8}, boy:{h:95.7,w:14.9}, chss:"100-105", cdd:"24-26", ad:"98/56" },
+  y4: { girl:{h:100.6,w:16}, boy:{h:102.4,w:17.1}, chss:"100-105", cdd:"24-26", ad:"98/56" },
+  y5: { girl:{h:109,w:18.3}, boy:{h:110.4,w:19.7}, chss:"100", cdd:"24-26", ad:"98/56" },
+  y6: { girl:{h:115.7,w:21.1}, boy:{h:115.9,w:21.9}, chss:"90-95", cdd:"21-23", ad:"100/60" },
+  y7: { girl:{h:123.6,w:24.5}, boy:{h:123.9,w:24.9}, chss:"85-92", cdd:"21-23", ad:"100/60" },
+  y8: { girl:{h:129,w:27.4}, boy:{h:129.7,w:27.8}, chss:"80-85", cdd:"21-23", ad:"105/70" },
+  y9: { girl:{h:136.9,w:31}, boy:{h:134.6,w:30.6}, chss:"78-84", cdd:"18-21", ad:"105/70" },
+  y10:{ girl:{h:140.3,w:34.3}, boy:{h:140.3,w:33.7}, chss:"78-84", cdd:"18-21", ad:"105/70" },
+  y11:{ girl:{h:144.5,w:37.4}, boy:{h:143.4,w:35.4}, chss:"75-82", cdd:"18-21", ad:"110/70" },
+  y12:{ girl:{h:152.8,w:44}, boy:{h:150,w:41.2}, chss:"75-82", cdd:"18-21", ad:"110/70" },
+  y13:{ girl:{h:156.8,w:48.5}, boy:{h:156.6,w:45.8}, chss:"72-78", cdd:"16-18", ad:"120/70" },
+  y14:{ girl:{h:160.8,w:51.8}, boy:{h:162.6,w:51.2}, chss:"72-78", cdd:"16-18", ad:"120/70" },
+  y15:{ girl:{h:160.8,w:51.8}, boy:{h:170.1,w:56.6}, chss:"70-72", cdd:"16-18", ad:"120/80" },
+  y16:{ girl:{h:162.6,w:55.6}, boy:{h:173.6,w:62}, chss:"70-72", cdd:"16-18", ad:"120/80" },
+  y17:{ girl:{h:162.9,w:56.4}, boy:{h:175.3,w:66.8}, chss:"70-72", cdd:"16-18", ad:"120/80" }
 };
 
 function updateValues() {
   const age = document.getElementById("ageSelect").value;
   const sex = document.getElementById("sexSelect").value;
-  const box = document.getElementById("resultBox");
+  if (!age || !sex) return;
 
-  if (!age || !sex) {
-    box.textContent = "Выберите возраст и пол.";
-    return;
-  }
+  const item = data[age];
+  const person = item[sex];
 
-  const data = norms[age];
-
-  box.innerHTML = `
-    <b>${age}</b><br>
-    Рост: <b>${data[sex].height} см</b><br>
-    Вес: <b>${data[sex].weight} кг</b><br>
-    ЧСС: <b>${data.chss}</b><br>
-    ЧДД: <b>${data.chdd}</b><br>
-    АД: <b>${data.ad}</b>
+  document.getElementById("result").innerHTML = `
+    <p><b>Рост:</b> ${person.h} см</p>
+    <p><b>Вес:</b> ${person.w} кг</p>
+    <p><b>ЧСС:</b> ${item.chss}</p>
+    <p><b>ЧДД:</b> ${item.cdd}</p>
+    <p><b>АД:</b> ${item.ad}</p>
   `;
 }
 </script>
