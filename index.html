@@ -275,5 +275,44 @@
     navigator.serviceWorker.register("sw.js");
   }
 </script>
+  <script>
+const searchInput = document.getElementById("searchInput");
+
+searchInput.addEventListener("input", function () {
+    const q = this.value.trim().toLowerCase();
+
+    // Если строка поиска пуста — все скрываем
+    if (q === "") {
+        hideAllSections();
+        return;
+    }
+
+    hideAllSections(); // прячем всё
+
+    // перебираем все кнопки
+    document.querySelectorAll(".child-btn, .sub-btn, .main-btn").forEach(btn => {
+        const text = btn.innerText.toLowerCase();
+
+        if (text.includes(q)) {
+            // показываем найденную кнопку
+            btn.style.display = "block";
+
+            // раскрываем все уровни вверх
+            let parent = btn.parentElement;
+            while (parent && parent.classList.contains("subsections")) {
+                parent.style.display = "block";
+                parent = parent.parentElement.closest(".subsections");
+            }
+        }
+    });
+
+    // скрываем те разделы, внутри которых нет видимых кнопок
+    document.querySelectorAll(".subsections").forEach(sec => {
+        const hasVisible = [...sec.querySelectorAll("button")].some(b => b.style.display !== "none");
+
+        if (!hasVisible) sec.style.display = "none";
+    });
+});
+</script>
 </body>
 </html>
