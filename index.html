@@ -12,18 +12,35 @@
   <h1>СМП Шпаргалки</h1>
 
   <div class="container">
-<input
-    id="searchInput"
-    type="text"
-    placeholder="Поиск..."
-    style="
-        width:90%;
-        padding:15px;
-        font-size:20px;
-        border-radius:12px;
-        border:2px solid #ccc;
-        margin-bottom:20px;
-    ">
+<div style="position:relative; width:90%; margin:0 auto;">
+  <input
+      id="searchInput"
+      type="text"
+      placeholder="Поиск..."
+      style="
+          width:100%;
+          padding:15px 45px 15px 15px;
+          font-size:20px;
+          border-radius:12px;
+          border:2px solid #ccc;
+          margin-bottom:20px;
+      ">
+  
+  <!-- Крестик очистки -->
+  <span id="clearSearch"
+        style="
+          position:absolute;
+          right:15px;
+          top:50%;
+          transform:translateY(-50%);
+          font-size:24px;
+          cursor:pointer;
+          color:#888;
+          display:none;
+        ">
+    ✕
+  </span>
+</div>
     <!-- 1. Шаблоны карт вызовов -->
     <button class="main-btn" onclick="toggleSection('templates')">Шаблоны карт вызовов</button>
 
@@ -153,7 +170,7 @@
     <!-- 3. Сказать спасибо -->
     <button class="main-btn" onclick="toggleSection('thankYou')">Сказать спасибо</button>
     <div id="thankYou" class="text-block">
-Здравствуй, коллега! хуйня
+Здравствуй, коллега! хуй
 Здесь ты можешь отблагодарить админа 
 <b>Канала СМП Шпаргалки</b>
 <b>МедЧата</b>
@@ -415,6 +432,20 @@ document.querySelectorAll('[onclick]').forEach(el => {
       // searchInput.value = '';
     });
   }
+});
+</script>
+  <script>
+const input = document.getElementById("searchInput");
+const clearBtn = document.getElementById("clearSearch");
+
+input.addEventListener("input", () => {
+    clearBtn.style.display = input.value.length > 0 ? "block" : "none";
+});
+
+clearBtn.addEventListener("click", () => {
+    input.value = "";
+    clearBtn.style.display = "none";
+    input.dispatchEvent(new Event("input"));  // перезапуск поиска
 });
 </script>
 </script>
