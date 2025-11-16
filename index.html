@@ -157,7 +157,7 @@
     <!-- 3. Сказать спасибо -->
     <button class="main-btn" onclick="toggleSection('thankYou')">Сказать спасибо</button>
     <div id="thankYou" class="text-block">
-Здравствуй, коллега! хуй
+Здравствуй, коллега! хуйня
 Здесь ты можешь отблагодарить админа 
 <b>Канала СМП Шпаргалки</b>
 <b>МедЧата</b>
@@ -293,42 +293,134 @@
     navigator.serviceWorker.register("sw.js");
   }
 </script>
-  <script>
-document.getElementById("searchInput").addEventListener("input", function () {
-    const query = this.value.toLowerCase().trim();
+<script>
+/* --- Умный поиск + автопоказ раздела по клику --- */
 
-    // 1. Если поле пустое — скрываем всё, как по умолчанию
-    if (query === "") {
-        document.querySelectorAll(".subsections, .text-block").forEach(s => s.style.display = "none");
-        document.querySelectorAll(".main-btn, .sub-btn, .child-btn").forEach(btn => btn.style.display = "block");
-        return;
+const searchInput = document.getElementById('searchInput');
+
+// Функция показывает/скрывает элемент (block/none)
+function show(el){ if(el) el.style.display = 'block'; }
+function hide(el){ if(el) el.style.display = 'none'; }
+
+// Возвращает id цели из строки onclick типа: toggleSection('obstetrics')
+function parseToggleTargetFromOnclick(str){
+  const m = /toggleSection\(['"]([^'"]+)['"]\)/.exec(str || '');
+  return m ? m[1] : null;
+}
+
+// При вводе - фильтруем кнопки и автоматически раскрываем нужные заголовки
+searchInput.addEventListener('input', function(){
+  const q = this.value.trim().toLowerCase();
+
+  // Все кнопки (включая main/sub/child)
+  const allButtons = document.querySelectorAll('.main-btn, .sub-btn, .child-btn');
+
+  if(q === ''){
+    // Пустой поиск — вернуть начальное состояние: скрыть все .subsections (логика у вас уже есть)
+    // но лучше ничего не трогать: оставим текущее поведение — просто скрываем результаты поиска
+    allButtons.forEach(b => b.style.display = 'block');
+    // скрываем все разделы, чтобы не выпадали по умолчанию
+    document.querySelectorAll('.subsections, .text-block').forEach(s => s.style.display = 'none');
+    return;
+  }
+
+  // Пройдемся по кнопкам и пометим соответствия
+  allButtons.forEach(btn => {
+    const text = (btn.innerText || '').toLowerCase();
+    if(text.includes(q)){
+      btn.style.display = 'block';
+    } else {
+      btn.style.display = 'none';
     }
+    // Снять видимость у контейнеров-панелей, они будут видны по необходимости ниже
+  });
 
-    // 2. Скрываем всё
-    document.querySelectorAll(".subsections, .text-block").forEach(s => s.style.display = "none");
-    document.querySelectorAll(".main-btn, .sub-btn, .child-btn").forEach(btn => btn.style.display = "none");
+  // Скрыть все секции (чтобы потом показать только нужные заголовки/контейнеры)
+  document.querySelectorAll('.subsections, .text-block').forEach(s => s.style.display = 'none');
 
-    // 3. Показываем только совпавшие кнопки
-    const matchedButtons = [];
-    document.querySelectorAll(".main-btn, .sub-btn, .child-btn").forEach(btn => {
-        if (btn.innerText.toLowerCase().includes(query)) {
-            btn.style.display = "block";
-            matchedButtons.push(btn);
+  // Для каждой видимой кнопки — показать её родителей (названия разделов), иначе кнопка "оторвётся" от интерфейса
+  document.querySelectorAll('.main-btn, .sub-btn, .child-btn').forEach(btn => {
+    if(btn.style.display === 'block'){
+      // показать контейнеры-родители (секции) вверх по дереву
+      let p = btn.parentElement;
+      while(p){
+        if(p.classList && p.classList.contains('subsections')){
+          p.style.display = 'block';
         }
-    });
+        p = p.parentElement;
+      }
+    }
+  });
 
-    // 4. Для каждой совпавшей кнопки — раскрываем её родителей
-    matchedButtons.forEach(btn => {
-        let parent = btn.parentElement;
-
-        while (parent && parent.id !== "") {
-            if (parent.classList.contains("subsections")) {
-                parent.style.display = "block";
-            }
-            parent = parent.parentElement;
-        }
-    });
+  // После этого — нужно скрыть пустые контейнеры (те у которых внутри все кнопки display:none)
+  document.querySelectorAll('.subsections').forEach(sec => {
+    // Если в секции есть хотя бы одна видимая кнопка, оставляем её видимой (уже сделано),
+    // иначе прячем секцию
+    const hasVisibleChild = Array.from(sec.querySelectorAll('.main-btn, .sub-btn, .child-btn')).some(b => b.style.display === 'block');
+    if(!hasVisibleChild){
+      sec.style.display = 'none';
+    } else {
+      // оставляем как есть
+    }
+  });
 });
+
+// --- Поведение клика по кнопкам, которые вызывают toggleSection('id') ---
+// На все элементы с inline onclick "toggleSection('...')" повесим дополнительный слушатель.
+// При клике: если в поле поиска есть текст, то мы сделаем особое поведение — полностью
+// раскроем целевой раздел (покажем все его дочерние subdiv/child/text-block), игнорируя фильтр.
+
+document.querySelectorAll('[onclick]').forEach(el => {
+  const onclickAttr = el.getAttribute('onclick') || '';
+  const targetId = parseToggleTargetFromOnclick(onclickAttr);
+  if(targetId){
+    el.addEventListener('click', (e) => {
+      // Если поле поиска пустое, просто позволяем стандартному onclick работать (toggleSection)
+      const q = (searchInput.value || '').trim();
+      if(q === ''){
+        // ничего — штатный onclick выполнится
+        return;
+      }
+
+      // Если есть поисковый запрос — при клике раскроем ВСЕ дочерние элементы целевого раздела
+      e.preventDefault(); // чтобы предотвратить дублирование (если нужно)
+      e.stopPropagation();
+
+      // Сначала используем вашу логику: скрыть всё, показать цепочку предков и сам раздел
+      // (используем toggleSection, но сначала гарантируем, что всё скрыто)
+      document.querySelectorAll('.subsections, .text-block').forEach(s => s.style.display = 'none');
+
+      const elTarget = document.getElementById(targetId);
+      if(!elTarget) return;
+
+      // Показать цепочку предков
+      let p = elTarget.parentElement;
+      const ancestors = [];
+      while(p){
+        if(p.classList && p.classList.contains('subsections') && p.id){
+          ancestors.push(p.id);
+        }
+        p = p.parentElement;
+      }
+      ancestors.reverse().forEach(aid => {
+        const block = document.getElementById(aid);
+        if(block) block.style.display = 'block';
+      });
+
+      // Показать сам раздел и **всех** его потомков (это ключ: разворачивает раздел полностью)
+      function showRecursive(node){
+        if(!node) return;
+        node.style.display = 'block';
+        node.querySelectorAll('.subsections, .text-block, .child-btn, .sub-btn').forEach(ch => ch.style.display = 'block');
+      }
+      showRecursive(elTarget);
+
+      // Уберём визуальный фильтр (оставим поле поиска как есть) — при желании можно очистить поле:
+      // searchInput.value = '';
+    });
+  }
+});
+</script>
 </script>
 </body>
 </html>
