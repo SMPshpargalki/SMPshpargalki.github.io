@@ -145,11 +145,11 @@
 <b>МедЧата</b>
 <b>Бота СМП помощник</b>
 за проделанную работу.
-Поддержка, добавление новых файлов и шаблонов - очень не простая работа.
+Поддержка, добавление новых файлов и шаблонов - очень непростая работа.
 А на реализацию этого проекта, было потрачено куча личного времени и нервов 😅
 Тем не менее, я стараюсь ☺️
 И мне было бы очень приятно за вашу благодарность на сбер☺️
-Спасибо 🫶 хуйня
+Спасибо 🫶
 4279380676533096
       </div>
     </div>
@@ -274,45 +274,6 @@
   if ("serviceWorker" in navigator) {
     navigator.serviceWorker.register("sw.js");
   }
-<script>
-document.getElementById("search").addEventListener("input", function () {
-  const query = this.value.toLowerCase();
-  const sections = document.querySelectorAll(".section");
-
-  sections.forEach(section => {
-    const items = section.querySelectorAll("li");
-    let hasMatch = false;
-
-    items.forEach(li => {
-      const text = li.textContent.toLowerCase();
-
-      // Удаляем прошлую подсветку
-      li.innerHTML = li.textContent;
-
-      if (query && text.includes(query)) {
-        li.style.display = "list-item";
-        hasMatch = true;
-
-        // Подсветка найденного текста
-        const reg = new RegExp(query, "gi");
-        li.innerHTML = li.textContent.replace(reg, match => `<span class="highlight">${match}</span>`);
-
-      } else if (query === "") {
-        li.style.display = "list-item";
-      } else {
-        li.style.display = "none";
-      }
-    });
-
-    // Скрываем раздел, если нет совпадений
-    if (query && !hasMatch) {
-      section.classList.add("hidden");
-    } else {
-      section.classList.remove("hidden");
-    }
-  });
-});
 </script>
-
 </body>
 </html>
