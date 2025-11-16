@@ -157,7 +157,7 @@
     <!-- 3. Сказать спасибо -->
     <button class="main-btn" onclick="toggleSection('thankYou')">Сказать спасибо</button>
     <div id="thankYou" class="text-block">
-Здравствуй, коллега! хуйня
+Здравствуй, коллега! хуй
 Здесь ты можешь отблагодарить админа 
 <b>Канала СМП Шпаргалки</b>
 <b>МедЧата</b>
@@ -294,38 +294,39 @@
   }
 </script>
   <script>
-const searchInput = document.getElementById("searchInput");
+document.getElementById("searchInput").addEventListener("input", function () {
+    const query = this.value.toLowerCase().trim();
 
-searchInput.addEventListener("input", function () {
-    const q = this.value.toLowerCase().trim();
-
-    // Если строка поиска пустая — вернуть обычный режим
-    if (q === "") {
-        document.querySelectorAll(".main-btn, .sub-btn, .child-btn").forEach(btn => {
-            btn.style.display = "block";
-        });
-        hideAllSections();
+    // 1. Если поле пустое — скрываем всё, как по умолчанию
+    if (query === "") {
+        document.querySelectorAll(".subsections, .text-block").forEach(s => s.style.display = "none");
+        document.querySelectorAll(".main-btn, .sub-btn, .child-btn").forEach(btn => btn.style.display = "block");
         return;
     }
 
-    hideAllSections(); // полностью скрываем дерево разделов
+    // 2. Скрываем всё
+    document.querySelectorAll(".subsections, .text-block").forEach(s => s.style.display = "none");
+    document.querySelectorAll(".main-btn, .sub-btn, .child-btn").forEach(btn => btn.style.display = "none");
 
+    // 3. Показываем только совпавшие кнопки
+    const matchedButtons = [];
     document.querySelectorAll(".main-btn, .sub-btn, .child-btn").forEach(btn => {
-        const text = btn.innerText.toLowerCase();
-
-        if (text.includes(q)) {
+        if (btn.innerText.toLowerCase().includes(query)) {
             btn.style.display = "block";
-        } else {
-            btn.style.display = "none";
+            matchedButtons.push(btn);
         }
     });
-});
 
-/* --- После клика по разделу — очищаем поиск --- */
-document.querySelectorAll(".main-btn, .sub-btn").forEach(btn => {
-    btn.addEventListener("click", () => {
-        searchInput.value = "";        // очищаем поле поиска
-        searchInput.dispatchEvent(new Event("input")); // обновляем отображение
+    // 4. Для каждой совпавшей кнопки — раскрываем её родителей
+    matchedButtons.forEach(btn => {
+        let parent = btn.parentElement;
+
+        while (parent && parent.id !== "") {
+            if (parent.classList.contains("subsections")) {
+                parent.style.display = "block";
+            }
+            parent = parent.parentElement;
+        }
     });
 });
 </script>
