@@ -1079,6 +1079,17 @@ function updateValues() {
   `;
 }
 </script>
+  <script>
+function toggleCalculator() {
+    const calc = document.getElementById("calculator-block");
+
+    if (calc.style.display === "none" || calc.style.display === "") {
+        calc.style.display = "block";   // Показать
+    } else {
+        calc.style.display = "none";    // Скрыть
+    }
+}
+</script>
 </script>
 </body>
 </html>
