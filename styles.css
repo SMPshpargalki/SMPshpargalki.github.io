@@ -1,4 +1,23 @@
- body{
+body{
+      background:#ffffff;
+      font-family: Arial, sans-serif;
+      margin:0;
+      padding:0;
+      text-align:center;
+      color:#222;
+    }
+    h1{
+      font-size:34px;
+      margin:22px 0 8px;
+    }
+    .container{
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      gap:14px;
+      padding:0 12px 30px;
+    }
+body{
       background:#ffffff;
       font-family: Arial, sans-serif;
       margin:0;
@@ -114,33 +133,67 @@
     font-size: 20px;
     font-weight: 600;
     color: #d35400;
-}
-.calc-container {
-  background: #fff;
-  padding: 15px;
-  border-radius: 12px;
-  margin-top: 20px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
-}
+}      max-width:720px;
+      padding:18px;
+      border:0;
+      border-radius:14px;
+      cursor:pointer;
+      box-sizing:border-box;
+    }
 
-.calc-row {
-  display: flex;
-  gap: 10px;
-  margin-bottom: 15px;
-}
+    /* Верхние подразделы (синие) */
+    .sub-btn{
+      background:#4682B4;
+      color:#fff;
+      font-size:18px;
+      width:100%;
+      padding:14px;
+      border:0;
+      border-radius:12px;
+      cursor:pointer;
+      box-sizing:border-box;
+      margin-top:8px;
+    }
 
-.calc-row select {
-  width: 50%;
-  padding: 10px;
-  border-radius: 8px;
-  border: 1px solid #aaa;
-  font-size: 16px;
-}
+    /* Внутренние подразделы (зелёные) */
+    .child-btn{
+      background:#4CAF50;
+      color:#fff;
+      font-size:18px;
+      width:100%;
+      padding:14px;
+      border:0;
+      border-radius:12px;
+      cursor:pointer;
+      box-sizing:border-box;
+      margin-top:8px;
+    }
 
-.calc-result {
-  padding: 10px;
-  background: #f2f2f2;
-  border-radius: 8px;
-  font-size: 18px;
-  line-height: 1.5;
-}
+    /* контейнеры подразделов: отрисовываем как колонку с отступом */
+    .subsections{
+      display:none; /* по умолчанию скрыты */
+      width:100%;
+      max-width:720px;
+      box-sizing:border-box;
+      margin-top:6px;
+    }
+
+    /* Текстовый блок (статья) */
+    .text-block{
+      display:none;
+      background:#f7f7f7;
+      color:#222;
+      padding:18px;
+      border-radius:10px;
+      margin:14px 0;
+      text-align:left;
+      white-space:pre-line; /* сохранять переносы */
+      font-size:16px;
+      line-height:1.45;
+    }
+
+    /* небольшой адаптив — чтобы кнопки были не слишком широкие на планшете */
+    @media (max-width:420px){
+      h1{ font-size:30px; }
+      .main-btn{ font-size:18px; padding:16px; }
+    }
