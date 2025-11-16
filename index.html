@@ -276,23 +276,20 @@
     navigator.serviceWorker.register("sw.js");
   }
 </script>
-  <script>
-function filterButtons() {
-  const query = document.getElementById("searchInput").value.toLowerCase().trim();
-  
-  // Все кнопки меню
-  const buttons = document.querySelectorAll("button.section-button");
+<script>
+document.getElementById("search").addEventListener("input", function(){
+    const q = this.value.toLowerCase();
 
-  buttons.forEach(btn => {
-    const text = btn.innerText.toLowerCase();
+    document.querySelectorAll(".main-btn, .sub-btn, .child-btn").forEach(btn => {
+        const text = btn.innerText.toLowerCase();
 
-    if (text.includes(query)) {
-      btn.style.display = "block";
-    } else {
-      btn.style.display = "none";
-    }
-  });
-}
+        if(text.includes(q)){
+            btn.style.display = "block";
+        } else {
+            btn.style.display = "none";
+        }
+    });
+});
 </script>
 
 </body>
