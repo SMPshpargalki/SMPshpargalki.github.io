@@ -12,7 +12,19 @@
   <h1>СМП Шпаргалки</h1>
 
   <div class="container">
-
+<input 
+  id="searchInput" 
+  type="text" 
+  placeholder="Поиск..." 
+  oninput="filterButtons()" 
+  style="
+    width: 100%;
+    padding: 15px;
+    font-size: 20px;
+    border-radius: 12px;
+    border: 2px solid #ccc;
+    margin-bottom: 20px;
+  ">
     <!-- 1. Шаблоны карт вызовов -->
     <button class="main-btn" onclick="toggleSection('templates')">Шаблоны карт вызовов</button>
 
@@ -138,7 +150,7 @@
 А на реализацию этого проекта, было потрачено куча личного времени и нервов 😅
 Тем не менее, я стараюсь ☺️
 И мне было бы очень приятно за вашу благодарность на сбер☺️
-Спасибо 🫶
+Спасибо 🫶 хуй
 4279380676533096
       </div>
     </div>
@@ -264,5 +276,24 @@
     navigator.serviceWorker.register("sw.js");
   }
 </script>
+  <script>
+function filterButtons() {
+  const query = document.getElementById("searchInput").value.toLowerCase().trim();
+  
+  // Все кнопки меню
+  const buttons = document.querySelectorAll("button.section-button");
+
+  buttons.forEach(btn => {
+    const text = btn.innerText.toLowerCase();
+
+    if (text.includes(query)) {
+      btn.style.display = "block";
+    } else {
+      btn.style.display = "none";
+    }
+  });
+}
+</script>
+
 </body>
 </html>
