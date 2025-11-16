@@ -217,7 +217,7 @@
 <!-- 4. Ответы на тесты -->
 <button class="main-btn" onclick="toggleSection('otveti')"><b>ОТВЕТЫ НА ТЕСТЫ</b></button>
 <div id="otveti" class="subsections">
-<button class="sub-btn">Какая то тема</button>
+<button class="sub-btn"onclick="openPDF('files/ОИМ.pdf')">Тема</button>
 </div>
 
   
@@ -519,6 +519,11 @@ clearBtn.addEventListener("click", () => {
     clearBtn.style.display = "none";
     input.dispatchEvent(new Event("input"));  // перезапуск поиска
 });
+</script>
+  <script>
+  function openPDF(path) {
+    window.open(path, "_blank");
+  }
 </script>
 </script>
 </body>
