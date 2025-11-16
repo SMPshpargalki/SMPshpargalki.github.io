@@ -175,7 +175,7 @@
     <!-- 4. Сказать спасибо -->
     <button class="main-btn" onclick="toggleSection('thankYou')"><b>Сказать спасибо</b></button>
     <div id="thankYou" class="text-block">
-Здравствуй, коллега! хуй
+Здравствуй, коллега! хуйня
 Здесь ты можешь отблагодарить админа 
 <b>Канала СМП Шпаргалки</b>
 <b>МедЧата</b>
@@ -452,6 +452,13 @@ clearBtn.addEventListener("click", () => {
     clearBtn.style.display = "none";
     input.dispatchEvent(new Event("input"));  // перезапуск поиска
 });
+</script>
+  <script>
+function showImage(src){
+  const full = document.getElementById("imgFull");
+  full.querySelector("img").src = src;
+  full.style.display = "flex";
+}
 </script>
 </script>
 </body>
