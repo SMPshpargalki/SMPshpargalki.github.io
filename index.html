@@ -567,7 +567,7 @@
   <!-- 5. Баннер -->
   </div>
   <div class="banner-text">
-    ЗДРАСТВУЙ КОЛЛЕГА!
+    ЗДРАСТВУЙ КОЛЛЕГА!!!
     </div>
   <div class="banner">
     <img src="БаннерДоброПожаловать.jpg" alt="Баннер" class="banner-img">
@@ -637,6 +637,31 @@ function openVideo(src){
       document.getElementById('modal').style.display = 'none';
     }
   </script>
+<script>
+  function openVideo(url) {
+    const modal = document.getElementById('modal');
+    const modalContent = document.getElementById('modalContent');
+
+    modalContent.innerHTML = `
+      <video id="modalVideo" controls autoplay style="width:100%; max-height:80vh; border-radius:10px;">
+        <source src="${url}" type="video/mp4">
+        Ваш браузер не поддерживает видео.
+      </video>
+    `;
+
+    modal.style.display = 'flex';
+  }
+
+  // Останавливаем видео при закрытии модального окна
+  function closeModal() {
+    const video = document.getElementById('modalVideo');
+    if (video) {
+      video.pause();
+      video.currentTime = 0;
+    }
+    document.getElementById('modal').style.display = 'none';
+  }
+</script>
 
 <!-- Модальное окно для увеличенной картинки -->
 <div id="imgModal" style="
