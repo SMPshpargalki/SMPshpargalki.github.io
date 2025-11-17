@@ -542,75 +542,31 @@
     <!-- 3. Калькуляторы -->
 <button class="main-btn" onclick="toggleSection('kalc')"><b>Калькуляторы</b></button>
 <div id="kalc" class="subsections">
-<button class="sub-btn">Детские нормы</button>
-  <!-- Калькулятор норм -->
-<div style="
-  margin:20px auto;
-  max-width:600px;
-  background:#3b82f6;
-  color:white;
-  padding:15px;
-  font-size:22px;
-  border-radius:10px;
-  text-align:center;
-">
-  Калькулятор норм
-</div>
+<!-- КНОПКА ОТКРЫТИЯ -->
+<button class="sub-btn" onclick="toggleCalculator()">Калькулятор норм</button>
 
-<!-- Селекторы возраста и пола -->
-<div style="max-width:600px; margin:0 auto;">
+<!-- БЛОК КАЛЬКУЛЯТОРА (изначально скрыт) -->
+<div id="normCalculator" style="display:none; margin-top:15px;">
 
-  <div style="display:flex; gap:10px; margin-bottom:10px;">
-    <select id="ageSelect" class="calc-input">
-      <option value="">Выберите возраст</option>
-      <option>Новорождённые</option>
-      <option>1 месяц</option>
-      <option>2 месяца</option>
-      <option>3 месяца</option>
-      <option>4 месяца</option>
-      <option>5 месяцев</option>
-      <option>6 месяцев</option>
-      <option>7 месяцев</option>
-      <option>8 месяцев</option>
-      <option>9 месяцев</option>
-      <option>10 месяцев</option>
-      <option>11 месяцев</option>
-      <option>1 год</option>
-      <option>2 года</option>
-      <option>3 года</option>
-      <option>4 года</option>
-      <option>5 лет</option>
-      <option>6 лет</option>
-      <option>7 лет</option>
-      <option>8 лет</option>
-      <option>9 лет</option>
-      <option>10 лет</option>
-      <option>11 лет</option>
-      <option>12 лет</option>
-      <option>13 лет</option>
-      <option>14 лет</option>
-      <option>15 лет</option>
-      <option>16 лет</option>
-      <option>17 лет</option>
-    </select>
+  <div class="calc-box">
+    <h3 class="calc-title">Калькулятор норм</h3>
 
-    <select id="genderSelect" class="calc-input">
-      <option value="">Пол</option>
-      <option value="girl">Девочка</option>
-      <option value="boy">Мальчик</option>
-    </select>
-  </div>
+    <div class="calc-row">
+      <select id="ageSelect" class="calc-select">
+        <option value="">Выберите возраст</option>
+      </select>
 
-  <!-- Вывод результатов -->
-  <div id="normResult" style="
-    background:#f1f1f1;
-    padding:15px;
-    border-radius:10px;
-    font-size:20px;
-    text-align:center;
-    color:#333;
-  ">
-    Выберите возраст и пол.
+      <select id="genderSelect" class="calc-select">
+        <option value="">Пол</option>
+        <option value="girl">Девочка</option>
+        <option value="boy">Мальчик</option>
+      </select>
+    </div>
+
+    <div id="normResult" class="calc-result">
+      Выберите возраст и пол.
+    </div>
+
   </div>
 </div>
 
@@ -645,7 +601,7 @@
   <!-- 5. Баннер -->
   </div>
   <div class="banner-text">
-    ЗДРАСТВУЙ КОЛЛЕГА!
+    ЗДРАСТВУЙ КОЛЛЕГА!!!
     </div>
   <div class="banner">
     <img src="БаннерДоброПожаловать.jpg" alt="Баннер" class="banner-img">
@@ -967,44 +923,79 @@ clearBtn.addEventListener("click", () => {
     input.dispatchEvent(new Event("input"));  // перезапуск поиска
 });
 </script>
-  <script>
-const norms = {
-  "Новорождённые":  { girl:{h:49.5,w:3.3}, boy:{h:50.4,w:3.5}, hr:"130-140", rr:"40-60", bp:"70/40" },
-  "1 месяц":        { girl:{h:53.5,w:4.1}, boy:{h:54.5,w:4.3}, hr:"130-140", rr:"40-60", bp:"70/40" },
-  "2 месяца":       { girl:{h:56.9,w:5.0}, boy:{h:57.7,w:5.3}, hr:"120-130", rr:"35-40", bp:"85/40" },
-  "3 месяца":       { girl:{h:60.2,w:5.7}, boy:{h:61.3,w:6.2}, hr:"120-130", rr:"35-40", bp:"85/40" },
-  "4 месяца":       { girl:{h:62.1,w:6.5}, boy:{h:63.9,w:6.9}, hr:"120-130", rr:"35-40", bp:"90/55" },
-  "5 месяцев":      { girl:{h:63.9,w:7.2}, boy:{h:66.9,w:7.8}, hr:"120-125", rr:"33-35", bp:"90/55" },
-  "6 месяцев":      { girl:{h:66.6,w:7.9}, boy:{h:67.9,w:8.7}, hr:"120-125", rr:"33-35", bp:"90/55" },
-  // ... я могу заполнить все остальные значения если хочешь
-};
+<script>
+  // --- ДАННЫЕ ИЗ ТАБЛИЦЫ ---
+  const norms = {
+    "Новорождённые": {girl:{h:49.5,w:3.3}, boy:{h:50.4,w:3.5}, chss:"130-140", chdd:"40-60", ad:"70/40"},
+    "1 месяц": {girl:{h:53.5,w:4.1}, boy:{h:54.5,w:4.3}, chss:"130-140", chdd:"40-60", ad:"70/40"},
+    "2 месяца": {girl:{h:56.9,w:5}, boy:{h:57.7,w:5.3}, chss:"120-130", chdd:"35-40", ad:"85/40"},
+    "3 месяца": {girl:{h:60.2,w:5.9}, boy:{h:61.3,w:6.2}, chss:"120-130", chdd:"35-40", ad:"85/40"},
+    "4 месяца": {girl:{h:62.1,w:6.5}, boy:{h:63.6,w:6.9}, chss:"120-130", chdd:"35-40", ad:"85/40"},
+    "5 месяцев": {girl:{h:63.9,w:7.2}, boy:{h:66.9,w:7.8}, chss:"120-125", chdd:"33-35", ad:"90/55"},
+    "6 месяцев": {girl:{h:66.6,w:7.9}, boy:{h:67.9,w:8.7}, chss:"120-125", chdd:"33-35", ad:"90/55"},
+    "7 месяцев": {girl:{h:67.4,w:8.1}, boy:{h:69.6,w:8.9}, chss:"120-125", chdd:"33-35", ad:"90/55"},
+    "8 месяцев": {girl:{h:69.8,w:8.3}, boy:{h:71.2,w:9.3}, chss:"120-125", chdd:"33-35", ad:"90/55"},
+    "9 месяцев": {girl:{h:70.6,w:9}, boy:{h:72.8,w:9.8}, chss:"120-125", chdd:"33-35", ad:"90/55"},
+    "10 месяцев": {girl:{h:72.1,w:9.5}, boy:{h:73.9,w:10.3}, chss:"120", chdd:"30-32", ad:"92/56"},
+    "1 год": {girl:{h:74.8,w:10.1}, boy:{h:75.7,w:10.8}, chss:"120", chdd:"30-32", ad:"92/56"},
+    "2 года": {girl:{h:86.1,w:12.6}, boy:{h:88.2,w:13}, chss:"110-115", chdd:"26-30", ad:"94/56"},
+    "3 года": {girl:{h:97.3,w:14.8}, boy:{h:95.7,w:14.9}, chss:"100-105", chdd:"24-26", ad:"98/56"},
+    "4 года": {girl:{h:100.6,w:16}, boy:{h:102.4,w:17.1}, chss:"100", chdd:"24-26", ad:"98/56"},
+    "5 лет": {girl:{h:109,w:18.3}, boy:{h:110.4,w:19.7}, chss:"100", chdd:"24-26", ad:"98/56"},
+    "6 лет": {girl:{h:115.7,w:21.5}, boy:{h:119.5,w:21.9}, chss:"90-95", chdd:"21-23", ad:"100/60"},
+    "7 лет": {girl:{h:123.6,w:24.3}, boy:{h:123.9,w:24.9}, chss:"85-92", chdd:"21-23", ad:"100/60"},
+    "8 лет": {girl:{h:129,w:27.4}, boy:{h:129.7,w:27.8}, chss:"80-85", chdd:"18-21", ad:"105/70"},
+    "9 лет": {girl:{h:136.9,w:31}, boy:{h:134.6,w:30.6}, chss:"78-84", chdd:"18-21", ad:"105/70"},
+    "10 лет": {girl:{h:140.3,w:31.4}, boy:{h:140.3,w:33.7}, chss:"78-84", chdd:"18-21", ad:"105/70"},
+    "11 лет": {girl:{h:144.5,w:37.4}, boy:{h:143.4,w:35.4}, chss:"75-82", chdd:"18-21", ad:"110/70"},
+    "12 лет": {girl:{h:152.8,w:44}, boy:{h:150,w:41.2}, chss:"75-82", chdd:"18-21", ad:"110/70"},
+    "13 лет": {girl:{h:156.8,w:48.5}, boy:{h:156.6,w:45.8}, chss:"72-78", chdd:"16-18", ad:"120/70"},
+    "14 лет": {girl:{h:160.8,w:51.8}, boy:{h:162.6,w:51.2}, chss:"72-78", chdd:"16-18", ad:"120/70"},
+    "15 лет": {girl:{h:161.5,w:48}, boy:{h:170.1,w:56}, chss:"70-72", chdd:"16-18", ad:"120/80"},
+    "16 лет": {girl:{h:162.6,w:55.6}, boy:{h:173.6,w:62}, chss:"70-72", chdd:"16-18", ad:"120/80"},
+    "17 лет": {girl:{h:162.9,w:56.4}, boy:{h:175.3,w:66.8}, chss:"70-72", chdd:"16-18", ad:"120/80"}
+  };
 
-function updateNorms() {
-  const age = document.getElementById("ageSelect").value;
-  const gender = document.getElementById("genderSelect").value;
-  const result = document.getElementById("normResult");
+  // --- ЗАПОЛНЕНИЕ СПИСКА ВОЗРАСТОВ ---
+  const ageSelect = document.getElementById("ageSelect");
+  Object.keys(norms).forEach(age => {
+    const opt = document.createElement("option");
+    opt.value = age;
+    opt.textContent = age;
+    ageSelect.appendChild(opt);
+  });
 
-  if (!age || !gender) {
-    result.innerHTML = "Выберите возраст и пол.";
-    return;
+  // --- ОТКРЫТЬ/СКРЫТЬ КАЛЬКУЛЯТОР ---
+  function toggleCalculator() {
+    const box = document.getElementById("normCalculator");
+    box.style.display = box.style.display === "none" ? "block" : "none";
   }
 
-  const data = norms[age][gender];
-  const extra = norms[age];
+  // --- РАСЧЁТ ---
+  function calculate() {
+    const age = ageSelect.value;
+    const gender = document.getElementById("genderSelect").value;
+    const result = document.getElementById("normResult");
 
-  result.innerHTML = `
-    <b>Возраст:</b> ${age}<br>
-    <b>Пол:</b> ${gender === "girl" ? "Девочка" : "Мальчик"}<br><br>
-    <b>Рост:</b> ${data.h} см<br>
-    <b>Вес:</b> ${data.w} кг<br>
-    <b>ЧСС:</b> ${extra.hr}<br>
-    <b>ЧДД:</b> ${extra.rr}<br>
-    <b>АД:</b> ${extra.bp}
-  `;
-}
+    if (!age || !gender) {
+      result.textContent = "Выберите возраст и пол.";
+      return;
+    }
 
-document.getElementById("ageSelect").addEventListener("change", updateNorms);
-document.getElementById("genderSelect").addEventListener("change", updateNorms);
+    const d = norms[age];
+    const g = d[gender];
+
+    result.innerHTML = `
+      <b>Рост:</b> ${g.h} см<br>
+      <b>Вес:</b> ${g.w} кг<br>
+      <b>ЧСС:</b> ${d.chss}<br>
+      <b>ЧДД:</b> ${d.chdd}<br>
+      <b>АД:</b> ${d.ad}
+    `;
+  }
+
+  ageSelect.onchange = calculate;
+  genderSelect.onchange = calculate;
 </script>
 </script>
 </body>
