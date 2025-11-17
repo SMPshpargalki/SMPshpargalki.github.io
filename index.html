@@ -540,9 +540,80 @@
 
 
     <!-- 3. Калькуляторы -->
-<button class="main-btn" onclick="toggleSection('MKB10')"><b>Калькуляторы</b></button>
-<div id="MKB10" class="subsections">
+<button class="main-btn" onclick="toggleSection('kalc')"><b>Калькуляторы</b></button>
+<div id="kalc" class="subsections">
 <button class="sub-btn">Детские нормы</button>
+  <!-- Калькулятор норм -->
+<div style="
+  margin:20px auto;
+  max-width:600px;
+  background:#3b82f6;
+  color:white;
+  padding:15px;
+  font-size:22px;
+  border-radius:10px;
+  text-align:center;
+">
+  Калькулятор норм
+</div>
+
+<!-- Селекторы возраста и пола -->
+<div style="max-width:600px; margin:0 auto;">
+
+  <div style="display:flex; gap:10px; margin-bottom:10px;">
+    <select id="ageSelect" class="calc-input">
+      <option value="">Выберите возраст</option>
+      <option>Новорождённые</option>
+      <option>1 месяц</option>
+      <option>2 месяца</option>
+      <option>3 месяца</option>
+      <option>4 месяца</option>
+      <option>5 месяцев</option>
+      <option>6 месяцев</option>
+      <option>7 месяцев</option>
+      <option>8 месяцев</option>
+      <option>9 месяцев</option>
+      <option>10 месяцев</option>
+      <option>11 месяцев</option>
+      <option>1 год</option>
+      <option>2 года</option>
+      <option>3 года</option>
+      <option>4 года</option>
+      <option>5 лет</option>
+      <option>6 лет</option>
+      <option>7 лет</option>
+      <option>8 лет</option>
+      <option>9 лет</option>
+      <option>10 лет</option>
+      <option>11 лет</option>
+      <option>12 лет</option>
+      <option>13 лет</option>
+      <option>14 лет</option>
+      <option>15 лет</option>
+      <option>16 лет</option>
+      <option>17 лет</option>
+    </select>
+
+    <select id="genderSelect" class="calc-input">
+      <option value="">Пол</option>
+      <option value="girl">Девочка</option>
+      <option value="boy">Мальчик</option>
+    </select>
+  </div>
+
+  <!-- Вывод результатов -->
+  <div id="normResult" style="
+    background:#f1f1f1;
+    padding:15px;
+    border-radius:10px;
+    font-size:20px;
+    text-align:center;
+    color:#333;
+  ">
+    Выберите возраст и пол.
+  </div>
+</div>
+
 </div>
 
     
@@ -895,6 +966,45 @@ clearBtn.addEventListener("click", () => {
     clearBtn.style.display = "none";
     input.dispatchEvent(new Event("input"));  // перезапуск поиска
 });
+</script>
+  <script>
+const norms = {
+  "Новорождённые":  { girl:{h:49.5,w:3.3}, boy:{h:50.4,w:3.5}, hr:"130-140", rr:"40-60", bp:"70/40" },
+  "1 месяц":        { girl:{h:53.5,w:4.1}, boy:{h:54.5,w:4.3}, hr:"130-140", rr:"40-60", bp:"70/40" },
+  "2 месяца":       { girl:{h:56.9,w:5.0}, boy:{h:57.7,w:5.3}, hr:"120-130", rr:"35-40", bp:"85/40" },
+  "3 месяца":       { girl:{h:60.2,w:5.7}, boy:{h:61.3,w:6.2}, hr:"120-130", rr:"35-40", bp:"85/40" },
+  "4 месяца":       { girl:{h:62.1,w:6.5}, boy:{h:63.9,w:6.9}, hr:"120-130", rr:"35-40", bp:"90/55" },
+  "5 месяцев":      { girl:{h:63.9,w:7.2}, boy:{h:66.9,w:7.8}, hr:"120-125", rr:"33-35", bp:"90/55" },
+  "6 месяцев":      { girl:{h:66.6,w:7.9}, boy:{h:67.9,w:8.7}, hr:"120-125", rr:"33-35", bp:"90/55" },
+  // ... я могу заполнить все остальные значения если хочешь
+};
+
+function updateNorms() {
+  const age = document.getElementById("ageSelect").value;
+  const gender = document.getElementById("genderSelect").value;
+  const result = document.getElementById("normResult");
+
+  if (!age || !gender) {
+    result.innerHTML = "Выберите возраст и пол.";
+    return;
+  }
+
+  const data = norms[age][gender];
+  const extra = norms[age];
+
+  result.innerHTML = `
+    <b>Возраст:</b> ${age}<br>
+    <b>Пол:</b> ${gender === "girl" ? "Девочка" : "Мальчик"}<br><br>
+    <b>Рост:</b> ${data.h} см<br>
+    <b>Вес:</b> ${data.w} кг<br>
+    <b>ЧСС:</b> ${extra.hr}<br>
+    <b>ЧДД:</b> ${extra.rr}<br>
+    <b>АД:</b> ${extra.bp}
+  `;
+}
+
+document.getElementById("ageSelect").addEventListener("change", updateNorms);
+document.getElementById("genderSelect").addEventListener("change", updateNorms);
 </script>
 </script>
 </body>
