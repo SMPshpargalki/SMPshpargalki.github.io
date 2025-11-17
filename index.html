@@ -549,7 +549,7 @@
 <!-- 4. Сказать спасибо -->
 <button class="main-btn" onclick="toggleSection('thankYou')"><b>Сказать спасибо</b></button>
 <div id="thankYou" class="text-block">
-Здравствуй, коллега!!!
+Здравствуй, коллега!
 Здесь ты можешь отблагодарить админа 
 <b>Канала СМП Шпаргалки</b>
 <b>МедЧата</b>
@@ -567,7 +567,7 @@
   <!-- 5. Баннер -->
   </div>
   <div class="banner-text">
-    ЗДРАСТВУЙ КОЛЛЕГА!
+    ЗДРАСТВУЙ КОЛЛЕГА!!!
     </div>
   <div class="banner">
     <img src="БаннерДоброПожаловать.jpg" alt="Баннер" class="banner-img">
@@ -623,23 +623,20 @@
       document.getElementById('modalContent').innerHTML = text;
       document.getElementById('modal').style.display = 'flex';
     }
+function openVideo(src){
+  document.getElementById('modalContent').innerHTML = `
+    <video controls autoplay style="width:100%; max-height:90vh; border-radius:10px;">
+      <source src="${src}" type="video/mp4">
+      Ваш браузер не поддерживает видео.
+    </video>
+  `;
+  document.getElementById('modal').style.display = 'flex';
+}
 
     function closeModal(){
       document.getElementById('modal').style.display = 'none';
     }
   </script>
-  <script>
-  function openVideo(src){
-    const html = `
-      <video controls autoplay style="width:100%; max-height:100%; border-radius:10px;">
-        <source src="${src}" type="video/mp4">
-        Ваш браузер не поддерживает видео.
-      </video>
-    `;
-    openModal(html);
-    document.getElementById('modal').style.display = 'flex';
-  }
-</script>
 
 <!-- Модальное окно для увеличенной картинки -->
 <div id="imgModal" style="
