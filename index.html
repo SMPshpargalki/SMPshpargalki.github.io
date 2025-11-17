@@ -855,6 +855,25 @@ clearBtn.addEventListener("click", () => {
     input.dispatchEvent(new Event("input"));  // перезапуск поиска
 });
 </script>
+  <script>
+  function openModal(text){
+    document.getElementById('modalContent').innerHTML = text;
+    document.getElementById('modal').style.display = 'flex';
+  }
+
+  function closeModal(){
+    document.getElementById('modal').style.display = 'none';
+    document.getElementById('modalContent').innerHTML = ""; // очищаем видео
+  }
+
+  // Код HTML с видео
+  const videoHTML = `
+    <video controls style="width:100%; height:auto; border-radius:10px;">
+      <source src="video.mp4" type="video/mp4">
+      Ваш браузер не поддерживает видео.
+    </video>
+  `;
+</script>
 </script>
 </body>
 </html>
