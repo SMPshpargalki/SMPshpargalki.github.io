@@ -507,7 +507,7 @@
 <button class="main-btn" onclick="toggleSection('cheatsheets')"><b>Шпаргалки</b></button>
 <div id="cheatsheets" class="subsections">
 <button class="sub-btn" onclick="openModal(`<img src='Беспризорный.jpg' style='max-width:100%; height:auto;'>`)">Беспризорный</button>
-<button class="sub-btn" onclick="openVideoModal(`Трубка третьего поколения.mp4)">Трубка третьего поколения</button>
+<button class="sub-btn" onclick="openVideo(`Трубка третьего поколения.mp4)">Трубка третьего поколения</button>
 <button class="sub-btn">Детские дозы</button>
 <button class="sub-btn">Диагноза нет</button>
 <button class="sub-btn">Не получилось ЭКГ</button>
@@ -549,7 +549,7 @@
 <!-- 4. Сказать спасибо -->
 <button class="main-btn" onclick="toggleSection('thankYou')"><b>Сказать спасибо</b></button>
 <div id="thankYou" class="text-block">
-Здравствуй, коллега!
+Здравствуй, коллега!!!
 Здесь ты можешь отблагодарить админа 
 <b>Канала СМП Шпаргалки</b>
 <b>МедЧата</b>
@@ -628,7 +628,19 @@
       document.getElementById('modal').style.display = 'none';
     }
   </script>
-  
+  <script>
+  function openVideo(src){
+    const html = `
+      <video controls autoplay style="width:100%; max-height:100%; border-radius:10px;">
+        <source src="${src}" type="video/mp4">
+        Ваш браузер не поддерживает видео.
+      </video>
+    `;
+    openModal(html);
+    document.getElementById('modal').style.display = 'flex';
+  }
+</script>
+
 <!-- Модальное окно для увеличенной картинки -->
 <div id="imgModal" style="
   display:none;
