@@ -198,10 +198,38 @@ body{
       .main-btn{ font-size:18px; padding:16px; }
     }
 
-.calc-input {
-  width: 100%;
-  padding: 12px;
-  font-size: 18px;
-  border-radius: 10px;
-  border: 1px solid #ccc;
+.calc-box {
+  background:#fff;
+  padding:20px;
+  border-radius:12px;
+  box-shadow:0 4px 10px rgba(0,0,0,0.15);
+}
+
+.calc-title {
+  text-align:center;
+  font-size:22px;
+  margin-bottom:15px;
+  color:#1a1a1a;
+}
+
+.calc-row {
+  display:flex;
+  gap:10px;
+  margin-bottom:15px;
+}
+
+.calc-select {
+  flex:1;
+  padding:12px;
+  font-size:16px;
+  border-radius:8px;
+  border:1px solid #ccc;
+}
+
+.calc-result {
+  background:#f7f7f7;
+  border-radius:8px;
+  padding:15px;
+  font-size:18px;
+  text-align:center;
 }
