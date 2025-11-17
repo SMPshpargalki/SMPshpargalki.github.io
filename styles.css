@@ -197,3 +197,11 @@ body{
       h1{ font-size:30px; }
       .main-btn{ font-size:18px; padding:16px; }
     }
+
+.calc-input {
+  width: 100%;
+  padding: 12px;
+  font-size: 18px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+}
