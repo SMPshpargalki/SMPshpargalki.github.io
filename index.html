@@ -507,7 +507,7 @@
 <button class="main-btn" onclick="toggleSection('cheatsheets')"><b>Шпаргалки</b></button>
 <div id="cheatsheets" class="subsections">
 <button class="sub-btn" onclick="openModal(`<img src='Беспризорный.jpg' style='max-width:100%; height:auto;'>`)">Беспризорный</button>
-<button class="sub-btn">Гололед</button>
+<button class="sub-btn" onclick="openVideo(`Трубка третьего поколения.mp4)">Трубка третьего поколения</button>
 <button class="sub-btn">Детские дозы</button>
 <button class="sub-btn">Диагноза нет</button>
 <button class="sub-btn">Не получилось ЭКГ</button>
@@ -854,6 +854,29 @@ clearBtn.addEventListener("click", () => {
     clearBtn.style.display = "none";
     input.dispatchEvent(new Event("input"));  // перезапуск поиска
 });
+</script>
+  <script>
+  function openModal() {
+    document.getElementById("modal").style.display = "flex";
+  }
+
+  function closeModal() {
+    const modal = document.getElementById("modal");
+    modal.style.display = "none";
+    
+    // Останавливаем видео при закрытии
+    document.getElementById("modalContent").innerHTML = "";
+  }
+
+  function openVideo() {
+    document.getElementById("modalContent").innerHTML = `
+      <video controls autoplay style="width:100%; border-radius:12px;">
+        <source src="video.mp4" type="video/mp4">
+        Ваш браузер не поддерживает видео.
+      </video>
+    `;
+    openModal();
+  }
 </script>
 </script>
 </body>
