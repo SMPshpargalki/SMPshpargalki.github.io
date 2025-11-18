@@ -1030,30 +1030,6 @@ clearBtn.addEventListener("click", () => {
   ageSelect.onchange = calculate;
   genderSelect.onchange = calculate;
 </script>
-<!-- JS fix for auto-collapsing child section in "Детские возрастные нормы" --><script>
-// Close other open sections when a main red button is clicked
-const mainButtons = document.querySelectorAll('.main-button');
-
-mainButtons.forEach(btn => {
-  btn.addEventListener('click', () => {
-    const target = btn.getAttribute('data-target');
-    const panel = document.querySelector(target);
-
-    // Close all other panels
-    document.querySelectorAll('.panel').forEach(p => {
-      if (p !== panel) p.style.display = 'none';
-    });
-
-    // Toggle clicked panel
-    panel.style.display = panel.style.display === 'block' ? 'none' : 'block';
-
-    // Always collapse all sub-panels inside the opened panel
-    panel.querySelectorAll('.sub-panel').forEach(sp => {
-      sp.style.display = 'none';
-    });
-  });
-});
-</script>
 </script>
 </body>
 </html>
