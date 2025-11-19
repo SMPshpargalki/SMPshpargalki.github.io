@@ -233,3 +233,58 @@ body{
   font-size:18px;
   text-align:center;
 }
+
+.calc-block {
+  margin-top: 10px;
+  padding: 10px;
+  background: #1a1f2b;
+  border-radius: 10px;
+  border: 1px solid rgba(255,255,255,0.1);
+}
+
+.calc-block label {
+  display: block;
+  margin-bottom: 6px;
+  color: #ccc;
+  font-size: 16px;
+}
+
+.calc-block input[type="date"] {
+  width: 100%;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #444;
+  background: #0f131b;
+  color: white;
+  font-size: 16px;
+  margin-bottom: 12px;
+}
+
+.calc-block button.red-btn {
+  width: 100%;
+  padding: 12px;
+  background: #d32f2f;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  font-size: 17px;
+  cursor: pointer;
+}
+
+.calc-block button.red-btn:hover {
+  background: #e53935;
+}
+
+.preg-result {
+  margin-top: 12px;
+  padding: 10px;
+  background: #141a25;
+  border-radius: 8px;
+  border: 1px solid rgba(255,255,255,0.1);
+}
+
+.preg-result p {
+  margin: 4px 0;
+  font-size: 17px;
+  color: #eee;
+}
