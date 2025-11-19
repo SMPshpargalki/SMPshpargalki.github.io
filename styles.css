@@ -234,57 +234,57 @@ body{
   text-align:center;
 }
 
-.calc-block {
+.calculator-panel {
   margin-top: 10px;
   padding: 10px;
   background: #1a1f2b;
   border-radius: 10px;
-  border: 1px solid rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.08);
 }
 
 .calc-block label {
-  display: block;
-  margin-bottom: 6px;
-  color: #ccc;
   font-size: 16px;
+  color: #ccc;
+  display: block;
+  margin-bottom: 8px;
 }
 
 .calc-block input[type="date"] {
   width: 100%;
   padding: 10px;
-  border-radius: 8px;
-  border: 1px solid #444;
   background: #0f131b;
-  color: white;
+  border: 1px solid #444;
+  color: #fff;
+  border-radius: 8px;
   font-size: 16px;
   margin-bottom: 12px;
 }
 
-.calc-block button.red-btn {
+.calc-block .red-btn {
   width: 100%;
-  padding: 12px;
   background: #d32f2f;
   border: none;
+  padding: 12px;
   border-radius: 8px;
-  color: white;
   font-size: 17px;
+  color: white;
   cursor: pointer;
 }
 
-.calc-block button.red-btn:hover {
+.calc-block .red-btn:hover {
   background: #e53935;
 }
 
 .preg-result {
   margin-top: 12px;
-  padding: 10px;
+  padding: 12px;
   background: #141a25;
   border-radius: 8px;
-  border: 1px solid rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.08);
 }
 
 .preg-result p {
+  color: #eee;
   margin: 4px 0;
   font-size: 17px;
-  color: #eee;
 }
