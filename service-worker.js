@@ -1,49 +1,47 @@
-// Имя кэша
-const CACHE_NAME = "smp-shpargalki-cache-v1";
-
-// Список файлов для кэширования
+const CACHE_NAME = "smp-cache-v1";
 const urlsToCache = [
-  "/",
-  "/index.html",
-  "/styles.css",
-  "/manifest.json",
-  "/icon.png"
+  "index.html",
+  "styles.css",
+  "script.js",
+  "search.js",
+  "ui.js",
+  "manifest.json",
+  "icon.png"
 ];
 
-// Установка service worker
-self.addEventListener("install", (event) => {
-  // Ожидаем установки и кэшируем файлы
+self.addEventListener("install", event => {
   event.waitUntil(
-    caches.open(CACHE_NAME).then((cache) => {
-      console.log("Кэширование файлов...");
-      return cache.addAll(urlsToCache);
+    caches.open(CACHE_NAME).then(cache => {
+      return cache.addAll(urlsToCache).catch(err => {
+        console.error("Cache install failed:", err);
+      });
     })
   );
 });
 
-// Слушатель для перехвата запросов
-self.addEventListener("fetch", (event) => {
-  event.respondWith(
-    caches.match(event.request).then((response) => {
-      // Если ресурс в кэше, возвращаем его, иначе загружаем с сервера
-      return response || fetch(event.request);
-    })
-  );
-});
-
-// Удаление старых кэшей при активации
-self.addEventListener("activate", (event) => {
-  const cacheWhitelist = [CACHE_NAME];
+self.addEventListener("activate", event => {
   event.waitUntil(
-    caches.keys().then((cacheNames) => {
-      return Promise.all(
-        cacheNames.map((cacheName) => {
-          if (!cacheWhitelist.includes(cacheName)) {
-            return caches.delete(cacheName);
+    caches.keys().then(keyList =>
+      Promise.all(
+        keyList.map(key => {
+          if (key !== CACHE_NAME) {
+            return caches.delete(key);
           }
         })
+      )
+    )
+  );
+});
+
+self.addEventListener("fetch", event => {
+  event.respondWith(
+    caches.match(event.request).then(response => {
+      return (
+        response ||
+        fetch(event.request).catch(() =>
+          caches.match("index.html")
+        )
       );
     })
   );
 });
-
