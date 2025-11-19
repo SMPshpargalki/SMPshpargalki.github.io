@@ -1,63 +1,1011 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>SMP Шпаргалки</title>
-    <link rel="stylesheet" href="styles.css" />
-    <link rel="manifest" href="manifest.json" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#d32f2f">
+  <title></b>СМП Шпаргалки</b></title>
+  <link rel="stylesheet" href="styles.css">
 </head>
-
 <body>
+  <h1><b>СМП Шпаргалки</b></h1>
 
-    <header class="header">
-        <input id="searchInput" type="text" placeholder="Поиск..." />
-        <span id="clearSearch" class="clear-btn">×</span>
-    </header>
+  <div class="container">
+<div style="position:relative; width:100%; margin:0 auto;">
+  <input
+      id="searchInput"
+      type="text"
+      placeholder="Поиск..."
+      style="
+          width:90%;
+          padding:15px;
+          font-size:20px;
+          border-radius:12px;
+          border:2px solid #ccc;
+          margin-bottom:20px;
+      ">  
+  <!-- Крестик очистки -->
+  <span id="clearSearch"
+        style="
+          position:absolute;
+          right:15px;
+          top:35%;
+          transform:translateY(-50%);
+          font-size:30px;
+          cursor:pointer;
+          color:#d32f2f;
+          display:none;
+        ">
+    ✕
+  </span>
+</div>
+    <!-- 1. Шаблоны карт вызовов -->
+    <button class="main-btn" onclick="toggleSection('templates')"><b>Шаблоны карт вызовов</b></button>
 
-    <main>
+    <div id="templates" class="subsections">
 
-        <!-- Пример главного раздела -->
-        <button class="main-btn" onclick="toggleSection('section1')">
-            Педиатрия
-        </button>
+<!-- Акушерство -->
+<button class="sub-btn" onclick="toggleSection('obstetrics')"><b>Акушерство и гинекология</b></button>
+<div id="obstetrics" class="subsections">
+<button class="child-btn" onclick="openModal(`<u><b>Диагноз</u></b>
+Беременность 00 недель. Вторые роды в головном предлежании. 1 период 1640 О80.0
+<b><u>Жалобы:</u></b>
+на не регулярные, схваткообразные боли средней интенсивности внизу живота с иррадиацией в поясничную область, возникшие в покое, длительностью по 20 сек, через 5-7 минут.
+<u><b>Анамнез</u></b>
+Сегодня в «время», стала отмечать появление ноющих болей внизу живота. Самостоятельно лекарств не принимала. Вызвана СМП.
+Хронические заболевания: 
+Постоянно принимает:
+Гинекологический анамнез: менструации с 12 лет, установились сразу через 28 дней, по 5 дней, регулярные, безболезненные, необильные. Последняя менструация «дата» (срок гестации «00» недель). Беременности 2, роды вторые, настоящая протекает без осложнений. Состоит на учете в женской консультации с 6 недель беременности. Последний осмотр гинеколога «дата». без патологии. Плод 1, головное предлежание. Самостоятельные роды в «год».
+<u><b>Объективно</u></b>
+Состояние средней степени тяжести
+<u><b>Органы дыхания</u></b>
+Норма
+<u><b>Органы кровообращения</u></b>
+Норма
+<u><b>Органы пищеварения</u></b>
+Форма живота овоидной
+болезненный над лоном
+<u><b>Нервная система</u></b>
+Норма
+<u><b>Мочеполовая система</u></b>
+Норма
+<u><b>Локальный статус</u></b>
+При осмотре живот овоидной формы, увеличен за счет беременной матки, высота стояния дна матки соответствует сроку беременности. Тонус матки повышен, матка возбудима. Плод 1, положение плода продольное, предлежащая часть головка, над входом в малый таз. Шевеление плода активные. ЧСС плода 140 в мин, ясные, ритмичные. На момент осмотра выделений из половых путей нет. Молочные железы симметричны, при пальпации мягко-эластичной консистенции, область ареол не изменена, выделения из сосков отсутствуют.`)">1 период родов</button>
+<button class="child-btn" onclick="openModal(`текст`)">Абсцесс бартолиной железы</button>
+<button class="child-btn" onclick="openModal(`текст`)">Альгоменорея</button>
+<button class="child-btn" onclick="openModal(`текст`)">Апоплексия яичника</button>
+<button class="child-btn" onclick="openModal(`текст`)">Бартолинит</button>
+<button class="child-btn" onclick="openModal(`текст`)">Вагинит</button>
+<button class="child-btn" onclick="openModal(`текст`)">Внематочная беременность</button>
+<button class="child-btn" onclick="openModal(`текст`)">Выпадение матки</b></button>
+<button class="child-btn" onclick="openModal(`текст`)">Дисфункциональные маточное кровотечение (ДМК)</button>
+<button class="child-btn" onclick="openModal(`текст`)">Кровотечение в постменопаузе</button>
+<button class="child-btn" onclick="openModal(`текст`)">Лактостаз</button>
+<button class="child-btn" onclick="openModal(`текст`)">Мастит гнойный</button>
+<button class="child-btn" onclick="openModal(`текст`)">Мастит негнойный</button>
+<button class="child-btn" onclick="openModal(`текст`)">Неполный медицинский аборт</button>
+<button class="child-btn" onclick="openModal(`текст`)">Не развивающаяся (замершая) беременность</button>
+<button class="child-btn" onclick="openModal(`текст`)">Несостоятельность рубца на матке</button>
+<button class="child-btn" onclick="openModal(`текст`)">Перекрут кисты яичника</button>
+<button class="child-btn" onclick="openModal(`текст`)">Преждевременная отслойка плаценты</button>
+<button class="child-btn" onclick="openModal(`текст`)">Преэкламсия</button>
+<button class="child-btn" onclick="openModal(`текст`)">Разрыв околоплодных оболочек</button>
+<button class="child-btn" onclick="openModal(`текст`)">Роды в машине (ребенок)</button>
+<button class="child-btn" onclick="openModal(`текст`)">Роды в машине (роженица)</button>
+<button class="child-btn" onclick="openModal(`текст`)">Сальпингоофорит</button>
+<button class="child-btn" onclick="openModal(`текст`)">Самопроизвольный аборт</b></button>
+<button class="child-btn" onclick="openModal(`текст`)">Угрожающий аборт (угроза прерывания беременности)</button>
+<button class="child-btn" onclick="openModal(`текст`)">Угроза преждевременных родов</button>
+<button class="child-btn" onclick="openModal(`текст`)">Чрезмерная рвота</button>
+<button class="child-btn" onclick="openModal(`текст`)">Эндометрит</button>
+</div>
 
-        <div class="subsections" id="section1">
-            <button class="sub-btn" onclick="toggleSection('section1_1')">Детские возрастные нормы</button>
+<!-- Анестезиология -->
+<button class="sub-btn" onclick="toggleSection('anesthesia')"><b>Анестезиология и реанимация</b></button>
+<div id="anesthesia" class="subsections">
+<button class="child-btn" onclick="openModal(`текст`)">Анафилактический шок</button>
+<button class="child-btn" onclick="openModal(`текст`)">Клиническая смерть до СМП</button>
+<button class="child-btn" onclick="openModal(`текст`)">Клиническая смерть. Повешение</button>
+<button class="child-btn" onclick="openModal(`текст`)">Кома неясной этиологии</button>
+<button class="child-btn" onclick="openModal(`текст`)">Кома. Сахарный диабет</button>
+<button class="child-btn" onclick="openModal(`текст`)">Кома. Смерть при бригаде</button>
+<button class="child-btn" onclick="openModal(`текст`)">Отек мозга</button>
+</div>
 
-            <div class="subsections" id="section1_1">
-                <button class="child-btn" onclick="toggleSection('section1_1_1')">
-                    ЧСС по возрасту
-                </button>
+<!-- Инфекции -->
+<button class="sub-btn" onclick="toggleSection('infectious')"><b>Инфекционные заболевания</b></button>
+<div id="infectious" class="subsections">
+<button class="child-btn" onclick="openModal(`текст`)">Ангина лакунарная</button>
+<button class="child-btn" onclick="openModal(`текст`)">Бешенство</button>
+<button class="child-btn" onclick="openModal(`текст`)">Боррелиоз (болезнь Лайма)</button>
+<button class="child-btn" onclick="openModal(`текст`)">Ботулизм</button>
+<button class="child-btn" onclick="openModal(`текст`)">Бронхит</button>
+<button class="child-btn" onclick="openModal(`текст`)">Бронхопневмония</button>
+<button class="child-btn" onclick="openModal(`текст`)">Ветряная оспа</button>
+<button class="child-btn" onclick="openModal(`текст`)">Вирусный гепатит</button>
+<button class="child-btn" onclick="openModal(`текст`)">Вирусный энцефалит</button>
+<button class="child-btn" onclick="openModal(`текст`)">Гайморит</button>
+<button class="child-btn" onclick="openModal(`текст`)">Кишечная инфекция неясной этиологии (КИНЭ)</button>
+<button class="child-btn" onclick="openModal(`текст`)">Кишечная инфекция неясной этиологии (КИНЭ) гемоколит</button>
+<button class="child-btn" onclick="openModal(`текст`)">Кишечная инфекция неясной этиологии (КИНЭ) эксикоз 2 степени</button>
+<button class="child-btn" onclick="openModal(`текст`)">Коклюш</button>
+<button class="child-btn" onclick="openModal(`текст`)">Коксаки</button>
+<button class="child-btn" onclick="openModal(`текст`)">Конъюнктивит</button>
+<button class="child-btn" onclick="openModal(`текст`)">Корь</button>
+<button class="child-btn" onclick="openModal(`текст`)">Лихорадка неясной этиологии</button>
+<button class="child-btn" onclick="openModal(`текст`)">Менингококковая инфекция</button>
+<button class="child-btn" onclick="openModal(`текст`)">Мононуклеоз</button>
+<button class="child-btn" onclick="openModal(`текст`)">Опоясывающий лишай</button>
+<button class="child-btn" onclick="openModal(`текст`)">Острая респираторная вирусная инфекция (ОРВИ)</button>
+<button class="child-btn" onclick="openModal(`текст`)">Педикулез</button>
+<button class="child-btn" onclick="openModal(`текст`)">Полиомиелит</button>
+<button class="child-btn" onclick="openModal(`текст`)">Рожистое воспаление. Рожа</button>
+<button class="child-btn" onclick="openModal(`текст`)">Сальмонеллёз</button>
+<button class="child-btn" onclick="openModal(`текст`)">Скарлатина</button>
+<button class="child-btn" onclick="openModal(`текст`)">Столбняк</button>
+</div>    
 
-                <div class="text-block" id="section1_1_1">
-                    <h3>ЧСС у детей</h3>
-                    <p>Новорожденные: 120–140</p>
-                    <p>1–12 месяцев: 110–130</p>
-                </div>
-            </div>
-        </div>
+      <!-- Кардиология -->
+<button class="sub-btn" onclick="toggleSection('kardiologiya')"><b>Кардиология</b></button>
+<div id="kardiologiya" class="subsections">
+<button class="child-btn" onclick="openModal(`текст`)">Аритмия. Пароксизмальная форма фибрилляции предсердий. Постоянная форма фибрилляции предсердий. Трепетание предсердий.</button>
+<button class="child-btn" onclick="openModal(`текст`)">Атеросклеротический кардиосклероз</button>
+<button class="child-btn" onclick="openModal(`текст`)">Гипертоническая болезнь 2 стадии (ГБ 2 стадии)</button>
+<button class="child-btn" onclick="openModal(`текст`)">Гипертоническая болезнь 2 стадии. Криз (ГБ 2 стадии)</button>
+<button class="child-btn" onclick="openModal(`текст`)">Острый инфаркт миокарда (ОИМ)</button>
+<button class="child-btn" onclick="openModal(`текст`)">Кардиомиопатия</button>
+<button class="child-btn" onclick="openModal(`текст`)">Наджелудочковая тахикардия (НЖТ)</button>
+<button class="child-btn" onclick="openModal(`текст`)">Нестабильная стенокардия</button>
+<button class="child-btn" onclick="openModal(`текст`)">Неспецифическое низкое давление</button>
+<button class="child-btn" onclick="openModal(`текст`)">Отек легких (острая левожелудочковая недостаточность</button>
+<button class="child-btn" onclick="openModal(`текст`)">Повышение кровяново давления без диагноза гипертензия</button>
+<button class="child-btn" onclick="openModal(`текст`)">Порок сердца</button>
+<button class="child-btn" onclick="openModal(`текст`)"> Расслаивающая аневризма аорты</button>
+<button class="child-btn" onclick="openModal(`текст`)"> Синусовая тахикардия</button>
+<button class="child-btn" onclick="openModal(`текст`)">Синдром слабости синусового узла (СССУ)</button>
+<button class="child-btn" onclick="openModal(`текст`)">Тромбоэмболия легочной артерии (ТЭЛА)</button>
+<button class="child-btn" onclick="openModal(`текст`)">Хроническая сердечная недостаточность (ХСН)</button>
+<button class="child-btn" onclick="openModal(`текст`)">Экстрасистолия</button>
+</div>
 
-        <!-- Здесь у тебя идут другие разделы (я их не удалял).
-             Я оставил ВСЮ твою структуру,
-             только убрал inline-скрипты. -->
+      <!-- Констатация -->
+<button class="sub-btn" onclick="toggleSection('konstataciya')"><b>Констатация</b></button>
+<div id="konstataciya" class="subsections">
+<button class="child-btn" onclick="openModal(`текст`)">Ампутация головы</button>
+<button class="child-btn" onclick="openModal(`текст`)">Ампутация туловища</button>
+<button class="child-btn" onclick="openModal(`текст`)">Констатация смерти (Более недели в лесу)</button>
+<button class="child-btn" onclick="openModal(`текст`)">Констатация смерти (Более часа)</button>
+<button class="child-btn" onclick="openModal(`текст`)">Констатация смерти (Менее часа)</button>
+<button class="child-btn" onclick="openModal(`текст`)">Констатация смерти при пожаре (Обугленный)</button>
+<button class="child-btn" onclick="openModal(`текст`)">Констатация смерти (Падение с высоты)</button>
+<button class="child-btn" onclick="openModal(`текст`)">Констатация смерти (Повешение)</button>
+<button class="child-btn" onclick="openModal(`текст`)">Констатация смерти (Поездная)</button>
+</div>
 
-        <!-- Модалка -->
-        <div id="modal" class="modal">
-            <div id="modalContent" class="modal-content"></div>
-        </div>
+      <!-- Неврология -->
+<button class="sub-btn" onclick="toggleSection('nevrologiya')"><b>Неврология</b></button>
+<div id="nevrologiya" class="subsections">
+<button class="child-btn" onclick="openModal(`текст`)">Алкогольная полиневропатия</button>
+<button class="child-btn" onclick="openModal(`текст`)">Блефароспазм</button>
+<button class="child-btn" onclick="openModal(`текст`)">Болезнь Паркинсона</button>
+<button class="child-btn" onclick="openModal(`текст`)">Синдром вертебробазилярной артериальной системы (ВБН)</button>
+<button class="child-btn" onclick="openModal(`текст`)">Расстройство вегетативной нервной системы (ВСД)</button>
+<button class="child-btn" onclick="openModal(`текст`)">Головная боль</button>
+<button class="child-btn" onclick="openModal(`текст`)">Дорсалгия грудного отдела позвоночника</button>
+<button class="child-btn" onclick="openModal(`текст`)">Дисциркуляторная энцефалопатия (ДЭП)</button>
+<button class="child-btn" onclick="openModal(`текст`)">Дисциркуляторная энцефалопатия (ДЭП). Угнетение сознания</button>
+<button class="child-btn" onclick="openModal(`текст`)">Ишиас</button>
+<button class="child-btn" onclick="openModal(`текст`)">Люмбалгия</button>
+<button class="child-btn" onclick="openModal(`текст`)">Люмбоишиалгия</button>
+<button class="child-btn" onclick="openModal(`текст`)">Миастенический криз</button>
+<button class="child-btn" onclick="openModal(`текст`)">Мигрень</button>
+<button class="child-btn" onclick="openModal(`текст`)">Миозит</button>
+<button class="child-btn" onclick="openModal(`текст`)">Невралгия тройничного нерва</button>
+<button class="child-btn" onclick="openModal(`текст`)">Острое нарушение мозгового кровообращения (ОНМК) (Инсульт)</button>
+<button class="child-btn" onclick="openModal(`текст`)">Паралич Белла</button>
+<button class="child-btn" onclick="openModal(`текст`)">Паралич Тодда</button>
+<button class="child-btn" onclick="openModal(`текст`)">Радикулопатия с нарушением чувствительности</button>
+<button class="child-btn" onclick="openModal(`текст`)">Рассеянный склероз</button>
+<button class="child-btn" onclick="openModal(`текст`)">Состояние после обморока</button>
+<button class="child-btn" onclick="openModal(`текст`)">Состояние после стресса</button>
+<button class="child-btn" onclick="openModal(`текст`)">Состояние после судорог</button>
+<button class="child-btn" onclick="openModal(`текст`)">Субарахноидальное кровоизлияние (САК)</button>
+<button class="child-btn" onclick="openModal(`текст`)">Транзиторная ишемическая атака (ТИА)</button>
+<button class="child-btn" onclick="openModal(`текст`)">Цервикалгия</button>
+<button class="child-btn" onclick="openModal(`текст`)">Эпилепсия. Серия судорог</button>
+</div>
 
-        <!-- Модалка изображений -->
-        <div id="imgModal" class="modal">
-            <img id="imgModalContent" class="modal-img" />
-        </div>
+      <!-- Оториноларингология -->
+<button class="sub-btn" onclick="toggleSection('lor')"><b>Оториноларингология</b></button>
+<div id="lor" class="subsections">
+<button class="child-btn" onclick="openModal(`текст`)">Кровотечение после тонзиллэктомии</button>
+<button class="child-btn" onclick="openModal(`текст`)">Носовое кровотечение</button>
+<button class="child-btn" onclick="openModal(`текст`)">Носовое кровотечение (состоявшиеся)</button>
+<button class="child-btn" onclick="openModal(`текст`)">Отит</button>
+<button class="child-btn" onclick="openModal(`текст`)">Отит гнойный</button>
+<button class="child-btn" onclick="openModal(`текст`)">Паратозилярный абсцесс</button>
+<button class="child-btn" onclick="openModal(`текст`)">Паротит</button>
+<button class="child-btn" onclick="openModal(`текст`)">Ринит</button>
+<button class="child-btn" onclick="openModal(`текст`)">Серная пробка</button>
+<button class="child-btn" onclick="openModal(`текст`)">Сиалоаденит</button>
+<button class="child-btn" onclick="openModal(`текст`)">Синусит</button>
+<button class="child-btn" onclick="openModal(`текст`)">Фарингит</button>
+<button class="child-btn" onclick="openModal(`текст`)">Эпиглоттит</button>
+</div>
 
-    </main>
+      <!-- Офтальмология-->
+<button class="sub-btn" onclick="toggleSection('glaza')"><b>Офтальмология</b></button>
+<div id="glaza" class="subsections">
+<button class="child-btn" onclick="openModal(`текст`)">Глаукома</button>
+<button class="child-btn" onclick="openModal(`текст`)">Катаракта</button>
+<button class="child-btn" onclick="openModal(`текст`)">Конъюнктивит</button>
+<button class="child-btn" onclick="openModal(`текст`)"> Окклюзия сосудов сетчатки глаза</button>
+<button class="child-btn" onclick="openModal(`текст`)">Отслойка сетчатки глаза</button>
+<button class="child-btn" onclick="openModal(`текст`)">Фотокератит</button>
+</div>
 
-    <!-- Подключение внешних JS -->
-    <script src="script.js"></script>
-    <script src="search.js"></script>
-    <script src="ui.js"></script>
+      <!-- Педиатрия -->
+<button class="sub-btn" onclick="toggleSection('pediatriya')"><b>Педиатрия</b></button>
+<div id="pediatriya" class="subsections">
+<button class="child-btn" onclick="openModal(`текст`)">Беспризорный</button>
+<button class="child-btn" onclick="openModal(`текст`)">Геморрагический васкулит</button>
+<button class="child-btn" onclick="openModal(`текст`)">Инвагинация</button>
+<button class="child-btn" onclick="openModal(`текст`)">Кишечная колика</button>
+<button class="child-btn" onclick="openModal(`текст`)">Ларингит</button>
+<button class="child-btn" onclick="openModal(`текст`)">Недоношенный (роды дома)</button>
+<button class="child-btn" onclick="openModal(`текст`)">Неонатальная желтуха</button>
+<button class="child-btn" onclick="openModal(`текст`)">Омфалит</button>
+<button class="child-btn" onclick="openModal(`текст`)">Пилороспазм</button>
+<button class="child-btn" onclick="openModal(`текст`)">Полиомиелит</button>
+<button class="child-btn" onclick="openModal(`текст`)">Реакция на иммунизацию</button>
+<button class="child-btn" onclick="openModal(`текст`)">Синдром прорезывания зубов</button>
+<button class="child-btn" onclick="openModal(`текст`)">Срыгивание новорожденного</button>
+<button class="child-btn" onclick="openModal(`текст`)">Тромбоцитопеническая пурпура</button>
+</div>
 
+      <!-- Стоматология -->
+<button class="sub-btn" onclick="toggleSection('stomatolog')"><b>Стоматология</b></button>
+<div id="stomatolog" class="subsections">
+<button class="child-btn" onclick="openModal(`текст`)">Альвеолит</button>
+<button class="child-btn" onclick="openModal(`текст`)">Гингивит</button>
+<button class="child-btn" onclick="openModal(`текст`)">Глоссит</button>
+<button class="child-btn" onclick="openModal(`текст`)">Кровотечение после экстракции зуба</button>
+<button class="child-btn" onclick="openModal(`текст`)">Пародонтит</button>
+<button class="child-btn" onclick="openModal(`текст`)">Периостит</button>
+<button class="child-btn" onclick="openModal(`текст`)">Пульпит</button>
+<button class="child-btn" onclick="openModal(`текст`)">Стоматит</button>
+</div>
+
+      <!-- Терапия -->
+<button class="sub-btn" onclick="toggleSection('terapiya')"><b>Терапия</b></button>
+<div id="terapiya" class="subsections">
+<button class="child-btn" onclick="openModal(`текст`)">Аллергическая крапивница</button>
+<button class="child-btn" onclick="openModal(`текст`)">Аллергическая крапивница. Генерализованная форма</button>
+<button class="child-btn" onclick="openModal(`текст`)">Анемия</button>
+<button class="child-btn" onclick="openModal(`текст`)">Артрит</button>
+<button class="child-btn" onclick="openModal(`текст`)">Артроз</button>
+<button class="child-btn" onclick="openModal(`текст`)">Бронхиальная астма</button>
+<button class="child-btn" onclick="openModal(`текст`)">Бронхиальная астма. Астматический статус</button>
+<button class="child-btn" onclick="openModal(`текст`)">Гидроторакс</button>
+<button class="child-btn" onclick="openModal(`текст`)">Гипотиреоз</button>
+<button class="child-btn" onclick="openModal(`текст`)">Икота</button>
+<button class="child-btn" onclick="openModal(`текст`)">Кахексия</button>
+<button class="child-btn" onclick="openModal(`текст`)">Коксартроз</button>
+<button class="child-btn" onclick="openModal(`текст`)">Кровохарканье</button>
+<button class="child-btn" onclick="openModal(`текст`)">Ангионевротический отек. Отек Квинке</button>
+<button class="child-btn" onclick="openModal(`текст`)">Печеночная недостаточность</button>
+<button class="child-btn" onclick="openModal(`текст`)">Подагра</button>
+<button class="child-btn" onclick="openModal(`текст`)">Псориаз</button>
+<button class="child-btn" onclick="openModal(`текст`)">Рак. Онкология</button>
+<button class="child-btn" onclick="openModal(`текст`)">Раковая интоксикация. Онкология</button>
+<button class="child-btn" onclick="openModal(`текст`)">Сахарный диабет. Гипергликемическое состояние</button>
+<button class="child-btn" onclick="openModal(`текст`)">Сахарный диабет. Гипогликемическое состояние</button>
+<button class="child-btn" onclick="openModal(`текст`)">Тиреотоксикоз</button>
+<button class="child-btn" onclick="openModal(`текст`)">Хроническая обструктивная болезнь легких (ХОБЛ)</button>
+<button class="child-btn" onclick="openModal(`текст`)">Цирроз печени</button>
+<button class="child-btn" onclick="openModal(`текст`)">Эзофагит</button>
+<button class="child-btn" onclick="openModal(`текст`)">Экзема</button>
+<button class="child-btn" onclick="openModal(`текст`)">Эмфизема легкого</button>
+</div>
+
+      <!-- Токсикология -->
+<button class="sub-btn" onclick="toggleSection('toxic')"><b>Токсикология</b></button>
+<div id="toxic" class="subsections">
+<button class="child-btn" onclick="openModal(`текст`)">Использование наркотиков</button>
+<button class="child-btn" onclick="openModal(`текст`)">Отравление амитриптилином</button>
+<button class="child-btn" onclick="openModal(`текст`)">Отравление амитриптилином. Кома</button>
+<button class="child-btn" onclick="openModal(`текст`)">Отравление героином. Кома (передоз)</button>
+<button class="child-btn" onclick="openModal(`текст`)">Токсическое действие едких щелочей</button>
+</div>
+
+      <!-- Травматология -->
+<button class="sub-btn" onclick="toggleSection('travma')"><b>Травматология</b></button>
+<div id="travma" class="subsections">
+<button class="child-btn" onclick="openModal(`текст`)">Ампутация конечности</button>
+<button class="child-btn" onclick="openModal(`текст`)">Ампутация пальца</button>
+<button class="child-btn" onclick="openModal(`текст`)">Ампутация уха</button>
+<button class="child-btn" onclick="openModal(`текст`)">Вывих бедра</button>
+<button class="child-btn" onclick="openModal(`текст`)">Вывих кисти</button>
+<button class="child-btn" onclick="openModal(`текст`)">Вывих ключицы</button>
+<button class="child-btn" onclick="openModal(`текст`)">Вывих локтя</button>
+<button class="child-btn" onclick="openModal(`текст`)">Вывих надколенника</button>
+<button class="child-btn" onclick="openModal(`текст`)">Вывих пальца</button>
+<button class="child-btn" onclick="openModal(`текст`)">Вывих плеча</button>
+<button class="child-btn" onclick="openModal(`текст`)">Вывих стопы</button>
+<button class="child-btn" onclick="openModal(`текст`)">Вывих челюсти</button>
+<button class="child-btn" onclick="openModal(`текст`)">Вывих шейного позвонка</button>
+<button class="child-btn" onclick="openModal(`текст`)">Закрытая травма живота</button>
+<button class="child-btn" onclick="openModal(`текст`)">Закрытая черепно-мозговая травма. Сотрясение головного мозга (ЗЧМТ. СГМ)</button>
+<button class="child-btn" onclick="openModal(`текст`)">Инородное тело влагалища</button>
+<button class="child-btn" onclick="openModal(`текст`)">Инородное тело глаза</button>
+<button class="child-btn" onclick="openModal(`текст`)">Инородное тело глотки</button>
+<button class="child-btn" onclick="openModal(`текст`)">Инородное тело дыхательных путей</button>
+<button class="child-btn" onclick="openModal(`текст`)">Инородное тело желудка</button>
+<button class="child-btn" onclick="openModal(`текст`)">Инородное тело носа</button>
+<button class="child-btn" onclick="openModal(`текст`)">Инородное тело прямой кишки</button>
+<button class="child-btn" onclick="openModal(`текст`)">Инородное тело уретры</button>
+<button class="child-btn" onclick="openModal(`текст`)">Инородное тело уха</button>
+<button class="child-btn" onclick="openModal(`текст`)">Колотая рана</button>
+<button class="child-btn" onclick="openModal(`текст`)">Кровотечение из наружного слухового прохода</button>
+<button class="child-btn" onclick="openModal(`текст`)">Огнестрельная рана</button>
+<button class="child-btn" onclick="openModal(`текст`)">Ожог</button>
+<button class="child-btn" onclick="openModal(`текст`)">Ожог инфицированный</button>
+<button class="child-btn" onclick="openModal(`текст`)">Отморожение</button>
+<button class="child-btn" onclick="openModal(`текст`)">Параорбитальная гематома</button>
+<button class="child-btn" onclick="openModal(`текст`)">Перелом бедра</button>
+<button class="child-btn" onclick="openModal(`текст`)">Перелом голени</button>
+<button class="child-btn" onclick="openModal(`текст`)">Перелом грудины</button>
+<button class="child-btn" onclick="openModal(`текст`)">Перелом ключицы</button>
+<button class="child-btn" onclick="openModal(`текст`)">Перелом копчика</button>
+<button class="child-btn" onclick="openModal(`текст`)">Перелом обеих лодыжек с подвывихом</button>
+<button class="child-btn" onclick="openModal(`текст`)">Перелом внутренней лодыжки</button>
+<button class="child-btn" onclick="openModal(`текст`)">Перелом наружной лодыжки</button>
+<button class="child-btn" onclick="openModal(`текст`)">Перелом наружной лодыжки с подвывихом</button>
+<button class="child-btn" onclick="openModal(`текст`)">Перелом локтевой кости</button>
+<button class="child-btn" onclick="openModal(`текст`)">Перелом лопатки</button>
+<button class="child-btn" onclick="openModal(`текст`)">Перелом лучевой кости</button>
+<button class="child-btn" onclick="openModal(`текст`)">Перелом надколенника</button>
+<button class="child-btn" onclick="openModal(`текст`)">Перелом носа</button>
+<button class="child-btn" onclick="openModal(`текст`)">Перелом нижней челюсти</button>
+<button class="child-btn" onclick="openModal(`текст`)">Перелом открытый</button>
+<button class="child-btn" onclick="openModal(`текст`)">Перелом пальца</button>
+<button class="child-btn" onclick="openModal(`текст`)">Перелом плеча</button>
+<button class="child-btn" onclick="openModal(`текст`)">Перелом позвоночника</button>
+<button class="child-btn" onclick="openModal(`текст`)">Перелом предплечья</button>
+<button class="child-btn" onclick="openModal(`текст`)">Перелом пястной кости</button>
+<button class="child-btn" onclick="openModal(`текст`)">Перелом ребра/ребер</button>
+<button class="child-btn" onclick="openModal(`текст`)">Перелом свода черепа</button>
+<button class="child-btn" onclick="openModal(`текст`)">Перелом скуловой кости</button>
+<button class="child-btn" onclick="openModal(`текст`)">Перелом таза</button>
+<button class="child-btn" onclick="openModal(`текст`)">Перелом шейки бедра</button>
+<button class="child-btn" onclick="openModal(`текст`)">Перелом шейки плеча</button>
+<button class="child-btn" onclick="openModal(`текст`)">Разрыв сухожилия плеча</button>
+<button class="child-btn" onclick="openModal(`текст`)">Рана пальца без повреждения ногтевой пластины</button>
+<button class="child-btn" onclick="openModal(`текст`)">Рана пальца с повреждением ногтевой пластины</button>
+<button class="child-btn" onclick="openModal(`текст`)">Растяжение связок</button>
+<button class="child-btn" onclick="openModal(`текст`)">Резаная рана</button>
+<button class="child-btn" onclick="openModal(`текст`)">Скальпированная рана</button>
+<button class="child-btn" onclick="openModal(`текст`)">Ссадина</button>
+<button class="child-btn" onclick="openModal(`текст`)">Травматический разрыв барабанной перепонки</button>
+<button class="child-btn" onclick="openModal(`текст`)">Укус змеи</button>
+<button class="child-btn" onclick="openModal(`текст`)">Укус клеща</button>
+<button class="child-btn" onclick="openModal(`текст`)">Укус насекомого</button>
+<button class="child-btn" onclick="openModal(`текст`)">Укусы клопов</button>
+<button class="child-btn" onclick="openModal(`текст`)">Укушенная рана</button>
+<button class="child-btn" onclick="openModal(`текст`)">Укушенная рана языка</button>
+<button class="child-btn" onclick="openModal(`текст`)">Ушиб глазного яблока</button>
+<button class="child-btn" onclick="openModal(`текст`)">Ушиб мягких тканей (гематома)</button>
+<button class="child-btn" onclick="openModal(`текст`)">Ушиб коленного сустава. Гемартроз</button>
+<button class="child-btn" onclick="openModal(`текст`)">Ушибленная рана</button>
+<button class="child-btn" onclick="openModal(`текст`)">Химический ожог глаз</button>
+<button class="child-btn" onclick="openModal(`текст`)">Эвентрация</button>
+</div>
+
+      <!-- Урология -->
+<button class="sub-btn" onclick="toggleSection('urologiya')"><b>Урология</b></button>
+<div id="urologiya" class="subsections">
+<button class="child-btn" onclick="openModal(`текст`)">Баланопостит</button>
+<button class="child-btn" onclick="openModal(`текст`)">Гематурия</button>
+<button class="child-btn" onclick="openModal(`текст`)">Гиперплазия предстательной железы</button>
+<button class="child-btn" onclick="openModal(`текст`)">Задержка мочи</button>
+<button class="child-btn" onclick="openModal(`текст`)">Кровотечение после обрезания</button>
+<button class="child-btn" onclick="openModal(`текст`)">Несостоятельность нефростомы</button>
+<button class="child-btn" onclick="openModal(`текст`)">Несостоятельность стента</button>
+<button class="child-btn" onclick="openModal(`текст`)">Несостоятельность цистостомы</button>
+<button class="child-btn" onclick="openModal(`текст`)">Описание нефростомы</button>
+<button class="child-btn" onclick="openModal(`текст`)">Описание уретрального катетера</button>
+<button class="child-btn" onclick="openModal(`текст`)">Описание цистостомы</button>
+<button class="child-btn" onclick="openModal(`текст`)">Орхоэпидидимит</button>
+<button class="child-btn" onclick="openModal(`текст`)">Острая почечная недостаточность</button>
+<button class="child-btn" onclick="openModal(`текст`)">Парафимоз</button>
+<button class="child-btn" onclick="openModal(`текст`)">Перекрут гидатиды яичка</button>
+<button class="child-btn" onclick="openModal(`текст`)">Пиелонефрит</button>
+<button class="child-btn" onclick="openModal(`текст`)">Почечная колика</button>
+<button class="child-btn" onclick="openModal(`текст`)">Приапизм</button>
+<button class="child-btn" onclick="openModal(`текст`)">Простатит</button>
+<button class="child-btn" onclick="openModal(`текст`)">Фимоз</button>
+<button class="child-btn" onclick="openModal(`текст`)">Цистит</button>
+</div>
+
+  <!-- Хиругия -->
+<button class="sub-btn" onclick="toggleSection('hirurgiya')"><b>Хирургия</b></button>
+<div id="hirurgiya" class="subsections">
+<button class="child-btn" onclick="openModal(`текст`)">Абсцесс</button>
+<button class="child-btn" onclick="openModal(`текст`)">Абсцесс внутрибрюшной</button>
+<button class="child-btn" onclick="openModal(`текст`)">Абсцесс постинъекционный</button>
+<button class="child-btn" onclick="openModal(`текст`)">Аппендицит</button>
+<button class="child-btn" onclick="openModal(`текст`)">Бурсит</button>
+<button class="child-btn" onclick="openModal(`текст`)">Варикозное расширение вен</button>
+<button class="child-btn" onclick="openModal(`текст`)">Варикозное расширение вен. Кровотечение</button>
+<button class="child-btn" onclick="openModal(`текст`)">Выпадение прямой кишки</button>
+<button class="child-btn" onclick="openModal(`текст`)">Гангрена</button>
+<button class="child-btn" onclick="openModal(`текст`)">Гастрит</button>
+<button class="child-btn" onclick="openModal(`текст`)">Геморрой</button>
+<button class="child-btn" onclick="openModal(`текст`)">Геморроидальное кровотечение</button>
+<button class="child-btn" onclick="openModal(`текст`)">Гидраденит</button>
+<button class="child-btn" onclick="openModal(`текст`)">Дивертикулит</button>
+<button class="child-btn" onclick="openModal(`текст`)">Желудочно-кишечное кровотечение (ЖКК)</button>
+<button class="child-btn" onclick="openModal(`текст`)">Желудочно-кишечное кровотечение. Шок (ЖКК)</button>
+<button class="child-btn" onclick="openModal(`текст`)">Запор</button>
+<button class="child-btn" onclick="openModal(`текст`)">Инфицированная язва</button>
+<button class="child-btn" onclick="openModal(`текст`)">Карбункул</button>
+<button class="child-btn" onclick="openModal(`текст`)">Киста копчика</button>
+<button class="child-btn" onclick="openModal(`текст`)">Кишечная непроходимость</button>
+<button class="child-btn" onclick="openModal(`текст`)">Колит</button>
+<button class="child-btn" onclick="openModal(`текст`)">Кровотечение из варикозно-расширенных вен пищевода</button>
+<button class="child-btn" onclick="openModal(`текст`)">Кровотечение из прямой кишки</button>
+<button class="child-btn" onclick="openModal(`текст`)">Кровотечение из раны</button>
+<button class="child-btn" onclick="openModal(`текст`)">Лимфаденит</button>
+<button class="child-btn" onclick="openModal(`текст`)">Метеоризм</button>
+<button class="child-btn" onclick="openModal(`текст`)">Напряжённый асцит</button>
+<button class="child-btn" onclick="openModal(`текст`)">Несостоятельность гастростомы</button>
+<button class="child-btn" onclick="openModal(`текст`)">Описание гастростомы</button>
+<button class="child-btn" onclick="openModal(`текст`)">Описание колостомы</button>
+<button class="child-btn" onclick="openModal(`текст`)">Описание трахеостомы</button>
+<button class="child-btn" onclick="openModal(`текст`)">Описание холецистостомы</button>
+<button class="child-btn" onclick="openModal(`текст`)">Остеомиелит</button>
+<button class="child-btn" onclick="openModal(`текст`)">Панкреатит</button>
+<button class="child-btn" onclick="openModal(`текст`)">Парапроктит</button>
+<button class="child-btn" onclick="openModal(`текст`)">Паховая грыжа</button>
+<button class="child-btn" onclick="openModal(`текст`)">Паховая грыжа (ущемленная)</button>
+<button class="child-btn" onclick="openModal(`текст`)">Перитонит</button>
+<button class="child-btn" onclick="openModal(`текст`)">Пневмоторакс</button>
+<button class="child-btn" onclick="openModal(`текст`)">Постхолецистэктомический синдром</button>
+<button class="child-btn" onclick="openModal(`текст`)">Пролежень</button>
+<button class="child-btn" onclick="openModal(`текст`)">Пиодермия</button>
+<button class="child-btn" onclick="openModal(`текст`)">Пупочная грыжа</button>
+<button class="child-btn" onclick="openModal(`текст`)">Пупочная грыжа (ущемленная)</button>
+<button class="child-btn" onclick="openModal(`текст`)">Расхождение шва</button>
+<button class="child-btn" onclick="openModal(`текст`)">Тромбоз артерий</button>
+<button class="child-btn" onclick="openModal(`текст`)">Тромбоз глубоких вен</button>
+<button class="child-btn" onclick="openModal(`текст`)">Тромбоз илеофеморальный</button>
+<button class="child-btn" onclick="openModal(`текст`)">Тромбофлебит</button>
+<button class="child-btn" onclick="openModal(`текст`)">Трофическая язва</button>
+<button class="child-btn" onclick="openModal(`текст`)">Флегмона</button>
+<button class="child-btn" onclick="openModal(`текст`)">Функциональное нарушение кишечника</button>
+<button class="child-btn" onclick="openModal(`текст`)">Фурункул</button>
+<button class="child-btn" onclick="openModal(`текст`)">Холецистит</button>
+<button class="child-btn" onclick="openModal(`текст`)">Язва 12перстной кишки</button>
+<button class="child-btn" onclick="openModal(`текст`)">Язва желудка с прободением</button>
+<button class="child-btn" onclick="openModal(`текст`)">Язвенная болезнь желудка</button>
+</div>
+
+      <!-- Прочее -->
+<button class="sub-btn" onclick="toggleSection('other')"><b>Прочее</b></button>
+<div id="other" class="subsections">
+<button class="child-btn" onclick="openModal(`текст`)">Гемодиализ</button>
+<button class="child-btn" onclick="openModal(`текст`)">Здоров на момент осмотра</button>
+<button class="child-btn" onclick="openModal(`текст`)">Подозрение на отравление</button>
+<button class="child-btn" onclick="openModal(`текст`)">Странное и необъяснимое поведение</button>
+<button class="child-btn" onclick="openModal(`текст`)">Употребление алкоголя</button>
+</div>
+
+         </div>
+    
+<!-- 2. Шпаргалки -->
+<button class="main-btn" onclick="toggleSection('cheatsheets')"><b>Шпаргалки</b></button>
+<div id="cheatsheets" class="subsections">
+<button class="sub-btn" onclick="openModal(`<img src='Беспризорный.jpg' style='max-width:100%; height:auto;'>`)">Беспризорный</button>
+<button class="sub-btn" onclick="openVideo(`Трубка третьего поколения.mp4`)">Трубка третьего поколения</button>
+
+  <!-- Дозировки препаратов в педиатрии -->
+<button class="sub-btn" onclick="toggleSection('dozipreparatov')"><b>Дозировки препаратов в педиатрии</b></button>
+<div id="dozipreparatov" class="subsections">
+<button class="child-btn" onclick="openModal(`<img src='Диазепам.jpg' style='max-width:100%; height:auto;'>`)">Диазепам</button>
+<button class="child-btn" onclick="openModal(`<img src='Кетамин.jpg' style='max-width:100%; height:auto;'>`)">Кетамин</button>
+<button class="child-btn" onclick="openModal(`<img src='Морфин.jpg' style='max-width:100%; height:auto;'>`)">Морфин</button>
+<button class="child-btn" onclick="openModal(`<img src='Фентанил.jpg' style='max-width:100%; height:auto;'>`)">Фентанил</button>
+</div>
+  
+<button class="sub-btn">Диагноза нет</button>
+<button class="sub-btn">Не получилось ЭКГ</button>
+<button class="sub-btn">Описание молочных желез</button>
+<button class="sub-btn">Описание родничка</button>
+<button class="sub-btn">Описание урапидила</button>
+<button class="sub-btn">Расчет кислорода</button>
+<button class="sub-btn" onclick="openModal(`1⃣ Оценка безопасности 
+2⃣ Оценка сознания (реакции нет)
+3⃣ Оценка дыхания по принципу вижу-слышу-ощущаю в течение 10 секунд (дыхания нет)
+4⃣ Фиксация времени
+5⃣  Нажать кнопку клиническая смерть
+6⃣ Переместить пациента на твердую поверхность 
+7⃣ Компрессии грудной клетки 
+8⃣ Собрать дыхательный мешок 
+Попросить родственников собрать дыхательный мешок или собрать самому в перерывах между компрессиями. Не более 10 секунд
+Когда дыхательный мешок собран, 30 компрессий 2 плановых вдоха (не более 10 сек на вдохи). На неэффективные вдохи время не тратим, компрессии в приоритете
+9⃣  Организовать доставку дефибрилятора
+Попросить родственников или водителя принести дефибриллятор. Компрессии грудной клетки не прекращать
+1⃣0⃣ Дефибрилятор включить в режим ручной дефибрилляции - оценка ритма, зафиксировать ритм на пленке 
+При необходимости нанести разряд, первый разряд 150 дж.
+1⃣1⃣ Через 5 циклов компрессией (30:2) или 2 минуты, повторно оценка ритма с распечаткой 
+5 цикл заканчивается компрессиями. Т.е. 4 цикла это 30 компрессий и 2 вдоха, 5 цикл это 30 компрессий и оценка ритма не более 10 секунд
+Критерии эффективности и прекращения СЛР:
+1⃣ Признаки восстановления спонтанного кровообращения: появление пульса на магистральных артериях, самостоятельного дыхания, движение
+2⃣ Прекратить СЛР можно, если в течение 30 минут квалифицированных мероприятий не было достигнуто восстановление спонтанного кровообращения`)">Реанимация один</button>
+<button class="sub-btn">Реанимация вдвоем</button>
+<button class="sub-btn">Сыпь</button>
+    </div>
+
+
+    <!-- 3. Калькуляторы -->
+<button class="main-btn" onclick="toggleSection('kalc')"><b>Калькуляторы</b></button>
+<div id="kalc" class="subsections">
+<!-- КНОПКА ОТКРЫТИЯ -->
+<button class="sub-btn" onclick="toggleCalculator()">Детские возрастные нормы</button>
+
+<!-- БЛОК КАЛЬКУЛЯТОРА (изначально скрыт) -->
+<div id="normCalculator" style="display:none; margin-top:15px;">
+
+  <div class="calc-box">
+    <h3 class="calc-title">Расчет примерных возрастных показателей у детей</h3>
+
+    <div class="calc-row">
+      <select id="ageSelect" class="calc-select">
+        <option value="">Выберите возраст</option>
+      </select>
+
+      <select id="genderSelect" class="calc-select">
+        <option value="">Пол</option>
+        <option value="girl">Девочка</option>
+        <option value="boy">Мальчик</option>
+      </select>
+    </div>
+
+    <div id="normResult" class="calc-result">
+      Выберите возраст и пол.
+    </div>
+
+  </div>
+</div>
+
+  </div>
+    
+<!-- 3. МКБ-10 -->
+<button class="main-btn" onclick="toggleSection('MKB10')"><b>МКБ-10</b></button>
+<div id="MKB10" class="subsections">
+<button class="sub-btn">1. Некоторые инфекционные и паразитарные болезни</button>
+</div>
+
+  
+<!-- 4. Сказать спасибо -->
+<button class="main-btn" onclick="toggleSection('thankYou')"><b>Сказать спасибо</b></button>
+<div id="thankYou" class="text-block">
+Здравствуй, коллега!
+Здесь ты можешь отблагодарить админа 
+<b>Канала СМП Шпаргалки</b>
+<b>МедЧата</b>
+<b>Бота СМП помощник</b>
+за проделанную работу.
+Поддержка, добавление новых файлов и шаблонов - очень непростая работа.
+А на реализацию этого проекта, было потрачено куча личного времени и нервов 😅
+Тем не менее, я стараюсь ☺️
+И мне было бы очень приятно за вашу благодарность на сбер☺️
+Спасибо 🫶
+4279380676533096
+      </div>
+    </div>
+  
+  <!-- 5. Баннер -->
+  </div>
+  <div class="banner-text">
+    ЗДРАСТВУЙ КОЛЛЕГА!
+    </div>
+  <div class="banner">
+    <img src="БаннерДоброПожаловать.jpg" alt="Баннер" class="banner-img">
+</div>
+
+
+  </div>
+
+  <script>
+    function hideAllSections(){
+      document.querySelectorAll('.subsections, .text-block').forEach(s => s.style.display = 'none');
+    }
+
+    function hideDescendants(el){
+      el.querySelectorAll('.subsections, .text-block').forEach(s => s.style.display = 'none');
+    }
+
+    function toggleSection(id){
+      const el = document.getElementById(id);
+      if(!el) return;
+
+      const visible = window.getComputedStyle(el).display !== 'none';
+
+      if(visible){
+        hideDescendants(el);
+        el.style.display = 'none';
+        return;
+      }
+
+      hideAllSections();
+
+      let p = el.parentElement;
+      const ancestors = [];
+      while(p){
+        if(p.classList && p.classList.contains('subsections') && p.id){ ancestors.push(p.id); }
+        p = p.parentElement;
+      }
+
+      ancestors.reverse().forEach(aid => {
+        const block = document.getElementById(aid);
+        if(block) block.style.display = 'block';
+      });
+
+      el.style.display = 'block';
+    }
+
+    document.addEventListener('DOMContentLoaded', hideAllSections);
+
+
+    /* --- МОДАЛЬНОЕ ОКНО --- */
+
+    function openModal(text){
+      document.getElementById('modalContent').innerHTML = text;
+      document.getElementById('modal').style.display = 'flex';
+    }
+function openVideo(src){
+  document.getElementById('modalContent').innerHTML = `
+    <video controls autoplay style="width:100%; max-height:90vh; border-radius:10px;">
+      <source src="${src}" type="video/mp4">
+      Ваш браузер не поддерживает видео.
+    </video>
+  `;
+  document.getElementById('modal').style.display = 'flex';
+}
+
+    function closeModal(){
+      document.getElementById('modal').style.display = 'none';
+    }
+  </script>
+<script>
+  function openVideo(url) {
+    const modal = document.getElementById('modal');
+    const modalContent = document.getElementById('modalContent');
+
+    modalContent.innerHTML = `
+      <video id="modalVideo" controls autoplay style="width:100%; max-height:80vh; border-radius:10px;">
+        <source src="${url}" type="video/mp4">
+        Ваш браузер не поддерживает видео.
+      </video>
+    `;
+
+    modal.style.display = 'flex';
+  }
+
+  // Останавливаем видео при закрытии модального окна
+  function closeModal() {
+    const video = document.getElementById('modalVideo');
+    if (video) {
+      video.pause();
+      video.currentTime = 0;
+    }
+    document.getElementById('modal').style.display = 'none';
+  }
+</script>
+
+<!-- Модальное окно для увеличенной картинки -->
+<div id="imgModal" style="
+  display:none;
+  position:fixed;
+  top:0; left:0;
+  width:100%; height:100%;
+  background:rgba(0,0,0,0.9);
+  justify-content:center;
+  align-items:center;
+  z-index:9999;
+">
+  <img id="imgModalContent" style="
+    max-width:90%;
+    max-height:90%;
+    border-radius:10px;
+  ">
+</div>
+  
+  <!-- МОДАЛЬНОЕ ОКНО -->
+ <div id="modal" style="
+  display:none;
+  position:fixed;
+  top:0; left:0;
+  width:100%; height:100%;
+  background:rgba(0,0,0,0.6);
+  backdrop-filter:blur(3px);
+  justify-content:center;
+  align-items:center;
+  padding:0;
+  z-index:9999;
+">
+
+  <div style="
+    background:#ffffff;
+    width:100%;
+    height:100%;
+    max-width:650px;
+    border-radius:0;
+    display:flex;
+    flex-direction:column;
+  ">
+
+    <!-- Верхняя панель -->
+    <div style="
+      padding:15px;
+      background:#ffffff;
+      border-bottom:1px solid #ddd;
+      position:sticky;
+      top:0;
+      z-index:1000;
+      display:flex;
+      justify-content:flex-end;
+    ">
+      <button onclick="closeModal()" style="
+        background:#e63946;
+        color:#fff;
+        border:none;
+        padding:8px 14px;
+        border-radius:8px;
+        font-size:16px;
+        cursor:pointer;
+      ">
+        Закрыть
+      </button>
+    </div>
+
+    <!-- Контент -->
+    <div id="modalContent" style="
+      padding:20px;
+      overflow-y:auto;
+      font-size:18px;
+      line-height:1.5;
+      white-space:pre-line;
+      flex:1;
+      text-align:left;
+    "></div>
+
+  </div>
+</div>
+<script>
+  if ("serviceWorker" in navigator) {
+    navigator.serviceWorker.register("sw.js");
+  }
+</script>
+<script>
+/* --- Умный поиск + автопоказ раздела по клику --- */
+
+const searchInput = document.getElementById('searchInput');
+
+// Функция показывает/скрывает элемент (block/none)
+function show(el){ if(el) el.style.display = 'block'; }
+function hide(el){ if(el) el.style.display = 'none'; }
+
+// Возвращает id цели из строки onclick типа: toggleSection('obstetrics')
+function parseToggleTargetFromOnclick(str){
+  const m = /toggleSection\(['"]([^'"]+)['"]\)/.exec(str || '');
+  return m ? m[1] : null;
+}
+
+// При вводе - фильтруем кнопки и автоматически раскрываем нужные заголовки
+searchInput.addEventListener('input', function(){
+  const q = this.value.trim().toLowerCase();
+
+  // Все кнопки (включая main/sub/child)
+  const allButtons = document.querySelectorAll('.main-btn, .sub-btn, .child-btn');
+
+  if(q === ''){
+    // Пустой поиск — вернуть начальное состояние: скрыть все .subsections (логика у вас уже есть)
+    // но лучше ничего не трогать: оставим текущее поведение — просто скрываем результаты поиска
+    allButtons.forEach(b => b.style.display = 'block');
+    // скрываем все разделы, чтобы не выпадали по умолчанию
+    document.querySelectorAll('.subsections, .text-block').forEach(s => s.style.display = 'none');
+    return;
+  }
+
+  // Пройдемся по кнопкам и пометим соответствия
+  allButtons.forEach(btn => {
+    const text = (btn.innerText || '').toLowerCase();
+    if(text.includes(q)){
+      btn.style.display = 'block';
+    } else {
+      btn.style.display = 'none';
+    }
+    // Снять видимость у контейнеров-панелей, они будут видны по необходимости ниже
+  });
+
+  // Скрыть все секции (чтобы потом показать только нужные заголовки/контейнеры)
+  document.querySelectorAll('.subsections, .text-block').forEach(s => s.style.display = 'none');
+
+  // Для каждой видимой кнопки — показать её родителей (названия разделов), иначе кнопка "оторвётся" от интерфейса
+  document.querySelectorAll('.main-btn, .sub-btn, .child-btn').forEach(btn => {
+    if(btn.style.display === 'block'){
+      // показать контейнеры-родители (секции) вверх по дереву
+      let p = btn.parentElement;
+      while(p){
+        if(p.classList && p.classList.contains('subsections')){
+          p.style.display = 'block';
+        }
+        p = p.parentElement;
+      }
+    }
+  });
+
+  // После этого — нужно скрыть пустые контейнеры (те у которых внутри все кнопки display:none)
+  document.querySelectorAll('.subsections').forEach(sec => {
+    // Если в секции есть хотя бы одна видимая кнопка, оставляем её видимой (уже сделано),
+    // иначе прячем секцию
+    const hasVisibleChild = Array.from(sec.querySelectorAll('.main-btn, .sub-btn, .child-btn')).some(b => b.style.display === 'block');
+    if(!hasVisibleChild){
+      sec.style.display = 'none';
+    } else {
+      // оставляем как есть
+    }
+  });
+});
+
+// --- Поведение клика по кнопкам, которые вызывают toggleSection('id') ---
+// На все элементы с inline onclick "toggleSection('...')" повесим дополнительный слушатель.
+// При клике: если в поле поиска есть текст, то мы сделаем особое поведение — полностью
+// раскроем целевой раздел (покажем все его дочерние subdiv/child/text-block), игнорируя фильтр.
+
+document.querySelectorAll('[onclick]').forEach(el => {
+  const onclickAttr = el.getAttribute('onclick') || '';
+  const targetId = parseToggleTargetFromOnclick(onclickAttr);
+  if(targetId){
+    el.addEventListener('click', (e) => {
+      // Если поле поиска пустое, просто позволяем стандартному onclick работать (toggleSection)
+      const q = (searchInput.value || '').trim();
+      if(q === ''){
+        // ничего — штатный onclick выполнится
+        return;
+      }
+
+      // Если есть поисковый запрос — при клике раскроем ВСЕ дочерние элементы целевого раздела
+      e.preventDefault(); // чтобы предотвратить дублирование (если нужно)
+      e.stopPropagation();
+
+      // Сначала используем вашу логику: скрыть всё, показать цепочку предков и сам раздел
+      // (используем toggleSection, но сначала гарантируем, что всё скрыто)
+      document.querySelectorAll('.subsections, .text-block').forEach(s => s.style.display = 'none');
+
+      const elTarget = document.getElementById(targetId);
+      if(!elTarget) return;
+
+      // Показать цепочку предков
+      let p = elTarget.parentElement;
+      const ancestors = [];
+      while(p){
+        if(p.classList && p.classList.contains('subsections') && p.id){
+          ancestors.push(p.id);
+        }
+        p = p.parentElement;
+      }
+      ancestors.reverse().forEach(aid => {
+        const block = document.getElementById(aid);
+        if(block) block.style.display = 'block';
+      });
+
+      // Показать сам раздел и **всех** его потомков (это ключ: разворачивает раздел полностью)
+      function showRecursive(node){
+        if(!node) return;
+        node.style.display = 'block';
+        node.querySelectorAll('.subsections, .text-block, .child-btn, .sub-btn').forEach(ch => ch.style.display = 'block');
+      }
+      showRecursive(elTarget);
+
+      // Уберём визуальный фильтр (оставим поле поиска как есть) — при желании можно очистить поле:
+      // searchInput.value = '';
+    });
+  }
+});
+</script>
+  <script>
+const input = document.getElementById("searchInput");
+const clearBtn = document.getElementById("clearSearch");
+
+input.addEventListener("input", () => {
+    clearBtn.style.display = input.value.length > 0 ? "block" : "none";
+});
+
+clearBtn.addEventListener("click", () => {
+    input.value = "";
+    clearBtn.style.display = "none";
+    input.dispatchEvent(new Event("input"));  // перезапуск поиска
+});
+</script>
+<script>
+  // --- ДАННЫЕ ИЗ ТАБЛИЦЫ ---
+  const norms = {
+    "Новорождённые": {girl:{h:49.5,w:3.3}, boy:{h:50.4,w:3.5}, chss:"130-140", chdd:"40-60", ad:"70/40"},
+    "1 месяц": {girl:{h:53.5,w:4.1}, boy:{h:54.5,w:4.3}, chss:"130-140", chdd:"40-60", ad:"70/40"},
+    "2 месяца": {girl:{h:56.9,w:5}, boy:{h:57.7,w:5.3}, chss:"130-140", chdd:"40-60", ad:"70/40"},
+    "3 месяца": {girl:{h:60.2,w:5.9}, boy:{h:61.3,w:6.2}, chss:"120-130", chdd:"35-40", ad:"85/40"},
+    "4 месяца": {girl:{h:62.1,w:6.5}, boy:{h:63.8,w:6.9}, chss:"120-130", chdd:"35-40", ad:"85/40"},
+    "5 месяцев": {girl:{h:63.9,w:7.2}, boy:{h:66.9,w:7.8}, chss:"120-130", chdd:"35-40", ad:"85/40"},
+    "6 месяцев": {girl:{h:66.6,w:7.9}, boy:{h:67.9,w:8.7}, chss:"120-125", chdd:"33-35", ad:"90/55"},
+    "7 месяцев": {girl:{h:67.4,w:8.1}, boy:{h:69.6,w:8.9}, chss:"120-125", chdd:"33-35", ad:"90/55"},
+    "8 месяцев": {girl:{h:69.8,w:8.3}, boy:{h:71.2,w:9.3}, chss:"120-125", chdd:"33-35", ad:"90/55"},
+    "9 месяцев": {girl:{h:70.6,w:9}, boy:{h:72.8,w:9.8}, chss:"120-125", chdd:"33-35", ad:"90/55"},
+    "10 месяцев": {girl:{h:72.1,w:9.5}, boy:{h:73.9,w:10.3}, chss:"120-125", chdd:"30-32", ad:"92/56"},
+    "11 месяцев": {girl:{h:73.6,w:9.8}, boy:{h:74.9,w:10.4}, chss:"120-125", chdd:"33-35", ad:"90/55"},
+    "1 год": {girl:{h:74.8,w:10.1}, boy:{h:75.7,w:10.8}, chss:"120", chdd:"30-32", ad:"92/56"},
+    "2 года": {girl:{h:86.1,w:12.6}, boy:{h:88.2,w:13}, chss:"110-115", chdd:"26-30", ad:"94/56"},
+    "3 года": {girl:{h:97.3,w:14.8}, boy:{h:95.7,w:14.9}, chss:"110-115", chdd:"26-30", ad:"94/56"},
+    "4 года": {girl:{h:100.6,w:16}, boy:{h:102.4,w:17.1}, chss:"100-105", chdd:"24-26", ad:"98/56"},
+    "5 лет": {girl:{h:109,w:18.3}, boy:{h:110.4,w:19.7}, chss:"100", chdd:"24-26", ad:"100/60"},
+    "6 лет": {girl:{h:115.7,w:21.3}, boy:{h:115.9,w:21.9}, chss:"90-95", chdd:"24-26", ad:"100/60"},
+    "7 лет": {girl:{h:123.6,w:24.5}, boy:{h:123.9,w:24.9}, chss:"85-92", chdd:"21-23", ad:"100/60"},
+    "8 лет": {girl:{h:129,w:27.4}, boy:{h:129.7,w:27.8}, chss:"80-85", chdd:"21-23", ad:"100/600"},
+    "9 лет": {girl:{h:136.9,w:31}, boy:{h:134.6,w:30.6}, chss:"80-85", chdd:"21-23", ad:"100/60"},
+    "10 лет": {girl:{h:140.3,w:34.3}, boy:{h:140.3,w:33.7}, chss:"78-84", chdd:"18-21", ad:"105/70"},
+    "11 лет": {girl:{h:144.5,w:37.4}, boy:{h:143.4,w:35.4}, chss:"78-84", chdd:"18-21", ad:"105/70"},
+    "12 лет": {girl:{h:152.8,w:44}, boy:{h:150,w:41.2}, chss:"75-82", chdd:"18-21", ad:"110/70"},
+    "13 лет": {girl:{h:156.8,w:48.5}, boy:{h:156.6,w:45.8}, chss:"75-82", chdd:"18-21", ad:"110/70"},
+    "14 лет": {girl:{h:160.8,w:51.3}, boy:{h:162.6,w:51.2}, chss:"72-78", chdd:"16-18", ad:"120/70"},
+    "15 лет": {girl:{h:161.9,w:54.8}, boy:{h:170.1,w:56.3}, chss:"70-72", chdd:"16-18", ad:"120/70"},
+    "16 лет": {girl:{h:162.6,w:55.6}, boy:{h:173.6,w:62}, chss:"70-72", chdd:"16-18", ad:"120/80"},
+    "17 лет": {girl:{h:162.9,w:56.4}, boy:{h:175.3,w:66.8}, chss:"70-72", chdd:"16-18", ad:"120/80"}
+  };
+
+  // --- ЗАПОЛНЕНИЕ СПИСКА ВОЗРАСТОВ ---
+  const ageSelect = document.getElementById("ageSelect");
+  Object.keys(norms).forEach(age => {
+    const opt = document.createElement("option");
+    opt.value = age;
+    opt.textContent = age;
+    ageSelect.appendChild(opt);
+  });
+
+  // --- ОТКРЫТЬ/СКРЫТЬ КАЛЬКУЛЯТОР ---
+  function toggleCalculator() {
+    const box = document.getElementById("normCalculator");
+    box.style.display = box.style.display === "none" ? "block" : "none";
+  }
+
+  // --- РАСЧЁТ ---
+  function calculate() {
+    const age = ageSelect.value;
+    const gender = document.getElementById("genderSelect").value;
+    const result = document.getElementById("normResult");
+
+    if (!age || !gender) {
+      result.textContent = "Выберите возраст и пол.";
+      return;
+    }
+
+    const d = norms[age];
+    const g = d[gender];
+
+    result.innerHTML = `
+      <b>Рост:</b> ${g.h} см<br>
+      <b>Вес:</b> ${g.w} кг<br>
+      <b>ЧСС:</b> ${d.chss}<br>
+      <b>ЧДД:</b> ${d.chdd}<br>
+      <b>АД:</b> ${d.ad}
+    `;
+  }
+
+  ageSelect.onchange = calculate;
+  genderSelect.onchange = calculate;
+</script>
+</script>
 </body>
 </html>
