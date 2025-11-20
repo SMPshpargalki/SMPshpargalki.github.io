@@ -548,9 +548,26 @@
     </div>
 
     <!-- 3. Калькуляторы -->
+<!-- 3. Калькуляторы -->
 <button class="main-btn" onclick="toggleSection('kalc')"><b>Калькуляторы</b></button>
 <div id="kalc" class="subsections">
-  </div>
+
+    <!-- Калькулятор 1: Детские возрастные нормы -->
+    <button class="sub-btn" onclick="toggleSection('kidsCalc')">Детские возрастные нормы</button>
+    <div id="kidsCalc" class="subsections calc-block">
+        <!-- сюда позже вставим сам калькулятор -->
+        <div style="padding:15px;">Калькулятор детских возрастных норм</div>
+    </div>
+
+    <!-- Калькулятор 2: Беременность -->
+    <button class="sub-btn" onclick="toggleSection('pregCalc')">Калькулятор беременности</button>
+    <div id="pregCalc" class="subsections calc-block">
+        <!-- сюда позже вставим калькулятор беременности -->
+        <div style="padding:15px;">Калькулятор беременности</div>
+    </div>
+
+</div>
+
     
 <!-- 3. МКБ-10 -->
 <button class="main-btn" onclick="toggleSection('MKB10')"><b>МКБ-10</b></button>
@@ -562,7 +579,7 @@
 <!-- 4. Сказать спасибо -->
 <button class="main-btn" onclick="toggleSection('thankYou')"><b>Сказать спасибо</b></button>
 <div id="thankYou" class="text-block">
-Здравствуй, коллега!11
+Здравствуй, коллега!11111
 Здесь ты можешь отблагодарить админа 
 <b>Канала СМП Шпаргалки</b>
 <b>МедЧата</b>
@@ -580,7 +597,7 @@
   <!-- 5. Баннер -->
   </div>
   <div class="banner-text">
-    ЗДРАСТВУЙ КОЛЛЕГА!
+    ЗДРАСТВУЙ КОЛЛЕГА!11
     </div>
   <div class="banner">
     <img src="картинки/БаннерДоброПожаловать.jpg" alt="Баннер" class="banner-img">
@@ -590,9 +607,11 @@
   </div>
 
   <script>
-    function hideAllSections(){
-      document.querySelectorAll('.subsections, .text-block').forEach(s => s.style.display = 'none');
-    }
+  function hideAllSections(){
+  document.querySelectorAll('.subsections, .text-block').forEach(s => {
+    if (!s.closest('#kalc')) s.style.display = 'none'; // скрываем всё, что НЕ калькуляторы
+  });
+}
 
     function hideDescendants(el){
       el.querySelectorAll('.subsections, .text-block').forEach(s => s.style.display = 'none');
@@ -608,6 +627,10 @@
         hideDescendants(el);
         el.style.display = 'none';
         return;
+
+        // Если закрываем главный раздел "Калькуляторы" — закрыть все калькуляторы
+if (id !== 'kalc') {
+    document.querySelectorAll('#kalc .calc-block').forEach(c => c.style.display = 'none');
       }
 
       hideAllSections();
