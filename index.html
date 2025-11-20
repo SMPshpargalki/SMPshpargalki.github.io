@@ -562,7 +562,7 @@
 <!-- 4. Сказать спасибо -->
 <button class="main-btn" onclick="toggleSection('thankYou')"><b>Сказать спасибо</b></button>
 <div id="thankYou" class="section" class="text-block">
-Здравствуй, коллега!
+Здравствуй, коллега!11
 Здесь ты можешь отблагодарить админа 
 <b>Канала СМП Шпаргалки</b>
 <b>МедЧата</b>
@@ -580,7 +580,7 @@
   <!-- 5. Баннер -->
   </div>
   <div class="banner-text">
-    ЗДРАСТВУЙ КОЛЛЕГА!7777
+    ЗДРАСТВУЙ КОЛЛЕГА!
     </div>
   <div class="banner">
     <img src="картинки/БаннерДоброПожаловать.jpg" alt="Баннер" class="banner-img">
@@ -605,18 +605,29 @@
 
 
 
-function toggleSection(id){
-    const el = document.getElementById(id);
-    if(!el) return;
 
-    const visible = window.getComputedStyle(el).display !== 'none';
+function toggleSection(id) {
+    const target = document.getElementById(id);
+    if (!target) return;
 
-    if(visible){
-        // hide all descendants inside this element then hide it
-        el.querySelectorAll('.subsections, .text-block').forEach(s => s.style.display = 'none');
-        el.style.display = 'none';
-        return;
+    const isVisible = window.getComputedStyle(target).display !== "none";
+
+    // Close everything
+    document.querySelectorAll(".section").forEach(sec => sec.style.display = "none");
+
+    // If reopening, open full path up to target
+    if (!isVisible) {
+        target.style.display = "block";
+        // Open parent chains with data-parent attribute
+        let parent = target.getAttribute("data-parent");
+        while (parent) {
+            const p = document.getElementById(parent);
+            if (p) p.style.display = "block";
+            parent = p ? p.getAttribute("data-parent") : null;
+        }
     }
+}
+
 
     // Hide everything first
     hideAllSections();
