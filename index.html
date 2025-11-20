@@ -552,10 +552,10 @@
 <button class="main-btn" onclick="toggleSection('kalc')"><b>Калькуляторы</b></button>
 <div id="kalc" class="subsections">
 <!-- КНОПКА ОТКРЫТИЯ -->
-<button class="sub-btn" onclick="toggleCalculator()">Детские возрастные нормы</button>
+<button class="sub-btn" onclick="openCalc('normCalculator')">Детские возрастные нормы</button>
 
 <!-- БЛОК КАЛЬКУЛЯТОРА (изначально скрыт) -->
-<div id="normCalculator" style="display:none; margin-top:15px;">
+<div id="normCalculator" class="calc-box" style="display:none;">
 
   <div class="calc-box">
     <h3 class="calc-title">Расчет примерных возрастных показателей у детей</h3>
@@ -580,10 +580,10 @@
 </div>
 
   <!-- Кнопка открытия калькулятора беременности -->
-<button class="sub-btn" onclick="togglePregCalc()">Калькулятор беременности</button>
+<button class="sub-btn" onclick="openCalc('pregCalc')">Калькулятор беременности</button>
 
 <!-- Блок с калькулятором -->
-<div id="pregCalc" class="calculator-panel" style="display:none;">
+<div id="pregCalc" class="calc-box" style="display:none;">
   <div class="calc-block">
     <label for="lmpDate">Дата последней менструации:</label>
     <input type="date" id="lmpDate">
@@ -627,7 +627,7 @@
   <!-- 5. Баннер -->
   </div>
   <div class="banner-text">
-    ЗДРАСТВУЙ КОЛЛЕГА!!!
+    ЗДРАСТВУЙ КОЛЛЕГА!
     </div>
   <div class="banner">
     <img src="картинки/БаннерДоброПожаловать.jpg" alt="Баннер" class="banner-img">
@@ -993,10 +993,18 @@ clearBtn.addEventListener("click", () => {
   });
 
   // --- ОТКРЫТЬ/СКРЫТЬ КАЛЬКУЛЯТОР ---
-  function toggleCalculator() {
-    const box = document.getElementById("normCalculator");
-    box.style.display = box.style.display === "none" ? "block" : "none";
-  }
+ function openCalc(id) {
+    // Закрыть все калькуляторы
+    document.querySelectorAll(".calc-box").forEach(box => {
+        if (box.id !== id) {
+            box.style.display = "none";
+        }
+    });
+
+    // Открыть/закрыть выбранный
+    const el = document.getElementById(id);
+    el.style.display = (el.style.display === "block") ? "none" : "block";
+}
 
   // --- РАСЧЁТ ---
   function calculate() {
@@ -1025,10 +1033,18 @@ clearBtn.addEventListener("click", () => {
   genderSelect.onchange = calculate;
 </script>
   <script>
-  function togglePregCalc() {
-    const panel = document.getElementById("pregCalc");
-    panel.style.display = (panel.style.display === "block") ? "none" : "block";
-  }
+ function openCalc(id) {
+    // Закрыть все калькуляторы
+    document.querySelectorAll(".calc-box").forEach(box => {
+        if (box.id !== id) {
+            box.style.display = "none";
+        }
+    });
+
+    // Открыть/закрыть выбранный
+    const el = document.getElementById(id);
+    el.style.display = (el.style.display === "block") ? "none" : "block";
+}
 </script>
   <script>
   document.getElementById("calcPreg").addEventListener("click", function () {
