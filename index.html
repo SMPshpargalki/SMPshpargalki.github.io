@@ -629,7 +629,7 @@
         return;
     }
 
-    // При открытии любого раздела — закрыть все калькуляторы
+    
     if (id !== "kalc") {
         document.querySelectorAll("#kalc .calc-block")
             .forEach(c => c.style.display = "none");
