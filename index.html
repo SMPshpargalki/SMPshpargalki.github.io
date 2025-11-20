@@ -580,7 +580,7 @@
   <!-- 5. Баннер -->
   </div>
   <div class="banner-text">
-    ЗДРАСТВУЙ КОЛЛЕГА!!!!!
+    ЗДРАСТВУЙ КОЛЛЕГА!
     </div>
   <div class="banner">
     <img src="картинки/БаннерДоброПожаловать.jpg" alt="Баннер" class="banner-img">
@@ -591,8 +591,11 @@
 
   <script>
     function hideAllSections(){
-      document.querySelectorAll('.subsections, .text-block').forEach(s => s.style.display = 'none');
-    }
+    // hide all sections and subsections and text blocks
+    document.querySelectorAll('.section, .subsections, .text-block').forEach(s => s.style.display = 'none');
+    // hide calc blocks
+    document.querySelectorAll('#kalc .calc-block').forEach(c => c.style.display = 'none');
+}
 
     function hideDescendants(el){
       el.querySelectorAll('.subsections, .text-block').forEach(s => s.style.display = 'none');
@@ -602,35 +605,39 @@
 
 
 
-function toggleSection(id) {
+function toggleSection(id){
     const el = document.getElementById(id);
-    if (!el) return;
+    if(!el) return;
 
-    const isVisible = window.getComputedStyle(el).display !== "none";
+    const visible = window.getComputedStyle(el).display !== 'none';
 
-    // Скрыть все разделы верхнего уровня
-    document.querySelectorAll(".section").forEach(sec => {
-        if (sec.id !== id) sec.style.display = "none";
+    if(visible){
+        // hide all descendants inside this element then hide it
+        el.querySelectorAll('.subsections, .text-block').forEach(s => s.style.display = 'none');
+        el.style.display = 'none';
+        return;
+    }
+
+    // Hide everything first
+    hideAllSections();
+
+    // Show ancestor path (subsections) so path is open
+    let p = el.parentElement;
+    const ancestors = [];
+    while(p){
+        if(p.classList && p.classList.contains('subsections') && p.id){
+            ancestors.push(p.id);
+        }
+        p = p.parentElement;
+    }
+    ancestors.reverse().forEach(aid => {
+        const block = document.getElementById(aid);
+        if(block) block.style.display = 'block';
     });
 
-    // Если выходим из калькуляторов — скрываем все калькуляторы
-    if (id !== "kalc") {
-        document.querySelectorAll("#kalc .calc-block").forEach(c => {
-            c.style.display = "none";
-        });
-    }
-
-    // Показать или скрыть выбранный раздел
-    el.style.display = isVisible ? "none" : "block";
+    // Finally show the target
+    el.style.display = 'block';
 }
-);
-
-    // 2. Скрываем все калькуляторы, если вышли из блока KALC
-    if (id !== "kalc") {
-        document.querySelectorAll("#kalc .calc-block").forEach(c => {
-            c.style.display = "none";
-        });
-    }
 
     // 3. Переключаем текущий
     el.style.display = isVisible ? "none" : "block";
