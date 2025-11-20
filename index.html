@@ -553,15 +553,15 @@
 <div id="kalc" class="subsections">
 
     <!-- Калькулятор 1: Детские возрастные нормы -->
-    <button class="sub-btn" onclick="toggleSection('kidsCalc')">Детские возрастные нормы</button>
-    <div id="kidsCalc" class="subsections calc-block">
+   <button class="sub-btn" onclick="toggleCalc('kidsCalc')">Детские возрастные нормы</button>
+<div id="kidsCalc" class="calc-block">
         <!-- сюда позже вставим сам калькулятор -->
         <div style="padding:15px;">Калькулятор детских возрастных норм</div>
     </div>
 
     <!-- Калькулятор 2: Беременность -->
-    <button class="sub-btn" onclick="toggleSection('pregCalc')">Калькулятор беременности</button>
-    <div id="pregCalc" class="subsections calc-block">
+   <button class="sub-btn" onclick="toggleCalc('pregCalc')">Калькулятор беременности</button>
+<div id="pregCalc" class="calc-block">
         <!-- сюда позже вставим калькулятор беременности -->
         <div style="padding:15px;">Калькулятор беременности</div>
     </div>
@@ -617,21 +617,26 @@
       el.querySelectorAll('.subsections, .text-block').forEach(s => s.style.display = 'none');
     }
 
-    function toggleSection(id){
-      const el = document.getElementById(id);
-      if(!el) return;
+   function toggleSection(id){
+    const el = document.getElementById(id);
+    if(!el) return;
 
-      const visible = window.getComputedStyle(el).display !== 'none';
+    const visible = window.getComputedStyle(el).display !== 'none';
 
-      if(visible){
+    if(visible){
         hideDescendants(el);
         el.style.display = 'none';
         return;
+    }
 
-        // Если закрываем главный раздел "Калькуляторы" — закрыть все калькуляторы
-if (id !== 'kalc') {
-    document.querySelectorAll('#kalc .calc-block').forEach(c => c.style.display = 'none');
-      }
+    // При открытии любого раздела — закрыть все калькуляторы
+    if (id !== "kalc") {
+        document.querySelectorAll("#kalc .calc-block")
+            .forEach(c => c.style.display = "none");
+    }
+
+    el.style.display = 'block';
+}
 
       hideAllSections();
 
@@ -924,6 +929,19 @@ clearBtn.addEventListener("click", () => {
     clearBtn.style.display = "none";
     input.dispatchEvent(new Event("input"));  // перезапуск поиска
 });
+</script>
+  <script>
+// Универсальная логика для калькуляторов
+function toggleCalc(id) {
+    // скрываем все калькуляторы
+    document.querySelectorAll("#kalc .calc-block").forEach(c => {
+        if (c.id !== id) c.style.display = "none";
+    });
+
+    // переключаем выбранный
+    const block = document.getElementById(id);
+    block.style.display = block.style.display === "block" ? "none" : "block";
+}
 </script>
 </script>
 </body>
