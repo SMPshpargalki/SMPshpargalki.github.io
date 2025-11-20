@@ -627,7 +627,7 @@
   <!-- 5. Баннер -->
   </div>
   <div class="banner-text">
-    ЗДРАСТВУЙ КОЛЛЕГА!!!111
+    ЗДРАСТВУЙ КОЛЛЕГА!!2222
     </div>
   <div class="banner">
     <img src="картинки/БаннерДоброПожаловать.jpg" alt="Баннер" class="banner-img">
@@ -637,9 +637,17 @@
   </div>
 
   <script>
-    function hideAllSections(){
-      document.querySelectorAll('.subsections, .text-block').forEach(s => s.style.display = 'none');
-    }
+    function hideAllSections() {
+    // скрываем обычные подразделы
+    document.querySelectorAll('.subsections, .text-block').forEach(s => {
+        s.style.display = 'none';
+    });
+
+    // скрываем КАЛЬКУЛЯТОРЫ
+    document.querySelectorAll('.calc-block').forEach(c => {
+        c.style.display = 'none';
+    });
+}
 
     function hideDescendants(el){
       el.querySelectorAll('.subsections, .text-block').forEach(s => s.style.display = 'none');
