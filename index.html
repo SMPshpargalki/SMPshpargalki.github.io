@@ -552,8 +552,9 @@
 <button class="main-btn" onclick="toggleSection('kalc')"><b>Калькуляторы</b></button>
 <div id="kalc" class="subsections">
 <!-- КНОПКА ОТКРЫТИЯ -->
-<button class="sub-btn" onclick="toggleCalculator()">Детские возрастные нормы</button>
-
+<button class="sub-btn" onclick="toggleSection('childCalc')">Детские возрастные нормы</button>
+<div id="childCalc" class="calc-section" style="display:none;">
+  
 <!-- БЛОК КАЛЬКУЛЯТОРА (изначально скрыт) -->
 <div id="normCalculator" style="display:none; margin-top:15px;">
 
@@ -580,8 +581,9 @@
 </div>
 
   <!-- Кнопка открытия калькулятора беременности -->
-<button class="sub-btn" onclick="togglePregCalc()">Калькулятор беременности</button>
-
+<button class="sub-btn" onclick="toggleSection('pregCalc')">Калькулятор беременности</button>
+<div id="pregCalc" class="calc-section" style="display:none;">
+  
 <!-- Блок с калькулятором -->
 <div id="pregCalc" class="calculator-panel" style="display:none;">
   <div class="calc-block">
@@ -627,7 +629,7 @@
   <!-- 5. Баннер -->
   </div>
   <div class="banner-text">
-    ЗДРАСТВУЙ КОЛЛЕГА!333
+    ЗДРАСТВУЙ КОЛЛЕГА!
     </div>
   <div class="banner">
     <img src="БаннерДоброПожаловать.jpg" alt="Баннер" class="banner-img">
