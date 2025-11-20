@@ -552,7 +552,8 @@
 <button class="main-btn" onclick="toggleSection('kalc')"><b>Калькуляторы</b></button>
 <div id="kalc" class="subsections">
 <!-- КНОПКА ОТКРЫТИЯ -->
-<button class="sub-btn" onclick="toggleCalculator()">Детские возрастные нормы</button>
+<button class="sub-btn" onclick="openCalculator('childCalc')">Детские возрастные нормы</button>
+<div id="childCalc" class="calculator-box" style="display:none;">
 
 <!-- БЛОК КАЛЬКУЛЯТОРА (изначально скрыт) -->
 <div id="normCalculator" style="display:none; margin-top:15px;">
@@ -580,8 +581,9 @@
 </div>
 
   <!-- Кнопка открытия калькулятора беременности -->
-<button class="sub-btn" onclick="togglePregCalc()">Калькулятор беременности</button>
-
+<button class="sub-btn" onclick="openCalculator('pregCalc')">Калькулятор беременности</button>
+<div id="pregCalc" class="calculator-box" style="display:none;">
+  
 <!-- Блок с калькулятором -->
 <div id="pregCalc" class="calculator-panel" style="display:none;">
   <div class="calc-block">
@@ -627,7 +629,7 @@
   <!-- 5. Баннер -->
   </div>
   <div class="banner-text">
-    ЗДРАСТВУЙ КОЛЛЕГА!111
+    ЗДРАСТВУЙ КОЛЛЕГА!
     </div>
   <div class="banner">
     <img src="картинки/БаннерДоброПожаловать.jpg" alt="Баннер" class="banner-img">
@@ -1025,10 +1027,16 @@ clearBtn.addEventListener("click", () => {
   genderSelect.onchange = calculate;
 </script>
   <script>
-  function togglePregCalc() {
-    const panel = document.getElementById("pregCalc");
-    panel.style.display = (panel.style.display === "block") ? "none" : "block";
-  }
+ function openCalculator(calcId) {
+    // Спрятать все калькуляторы
+    document.querySelectorAll('.calculator-box').forEach(box => {
+        box.style.display = 'none';
+    });
+
+    // Тот, по которому нажали — открыть/закрыть
+    const target = document.getElementById(calcId);
+    target.style.display = (target.style.display === "block") ? "none" : "block";
+}
 </script>
   <script>
   document.getElementById("calcPreg").addEventListener("click", function () {
