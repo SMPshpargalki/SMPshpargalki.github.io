@@ -580,7 +580,7 @@
   <!-- 5. Баннер -->
   </div>
   <div class="banner-text">
-    ЗДРАСТВУЙ КОЛЛЕГА!!!
+    ЗДРАСТВУЙ КОЛЛЕГА!
     </div>
   <div class="banner">
     <img src="картинки/БаннерДоброПожаловать.jpg" alt="Баннер" class="banner-img">
@@ -599,15 +599,29 @@
     }
 
     
+
 function toggleSection(id) {
     const el = document.getElementById(id);
     if (!el) return;
 
     const isVisible = window.getComputedStyle(el).display !== "none";
 
-    document.querySelectorAll(".section").forEach(sec => {
+    // 1. Скрываем все разделы
+    document.querySelectorAll(".subsections").forEach(sec => {
         if (sec.id !== id) sec.style.display = "none";
     });
+
+    // 2. Если вышли из калькуляторов — скрываем калькуляторы
+    if (id !== "kalc") {
+        document.querySelectorAll("#kalc .calc-block").forEach(c => {
+            c.style.display = "none";
+        });
+    }
+
+    // 3. Переключаем выбранный
+    el.style.display = isVisible ? "none" : "block";
+}
+);
 
     if (id !== "kalc") {
         document.querySelectorAll("#kalc .calc-block").forEach(c => {
