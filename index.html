@@ -43,11 +43,11 @@
     <!-- 1. Шаблоны карт вызовов -->
     <button class="main-btn" onclick="toggleSection('templates')"><b>Шаблоны карт вызовов</b></button>
 
-    <div id="templates" class="subsections">
+    <div id="templates" class="section" class="subsections">
 
 <!-- Акушерство -->
 <button class="sub-btn" onclick="toggleSection('obstetrics')"><b>Акушерство и гинекология</b></button>
-<div id="obstetrics" class="subsections">
+<div id="obstetrics" class="section" class="subsections">
 <button class="child-btn" onclick="openModal(`<u><b>Диагноз</u></b>
 Беременность 00 недель. Вторые роды в головном предлежании. 1 период 1640 О80.0
 <b><u>Жалобы:</u></b>
@@ -103,7 +103,7 @@
 
 <!-- Анестезиология -->
 <button class="sub-btn" onclick="toggleSection('anesthesia')"><b>Анестезиология и реанимация</b></button>
-<div id="anesthesia" class="subsections">
+<div id="anesthesia" class="section" class="subsections">
 <button class="child-btn" onclick="openModal(`текст`)">Анафилактический шок</button>
 <button class="child-btn" onclick="openModal(`текст`)">Клиническая смерть до СМП</button>
 <button class="child-btn" onclick="openModal(`текст`)">Клиническая смерть. Повешение</button>
@@ -115,7 +115,7 @@
 
 <!-- Инфекции -->
 <button class="sub-btn" onclick="toggleSection('infectious')"><b>Инфекционные заболевания</b></button>
-<div id="infectious" class="subsections">
+<div id="infectious" class="section" class="subsections">
 <button class="child-btn" onclick="openModal(`текст`)">Ангина лакунарная</button>
 <button class="child-btn" onclick="openModal(`текст`)">Бешенство</button>
 <button class="child-btn" onclick="openModal(`текст`)">Боррелиоз (болезнь Лайма)</button>
@@ -148,7 +148,7 @@
 
       <!-- Кардиология -->
 <button class="sub-btn" onclick="toggleSection('kardiologiya')"><b>Кардиология</b></button>
-<div id="kardiologiya" class="subsections">
+<div id="kardiologiya" class="section" class="subsections">
 <button class="child-btn" onclick="openModal(`текст`)">Аритмия. Пароксизмальная форма фибрилляции предсердий. Постоянная форма фибрилляции предсердий. Трепетание предсердий.</button>
 <button class="child-btn" onclick="openModal(`текст`)">Атеросклеротический кардиосклероз</button>
 <button class="child-btn" onclick="openModal(`текст`)">Гипертоническая болезнь 2 стадии (ГБ 2 стадии)</button>
@@ -171,7 +171,7 @@
 
       <!-- Констатация -->
 <button class="sub-btn" onclick="toggleSection('konstataciya')"><b>Констатация</b></button>
-<div id="konstataciya" class="subsections">
+<div id="konstataciya" class="section" class="subsections">
 <button class="child-btn" onclick="openModal(`текст`)">Ампутация головы</button>
 <button class="child-btn" onclick="openModal(`текст`)">Ампутация туловища</button>
 <button class="child-btn" onclick="openModal(`текст`)">Констатация смерти (Более недели в лесу)</button>
@@ -185,7 +185,7 @@
 
       <!-- Неврология -->
 <button class="sub-btn" onclick="toggleSection('nevrologiya')"><b>Неврология</b></button>
-<div id="nevrologiya" class="subsections">
+<div id="nevrologiya" class="section" class="subsections">
 <button class="child-btn" onclick="openModal(`текст`)">Алкогольная полиневропатия</button>
 <button class="child-btn" onclick="openModal(`текст`)">Блефароспазм</button>
 <button class="child-btn" onclick="openModal(`текст`)">Болезнь Паркинсона</button>
@@ -218,7 +218,7 @@
 
       <!-- Оториноларингология -->
 <button class="sub-btn" onclick="toggleSection('lor')"><b>Оториноларингология</b></button>
-<div id="lor" class="subsections">
+<div id="lor" class="section" class="subsections">
 <button class="child-btn" onclick="openModal(`текст`)">Кровотечение после тонзиллэктомии</button>
 <button class="child-btn" onclick="openModal(`текст`)">Носовое кровотечение</button>
 <button class="child-btn" onclick="openModal(`текст`)">Носовое кровотечение (состоявшиеся)</button>
@@ -236,7 +236,7 @@
 
       <!-- Офтальмология-->
 <button class="sub-btn" onclick="toggleSection('glaza')"><b>Офтальмология</b></button>
-<div id="glaza" class="subsections">
+<div id="glaza" class="section" class="subsections">
 <button class="child-btn" onclick="openModal(`текст`)">Глаукома</button>
 <button class="child-btn" onclick="openModal(`текст`)">Катаракта</button>
 <button class="child-btn" onclick="openModal(`текст`)">Конъюнктивит</button>
@@ -247,7 +247,7 @@
 
       <!-- Педиатрия -->
 <button class="sub-btn" onclick="toggleSection('pediatriya')"><b>Педиатрия</b></button>
-<div id="pediatriya" class="subsections">
+<div id="pediatriya" class="section" class="subsections">
 <button class="child-btn" onclick="openModal(`текст`)">Беспризорный</button>
 <button class="child-btn" onclick="openModal(`текст`)">Геморрагический васкулит</button>
 <button class="child-btn" onclick="openModal(`текст`)">Инвагинация</button>
@@ -266,7 +266,7 @@
 
       <!-- Стоматология -->
 <button class="sub-btn" onclick="toggleSection('stomatolog')"><b>Стоматология</b></button>
-<div id="stomatolog" class="subsections">
+<div id="stomatolog" class="section" class="subsections">
 <button class="child-btn" onclick="openModal(`текст`)">Альвеолит</button>
 <button class="child-btn" onclick="openModal(`текст`)">Гингивит</button>
 <button class="child-btn" onclick="openModal(`текст`)">Глоссит</button>
@@ -279,7 +279,7 @@
 
       <!-- Терапия -->
 <button class="sub-btn" onclick="toggleSection('terapiya')"><b>Терапия</b></button>
-<div id="terapiya" class="subsections">
+<div id="terapiya" class="section" class="subsections">
 <button class="child-btn" onclick="openModal(`текст`)">Аллергическая крапивница</button>
 <button class="child-btn" onclick="openModal(`текст`)">Аллергическая крапивница. Генерализованная форма</button>
 <button class="child-btn" onclick="openModal(`текст`)">Анемия</button>
@@ -311,7 +311,7 @@
 
       <!-- Токсикология -->
 <button class="sub-btn" onclick="toggleSection('toxic')"><b>Токсикология</b></button>
-<div id="toxic" class="subsections">
+<div id="toxic" class="section" class="subsections">
 <button class="child-btn" onclick="openModal(`текст`)">Использование наркотиков</button>
 <button class="child-btn" onclick="openModal(`текст`)">Отравление амитриптилином</button>
 <button class="child-btn" onclick="openModal(`текст`)">Отравление амитриптилином. Кома</button>
@@ -321,7 +321,7 @@
 
       <!-- Травматология -->
 <button class="sub-btn" onclick="toggleSection('travma')"><b>Травматология</b></button>
-<div id="travma" class="subsections">
+<div id="travma" class="section" class="subsections">
 <button class="child-btn" onclick="openModal(`текст`)">Ампутация конечности</button>
 <button class="child-btn" onclick="openModal(`текст`)">Ампутация пальца</button>
 <button class="child-btn" onclick="openModal(`текст`)">Ампутация уха</button>
@@ -404,7 +404,7 @@
 
       <!-- Урология -->
 <button class="sub-btn" onclick="toggleSection('urologiya')"><b>Урология</b></button>
-<div id="urologiya" class="subsections">
+<div id="urologiya" class="section" class="subsections">
 <button class="child-btn" onclick="openModal(`текст`)">Баланопостит</button>
 <button class="child-btn" onclick="openModal(`текст`)">Гематурия</button>
 <button class="child-btn" onclick="openModal(`текст`)">Гиперплазия предстательной железы</button>
@@ -430,7 +430,7 @@
 
   <!-- Хиругия -->
 <button class="sub-btn" onclick="toggleSection('hirurgiya')"><b>Хирургия</b></button>
-<div id="hirurgiya" class="subsections">
+<div id="hirurgiya" class="section" class="subsections">
 <button class="child-btn" onclick="openModal(`текст`)">Абсцесс</button>
 <button class="child-btn" onclick="openModal(`текст`)">Абсцесс внутрибрюшной</button>
 <button class="child-btn" onclick="openModal(`текст`)">Абсцесс постинъекционный</button>
@@ -493,7 +493,7 @@
 
       <!-- Прочее -->
 <button class="sub-btn" onclick="toggleSection('other')"><b>Прочее</b></button>
-<div id="other" class="subsections">
+<div id="other" class="section" class="subsections">
 <button class="child-btn" onclick="openModal(`текст`)">Гемодиализ</button>
 <button class="child-btn" onclick="openModal(`текст`)">Здоров на момент осмотра</button>
 <button class="child-btn" onclick="openModal(`текст`)">Подозрение на отравление</button>
@@ -505,13 +505,13 @@
     
 <!-- 2. Шпаргалки -->
 <button class="main-btn" onclick="toggleSection('cheatsheets')"><b>Шпаргалки</b></button>
-<div id="cheatsheets" class="subsections">
+<div id="cheatsheets" class="section" class="subsections">
 <button class="sub-btn" onclick="openModal(`<img src='картинки/Беспризорный.jpg' style='max-width:100%; height:auto;'>`)">Беспризорный</button>
 <button class="sub-btn" onclick="openVideo(`видео/Трубка третьего поколения.mp4`)">Трубка третьего поколения</button>
 
   <!-- Дозировки препаратов в педиатрии -->
 <button class="sub-btn" onclick="toggleSection('dozipreparatov')"><b>Дозировки препаратов в педиатрии</b></button>
-<div id="dozipreparatov" class="subsections">
+<div id="dozipreparatov" class="section" class="subsections">
 <button class="child-btn" onclick="openModal(`<img src='картинки/Диазепам.jpg' style='max-width:100%; height:auto;'>`)">Диазепам</button>
 <button class="child-btn" onclick="openModal(`<img src='картинки/Кетамин.jpg' style='max-width:100%; height:auto;'>`)">Кетамин</button>
 <button class="child-btn" onclick="openModal(`<img src='картинки/Морфин.jpg' style='max-width:100%; height:auto;'>`)">Морфин</button>
@@ -549,19 +549,19 @@
 
     <!-- 3. Калькуляторы -->
 <button class="main-btn" onclick="toggleSection('kalc')"><b>Калькуляторы</b></button>
-<div id="kalc" class="subsections">
+<div id="kalc" class="section" class="subsections">
   </div>
     
 <!-- 3. МКБ-10 -->
 <button class="main-btn" onclick="toggleSection('MKB10')"><b>МКБ-10</b></button>
-<div id="MKB10" class="subsections">
+<div id="MKB10" class="section" class="subsections">
 <button class="sub-btn">1. Некоторые инфекционные и паразитарные болезни</button>
 </div>
 
   
 <!-- 4. Сказать спасибо -->
 <button class="main-btn" onclick="toggleSection('thankYou')"><b>Сказать спасибо</b></button>
-<div id="thankYou" class="text-block">
+<div id="thankYou" class="section" class="text-block">
 Здравствуй, коллега!11
 Здесь ты можешь отблагодарить админа 
 <b>Канала СМП Шпаргалки</b>
@@ -580,7 +580,7 @@
   <!-- 5. Баннер -->
   </div>
   <div class="banner-text">
-    ЗДРАСТВУЙ КОЛЛЕГА!123456
+    ЗДРАСТВУЙ КОЛЛЕГА!
     </div>
   <div class="banner">
     <img src="картинки/БаннерДоброПожаловать.jpg" alt="Баннер" class="banner-img">
@@ -601,16 +601,29 @@
     
 
 
+
 function toggleSection(id) {
     const el = document.getElementById(id);
     if (!el) return;
 
     const isVisible = window.getComputedStyle(el).display !== "none";
 
-    // 1. Скрываем все разделы верхнего уровня
-    document.querySelectorAll("div[id]").forEach(sec => {
+    // Скрыть все разделы верхнего уровня
+    document.querySelectorAll(".section").forEach(sec => {
         if (sec.id !== id) sec.style.display = "none";
     });
+
+    // Если выходим из калькуляторов — скрываем все калькуляторы
+    if (id !== "kalc") {
+        document.querySelectorAll("#kalc .calc-block").forEach(c => {
+            c.style.display = "none";
+        });
+    }
+
+    // Показать или скрыть выбранный раздел
+    el.style.display = isVisible ? "none" : "block";
+}
+);
 
     // 2. Скрываем все калькуляторы, если вышли из блока KALC
     if (id !== "kalc") {
@@ -696,7 +709,7 @@ function openVideo(src){
 </script>
 
 <!-- Модальное окно для увеличенной картинки -->
-<div id="imgModal" style="
+<div id="imgModal" class="section" style="
   display:none;
   position:fixed;
   top:0; left:0;
@@ -714,7 +727,7 @@ function openVideo(src){
 </div>
   
   <!-- МОДАЛЬНОЕ ОКНО -->
- <div id="modal" style="
+ <div id="modal" class="section" style="
   display:none;
   position:fixed;
   top:0; left:0;
@@ -762,7 +775,7 @@ function openVideo(src){
     </div>
 
     <!-- Контент -->
-    <div id="modalContent" style="
+    <div id="modalContent" class="section" style="
       padding:20px;
       overflow-y:auto;
       font-size:18px;
