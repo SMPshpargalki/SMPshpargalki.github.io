@@ -562,7 +562,7 @@
 <!-- 4. Сказать спасибо -->
 <button class="main-btn" onclick="toggleSection('thankYou')"><b>Сказать спасибо</b></button>
 <div id="thankYou" class="text-block">
-Здравствуй, коллега!
+Здравствуй, коллега!11
 Здесь ты можешь отблагодарить админа 
 <b>Канала СМП Шпаргалки</b>
 <b>МедЧата</b>
@@ -580,7 +580,7 @@
   <!-- 5. Баннер -->
   </div>
   <div class="banner-text">
-    ЗДРАСТВУЙ КОЛЛЕГА!123456
+    ЗДРАСТВУЙ КОЛЛЕГА!
     </div>
   <div class="banner">
     <img src="картинки/БаннерДоброПожаловать.jpg" alt="Баннер" class="banner-img">
@@ -619,24 +619,7 @@ function toggleSection(id) {
 }
 
 
-      hideAllSections();
-
-      let p = el.parentElement;
-      const ancestors = [];
-      while(p){
-        if(p.classList && p.classList.contains('subsections') && p.id){ ancestors.push(p.id); }
-        p = p.parentElement;
-      }
-
-      ancestors.reverse().forEach(aid => {
-        const block = document.getElementById(aid);
-        if(block) block.style.display = 'block';
-      });
-
-      el.style.display = 'block';
-    }
-
-    document.addEventListener('DOMContentLoaded', hideAllSections);
+      document.addEventListener('DOMContentLoaded', hideAllSections);
 
 
     /* --- МОДАЛЬНОЕ ОКНО --- */
