@@ -600,16 +600,29 @@
 
     
 
+
 function toggleSection(id) {
     const el = document.getElementById(id);
     if (!el) return;
 
     const isVisible = window.getComputedStyle(el).display !== "none";
 
-    // 1. Скрываем все разделы
-    document.querySelectorAll(".subsections").forEach(sec => {
+    // 1. Скрываем все разделы верхнего уровня
+    document.querySelectorAll("div[id]").forEach(sec => {
         if (sec.id !== id) sec.style.display = "none";
     });
+
+    // 2. Скрываем все калькуляторы, если вышли из блока KALC
+    if (id !== "kalc") {
+        document.querySelectorAll("#kalc .calc-block").forEach(c => {
+            c.style.display = "none";
+        });
+    }
+
+    // 3. Переключаем текущий
+    el.style.display = isVisible ? "none" : "block";
+}
+);
 
     // 2. Если вышли из калькуляторов — скрываем калькуляторы
     if (id !== "kalc") {
