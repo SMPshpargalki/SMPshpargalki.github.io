@@ -552,50 +552,58 @@
 <button class="main-btn" onclick="toggleSection('kalc')"><b>Калькуляторы</b></button>
 <div id="kalc" class="subsections">
 <!-- КНОПКА ОТКРЫТИЯ -->
-<button class="sub-btn" onclick="toggleCalculator()">Детские возрастные нормы</button>
+<button class="sub-btn" onclick="toggleSection('normCalcSection')">Детские возрастные нормы</button>
 
 <!-- БЛОК КАЛЬКУЛЯТОРА (изначально скрыт) -->
-<div id="normCalculator" style="display:none; margin-top:15px;">
+<div id="normCalcSection" class="subsections">
 
-  <div class="calc-box">
-    <h3 class="calc-title">Расчет примерных возрастных показателей у детей</h3>
+    <div class="calc-box">
 
-    <div class="calc-row">
-      <select id="ageSelect" class="calc-select">
-        <option value="">Выберите возраст</option>
-      </select>
+        <h3 class="calc-title">Расчёт примерных возрастных норм</h3>
 
-      <select id="genderSelect" class="calc-select">
-        <option value="">Пол</option>
-        <option value="girl">Девочка</option>
-        <option value="boy">Мальчик</option>
-      </select>
+        <div class="calc-row">
+            <select id="ageSelect" class="calc-select">
+                <option value="">Выберите возраст</option>
+            </select>
+
+            <select id="genderSelect" class="calc-select">
+                <option value="">Пол</option>
+                <option value="girl">Девочка</option>
+                <option value="boy">Мальчик</option>
+            </select>
+        </div>
+
+        <div id="normResult" class="calc-result">
+            Выберите возраст и пол.
+        </div>
+
     </div>
 
-    <div id="normResult" class="calc-result">
-      Выберите возраст и пол.
-    </div>
-
-  </div>
 </div>
 
   <!-- Кнопка открытия калькулятора беременности -->
-<button class="sub-btn" onclick="togglePregCalc()">Калькулятор беременности</button>
+<button class="sub-btn" onclick="toggleSection('pregCalcSection')">Калькулятор беременности</button>
+
 
 <!-- Блок с калькулятором -->
-<div id="pregCalc" class="calculator-panel" style="display:none;">
+<div id="pregCalcSection" class="subsections">
+
   <div class="calc-block">
+
     <label for="lmpDate">Дата последней менструации:</label>
     <input type="date" id="lmpDate">
 
     <button class="red-btn" id="calcPreg">Рассчитать</button>
 
-    <div id="pregResult" class="preg-result" style="display:none;">
+    <div id="pregResult" class="preg-result" style="margin-top: 15px;">
       <p id="pregWeeks"></p>
       <p id="pregDue"></p>
     </div>
+
   </div>
+
 </div>
+
 
   </div>
     
@@ -1031,42 +1039,23 @@ clearBtn.addEventListener("click", () => {
   }
 </script>
   <script>
-  document.getElementById("calcPreg").addEventListener("click", function () {
-    const lmpValue = document.getElementById("lmpDate").value;
-    if (!lmpValue) {
-      alert("Пожалуйста, выберите дату.");
-      return;
-    }
+  document.getElementById('calcPreg').addEventListener('click', () => {
+    const lmpDate = document.getElementById('lmpDate').value;
+    if (!lmpDate) return;
 
-    const lmp = new Date(lmpValue + "T00:00:00");
+    const lmp = new Date(lmpDate);
     const today = new Date();
-    const now = new Date(today.getFullYear(), today.getMonth(), today.getDate());
 
-    const diffMs = now - lmp;
-    const diffDays = Math.floor(diffMs / (1000 * 60 * 60 * 24));
+    const diffMs = today - lmp;
+    const diffWeeks = Math.floor(diffMs / (1000 * 60 * 60 * 24 * 7));
+    const dueDate = new Date(lmp.getTime() + 280 * 24 * 60 * 60 * 1000);
 
-    const weeks = Math.floor(diffDays / 7);
-    const days = diffDays % 7;
+    document.getElementById('pregWeeks').textContent =
+      `Срок беременности: ${diffWeeks} недель`;
 
-    // ПДР = LMP + 280 дней
-    const due = new Date(lmp);
-    due.setDate(due.getDate() + 280);
-
-    function formatDate(d) {
-      const dd = String(d.getDate()).padStart(2, "0");
-      const mm = String(d.getMonth() + 1, "0");
-      const yyyy = d.getFullYear();
-      return dd + "." + mm + "." + yyyy;
-    }
-
-    document.getElementById("pregWeeks").innerText =
-      "Срок: " + weeks + " недель " + (days > 0 ? days + " дней" : "");
-
-    document.getElementById("pregDue").innerText =
-      "Предполагаемая дата родов: " + formatDate(due);
-
-    document.getElementById("pregResult").style.display = "block";
-  });
+    document.getElementById('pregDue').textContent =
+      `Предполагаемая дата родов: ${dueDate.toLocaleDateString()}`;
+});
 </script>
 </script>
 </body>
