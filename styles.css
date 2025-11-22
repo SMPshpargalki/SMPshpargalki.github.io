@@ -244,14 +244,14 @@ body{
 
 /* Внутренний блок */
 .calculator-panel .calc-block {
-    background: #0e131a;
+    background: #f7f7f7;
     padding: 15px;
     border-radius: 10px;
 }
 
 /* Заголовок */
 .calculator-panel label {
-    color: white;
+    color: red;
     font-size: 16px;
 }
 
