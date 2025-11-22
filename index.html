@@ -552,7 +552,8 @@
 <button class="main-btn" onclick="toggleSection('kalc')"><b>Калькуляторы</b></button>
 <div id="kalc" class="subsections">
 <!-- КНОПКА ОТКРЫТИЯ -->
-<button class="sub-btn" onclick="toggleCalculator()">Детские возрастные нормы</button>
+<button class="sub-btn" onclick="toggleCalculator('normCalculator')">Детские возрастные нормы</button>
+
 <!-- БЛОК КАЛЬКУЛЯТОРА (изначально скрыт) -->
 <div id="normCalculator" style="display:none; margin-top:15px;">
 
@@ -992,10 +993,16 @@ clearBtn.addEventListener("click", () => {
   });
 
   // --- ОТКРЫТЬ/СКРЫТЬ КАЛЬКУЛЯТОР ---
-  function toggleCalculator() {
-    const box = document.getElementById("normCalculator");
-    box.style.display = box.style.display === "none" ? "block" : "none";
-  }
+function toggleCalculator(id) {
+    // Закрыть все калькуляторы
+    document.querySelectorAll(".calc-block").forEach(c => c.style.display = "none");
+
+    // Открыть выбранный
+    const calc = document.getElementById(id);
+    if (!calc) return;
+
+    calc.style.display = "block";
+}
 
   // --- РАСЧЁТ ---
   function calculate() {
