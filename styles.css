@@ -235,10 +235,10 @@ body{
 }
 
 .calculator-panel {
-  margin-top: 10px;
-  padding: 10px;
-  background: #1a1f2b;
-  border-radius: 10px;
+    background: #121821;
+    padding: 15px;
+    border-radius: 12px;
+    margin-top: 10px;
   border: 1px solid rgba(255,255,255,0.08);
 }
 
