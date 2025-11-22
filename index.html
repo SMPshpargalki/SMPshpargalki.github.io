@@ -583,22 +583,27 @@
 </div>
 
   <!-- Кнопка открытия калькулятора беременности -->
-<button class="sub-btn" onclick="togglePregCalc()">Калькулятор беременности</button>
+<button class="sub-btn" onclick="toggleSection('pregCalcSection')">Калькулятор беременности</button>
 
 <!-- Блок с калькулятором -->
-<div id="pregCalc" class="calculator-panel" style="display:none;">
+<div id="pregCalcSection" class="subsections">
+
   <div class="calc-block">
+
     <label for="lmpDate">Дата последней менструации:</label>
     <input type="date" id="lmpDate">
 
     <button class="red-btn" id="calcPreg">Рассчитать</button>
 
-    <div id="pregResult" class="preg-result" style="display:none;">
+    <div id="pregResult" class="preg-result" style="margin-top: 15px;">
       <p id="pregWeeks"></p>
       <p id="pregDue"></p>
     </div>
+
   </div>
+
 </div>
+
 
   </div>
     
