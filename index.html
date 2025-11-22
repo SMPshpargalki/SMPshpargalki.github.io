@@ -552,45 +552,45 @@
 <button class="main-btn" onclick="toggleSection('kalc')"><b>Калькуляторы</b></button>
 <div id="kalc" class="subsections">
 <!-- КНОПКА ОТКРЫТИЯ -->
-<button class="sub-btn" onclick="toggleSection('normCalcSection')">Детские возрастные нормы</button>
+<button class="sub-btn" onclick="toggleCalculator()">Детские возрастные нормы</button>
+
 <!-- БЛОК КАЛЬКУЛЯТОРА (изначально скрыт) -->
-<div id="normCalcSection" class="subsections">
+<div id="normCalculator" style="display:none; margin-top:15px;">
 
-    <div class="calc-box">
-        <h3 class="calc-title">Расчёт примерных возрастных норм</h3>
+  <div class="calc-box">
+    <h3 class="calc-title">Расчет примерных возрастных показателей у детей</h3>
 
-        <div class="calc-row">
-            <select id="ageSelect" class="calc-select">
-                <option value="">Выберите возраст</option>
-            </select>
+    <div class="calc-row">
+      <select id="ageSelect" class="calc-select">
+        <option value="">Выберите возраст</option>
+      </select>
 
-            <select id="genderSelect" class="calc-select">
-                <option value="">Пол</option>
-                <option value="girl">Девочка</option>
-                <option value="boy">Мальчик</option>
-            </select>
-        </div>
-
-        <div id="normResult" class="calc-result">
-            Выберите возраст и пол.
-        </div>
-
+      <select id="genderSelect" class="calc-select">
+        <option value="">Пол</option>
+        <option value="girl">Девочка</option>
+        <option value="boy">Мальчик</option>
+      </select>
     </div>
+
+    <div id="normResult" class="calc-result">
+      Выберите возраст и пол.
+    </div>
+
+  </div>
 </div>
 
   <!-- Кнопка открытия калькулятора беременности -->
-<button class="sub-btn" onclick="toggleSection('pregCalcSection')">Калькулятор беременности</button>
-<!-- Блок с калькулятором -->
-  
-<div id="pregCalcSection" class="subsections">
+<button class="sub-btn" onclick="togglePregCalc()">Калькулятор беременности</button>
 
+<!-- Блок с калькулятором -->
+<div id="pregCalc" class="calculator-panel" style="display:none;">
   <div class="calc-block">
     <label for="lmpDate">Дата последней менструации:</label>
     <input type="date" id="lmpDate">
 
     <button class="red-btn" id="calcPreg">Рассчитать</button>
 
-    <div id="pregResult" class="preg-result" style="margin-top: 15px;">
+    <div id="pregResult" class="preg-result" style="display:none;">
       <p id="pregWeeks"></p>
       <p id="pregDue"></p>
     </div>
@@ -627,7 +627,7 @@
   <!-- 5. Баннер -->
   </div>
   <div class="banner-text">
-    ЗДРАСТВУЙ КОЛЛЕГА!!!12
+    ЗДРАСТВУЙ КОЛЛЕГА!!!
     </div>
   <div class="banner">
     <img src="картинки/БаннерДоброПожаловать.jpg" alt="Баннер" class="banner-img">
@@ -638,11 +638,11 @@
 
   <script>
     function hideAllSections(){
-      document.querySelectorAll('.subsections, .text-block, .calc-block').forEach(s => s.style.display = 'none');
+      document.querySelectorAll('.subsections, .text-block').forEach(s => s.style.display = 'none');
     }
 
     function hideDescendants(el){
-      el.querySelectorAll('.subsections, .text-block, .calc-block').forEach(s => s.style.display = 'none');
+      el.querySelectorAll('.subsections, .text-block').forEach(s => s.style.display = 'none');
     }
 
     function toggleSection(id){
@@ -1031,7 +1031,7 @@ clearBtn.addEventListener("click", () => {
   }
 </script>
   <script>
- document.getElementById("calcPreg").addEventListener("click", function () {
+  document.getElementById("calcPreg").addEventListener("click", function () {
     const lmpValue = document.getElementById("lmpDate").value;
     if (!lmpValue) {
       alert("Пожалуйста, выберите дату.");
