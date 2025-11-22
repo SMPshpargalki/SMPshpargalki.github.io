@@ -583,24 +583,24 @@
 </div>
 
   <!-- Кнопка открытия калькулятора беременности -->
-<button class="sub-btn" onclick="toggleSection('pregCalc')">Калькулятор беременности</button>
+<button class="sub-btn" onclick="toggleSection('pregCalcSection')">Калькулятор беременности</button>
 
 <!-- Блок с калькулятором -->
-<div id="pregCalc" class="subsections calc-block" style="display:none;">
+<div id="pregCalcSection" class="subsections">
 
-    <h3 class="calc-title">Калькулятор беременности</h3>
+  <div class="calc-block">
 
-    <label for="lmpDate" class="calc-label">Дата последней менструации:</label>
-    <input type="date" id="lmpDate" class="calc-select" />
+    <label for="lmpDate">Дата последней менструации:</label>
+    <input type="date" id="lmpDate">
 
     <button class="red-btn" id="calcPreg">Рассчитать</button>
 
-    <div id="pregResult" class="calc-result" style="display:none;">
-        <p id="pregWeeks"></p>
-        <p id="pregDue"></p>
+    <div id="pregResult" class="preg-result" style="margin-top: 15px;">
+      <p id="pregWeeks"></p>
+      <p id="pregDue"></p>
     </div>
-  
-</div>
+
+  </div>
 
 </div>
 
@@ -635,7 +635,7 @@
   <!-- 5. Баннер -->
   </div>
   <div class="banner-text">
-    ЗДРАСТВУЙ КОЛЛЕГА!112244
+    ЗДРАСТВУЙ КОЛЛЕГА!
     </div>
   <div class="banner">
     <img src="картинки/БаннерДоброПожаловать.jpg" alt="Баннер" class="banner-img">
