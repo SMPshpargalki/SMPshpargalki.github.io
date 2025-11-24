@@ -315,3 +315,12 @@ body{
 .list-btn:active{
   background:#c4c4c4;
 }
+
+#drugList {
+    font-size: 18px;
+    line-height: 1.5;
+}
+
+#drugList option {
+    padding: 8px 10px;
+}
