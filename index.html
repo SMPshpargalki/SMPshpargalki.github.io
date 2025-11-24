@@ -618,9 +618,11 @@
     </div>
 
     <select id="drugList" class="calc-select" size="6" style="display:none"></select>
-    <select id="drugParam" class="calc-select" style="display:none"></select>
 
     <div id="drugInfo" class="calc-result" style="display:none;"></div>
+
+    <select id="drugParam" class="calc-select" style="display:none"></select>
+
     <div id="drugResult" class="calc-result" style="display:none;"></div>
 
   </div>
@@ -1103,7 +1105,7 @@ const DRUGS = {
     name:"Диазепам",
     synonyms:["Реланиум","Сибазон","Relanium","Diazepam"],
     type:"weight",
-    unit:"вес",
+    unit:"вес в кг",
     steps:[5,10,15,20,25,30,35,40,45,50],
     info:[
       "Максимальная разовая доза:",
@@ -1127,10 +1129,10 @@ const DRUGS = {
     synonyms:["Но-шпа","No-spa","Drotaverine"],
     info:["Возрастных ограничений нет"],
     type:"age",
-    unit:"возраст",
+    unit:"возраст в годах",
     steps:[1,2,3,4,5,6,7,8,9,10,11,12],
     table:{
-      1:["от 0.1 до 0.2 мл"],
+      1:["от 0.1мл до 0.2 мл"],
       2:["0.2 — 0.4 мл"],
       3:["0.3 — 0.6 мл"],
       10:["1.0 — 2.0 мл"],
