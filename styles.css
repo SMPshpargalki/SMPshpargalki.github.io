@@ -295,7 +295,7 @@ body{
 
 .drug-search-row{
   display:flex;
-  gap:5px;
+  gap:6px;
 }
 
 .calc-input{
@@ -306,12 +306,12 @@ body{
 }
 
 .list-btn{
-  width:40px;
-  border:none;
+  width:42px;
   background:#e0e0e0;
   border-radius:8px;
+  border:none;
   font-size:18px;
 }
 .list-btn:active{
-  background:#c8c8c8;
+  background:#c4c4c4;
 }
