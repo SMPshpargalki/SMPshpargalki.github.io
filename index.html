@@ -656,7 +656,7 @@
   <!-- 5. Баннер -->
   </div>
   <div class="banner-text">
-    ЗДРАСТВУЙ КОЛЛЕГА!!!111
+    ЗДРАСТВУЙ КОЛЛЕГА!!!
     </div>
   <div class="banner">
     <img src="картинки/БаннерДоброПожаловать.jpg" alt="Баннер" class="banner-img">
@@ -1206,6 +1206,8 @@ drugSearch.addEventListener("input",()=>{
 
 // ========== выбор препарата ==========
 drugList.addEventListener("change",()=>{
+  resetCalc(); // ← очищаем инфо, выбор и результат
+
   selectedKey = drugList.value;
   const drug = DRUGS[selectedKey];
 
@@ -1219,7 +1221,9 @@ drugList.addEventListener("change",()=>{
   fillParams(drug);
 });
 
-
+btnToggle.addEventListener("click", ()=>{
+  resetCalc();
+});
 
 // ========== отображаем справку ==========
 function showInfo(drug){
