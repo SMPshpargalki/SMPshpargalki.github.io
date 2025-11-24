@@ -1099,139 +1099,180 @@ clearBtn.addEventListener("click", () => {
 <script>
 const DRUGS = {
 
+  // ============= Пример 1: ДИАЗЕПАМ =============
   diazepam:{
-    names:["Диазепам","Реланиум","Сибазон","Diazepam","Relanium","Sibazoni"],
+    name:"Диазепам",
+    synonyms:["Реланиум","Сибазон","Relanium","Diazepam"],
     type:"weight",
+    unit:"кг",
     steps:[5,10,15,20,25,30,35,40,45,50],
     info:[
       "Максимальная разовая доза:",
-      "до 5 лет — 5 мг, старше 5 лет — 10 мг",
+      "до 5 лет — 5 мг",
+      "старше 5 лет — 10 мг",
       "Вводить медленно ≥ 2 минут",
-      "Повтор через 5–15 минут",
-      "Возрастных ограничений нет"
+      "Повтор через 5–15 минут"
     ],
     table:{
-      5:{min:"1 мг / 0.2 мл", max:"2.5 мг / 0.5 мл"},
-      10:{min:"2 мг / 0.4 мл", max:"5 мг / 1 мл"},
-      15:{min:"3 мг / 0.6 мл", max:"7.5 мг / 1.5 мл"},
-      20:{min:"4 мг / 0.8 мл", max:"10 мг / 2 мл"},
-      25:{min:"5 мг / 1 мл", max:"10 мг / 2 мл"},
-      30:{min:"6 мг / 1.2 мл", max:"10 мг / 2 мл"},
-      35:{min:"7 мг / 1.4 мл", max:"10 мг / 2 мл"},
-      40:{min:"8 мг / 1.6 мл", max:"10 мг / 2 мл"},
-      45:{min:"9 мг / 1.8 мл", max:"10 мг / 2 мл"},
-      50:{min:"10 мг / 2 мл", max:"10 мг / 2 мл"},
+      5:["1 мг / 0.2 мл","2.5 мг / 0.5 мл"],
+      10:["2 мг / 0.4 мл","5 мг / 1.0 мл"],
+      15:["3 мг / 0.6 мл","7.5 мг / 1.5 мл"],
+      20:["4 мг / 0.8 мл","10 мг / 2.0 мл"],
+      25:["5 мг / 1.0 мл","10 мг / 2.0 мл"],
     }
   },
 
-  ketamine:{
-    names:["Кетамин","Ketamin","Ketamine"],
-    type:"weight",
-    steps:[5,10,15,20,25,30,35,40,45,50,55,60,65,70],
-    info:["1–3 мг/кг", "Возрастных ограничений нет"],
-    table:{
-      5:{d1:"5 мг / 0.1 мл", d2:"10 мг / 0.2 мл", d3:"15 мг / 0.3 мл"},
-      10:{d1:"10 /0.2", d2:"20 /0.4", d3:"30 /0.6"},
-      15:{d1:"15 /0.3", d2:"30 /0.6", d3:"45 /0.9"},
-      20:{d1:"20 /0.4", d2:"40 /0.8", d3:"60 /1.2"},
-      25:{d1:"25 /0.5", d2:"50 /1.0", d3:"75 /1.5"},
-      30:{d1:"30 /0.6", d2:"60 /1.2", d3:"90 /1.8"},
-      35:{d1:"35 /0.7", d2:"70 /1.4"},
-      40:{d1:"40 /0.8", d2:"80 /1.6"},
-      45:{d1:"45 /0.9", d2:"90 /1.8"},
-      50:{d1:"50 /1", d2:"100 /2"},
-      55:{d1:"55 /1.1"},
-      60:{d1:"60 /1.2"},
-      65:{d1:"65 /1.3"},
-      70:{d1:"70 /1.4"},
-    }
-  },
-
-  drotaverine:{
-    names:["Дротаверин","Но-шпа","Drotaverini","No-spa"],
+  // ============= Пример 2: ДРОТАВЕРИН =============
+  drot:{
+    name:"Дротаверин",
+    synonyms:["Но-шпа","No-spa","Drotaverine"],
     type:"age",
+    unit:"лет",
     steps:[1,2,3,4,5,6,7,8,9,10,11,12],
-    adult:"12+ лет — 1–2 мл",
     info:["Возрастных ограничений нет"],
     table:{
-      1:{min:"0.1 мл", max:"0.2 мл"},
-      2:{min:"0.2 мл", max:"0.4 мл"},
-      3:{min:"0.3 мл", max:"0.6 мл"},
-      4:{min:"0.4 мл", max:"0.8 мл"},
-      5:{min:"0.5 мл", max:"1 мл"},
-      6:{min:"0.6 мл", max:"1.2 мл"},
-      7:{min:"0.7 мл", max:"1.4 мл"},
-      8:{min:"0.8 мл", max:"1.6 мл"},
-      9:{min:"0.9 мл", max:"1.8 мл"},
-      10:{min:"1 мл", max:"2 мл"},
-      11:{min:"1.1 мл", max:"2 мл"},
-      12:{min:"1.2 мл", max:"2 мл"},
+      1:["0.1 — 0.2 мл"],
+      2:["0.2 — 0.4 мл"],
+      3:["0.3 — 0.6 мл"],
+      10:["1.0 — 2.0 мл"],
+      12:["1.2 — 2.0 мл"],
     }
+  },
+
+  // ============= Пример 3: просто текст (например однократная доза) =============
+  atropine:{
+    name:"Атропин",
+    synonyms:["Atropine","Атропин сульфат"],
+    type:"text",
+    info:[
+      "0.02 мг/кг",
+      "не более 0.6 мг за раз",
+      "в/в или в/м"
+    ]
   }
 
 };
 </script>
 <script>
-// поля
-const drugSearch = document.getElementById("drugSearch");
-const drugList = document.getElementById("drugList");
-const drugParam = document.getElementById("drugParam");
-const drugInfo = document.getElementById("drugInfo");
-const drugResult = document.getElementById("drugResult");
-const btnToggle = document.getElementById("drugListToggle");
 
-// показать весь список
-btnToggle.onclick = ()=>{
-  drugList.style.display = drugList.style.display==="none" ? "block" : "none";
+const $ = id => document.getElementById(id);
+
+const drugSearch = $("drugSearch");
+const drugList = $("drugList");
+const drugParam = $("drugParam");
+const drugInfo = $("drugInfo");
+const drugResult = $("drugResult");
+const btnToggle = $("drugListToggle");
+
+let selectedKey = null;
+
+// ========== показать весь список ==========
+btnToggle.onclick =()=>{
+  drugList.innerHTML = "";
+  Object.entries(DRUGS).forEach(([key,data])=>{
+    drugList.innerHTML += `<option value="${key}">${data.name}</option>`;
+  });
+  drugList.style.display="block";
 };
 
-// поиск без enter
-drugSearch.addEventListener("input", ()=>{
-  const q = drugSearch.value.toLowerCase();
+
+
+// ========== поиск без enter ==========
+drugSearch.addEventListener("input",()=>{
+  const q = drugSearch.value.trim().toLowerCase();
+
+  resetCalc();
+
+  if(!q){
+    drugList.style.display="none";
+    return;
+  }
+
   drugList.innerHTML="";
   drugList.style.display="block";
 
   Object.entries(DRUGS).forEach(([key,data])=>{
-    if(data.names.some(n=>n.toLowerCase().includes(q))){
-      drugList.innerHTML+= `<option value="${key}">${data.names[0]}</option>`;
+    if(
+      data.name.toLowerCase().includes(q) ||
+      data.synonyms.some(n=>n.toLowerCase().includes(q))
+    ){
+      drugList.innerHTML += `<option value="${key}">${data.name}</option>`;
     }
   });
 });
 
-// выбор препарата
-drugList.addEventListener("change", ()=>{
-  const drug = DRUGS[drugList.value];
+
+
+// ========== выбор препарата ==========
+drugList.addEventListener("change",()=>{
+  selectedKey = drugList.value;
+  const drug = DRUGS[selectedKey];
+
+  drugSearch.value = drug.name;
+  drugList.style.display="none";
+
+  showInfo(drug);
+
+  if(drug.type === "text") return;
+
+  fillParams(drug);
+});
+
+
+
+// ========== отображаем справку ==========
+function showInfo(drug){
+  drugInfo.innerHTML = drug.info.join("<br>");
+  drugInfo.style.display = "block";
+}
+
+
+
+// ========== вывод вариантов веса/возраста ==========
+function fillParams(drug){
   drugParam.innerHTML="";
   drugParam.style.display="block";
 
-  drug.steps.forEach(v=>{
-    drugParam.innerHTML+=`<option value="${v}">${v}</option>`;
-  });
-});
+  const label = `Выберите ${drug.unit}`;
+  drugParam.innerHTML += `<option value="">${label}</option>`;
 
-// выбор возраста/веса
-drugParam.addEventListener("change", ()=>{
-  const drug = DRUGS[drugList.value];
+  drug.steps.forEach(v=>{
+    drugParam.innerHTML += `<option value="${v}">${v}</option>`;
+  });
+}
+
+
+
+// ========== выбор параметра (вес/возраст) ==========
+drugParam.addEventListener("change",()=>{
+  if(!selectedKey) return;
+  const drug = DRUGS[selectedKey];
   const v = drugParam.value;
 
-  drugInfo.innerHTML = drug.info.join("<br>");
-  drugInfo.style.display="block";
+  const row = drug.table[v];
+  if(!row) return;
 
-  let out="";
-
-  if(drug.type==="weight"){
-    const row = drug.table[v];
-    Object.values(row).forEach(val=> out+= val+"<br>");
-  }
-
-  if(drug.type==="age"){
-    const row = drug.table[v];
-    out = `От ${row.min} до ${row.max}<br>`;
-  }
-
-  drugResult.innerHTML=out;
+  drugResult.innerHTML = row.join("<br>");
   drugResult.style.display="block";
 });
+
+
+
+// ========== очистка ==========
+function resetCalc(){
+  selectedKey = null;
+  drugParam.style.display="none";
+  drugParam.innerHTML="";
+  drugInfo.style.display="none";
+  drugInfo.innerHTML="";
+  drugResult.style.display="none";
+  drugResult.innerHTML="";
+}
+
+drugSearch.addEventListener("input",()=>{
+  if(!drugSearch.value.trim()) resetCalc();
+});
+
 </script>
 </script>
 </body>
