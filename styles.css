@@ -292,3 +292,26 @@ body{
   text-align:center;
   box-shadow:0 3px 8px rgba(0,0,0,0.1);
 }
+
+.drug-search-row{
+  display:flex;
+  gap:5px;
+}
+
+.calc-input{
+  flex:1;
+  padding:10px;
+  border-radius:8px;
+  border:1px solid #ccc;
+}
+
+.list-btn{
+  width:40px;
+  border:none;
+  background:#e0e0e0;
+  border-radius:8px;
+  font-size:18px;
+}
+.list-btn:active{
+  background:#c8c8c8;
+}
