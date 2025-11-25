@@ -1,20 +1,14 @@
 {
   "name": "СМП Шпаргалки",
   "short_name": "СМП Шпаргалки",
-  "description": "Приложение для быстрого доступа к шпаргалкам и шаблонам карт вызовов СМП",
-  "start_url": "/",
-  "scope": "/",
+  "description": "Приложение для быстрого доступа к шаблонам карт вызовов и шпаргалкам для СМП",
+  "start_url": "index.html",
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#e63946",
   "icons": [
     {
-      "src": "/icon-192.png",
-      "sizes": "192x192",
-      "type": "image/png"
-    },
-    {
-      "src": "/icon-512.png",
+      "src": "icon.png",
       "sizes": "512x512",
       "type": "image/png"
     }
