@@ -551,51 +551,54 @@
     <!-- 3. Калькуляторы -->
 <button class="main-btn" onclick="toggleSection('kalc')"><b>Калькуляторы</b></button>
 <div id="kalc" class="subsections">
-<!-- КНОПКА ОТКРЫТИЯ -->
+
+  <!-- Детские возрастные нормы -->
 <button class="sub-btn" onclick="toggleSection('normCalcSection')">Детские возрастные нормы</button>
-
-
 <!-- БЛОК КАЛЬКУЛЯТОРА (изначально скрыт) -->
 <div id="normCalcSection" class="subsections">
-
     <div class="calc-box">
-
         <h3 class="calc-title">Расчёт примерных возрастных норм</h3>
-
         <div class="calc-row">
             <select id="ageSelect" class="calc-select">
                 <option value="">Выберите возраст</option>
             </select>
-
             <select id="genderSelect" class="calc-select">
                 <option value="">Пол</option>
                 <option value="girl">Девочка</option>
                 <option value="boy">Мальчик</option>
             </select>
         </div>
-
         <div id="normResult" class="calc-result">
             Выберите возраст и пол.
         </div>
-
     </div>
-
 </div>
 
-  <!-- Кнопка открытия калькулятора беременности -->
+  <!-- Дозировка препаратов в педиатрии -->
+<button class="sub-btn" onclick="toggleSection('drugCalc')">Дозировка препаратов в педиатрии</button>
+<div id="drugCalc" class="subsections drugCalc" style="display:none;">
+  <div class="calc-box">
+    <div class="drug-search-row">
+      <input id="drugSearch" class="calc-input" placeholder="Введите препарат...">
+      <button id="drugListToggle" class="list-btn">🔽</button>
+    </div>
+    <select id="drugList" class="calc-select" size="6" style="display:none"></select>
+    <div id="drugInfo" class="calc-result" style="display:none;"></div>
+    <select id="drugParam" class="calc-select" style="display:none"></select>
+    <div id="drugResult" class="calc-result" style="display:none;"></div>
+  </div>
+</div>
+</div>
+    
+  <!-- Срок беременности, ПДР -->
 <button class="sub-btn" onclick="toggleSection('pregCalcSection')">Срок беременности, ПДР</button>
-
 <!-- Блок с калькулятором -->
 <div id="pregCalcSection" class="subsections">
-
  <div class="preg-box">
   <div class="preg-inner">
-
     <label for="lmpDate">Дата последней менструации:</label>
     <input type="date" id="lmpDate">
-
     <button class="red-btn" id="calcPreg">Рассчитать</button>
-
     <div id="pregResult" class="preg-result" style="margin-top: 15px;">
       <p id="pregWeeks"></p>
       <p id="pregDue"></p>
@@ -603,29 +606,7 @@
 </div>
 </div>
 </div>
-
-<!-- Калькулятор препаратов -->
-<button class="sub-btn" onclick="toggleSection('drugCalc')">Дозировка препаратов в педиатрии</button>
-
-<div id="drugCalc" class="subsections drugCalc" style="display:none;">
-  <div class="calc-box">
-
-    <div class="drug-search-row">
-      <input id="drugSearch" class="calc-input" placeholder="Введите препарат...">
-      <button id="drugListToggle" class="list-btn">🔽</button>
-    </div>
-
-    <select id="drugList" class="calc-select" size="6" style="display:none"></select>
-
-    <div id="drugInfo" class="calc-result" style="display:none;"></div>
-
-    <select id="drugParam" class="calc-select" style="display:none"></select>
-
-    <div id="drugResult" class="calc-result" style="display:none;"></div>
-
-  </div>
-</div>
-</div>
+    
 <!-- 3. МКБ-10 -->
 <button class="main-btn" onclick="toggleSection('MKB10')"><b>МКБ-10</b></button>
 <div id="MKB10" class="subsections">
