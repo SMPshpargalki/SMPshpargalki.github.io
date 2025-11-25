@@ -9,7 +9,7 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <h1><b>СМП Шпаргалки</b></h1>
+  <h1><b>СМП Шпаргалки111</b></h1>
 
   <div class="container">
 <div style="position:relative; width:100%; margin:0 auto;">
@@ -606,7 +606,7 @@
 </div>
 </div>
 
-  <button class="sub-btn" onclick="toggleSection('utdmCalc')">Высота стояния дна матки</button>
+ <button class="sub-btn" onclick="toggleSection('utdmCalc')">Высота стояния дна матки</button>
 <div id="utdmCalc" class="subsections" style="display:none;">
   <div class="calc-box">
     <label for="weekSelect">Выберите срок беременности (недели):</label>
@@ -614,6 +614,12 @@
       <option value="">-- выберите неделю --</option>
     </select>
     <div id="utdmResult" class="calc-result" style="margin-top:10px; white-space:pre-wrap;"></div>
+  </div>
+</div>
+
+<button class="sub-btn" onclick="toggleSection('drugCalc')">Дозировка препаратов в педиатрии</button>
+<div id="drugCalc" class="subsections" style="display:none;">
+  <div class="calc-box">
   </div>
 </div>
 </div>
@@ -1363,8 +1369,15 @@ weekSelect.addEventListener('change', () => {
   res.textContent = val ? udmData[val] : '';
 });
 
-// Функция toggleSection (если ее нет в основном скрипте)
+// Функция toggleSection для открытия/закрытия одной секции
 function toggleSection(id) {
+  // Закрываем все секции
+  const allSections = document.querySelectorAll('.subsections');
+  allSections.forEach(sec => {
+    if (sec.id !== id) sec.style.display = 'none';
+  });
+
+  // Переключаем выбранную секцию
   const el = document.getElementById(id);
   el.style.display = el.style.display === 'none' ? 'block' : 'none';
 }
