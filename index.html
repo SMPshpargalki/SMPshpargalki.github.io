@@ -1,49 +1,47 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
 <link rel="manifest" href="manifest.json">
 <meta name="theme-color" content="#d32f2f">
-  <title></b>СМП Шпаргалки</b></title>
-  <link rel="stylesheet" href="styles.css">
+<title></b>СМП Шпаргалки</b></title>
+<link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <h1><b>СМП Шпаргалки</b></h1>
+<h1><b>СМП Шпаргалки1122</b></h1>
 
-  <div class="container">
+<div class="container">
 <div style="position:relative; width:100%; margin:0 auto;">
-  <input
+<input
       id="searchInput"
       type="text"
       placeholder="Поиск..."
       style="
-          width:90%;
-          padding:15px;
-          font-size:20px;
-          border-radius:12px;
-          border:2px solid #ccc;
-          margin-bottom:20px;
-      ">  
+      width:90%;
+      padding:15px;
+      font-size:20px;
+      border-radius:12px;
+      border:2px solid #ccc;
+      margin-bottom:20px;">  
   <!-- Крестик очистки -->
-  <span id="clearSearch"
+<span id="clearSearch"
         style="
-          position:absolute;
-          right:15px;
-          top:35%;
-          transform:translateY(-50%);
-          font-size:30px;
-          cursor:pointer;
-          color:#d32f2f;
-          display:none;
-        ">
+        position:absolute;
+        right:15px;
+        top:35%;
+        transform:translateY(-50%);
+        font-size:30px;
+        cursor:pointer;
+        color:#d32f2f;
+        display:none;">
     ✕
-  </span>
+</span>
 </div>
     <!-- 1. Шаблоны карт вызовов -->
-    <button class="main-btn" onclick="toggleSection('templates')"><b>Шаблоны карт вызовов</b></button>
+<button class="main-btn" onclick="toggleSection('templates')"><b>Шаблоны карт вызовов</b></button>
 
-    <div id="templates" class="subsections">
+<div id="templates" class="subsections">
 
 <!-- Акушерство -->
 <button class="sub-btn" onclick="toggleSection('obstetrics')"><b>Акушерство и гинекология</b></button>
@@ -500,8 +498,7 @@
 <button class="child-btn" onclick="openModal(`текст`)">Странное и необъяснимое поведение</button>
 <button class="child-btn" onclick="openModal(`текст`)">Употребление алкоголя</button>
 </div>
-
-         </div>
+</div>
     
 <!-- 2. Шпаргалки -->
 <button class="main-btn" onclick="toggleSection('cheatsheets')"><b>Шпаргалки</b></button>
@@ -545,8 +542,7 @@
 2⃣ Прекратить СЛР можно, если в течение 30 минут квалифицированных мероприятий не было достигнуто восстановление спонтанного кровообращения`)">Реанимация один</button>
 <button class="sub-btn">Реанимация вдвоем</button>
 <button class="sub-btn">Сыпь</button>
-    </div>
-
+</div>
 
     <!-- 3. Калькуляторы -->
 <button class="main-btn" onclick="toggleSection('kalc')"><b>Калькуляторы</b></button>
@@ -556,51 +552,51 @@
 <button class="sub-btn" onclick="toggleSection('normCalcSection')">Детские возрастные нормы</button>
 <!-- БЛОК КАЛЬКУЛЯТОРА (изначально скрыт) -->
 <div id="normCalcSection" class="subsections">
-    <div class="calc-box">
-        <h3 class="calc-title">Расчёт примерных возрастных норм</h3>
-        <div class="calc-row">
-            <select id="ageSelect" class="calc-select">
-                <option value="">Выберите возраст</option>
-            </select>
-            <select id="genderSelect" class="calc-select">
-                <option value="">Пол</option>
-                <option value="girl">Девочка</option>
-                <option value="boy">Мальчик</option>
-            </select>
-        </div>
-        <div id="normResult" class="calc-result">
-            Выберите возраст и пол.
-        </div>
-    </div>
+<div class="calc-box">
+<h3 class="calc-title">Расчёт примерных возрастных норм</h3>
+<div class="calc-row">
+<select id="ageSelect" class="calc-select">
+<option value="">Выберите возраст</option>
+</select>
+<select id="genderSelect" class="calc-select">
+<option value="">Пол</option>
+<option value="girl">Девочка</option>
+<option value="boy">Мальчик</option>
+</select>
+</div>
+<div id="normResult" class="calc-result">
+Выберите возраст и пол.
+</div>
+</div>
 </div>
 
   <!-- Дозировка препаратов в педиатрии -->
 <button class="sub-btn" onclick="toggleSection('drugCalc')">Дозировка препаратов в педиатрии</button>
 <div id="drugCalc" class="subsections drugCalc" style="display:none;">
-  <div class="calc-box">
-    <div class="drug-search-row">
-      <input id="drugSearch" class="calc-input" placeholder="Введите препарат...">
-      <button id="drugListToggle" class="list-btn">🔽</button>
-    </div>
-    <select id="drugList" class="calc-select" size="6" style="display:none"></select>
-    <div id="drugInfo" class="calc-result" style="display:none;"></div>
-    <select id="drugParam" class="calc-select" style="display:none"></select>
-    <div id="drugResult" class="calc-result" style="display:none;"></div>
-  </div>
+<div class="calc-box">
+<div class="drug-search-row">
+<input id="drugSearch" class="calc-input" placeholder="Введите препарат...">
+<button id="drugListToggle" class="list-btn">🔽</button>
+</div>
+<select id="drugList" class="calc-select" size="6" style="display:none"></select>
+<div id="drugInfo" class="calc-result" style="display:none;"></div>
+<select id="drugParam" class="calc-select" style="display:none"></select>
+<div id="drugResult" class="calc-result" style="display:none;"></div>
+</div>
 </div>
   
   <!-- Срок беременности, ПДР -->
 <button class="sub-btn" onclick="toggleSection('pregCalcSection')">Срок беременности, ПДР</button>
 <!-- Блок с калькулятором -->
 <div id="pregCalcSection" class="subsections">
- <div class="preg-box">
-  <div class="preg-inner">
-    <label for="lmpDate">Дата последней менструации:</label>
-    <input type="date" id="lmpDate">
-    <button class="red-btn" id="calcPreg">Рассчитать</button>
-    <div id="pregResult" class="preg-result" style="margin-top: 15px;">
-      <p id="pregWeeks"></p>
-      <p id="pregDue"></p>
+<div class="preg-box">
+<div class="preg-inner">
+<label for="lmpDate">Дата последней менструации:</label>
+<input type="date" id="lmpDate">
+<button class="red-btn" id="calcPreg">Рассчитать</button>
+<div id="pregResult" class="preg-result" style="margin-top: 15px;">
+<p id="pregWeeks"></p>
+<p id="pregDue"></p>
 </div>
 </div>
 </div>
@@ -628,108 +624,87 @@
 И мне было бы очень приятно за вашу благодарность на сбер☺️
 Спасибо 🫶
 4279380676533096
-      </div>
-    </div>
+</div>
+</div>
   
   <!-- 5. Баннер -->
-  </div>
-  <div class="banner-text">
-    ЗДРАСТВУЙ КОЛЛЕГА!!!
-    </div>
-  <div class="banner">
-    <img src="картинки/БаннерДоброПожаловать.jpg" alt="Баннер" class="banner-img">
+</div>
+<div class="banner-text">
+ЗДРАСТВУЙ КОЛЛЕГА!!!
+</div>
+<div class="banner">
+<img src="картинки/БаннерДоброПожаловать.jpg" alt="Баннер" class="banner-img">
+</div>
 </div>
 
-
-  </div>
-
-  <script>
-    function hideAllSections(){
-      document.querySelectorAll('.subsections, .text-block').forEach(s => s.style.display = 'none');
-    }
-
-    function hideDescendants(el){
-      el.querySelectorAll('.subsections, .text-block').forEach(s => s.style.display = 'none');
-    }
-
-    function toggleSection(id){
-      const el = document.getElementById(id);
-      if(!el) return;
-
-      const visible = window.getComputedStyle(el).display !== 'none';
-
-      if(visible){
-        hideDescendants(el);
-        el.style.display = 'none';
-        return;
-      }
-
-      hideAllSections();
-
-      let p = el.parentElement;
-      const ancestors = [];
-      while(p){
-        if(p.classList && p.classList.contains('subsections') && p.id){ ancestors.push(p.id); }
-        p = p.parentElement;
-      }
-
-      ancestors.reverse().forEach(aid => {
-        const block = document.getElementById(aid);
-        if(block) block.style.display = 'block';
-      });
-
-      el.style.display = 'block';
-    }
-
-    document.addEventListener('DOMContentLoaded', hideAllSections);
-
-
-    /* --- МОДАЛЬНОЕ ОКНО --- */
-
-    function openModal(text){
-      document.getElementById('modalContent').innerHTML = text;
-      document.getElementById('modal').style.display = 'flex';
-    }
-function openVideo(src){
-  document.getElementById('modalContent').innerHTML = `
-    <video controls autoplay style="width:100%; max-height:90vh; border-radius:10px;">
-      <source src="${src}" type="video/mp4">
-      Ваш браузер не поддерживает видео.
-    </video>
-  `;
-  document.getElementById('modal').style.display = 'flex';
-}
-
-    function closeModal(){
-      document.getElementById('modal').style.display = 'none';
-    }
-  </script>
 <script>
-  function openVideo(url) {
+    function hideAllSections(){
+    document.querySelectorAll('.subsections, .text-block').forEach(s => s.style.display = 'none');
+    }
+    function hideDescendants(el){
+    el.querySelectorAll('.subsections, .text-block').forEach(s => s.style.display = 'none');
+    }
+    function toggleSection(id){
+    const el = document.getElementById(id);
+    if(!el) return;
+    const visible = window.getComputedStyle(el).display !== 'none';
+    if(visible){
+    hideDescendants(el);
+    el.style.display = 'none';
+    return;
+      }
+    hideAllSections();
+    let p = el.parentElement;
+    const ancestors = [];
+    while(p){
+    if(p.classList && p.classList.contains('subsections') && p.id){ ancestors.push(p.id); }
+    p = p.parentElement;
+      }
+    ancestors.reverse().forEach(aid => {
+    const block = document.getElementById(aid);
+    if(block) block.style.display = 'block';
+      });
+    el.style.display = 'block';
+    }
+    document.addEventListener('DOMContentLoaded', hideAllSections);
+    /* --- МОДАЛЬНОЕ ОКНО --- */
+    function openModal(text){
+    document.getElementById('modalContent').innerHTML = text;
+    document.getElementById('modal').style.display = 'flex';
+    }
+    function openVideo(src){
+    document.getElementById('modalContent').innerHTML = `
+    <video controls autoplay style="width:100%; max-height:90vh; border-radius:10px;">
+    <source src="${src}" type="video/mp4">
+    Ваш браузер не поддерживает видео.
+    </video>`;
+    document.getElementById('modal').style.display = 'flex';
+    }
+    function closeModal(){
+    document.getElementById('modal').style.display = 'none';
+    }
+</script>
+<script>
+    function openVideo(url) {
     const modal = document.getElementById('modal');
     const modalContent = document.getElementById('modalContent');
-
     modalContent.innerHTML = `
-      <video id="modalVideo" controls autoplay style="width:100%; max-height:80vh; border-radius:10px;">
-        <source src="${url}" type="video/mp4">
-        Ваш браузер не поддерживает видео.
-      </video>
-    `;
-
+    <video id="modalVideo" controls autoplay style="width:100%; max-height:80vh; border-radius:10px;">
+    <source src="${url}" type="video/mp4">
+    Ваш браузер не поддерживает видео.
+    </video>`;
     modal.style.display = 'flex';
-  }
-
+    }
   // Останавливаем видео при закрытии модального окна
-  function closeModal() {
+    function closeModal() {
     const video = document.getElementById('modalVideo');
     if (video) {
-      video.pause();
-      video.currentTime = 0;
+    video.pause();
+    video.currentTime = 0;
     }
     document.getElementById('modal').style.display = 'none';
-  }
+    }
 </script>
-
 <!-- Модальное окно для увеличенной картинки -->
 <div id="imgModal" style="
   display:none;
@@ -739,17 +714,14 @@ function openVideo(src){
   background:rgba(0,0,0,0.9);
   justify-content:center;
   align-items:center;
-  z-index:9999;
-">
+  z-index:9999;">
   <img id="imgModalContent" style="
     max-width:90%;
     max-height:90%;
-    border-radius:10px;
-  ">
+    border-radius:10px;">
 </div>
-  
   <!-- МОДАЛЬНОЕ ОКНО -->
- <div id="modal" style="
+<div id="modal" style="
   display:none;
   position:fixed;
   top:0; left:0;
@@ -759,201 +731,173 @@ function openVideo(src){
   justify-content:center;
   align-items:center;
   padding:0;
-  z-index:9999;
-">
-
-  <div style="
+  z-index:9999;">
+<div style="
     background:#ffffff;
     width:100%;
     height:100%;
     max-width:650px;
     border-radius:0;
     display:flex;
-    flex-direction:column;
-  ">
-
+    flex-direction:column;">
     <!-- Верхняя панель -->
-    <div style="
-      padding:15px;
-      background:#ffffff;
-      border-bottom:1px solid #ddd;
-      position:sticky;
-      top:0;
-      z-index:1000;
-      display:flex;
-      justify-content:flex-end;
-    ">
-      <button onclick="closeModal()" style="
-        background:#e63946;
-        color:#fff;
-        border:none;
-        padding:8px 14px;
-        border-radius:8px;
-        font-size:16px;
-        cursor:pointer;
-      ">
-        Закрыть
-      </button>
-    </div>
-
+<div style="
+    padding:15px;
+    background:#ffffff;
+    border-bottom:1px solid #ddd;
+    position:sticky;
+    top:0;
+    z-index:1000;
+    display:flex;
+    justify-content:flex-end;">
+<button onclick="closeModal()" style="
+    background:#e63946;
+    color:#fff;
+    border:none;
+    padding:8px 14px;
+    border-radius:8px;
+    font-size:16px;
+    cursor:pointer;">
+    Закрыть
+</button>
+</div>
     <!-- Контент -->
-    <div id="modalContent" style="
-      padding:20px;
-      overflow-y:auto;
-      font-size:18px;
-      line-height:1.5;
-      white-space:pre-line;
-      flex:1;
-      text-align:left;
-    "></div>
-
-  </div>
+<div id="modalContent" style="
+    padding:20px;
+    overflow-y:auto;
+    font-size:18px;
+    line-height:1.5;
+    white-space:pre-line;
+    flex:1;
+    text-align:left;">
+</div>
+</div>
 </div>
 <script>
-  if ("serviceWorker" in navigator) {
+    if ("serviceWorker" in navigator) {
     navigator.serviceWorker.register("sw.js");
-  }
+    }
 </script>
 <script>
 /* --- Умный поиск + автопоказ раздела по клику --- */
-
 const searchInput = document.getElementById('searchInput');
-
 // Функция показывает/скрывает элемент (block/none)
 function show(el){ if(el) el.style.display = 'block'; }
 function hide(el){ if(el) el.style.display = 'none'; }
-
 // Возвращает id цели из строки onclick типа: toggleSection('obstetrics')
 function parseToggleTargetFromOnclick(str){
   const m = /toggleSection\(['"]([^'"]+)['"]\)/.exec(str || '');
   return m ? m[1] : null;
 }
-
 // При вводе - фильтруем кнопки и автоматически раскрываем нужные заголовки
 searchInput.addEventListener('input', function(){
-  const q = this.value.trim().toLowerCase();
-
+const q = this.value.trim().toLowerCase();
   // Все кнопки (включая main/sub/child)
-  const allButtons = document.querySelectorAll('.main-btn, .sub-btn, .child-btn');
-
-  if(q === ''){
+const allButtons = document.querySelectorAll('.main-btn, .sub-btn, .child-btn');
+if(q === ''){
     // Пустой поиск — вернуть начальное состояние: скрыть все .subsections (логика у вас уже есть)
     // но лучше ничего не трогать: оставим текущее поведение — просто скрываем результаты поиска
-    allButtons.forEach(b => b.style.display = 'block');
+allButtons.forEach(b => b.style.display = 'block');
     // скрываем все разделы, чтобы не выпадали по умолчанию
-    document.querySelectorAll('.subsections, .text-block').forEach(s => s.style.display = 'none');
-    return;
-  }
-
+document.querySelectorAll('.subsections, .text-block').forEach(s => s.style.display = 'none');
+return;
+}
   // Пройдемся по кнопкам и пометим соответствия
-  allButtons.forEach(btn => {
-    const text = (btn.innerText || '').toLowerCase();
-    if(text.includes(q)){
-      btn.style.display = 'block';
-    } else {
-      btn.style.display = 'none';
-    }
+allButtons.forEach(btn => {
+const text = (btn.innerText || '').toLowerCase();
+if(text.includes(q)){
+btn.style.display = 'block';
+} else {
+btn.style.display = 'none';
+}
     // Снять видимость у контейнеров-панелей, они будут видны по необходимости ниже
-  });
-
+});
   // Скрыть все секции (чтобы потом показать только нужные заголовки/контейнеры)
-  document.querySelectorAll('.subsections, .text-block').forEach(s => s.style.display = 'none');
-
+document.querySelectorAll('.subsections, .text-block').forEach(s => s.style.display = 'none');
   // Для каждой видимой кнопки — показать её родителей (названия разделов), иначе кнопка "оторвётся" от интерфейса
-  document.querySelectorAll('.main-btn, .sub-btn, .child-btn').forEach(btn => {
-    if(btn.style.display === 'block'){
+document.querySelectorAll('.main-btn, .sub-btn, .child-btn').forEach(btn => {
+if(btn.style.display === 'block'){
       // показать контейнеры-родители (секции) вверх по дереву
-      let p = btn.parentElement;
-      while(p){
-        if(p.classList && p.classList.contains('subsections')){
-          p.style.display = 'block';
-        }
-        p = p.parentElement;
-      }
-    }
-  });
-
+let p = btn.parentElement;
+while(p){
+if(p.classList && p.classList.contains('subsections')){
+p.style.display = 'block';
+}
+p = p.parentElement;
+}
+}
+});
   // После этого — нужно скрыть пустые контейнеры (те у которых внутри все кнопки display:none)
-  document.querySelectorAll('.subsections').forEach(sec => {
+document.querySelectorAll('.subsections').forEach(sec => {
     // Если в секции есть хотя бы одна видимая кнопка, оставляем её видимой (уже сделано),
     // иначе прячем секцию
-    const hasVisibleChild = Array.from(sec.querySelectorAll('.main-btn, .sub-btn, .child-btn')).some(b => b.style.display === 'block');
-    if(!hasVisibleChild){
-      sec.style.display = 'none';
-    } else {
+const hasVisibleChild = Array.from(sec.querySelectorAll('.main-btn, .sub-btn, .child-btn')).some(b => b.style.display === 'block');
+if(!hasVisibleChild){
+sec.style.display = 'none';
+} else {
       // оставляем как есть
-    }
-  });
+}
 });
-
+});
 // --- Поведение клика по кнопкам, которые вызывают toggleSection('id') ---
 // На все элементы с inline onclick "toggleSection('...')" повесим дополнительный слушатель.
 // При клике: если в поле поиска есть текст, то мы сделаем особое поведение — полностью
 // раскроем целевой раздел (покажем все его дочерние subdiv/child/text-block), игнорируя фильтр.
-
 document.querySelectorAll('[onclick]').forEach(el => {
-  const onclickAttr = el.getAttribute('onclick') || '';
-  const targetId = parseToggleTargetFromOnclick(onclickAttr);
-  if(targetId){
-    el.addEventListener('click', (e) => {
+const onclickAttr = el.getAttribute('onclick') || '';
+const targetId = parseToggleTargetFromOnclick(onclickAttr);
+if(targetId){
+el.addEventListener('click', (e) => {
       // Если поле поиска пустое, просто позволяем стандартному onclick работать (toggleSection)
-      const q = (searchInput.value || '').trim();
-      if(q === ''){
+const q = (searchInput.value || '').trim();
+if(q === ''){
         // ничего — штатный onclick выполнится
-        return;
-      }
-
+return;
+}
       // Если есть поисковый запрос — при клике раскроем ВСЕ дочерние элементы целевого раздела
-      e.preventDefault(); // чтобы предотвратить дублирование (если нужно)
-      e.stopPropagation();
-
+e.preventDefault(); // чтобы предотвратить дублирование (если нужно)
+e.stopPropagation();
       // Сначала используем вашу логику: скрыть всё, показать цепочку предков и сам раздел
       // (используем toggleSection, но сначала гарантируем, что всё скрыто)
-      document.querySelectorAll('.subsections, .text-block').forEach(s => s.style.display = 'none');
-
-      const elTarget = document.getElementById(targetId);
-      if(!elTarget) return;
-
+document.querySelectorAll('.subsections, .text-block').forEach(s => s.style.display = 'none');
+const elTarget = document.getElementById(targetId);
+if(!elTarget) return;
       // Показать цепочку предков
-      let p = elTarget.parentElement;
-      const ancestors = [];
-      while(p){
-        if(p.classList && p.classList.contains('subsections') && p.id){
-          ancestors.push(p.id);
-        }
-        p = p.parentElement;
-      }
-      ancestors.reverse().forEach(aid => {
-        const block = document.getElementById(aid);
-        if(block) block.style.display = 'block';
-      });
-
+let p = elTarget.parentElement;
+const ancestors = [];
+while(p){
+if(p.classList && p.classList.contains('subsections') && p.id){
+ancestors.push(p.id);
+}
+p = p.parentElement;
+}
+ancestors.reverse().forEach(aid => {
+const block = document.getElementById(aid);
+if(block) block.style.display = 'block';
+});
       // Показать сам раздел и **всех** его потомков (это ключ: разворачивает раздел полностью)
-      function showRecursive(node){
-        if(!node) return;
-        node.style.display = 'block';
-        node.querySelectorAll('.subsections, .text-block, .child-btn, .sub-btn').forEach(ch => ch.style.display = 'block');
-      }
-      showRecursive(elTarget);
-
+function showRecursive(node){
+if(!node) return;
+node.style.display = 'block';
+node.querySelectorAll('.subsections, .text-block, .child-btn, .sub-btn').forEach(ch => ch.style.display = 'block');
+}
+showRecursive(elTarget);
       // Уберём визуальный фильтр (оставим поле поиска как есть) — при желании можно очистить поле:
       // searchInput.value = '';
-    });
-  }
+});
+}
 });
 </script>
-  <script>
+<script>
 const input = document.getElementById("searchInput");
 const clearBtn = document.getElementById("clearSearch");
-
 input.addEventListener("input", () => {
-    clearBtn.style.display = input.value.length > 0 ? "block" : "none";
+clearBtn.style.display = input.value.length > 0 ? "block" : "none";
 });
-
 clearBtn.addEventListener("click", () => {
-    input.value = "";
-    clearBtn.style.display = "none";
-    input.dispatchEvent(new Event("input"));  // перезапуск поиска
+input.value = "";
+clearBtn.style.display = "none";
+input.dispatchEvent(new Event("input"));  // перезапуск поиска
 });
 </script>
 <script>
@@ -988,97 +932,78 @@ clearBtn.addEventListener("click", () => {
     "15 лет": {girl:{h:161.9,w:54.8}, boy:{h:170.1,w:56.3}, chss:"70-72 в минуту", chdd:"16-18 в минуту", ad:"120/70 мм. рт. ст."},
     "16 лет": {girl:{h:162.6,w:55.6}, boy:{h:173.6,w:62}, chss:"70-72 в минуту", chdd:"16-18 в минуту", ad:"120/80 мм. рт. ст."},
     "17 лет": {girl:{h:162.9,w:56.4}, boy:{h:175.3,w:66.8}, chss:"70-72 в минуту", chdd:"16-18 в минуту", ad:"120/80 мм. рт. ст."}
-  };
-
+};
   // --- ЗАПОЛНЕНИЕ СПИСКА ВОЗРАСТОВ ---
-  const ageSelect = document.getElementById("ageSelect");
-  Object.keys(norms).forEach(age => {
-    const opt = document.createElement("option");
-    opt.value = age;
-    opt.textContent = age;
-    ageSelect.appendChild(opt);
-  });
-
+const ageSelect = document.getElementById("ageSelect");
+Object.keys(norms).forEach(age => {
+const opt = document.createElement("option");
+opt.value = age;
+opt.textContent = age;
+ageSelect.appendChild(opt);
+});
   // --- ОТКРЫТЬ/СКРЫТЬ КАЛЬКУЛЯТОР ---
-  function toggleCalculator() {
-    const box = document.getElementById("normCalculator");
-    box.style.display = box.style.display === "none" ? "block" : "none";
-  }
-
+function toggleCalculator() {
+const box = document.getElementById("normCalculator");
+box.style.display = box.style.display === "none" ? "block" : "none";
+}
   // --- РАСЧЁТ ---
-  function calculate() {
-    const age = ageSelect.value;
-    const gender = document.getElementById("genderSelect").value;
-    const result = document.getElementById("normResult");
-
-    if (!age || !gender) {
-      result.textContent = "Выберите возраст и пол.";
-      return;
-    }
-
-    const d = norms[age];
-    const g = d[gender];
-
-    result.innerHTML = `
+function calculate() {
+const age = ageSelect.value;
+const gender = document.getElementById("genderSelect").value;
+const result = document.getElementById("normResult");
+if (!age || !gender) {
+result.textContent = "Выберите возраст и пол.";
+return;
+}
+const d = norms[age];
+const g = d[gender];
+result.innerHTML = `
       <b>Рост:</b> ${g.h} см<br>
       <b>Вес:</b> ${g.w} кг<br>
       <b>ЧСС:</b> ${d.chss}<br>
       <b>ЧДД:</b> ${d.chdd}<br>
-      <b>АД:</b> ${d.ad}
-    `;
-  }
-
-  ageSelect.onchange = calculate;
-  genderSelect.onchange = calculate;
+      <b>АД:</b> ${d.ad}`;
+}
+ageSelect.onchange = calculate;
+genderSelect.onchange = calculate;
 </script>
-  <script>
-  function togglePregCalc() {
-    const panel = document.getElementById("pregCalc");
-    panel.style.display = (panel.style.display === "block") ? "none" : "block";
-  }
+<script>
+function togglePregCalc() {
+const panel = document.getElementById("pregCalc");
+panel.style.display = (panel.style.display === "block") ? "none" : "block";
+}
 </script>
-  <script>
-  document.getElementById("calcPreg").addEventListener("click", function () {
-    const lmpValue = document.getElementById("lmpDate").value;
-    if (!lmpValue) {
-      alert("Пожалуйста, выберите дату.");
-      return;
-    }
-
-    const lmp = new Date(lmpValue + "T00:00:00");
-    const today = new Date();
-    const now = new Date(today.getFullYear(), today.getMonth(), today.getDate());
-
-    const diffMs = now - lmp;
-    const diffDays = Math.floor(diffMs / (1000 * 60 * 60 * 24));
-
-    const weeks = Math.floor(diffDays / 7);
-    const days = diffDays % 7;
-
+<script>
+document.getElementById("calcPreg").addEventListener("click", function () {
+const lmpValue = document.getElementById("lmpDate").value;
+if (!lmpValue) {
+alert("Пожалуйста, выберите дату.");
+return;
+}
+const lmp = new Date(lmpValue + "T00:00:00");
+const today = new Date();
+const now = new Date(today.getFullYear(), today.getMonth(), today.getDate());
+const diffMs = now - lmp;
+const diffDays = Math.floor(diffMs / (1000 * 60 * 60 * 24));
+const weeks = Math.floor(diffDays / 7);
+const days = diffDays % 7;
     // ПДР = LMP + 280 дней
-    const due = new Date(lmp);
-    due.setDate(due.getDate() + 280);
-
-    function formatDate(d) {
-      const dd = String(d.getDate()).padStart(2, "0");
-      const mm = String(d.getMonth() + 1, "0");
-      const yyyy = d.getFullYear();
-      return dd + "." + mm + "." + yyyy;
-    }
-
-    document.getElementById("pregWeeks").innerText =
-      "Срок: " + weeks + " недель " + (days > 0 ? days + " дней" : "");
-
-    document.getElementById("pregDue").innerText =
-      "Предполагаемая дата родов: " + formatDate(due);
-
-    document.getElementById("pregResult").style.display = "block";
+const due = new Date(lmp);
+due.setDate(due.getDate() + 280);
+function formatDate(d) {
+const dd = String(d.getDate()).padStart(2, "0");
+const mm = String(d.getMonth() + 1, "0");
+const yyyy = d.getFullYear();
+return dd + "." + mm + "." + yyyy;
+}
+document.getElementById("pregWeeks").innerText = "Срок: " + weeks + " недель " + (days > 0 ? days + " дней" : "");
+document.getElementById("pregDue").innerText = "Предполагаемая дата родов: " + formatDate(due);
+document.getElementById("pregResult").style.display = "block";
   });
 </script>
 <script>
 const DRUGS = {
-
-  // ============= Пример 1: ДИАЗЕПАМ =============
+ 
   Дмазепам:{
     name:"Диазепам",
     synonyms:["Реланиум","Сибазон","Relanium","Diazepam","Sibazon"],
@@ -1105,7 +1030,6 @@ const DRUGS = {
            20:["4 мг / 0.8 мл","10 мг / 2.0 мл"],
            25:["5 мг / 1.0 мл","10 мг / 2.0 мл"],}},
   
-  // ============= Пример 2: ДРОТАВЕРИН =============
   Дротаверин:{
     name:"Дротаверин",
     synonyms:["Но-шпа","Ношпа","No-spa","Drotaverine"],
@@ -1165,7 +1089,6 @@ const DRUGS = {
     type:"text",
     info:["0.02 мг/кг","не более 0.6 мг за раз","в/в или в/м"],},
      
-  // ============= Пример 3: просто текст (например однократная доза) =============
   Атропин:{
     name:"Атропин",
     synonyms:["Atropin"],
@@ -1187,115 +1110,82 @@ let selectedKey = null;
 
 // ========== показать весь список ==========
 btnToggle.onclick =()=>{
-  drugList.innerHTML = "";
-  Object.entries(DRUGS).forEach(([key,data])=>{
-    drugList.innerHTML += `<option value="${key}">${data.name}</option>`;
-  });
-  drugList.style.display="block";
+drugList.innerHTML = "";
+Object.entries(DRUGS).forEach(([key,data])=>{
+drugList.innerHTML += `<option value="${key}">${data.name}</option>`;
+});
+drugList.style.display="block";
 };
-
-
-
 // ========== поиск без enter ==========
 drugSearch.addEventListener("input",()=>{
-  const q = drugSearch.value.trim().toLowerCase();
-
-  resetCalc();
-
-  if(!q){
-    drugList.style.display="none";
-    return;
-  }
-
-  drugList.innerHTML="";
-  drugList.style.display="block";
-
-  Object.entries(DRUGS).forEach(([key,data])=>{
-    if(
-      data.name.toLowerCase().includes(q) ||
-      data.synonyms.some(n=>n.toLowerCase().includes(q))
-    ){
-      drugList.innerHTML += `<option value="${key}">${data.name}</option>`;
-    }
-  });
+const q = drugSearch.value.trim().toLowerCase();
+resetCalc();
+if(!q){
+drugList.style.display="none";
+return;
+}
+drugList.innerHTML="";
+drugList.style.display="block";
+Object.entries(DRUGS).forEach(([key,data])=>{
+if(data.name.toLowerCase().includes(q) ||
+data.synonyms.some(n=>n.toLowerCase().includes(q))
+){
+drugList.innerHTML += `<option value="${key}">${data.name}</option>`;
+}
 });
-
-
-
+});
 // ========== выбор препарата ==========
 drugList.addEventListener("change",()=>{
-  resetCalc(); // ← очищаем инфо, выбор и результат
-
-  selectedKey = drugList.value;
-  const drug = DRUGS[selectedKey];
-
-  drugSearch.value = drug.name;
-  drugList.style.display="none";
-
-  showInfo(drug);
-
-  if(drug.type === "text") return;
-
-  fillParams(drug);
+resetCalc(); // ← очищаем инфо, выбор и результат
+selectedKey = drugList.value;
+const drug = DRUGS[selectedKey];
+drugSearch.value = drug.name;
+drugList.style.display="none";
+showInfo(drug);
+if(drug.type === "text") return;
+fillParams(drug);
 });
-
 btnToggle.addEventListener("click", ()=>{
-  resetCalc();
+resetCalc();
 });
-
 // ========== отображаем справку ==========
 function showInfo(drug){
-  drugInfo.innerHTML = drug.info.join("<br>");
-  drugInfo.style.display = "block";
+drugInfo.innerHTML = drug.info.join("<br>");
+drugInfo.style.display = "block";
 }
-
-
-
 // ========== вывод вариантов веса/возраста ==========
 function fillParams(drug){
-  drugParam.innerHTML="";
-  drugParam.style.display="block";
-
-  const label = `Выберите ${drug.unit}`;
-  drugParam.innerHTML += `<option value="">${label}</option>`;
-
-  drug.steps.forEach(v=>{
-    drugParam.innerHTML += `<option value="${v}">${v}</option>`;
-  });
+drugParam.innerHTML="";
+drugParam.style.display="block";
+const label = `Выберите ${drug.unit}`;
+drugParam.innerHTML += `<option value="">${label}</option>`;
+drug.steps.forEach(v=>{
+drugParam.innerHTML += `<option value="${v}">${v}</option>`;
+});
 }
-
-
-
 // ========== выбор параметра (вес/возраст) ==========
 drugParam.addEventListener("change",()=>{
-  if(!selectedKey) return;
-  const drug = DRUGS[selectedKey];
-  const v = drugParam.value;
-
-  const row = drug.table[v];
-  if(!row) return;
-
-  drugResult.innerHTML = row.join("<br>");
-  drugResult.style.display="block";
+if(!selectedKey) return;
+const drug = DRUGS[selectedKey];
+const v = drugParam.value;
+const row = drug.table[v];
+if(!row) return;
+drugResult.innerHTML = row.join("<br>");
+drugResult.style.display="block";
 });
-
-
-
 // ========== очистка ==========
 function resetCalc(){
-  selectedKey = null;
-  drugParam.style.display="none";
-  drugParam.innerHTML="";
-  drugInfo.style.display="none";
-  drugInfo.innerHTML="";
-  drugResult.style.display="none";
-  drugResult.innerHTML="";
+selectedKey = null;
+drugParam.style.display="none";
+drugParam.innerHTML="";
+drugInfo.style.display="none";
+drugInfo.innerHTML="";
+drugResult.style.display="none";
+drugResult.innerHTML="";
 }
-
 drugSearch.addEventListener("input",()=>{
-  if(!drugSearch.value.trim()) resetCalc();
+if(!drugSearch.value.trim()) resetCalc();
 });
-
 </script>
 </script>
 </body>
