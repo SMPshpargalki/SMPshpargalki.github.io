@@ -11,32 +11,6 @@
 <body>
   <h1><b>СМП Шпаргалки</b></h1>
 
-  <button id="installBtn" style="
-    display:none;
-    padding:10px 16px;
-    border:none;
-    border-radius:8px;
-    background:#e63946;
-    color:white;
-    font-size:16px;
-    margin:10px auto;
-    width:90%;
-">
-  📲 Установить приложение
-</button>
-
-<div id="iosHint" style="
-    display:none;
-    font-size:14px;
-    padding:10px;
-    margin:10px;
-    background:#fff3cd;
-    border:1px solid #ffecb5;
-    border-radius:8px;
-">
-  Чтобы установить приложение — нажмите «Поделиться» → «Добавить на экран Домой»
-</div>
-
   <div class="container">
 <div style="position:relative; width:100%; margin:0 auto;">
   <input
@@ -856,11 +830,9 @@ function openVideo(src){
   </div>
 </div>
 <script>
-if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('/service-worker.js')
-    .then(() => console.log("Service Worker зарегистрирован"))
-    .catch((e) => console.log("Ошибка SW:", e));
-}
+  if ("serviceWorker" in navigator) {
+    navigator.serviceWorker.register("sw.js");
+  }
 </script>
 <script>
 /* --- Умный поиск + автопоказ раздела по клику --- */
@@ -1340,60 +1312,6 @@ drugSearch.addEventListener("input",()=>{
   if(!drugSearch.value.trim()) resetCalc();
 });
 
-</script>
-  <script>
-let deferredPrompt;
-
-// ==== ANDROID ====
-window.addEventListener('beforeinstallprompt', (e) => {
-  e.preventDefault(); // блокируем нативное окно
-  deferredPrompt = e;
-  document.getElementById('installBtn').style.display = 'block';
-});
-
-// Нажатие на кнопку
-document.getElementById('installBtn').addEventListener('click', async () => {
-  if (!deferredPrompt) return;
-
-  deferredPrompt.prompt();
-  const choice = await deferredPrompt.userChoice;
-
-  if (choice.outcome === 'accepted') {
-    console.log('Установка подтверждена');
-  } else {
-    console.log('Установка отменена');
-  }
-
-  deferredPrompt = null;
-  document.getElementById('installBtn').style.display = 'none';
-});
-
-// ==== ЕСЛИ УЖЕ УСТАНОВЛЕНО ====
-function hideButtonIfInstalled() {
-  // PWA режим
-  if (window.matchMedia('(display-mode: standalone)').matches) {
-    document.getElementById('installBtn').style.display = 'none';
-    return true;
-  }
-
-  // iOS PWA
-  if (window.navigator.standalone === true) {
-    document.getElementById('installBtn').style.display = 'none';
-    return true;
-  }
-
-  return false;
-}
-
-hideButtonIfInstalled();
-
-// ==== iOS подсказка ====
-const userAgent = window.navigator.userAgent.toLowerCase();
-const isIOS = /iphone|ipad|ipod/.test(userAgent);
-
-if (isIOS && !window.navigator.standalone) {
-  document.getElementById('iosHint').style.display = 'block';
-}
 </script>
 </script>
 </body>
