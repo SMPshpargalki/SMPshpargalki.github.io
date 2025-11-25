@@ -9,7 +9,7 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <h1><b>СМП Шпаргалки</b></h1>
+  <h1><b>СМП Шпаргалки11</b></h1>
 
   <div class="container">
 <div style="position:relative; width:100%; margin:0 auto;">
@@ -606,6 +606,22 @@
 </div>
 </div>
 </div>
+
+    <!-- Кнопка для открытия калькулятора -->
+<button class="sub-btn" onclick="toggleSection('uterusHeightSection')">Высота дна матки</button>
+<!-- Блок с калькулятором -->
+<div id="uterusHeightSection" class="subsections" style="display:none;">
+  <div class="preg-box">
+    <div class="preg-inner">
+      <label for="weekSelect">Выберите неделю беременности:</label>
+      <select id="weekSelect">
+        <option value="">-- выберите неделю --</option>
+      </select>
+      <div id="uterusResult" class="preg-result" style="margin-top: 15px;"></div>
+    </div>
+  </div>
+</div>
+
 <!-- 3. МКБ-10 -->
 <button class="main-btn" onclick="toggleSection('MKB10')"><b>МКБ-10</b></button>
 <div id="MKB10" class="subsections">
@@ -1296,6 +1312,80 @@ drugSearch.addEventListener("input",()=>{
   if(!drugSearch.value.trim()) resetCalc();
 });
 
+</script>
+  <script>
+// Функция для открытия/скрытия блока
+function toggleSection(sectionId) {
+  const section = document.getElementById(sectionId);
+  if (section.style.display === "none" || section.style.display === "") {
+    section.style.display = "block";
+  } else {
+    section.style.display = "none";
+  }
+}
+
+// Данные по неделям беременности
+const uterusData = {
+  8:  {vdm: "~ 7-8 см", orientir: "Матка размером с гусиное яйцо, находится в полости малого таза. Живот не выпирает.", oz: "Живот обычных объемов, возможна небольшая 'вздутость' из-за гормонов."},
+  9:  {vdm: "~ 8-9 см", orientir: "Матка размером с апельсин, все еще скрыта за лонной костью.", oz: "Живот без изменений."},
+  10: {vdm: "~ 9-10 см", orientir: "Матка начинает подниматься выше лона, но прощупать ее сложно.", oz: "Живот без изменений."},
+  11: {vdm: "~ 10-11 см", orientir: "", oz: "Живот без изменений."},
+  12: {vdm: "~ 11-12 см", orientir: "Дно матки только-только доходит до верхнего края лонной кости.", oz: "Живот может начать немного округляться внизу, но чаще у повторнородящих."},
+  13: {vdm: "~ 12-13 см", orientir: "Матка выступает над лоном.", oz: "Незначительное округление низа живота."},
+  14: {vdm: "~ 13-14 см", orientir: "Матка находится на середине расстояния между лоном и пупком.", oz: "Живот заметно округлился, особенно в положении лежа."},
+  15: {vdm: "~ 14 см", orientir: "", oz: "~ 70-75 см"},
+  16: {vdm: "~ 15-16 см", orientir: "Дно матки на 6-7 см выше лона, примерно на середине пути к пупку.", oz: "~ 72-78 см"},
+  17: {vdm: "~ 16-17 см", orientir: "", oz: "~ 74-80 см"},
+  18: {vdm: "~ 17-19 см", orientir: "Дно матки почти достигает уровня пупка (на 2-3 пальца ниже).", oz: "~ 76-82 см"},
+  19: {vdm: "~ 18-20 см", orientir: "", oz: "~ 78-83 см"},
+  20: {vdm: "~ 20-21 см", orientir: "Дно матки на уровне пупка. Это важный ориентир.", oz: "~ 80-85 см"},
+  21: {vdm: "~ 21-23 см", orientir: "На 1-2 см выше пупка.", oz: "~ 82-87 см"},
+  22: {vdm: "~ 22-24 см", orientir: "На 2-3 см выше пупка.", oz: "~ 84-89 см"},
+  23: {vdm: "~ 23-25 см", orientir: "На 3-4 см выше пупка.", oz: "~ 85-90 см"},
+  24: {vdm: "~ 24-26 см", orientir: "На уровне середины расстояния между пупком и мечевидным отростком грудины (нижней частью грудины).", oz: "~ 86-91 см"},
+  25: {vdm: "~ 25-27 см", orientir: "", oz: "~ 87-92 см"},
+  26: {vdm: "~ 26-28 см", orientir: "", oz: "~ 88-93 см"},
+  27: {vdm: "~ 27-29 см", orientir: "На 2-3 пальца выше середины расстояния 'пупок-грудина'.", oz: "~ 89-94 см"},
+  28: {vdm: "~ 28-30 см", orientir: "На середине расстояния между пупком и мечевидным отростком (или чуть выше).", oz: "~ 90-95 см"},
+  29: {vdm: "~ 29-31 см", orientir: "", oz: "~ 91-96 см"},
+  30: {vdm: "~ 30-32 см", orientir: "Подходит к мечевидному отростку и реберным дугам.", oz: "~ 92-97 см"},
+  31: {vdm: "~ 31-33 см", orientir: "", oz: "~ 93-98 см"},
+  32: {vdm: "~ 32-33 см", orientir: "Находится на середине расстояния между пупком и мечевидным отростком (матка начинает менять форму, растягиваясь в стороны).", oz: "~ 94-99 см"},
+  33: {vdm: "~ 33-34 см", orientir: "", oz: "~ 95-100 см"},
+  34: {vdm: "~ 33-35 см", orientir: "Дно матки достигает мечевидного отростка и реберных дуг. Женщина может ощущать, что ребра 'раздвигаются'.", oz: "~ 96-101 см"},
+  35: {vdm: "~ 34-36 см", orientir: "Максимальная высота. Матка прямо под ребрами. Дышать может быть тяжело.", oz: "~ 97-102 см"},
+  36: {vdm: "~ 34-37 см", orientir: "Максимальный уровень. Головка ребенка может прижаться ко входу в малый таз.", oz: "~ 98-103 см"},
+  37: {vdm: "~ 34-37 см", orientir: "Матка может начать опускаться, особенно у первородящих. Становится немного легче дышать.", oz: "~ 98-104 см"},
+  38: {vdm: "~ 34-36 см", orientir: "Матка опускается ниже. ВДМ может уменьшиться на 2-3 см.", oz: "~ 98-105 см"},
+  39: {vdm: "~ 33-35 см", orientir: "Матка готовится к родам, продолжает опускаться.", oz: "~ 99-106 см"},
+  40: {vdm: "~ 32-34 см", orientir: "Дно матки возвращается на уровень 32-34 недель или чуть ниже. Пупок может выпячиваться.", oz: "~ 100-107 см"}
+};
+
+// Заполнение select при загрузке страницы
+window.addEventListener('DOMContentLoaded', () => {
+  const weekSelect = document.getElementById('weekSelect');
+  for (let i = 8; i <= 40; i++) {
+    const option = document.createElement('option');
+    option.value = i;
+    option.text = i + " неделя";
+    weekSelect.appendChild(option);
+  }
+
+  // Обработка выбора недели
+  weekSelect.addEventListener('change', function() {
+    const week = this.value;
+    const result = document.getElementById('uterusResult');
+    if (week && uterusData[week]) {
+      const data = uterusData[week];
+      result.innerHTML = `<strong>${week}-я неделя</strong><br>
+                          <strong>Высота дна матки:</strong> ${data.vdm}<br>
+                          <strong>Визуальный ориентир:</strong> ${data.orientir || '—'}<br>
+                          <strong>Окружность живота:</strong> ${data.oz || '—'}`;
+    } else {
+      result.innerHTML = "";
+    }
+  });
+});
 </script>
 </script>
 </body>
