@@ -324,32 +324,3 @@ body{
 #drugList option {
     padding: 8px 10px;
 }
-/* высота стояния дна матки */
-.sub-btn {
-  padding: 8px 12px;
-  margin: 5px 0;
-  font-size: 16px;
-  cursor: pointer;
-}
-
-.subsections {
-  margin-top: 10px;
-}
-
-.preg-box {
-  background: #fff;
-  padding: 15px;
-  border-radius: 8px;
-  box-shadow: 0 0 5px rgba(0,0,0,0.1);
-}
-
-.preg-inner label, .preg-inner select {
-  font-size: 16px;
-  display: block;
-  margin-top: 10px;
-}
-
-.preg-result {
-  font-size: 16px;
-  margin-top: 10px;
-}
