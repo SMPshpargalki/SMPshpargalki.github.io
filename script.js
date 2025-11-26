@@ -1,5 +1,3 @@
-body{
-<script>
     function hideAllSections(){
     document.querySelectorAll('.subsections, .text-block').forEach(s => s.style.display = 'none');
     }
@@ -45,8 +43,8 @@ body{
     function closeModal(){
     document.getElementById('modal').style.display = 'none';
     }
-</script>
-<script>
+
+
     function openVideo(url) {
     const modal = document.getElementById('modal');
     const modalContent = document.getElementById('modalContent');
@@ -66,7 +64,7 @@ body{
     }
     document.getElementById('modal').style.display = 'none';
     }
-</script>
+
 <!-- Модальное окно для увеличенной картинки -->
 <div id="imgModal" style="
   display:none;
@@ -135,12 +133,12 @@ body{
 </div>
 </div>
 </div>
-<script>
+
     if ("serviceWorker" in navigator) {
     navigator.serviceWorker.register("sw.js");
     }
-</script>
-<script>
+
+
 /* --- Умный поиск + автопоказ раздела по клику --- */
 const searchInput = document.getElementById('searchInput');
 // Функция показывает/скрывает элемент (block/none)
@@ -249,8 +247,7 @@ showRecursive(elTarget);
 });
 }
 });
-</script>
-<script>
+
 const input = document.getElementById("searchInput");
 const clearBtn = document.getElementById("clearSearch");
 input.addEventListener("input", () => {
@@ -261,8 +258,7 @@ input.value = "";
 clearBtn.style.display = "none";
 input.dispatchEvent(new Event("input"));  // перезапуск поиска
 });
-</script>
-<script>
+
   // --- ДАННЫЕ ИЗ ТАБЛИЦЫ ---
   const norms = {
     "Новорождённые": {girl:{h:49.5,w:3.3}, boy:{h:50.4,w:3.5}, chss:"130-140 в минуту", chdd:"40-60 в минуту", ad:"70/40 мм. рт. ст."},
@@ -328,14 +324,12 @@ result.innerHTML = `
 }
 ageSelect.onchange = calculate;
 genderSelect.onchange = calculate;
-</script>
-<script>
+
 function togglePregCalc() {
 const panel = document.getElementById("pregCalc");
 panel.style.display = (panel.style.display === "block") ? "none" : "block";
 }
-</script>
-<script>
+
 document.getElementById("calcPreg").addEventListener("click", function () {
 const lmpValue = document.getElementById("lmpDate").value;
 if (!lmpValue) {
@@ -362,8 +356,8 @@ document.getElementById("pregWeeks").innerText = "Срок: " + weeks + " нед
 document.getElementById("pregDue").innerText = "Предполагаемая дата родов: " + formatDate(due);
 document.getElementById("pregResult").style.display = "block";
   });
-</script>
-<script>
+
+
 const DRUGS = {
  
 Адреналин:{
@@ -499,8 +493,8 @@ table:{5:["1 таблетка - 250мг"],
     synonyms:["Atropin"],
     type:"text",
     info:["0.02 мг/кг","в/в или в/м"],}};
-</script>
-<script>
+
+
 
 const $ = id => document.getElementById(id);
 
@@ -591,4 +585,4 @@ drugResult.innerHTML="";
 drugSearch.addEventListener("input",()=>{
 if(!drugSearch.value.trim()) resetCalc();
 });
-</script>
+
