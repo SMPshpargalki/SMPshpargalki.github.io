@@ -1,3 +1,5 @@
+
+ }
 <script>
     function hideAllSections(){
     document.querySelectorAll('.subsections, .text-block').forEach(s => s.style.display = 'none');
