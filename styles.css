@@ -1,4 +1,4 @@
-body{
+
      :root {
     --bg-color: #ffffff;
     --text-color: #000000;
@@ -38,6 +38,7 @@ body{
 }
 
 /* начало */
+body{
  background:#ffffff;
       font-family: Arial, sans-serif;
       margin:0;
