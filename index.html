@@ -646,24 +646,25 @@
 <div id="modal" style="
   display:none;
   position:fixed;
-  top:0; left:0;
-  width:100%; height:100%;
+  inset:0;
   background:rgba(0,0,0,0.6);
   backdrop-filter:blur(3px);
   justify-content:center;
   align-items:center;
-  padding:0;
   z-index:9999;
 ">
 
+  <!-- ВНУТРЕННЕЕ ОКНО — КОНТЕЙНЕР -->
   <div style="
     background:var(--panel-bg);
     color:var(--text-color);
-    width:100%;
-    height:100%;
+    width:90vw;
     max-width:650px;
+    height:90vh;
+    border-radius:12px;
     display:flex;
     flex-direction:column;
+    box-shadow:0 4px 10px rgba(0,0,0,0.3);
   ">
 
     <!-- Верхняя панель -->
