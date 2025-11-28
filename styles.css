@@ -319,7 +319,7 @@ h1{
     font-size:20px;
     padding:6px 10px;
     background: var(--panel-sub-bg);
-    border:40px solid var(--panel-border);
+    border:10px solid var(--panel-border);
     border-radius:50%;
     cursor:pointer;
     user-select:none;
