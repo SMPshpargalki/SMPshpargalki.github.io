@@ -7,7 +7,7 @@ const urlsToCache = [
   "/index.html",
   "/styles.css",
   "/manifest.json",
-  "/icon.png"
+  "/картинки/logo.png"
 ];
 
 // Установка service worker
