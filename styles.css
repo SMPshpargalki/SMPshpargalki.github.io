@@ -316,11 +316,11 @@ h1{
    🌗 Кнопка темы
    ========================= */
 .theme-btn {
-    font-size:18px;
+    font-size:20px;
     padding:6px 10px;
     background: var(--panel-sub-bg);
     border:1px solid var(--panel-border);
-    border-radius:30%;
+    border-radius:50%;
     cursor:pointer;
     user-select:none;
 }
