@@ -316,9 +316,7 @@ h1{
    🌗 Кнопка темы
    ========================= */
 .theme-btn {
-    height: 40px;
-    width: 40px; 
-    font-size:20px;
+    font-size:30px;
     padding:6px 10px;
     background: var(--panel-sub-bg);
     border:1px solid var(--panel-border);
