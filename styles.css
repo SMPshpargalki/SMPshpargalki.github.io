@@ -320,7 +320,7 @@ h1{
     padding:6px 10px;
     background: var(--panel-sub-bg);
     border:1px solid var(--panel-border);
-    border-radius:35%;
+    border-radius:70%;
     cursor:pointer;
     user-select:none;
 }
