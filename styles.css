@@ -350,3 +350,10 @@ h1{
     margin: 0;
     font-size: 34px;
 }
+/* Для картинки в левом блоке */
+.header-bar .logo img {
+    height: 40px; /* подбираешь под свой дизайн */
+    width: auto;  /* сохраняем пропорции */
+    display: block;
+    margin: 0 auto; /* по центру колонки */
+}
