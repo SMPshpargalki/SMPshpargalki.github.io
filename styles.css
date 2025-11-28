@@ -334,3 +334,19 @@ h1{
     padding:10px 12px;
     box-sizing:border-box;
 }
+.header-bar {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr; /* левая пустая – середина – кнопка */
+    align-items: center;
+    width: 100%;
+    max-width: 720px;
+    margin: 15px auto;
+    padding: 0 10px;
+    box-sizing: border-box;
+}
+
+.header-bar h1 {
+    text-align: center;
+    margin: 0;
+    font-size: 34px;
+}
