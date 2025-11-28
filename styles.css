@@ -316,15 +316,21 @@ h1{
    🌗 Кнопка темы
    ========================= */
 .theme-btn {
-    position: fixed;
-    top: 15px;
-    right: 15px;
-    font-size: 22px;
+    font-size:22px;
+    padding:6px 10px;
     background: var(--panel-sub-bg);
-    border: 1px solid var(--panel-border);
-    padding: 6px 10px;
-    border-radius: 50%;
-    cursor: pointer;
-    user-select: none;
-    z-index: 999;
+    border:1px solid var(--panel-border);
+    border-radius:50%;
+    cursor:pointer;
+    user-select:none;
+}
+.header {
+    width:100%;
+    max-width:720px;
+    margin:0 auto;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:10px 12px;
+    box-sizing:border-box;
 }
