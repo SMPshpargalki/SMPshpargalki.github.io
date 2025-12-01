@@ -27,6 +27,7 @@
 <script src="Шаблоны/Травматология.js" defer></script>
 <script src="Шаблоны/Урология.js" defer></script>
 <script src="Шаблоны/Хирургия.js" defer></script>
+<script src="Шаблоны/Прочее.js" defer></script>
 
    <!-- Скрипт для калькулятора -->
 <script src="скрипты/drugcalc.js" defer></script>
@@ -115,15 +116,8 @@
 <div id="Хирургия" class="subsections"></div>
       
    <!-- Прочее -->
-<button class="sub-btn" onclick="toggleSection('other')"><b>Прочее</b></button>
-<div id="other" class="subsections">
-<button class="child-btn" onclick="openModal(`текст`)">Гемодиализ</button>
-<button class="child-btn" onclick="openModal(`текст`)">Здоров на момент осмотра</button>
-<button class="child-btn" onclick="openModal(`текст`)">Подозрение на отравление</button>
-<button class="child-btn" onclick="openModal(`текст`)">Странное и необъяснимое поведение</button>
-<button class="child-btn" onclick="openModal(`текст`)">Употребление алкоголя</button>
-</div>
-</div>
+<button class="sub-btn" onclick="toggleSection('Прочее')"><b>Прочее</b></button>
+<div id="Прочее" class="subsections"></div></div>
     
 <!-- 2. Шпаргалки -->
 <button class="main-btn" onclick="toggleSection('cheatsheets')"><b>Шпаргалки</b></button>
