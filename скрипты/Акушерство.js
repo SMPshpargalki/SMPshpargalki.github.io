@@ -1,5 +1,5 @@
 // Создаем массив кнопок и текста
-const obstetricsTemplates = [
+const АкушерствоTemplates = [
     {
         text: "1 период родов",
         modal: `
@@ -67,14 +67,14 @@ const obstetricsTemplates = [
 
 // Создаем кнопки после загрузки DOM
 document.addEventListener("DOMContentLoaded", () => {
-    const container = document.getElementById("obstetrics");
+    const container = document.getElementById("Акушерство");
 
     if (!container) {
         console.error("Container #obstetrics не найден.");
         return;
     }
 
-    obstetricsTemplates.forEach(item => {
+    АкушерствоTemplates.forEach(item => {
         const btn = document.createElement("button");
         btn.className = "child-btn";
         btn.textContent = item.text;
