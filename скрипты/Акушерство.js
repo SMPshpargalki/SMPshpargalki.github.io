@@ -109,7 +109,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const container = document.getElementById("Акушерство");
 
     if (!container) {
-        console.error("Container #obstetrics не найден.");
+        console.error("Container #Акушерство не найден.");
         return;
     }
 
