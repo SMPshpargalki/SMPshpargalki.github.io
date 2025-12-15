@@ -359,37 +359,27 @@ h1{
 }
 
 /* Калькулятор NEWS */
-.news-item{
-  margin-bottom:18px;
+.news-row {
+  display:grid;
+  grid-template-columns: 1fr 1fr 40px;
+  gap:10px;
+  align-items:center;
+  margin-bottom:12px;
 }
 
-.news-label{
-  font-size:16px;
-  font-weight:600;
-  margin-bottom:6px;
+.news-row label {
+  font-size:15px;
   text-align:left;
 }
 
-.news-row{
-  display:flex;
-  align-items:center;
-  gap:10px;
-}
-
-/* селект как во всех калькуляторах */
-.news-row .calc-select{
-  flex:1;
-}
-
-/* баллы */
-.news-score{
-  min-width:42px;
-  height:42px;
-  background:#f0f0f0;
+.news-row select {
+  padding:8px;
   border-radius:8px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
+  border:1px solid #ccc;
+}
+
+.news-score {
   font-size:18px;
-  font-weight:700;
+  font-weight:bold;
+  text-align:center;
 }
