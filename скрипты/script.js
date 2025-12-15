@@ -34,11 +34,9 @@ function toggleSection(id){
 
     // ✅ ВОТ ЭТО ДОБАВЛЯЕМ
     setTimeout(() => {
-        el.scrollIntoView({
-            behavior: 'smooth',
-            block: 'start'
-        });
-    }, 50);
+    el.scrollIntoView({ behavior:'smooth', block:'start' });
+    window.scrollBy(0, -80);
+}, 50);
 }
 
 document.addEventListener('DOMContentLoaded', hideAllSections);
