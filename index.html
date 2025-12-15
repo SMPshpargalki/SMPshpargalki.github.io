@@ -216,101 +216,29 @@
       
 <!-- Калькулятор NEWS -->
 <button class="sub-btn"onclick="toggleSection('newsCalc')">Шкала NEWS</button>
-<div id="newsCalc" class="subsections">
-  <div class="calc-box">
-    <h3 class="calc-title">Шкала NEWS</h3>
-
-    <div class="news-row">
-      <label>ЧДД за 1 минуту</label>
-      <select data-score id="rr">
-        <option value="">—</option>
-        <option value="3">≤ 8</option>
-        <option value="1">9–11</option>
-        <option value="0">12–20</option>
-        <option value="2">21–24</option>
-        <option value="3">≥ 25</option>
-      </select>
-      <span class="news-score" id="rrScore">0</span>
-    </div>
-
-    <div class="news-row">
-      <label>SpO₂</label>
-      <select data-score id="spo2">
-        <option value="">—</option>
-        <option value="3">≤ 91%</option>
-        <option value="2">92–93%</option>
-        <option value="1">94–95%</option>
-        <option value="0">≥ 96%</option>
-      </select>
-      <span class="news-score" id="spo2Score">0</span>
-    </div>
-
-    <div class="news-row">
-      <label>Необходимость кислорода</label>
-      <select data-score id="o2">
-        <option value="">—</option>
-        <option value="1">Да</option>
-        <option value="0">Нет</option>
-      </select>
-      <span class="news-score" id="o2Score">0</span>
-    </div>
-
-    <div class="news-row">
-      <label>Температура</label>
-      <select data-score id="temp">
-        <option value="">—</option>
-        <option value="3">≤ 35.0</option>
-        <option value="1">35.1–36.0</option>
-        <option value="0">36.1–38.0</option>
-        <option value="1">38.1–39.0</option>
-        <option value="2">≥ 39.1</option>
-      </select>
-      <span class="news-score" id="tempScore">0</span>
-    </div>
-
-    <div class="news-row">
-      <label>САД</label>
-      <select data-score id="sbp">
-        <option value="">—</option>
-        <option value="3">≤ 90</option>
-        <option value="2">91–100</option>
-        <option value="1">101–110</option>
-        <option value="0">111–219</option>
-        <option value="3">≥ 220</option>
-      </select>
-      <span class="news-score" id="sbpScore">0</span>
-    </div>
-
-    <div class="news-row">
-      <label>ЧСС за 1 минуту</label>
-      <select data-score id="hr">
-        <option value="">—</option>
-        <option value="3">≤ 40</option>
-        <option value="1">41–50</option>
-        <option value="0">51–90</option>
-        <option value="1">91–110</option>
-        <option value="2">111–130</option>
-        <option value="3">≥ 131</option>
-      </select>
-      <span class="news-score" id="hrScore">0</span>
-    </div>
-
-    <div class="news-row">
-      <label>Изменение сознания</label>
-      <select data-score id="conscious">
-        <option value="">—</option>
-        <option value="0">Нет</option>
-        <option value="3">Есть</option>
-      </select>
-      <span class="news-score" id="consciousScore">0</span>
-    </div>
-
-    <div class="calc-result" id="newsTotal">
-      Сумма баллов: 0
-    </div>
-  </div>
-</div></div>
-
+<div id="newsCalc" class="subsections"><div class="calc-box"><h3 class="calc-title">Шкала NEWS</h3>
+<div class="news-row"><label>ЧДД за 1 минуту</label><select data-score id="rr">
+<option value="">—</option><option value="3">≤ 8</option><option value="1">9–11</option><option value="0">12–20</option><option value="2">21–24</option><option value="3">≥ 25</option>
+</select><span class="news-score" id="rrScore">0</span></div>
+<div class="news-row"><label>SpO₂</label><select data-score id="spo2">
+<option value="">—</option><option value="3">≤ 91%</option><option value="2">92–93%</option><option value="1">94–95%</option><option value="0">≥ 96%</option>
+</select><span class="news-score" id="spo2Score">0</span></div>
+<div class="news-row"><label>Необходимость кислорода</label><select data-score id="o2">
+<option value="">—</option><option value="1">Да</option><option value="0">Нет</option>
+</select><span class="news-score" id="o2Score">0</span></div>
+<div class="news-row"><label>Температура</label><select data-score id="temp">
+<option value="">—</option><option value="3">≤ 35.0</option><option value="1">35.1–36.0</option><option value="0">36.1–38.0</option><option value="1">38.1–39.0</option><option value="2">≥ 39.1</option>
+</select><span class="news-score" id="tempScore">0</span></div>
+<div class="news-row"><label>САД</label><select data-score id="sbp">
+<option value="">—</option><option value="3">≤ 90</option><option value="2">91–100</option><option value="1">101–110</option><option value="0">111–219</option><option value="3">≥ 220</option>
+</select><span class="news-score" id="sbpScore">0</span></div>
+<div class="news-row"><label>ЧСС за 1 минуту</label><select data-score id="hr">
+<option value="">—</option><option value="3">≤ 40</option><option value="1">41–50</option><option value="0">51–90</option><option value="1">91–110</option><option value="2">111–130</option><option value="3">≥ 131</option>
+</select><span class="news-score" id="hrScore">0</span></div>
+<div class="news-row"><label>Изменение сознания</label><select data-score id="conscious">
+<option value="">—</option><option value="0">Нет</option><option value="3">Есть</option>
+</select><span class="news-score" id="consciousScore">0</span></div>
+<div class="calc-result" id="newsTotal">Сумма баллов: 0</div></div></div></div>
 
 <!-- 4. МКБ-10 -->
 <button class="main-btn" onclick="toggleSection('MKB10')"><b>МКБ-10</b></button>
