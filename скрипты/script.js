@@ -30,13 +30,6 @@ function toggleSection(id){
         if(block) block.style.display = 'block';
     });
     el.style.display = 'block';
-
-
-    // ✅ ВОТ ЭТО ДОБАВЛЯЕМ
-    setTimeout(() => {
-    el.scrollIntoView({ behavior:'smooth', block:'start' });
-    window.scrollBy(0, -80);
-}, 50);
 }
 
 document.addEventListener('DOMContentLoaded', hideAllSections);
