@@ -222,22 +222,33 @@
 
      <div class="news-item">
   <!-- 1 строка -->
-  <div class="news-label">
-    ЧДД за 1 минуту
-  </div>
+  <div class="news-label">ЧДД за 1 минуту</div>
   <!-- 2 строка -->
   <div class="news-row">
     <select id="rr" class="calc-select" data-score>
-      <option value="">Выберите…</option>
-      <option value="3">≤ 8</option>
-      <option value="1">9–11</option>
-      <option value="0">12–20</option>
-      <option value="2">21–24</option>
-      <option value="3">≥ 25</option>
+       <option value="">—</option>
+        <option value="3">≤ 8</option>
+        <option value="1">9–11</option>
+        <option value="0">12–20</option>
+        <option value="2">21–24</option>
+        <option value="3">≥ 25</option>
     </select>
     <span class="news-score" id="rrScore">0</span>
   </div></div>
 
+     <!-- 1 строка -->
+     <div class="news-label">SpO₂</div>
+  <!-- 2 строка -->
+  <div class="news-row">
+    <select id="spo2" class="calc-select" data-score>
+       <option value="">—</option>
+        <option value="3">≤ 91%</option>
+        <option value="2">92–93%</option>
+        <option value="1">94–95%</option>
+        <option value="0">≥ 96%</option>
+    </select>
+    <span class="news-score" id="spo2Score">0</span>
+  </div></div>
      
     <div class="news-row">
       <label>ЧДД за 1 минуту</label>
