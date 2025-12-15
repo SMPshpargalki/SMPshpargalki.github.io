@@ -17,4 +17,4 @@ document.addEventListener("change", e => {
   if (e.target.hasAttribute("data-score")) {
     updateNEWS();
   }
-});
+};
