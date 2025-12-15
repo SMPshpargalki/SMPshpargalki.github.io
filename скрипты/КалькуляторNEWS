@@ -1,3 +1,4 @@
+// ===== Калькулятор NEWS =====
 function updateNEWS() {
   let total = 0;
 
@@ -9,12 +10,15 @@ function updateNEWS() {
     if (scoreSpan) scoreSpan.textContent = score;
   });
 
-  document.getElementById("newsTotal").textContent =
-    "Сумма баллов: " + total;
+  const totalBlock = document.getElementById("newsTotal");
+  if (totalBlock) {
+    totalBlock.textContent = "Сумма баллов: " + total;
+  }
 }
 
+// отслеживаем изменения только внутри NEWS
 document.addEventListener("change", e => {
-  if (e.target.hasAttribute("data-score")) {
+  if (e.target && e.target.hasAttribute("data-score")) {
     updateNEWS();
   }
 });
