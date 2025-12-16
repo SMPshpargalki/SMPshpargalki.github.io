@@ -358,6 +358,7 @@ h1{
     margin: 0 auto; /* по центру колонки */
 }
 
+/* калькуляторы */
 .calc-container {
     border: 1px solid var(--panel-border);
     border-radius: 10px;
