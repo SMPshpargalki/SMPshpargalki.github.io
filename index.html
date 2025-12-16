@@ -22,6 +22,7 @@
 <script src="Калькуляторы/ШОКС.js" defer></script>
 <script src="Калькуляторы/ГЛАЗГО.js" defer></script>
 <script src="Калькуляторы/ТЭЛА.js" defer></script>
+<script src="Калькуляторы/LAMS.js" defer></script>
 
 </head>
 <body>
@@ -229,6 +230,22 @@
   </div>
 </div>
    
+<button class="sub-btn" onclick="toggleSection('strokeCalc')">
+  Шкала LAMS
+</button>
+
+<div id="strokeCalc" class="subsections calc-section">
+  <div class="calc-box">
+    <h3 class="calc-title">Шкала моторного дефицита LAMS</h3>
+
+    <div id="strokeRows"></div>
+
+    <div class="calc-total">
+      Общий балл: <span id="strokeTotal">0</span>
+    </div>
+  </div>
+</div>
+
 </div>
       
 <!-- 4. МКБ-10 -->
