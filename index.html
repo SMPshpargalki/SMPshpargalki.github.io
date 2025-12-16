@@ -170,43 +170,113 @@
 <p id="pregDue"></p></div></div></div></div>
       
 <!-- Калькулятор NEWS -->
-<button class="sub-btn"onclick="toggleSection('newsCalc')">Шкала NEWS</button>
-<div id="newsCalc" class="subsections"><div class="calc-box"><h3 class="calc-title">Шкала NEWS</h3>
-<div class="news-row"><label>ЧДД за 1 минуту</label><select data-score id="rr">
-<option value="">—</option><option value="3">≤ 8</option><option value="1">9–11</option><option value="0">12–20</option><option value="2">21–24</option><option value="3">≥ 25</option>
-</select><span class="news-score" id="rrScore">0</span></div>
-<div class="news-row"><label>SpO₂</label><select data-score id="spo2">
-<option value="">—</option><option value="3">≤ 91%</option><option value="2">92–93%</option><option value="1">94–95%</option><option value="0">≥ 96%</option>
-</select><span class="news-score" id="spo2Score">0</span></div>
-<div class="news-row"><label>Необходимость кислорода</label><select data-score id="o2">
-<option value="">—</option><option value="1">Да</option><option value="0">Нет</option>
-</select><span class="news-score" id="o2Score">0</span></div>
-<div class="news-row"><label>Температура</label><select data-score id="temp">
-<option value="">—</option><option value="3">≤ 35.0</option><option value="1">35.1–36.0</option><option value="0">36.1–38.0</option><option value="1">38.1–39.0</option><option value="2">≥ 39.1</option>
-</select><span class="news-score" id="tempScore">0</span></div>
-<div class="news-row"><label>САД</label><select data-score id="sbp">
-<option value="">—</option><option value="3">≤ 90</option><option value="2">91–100</option><option value="1">101–110</option><option value="0">111–219</option><option value="3">≥ 220</option>
-</select><span class="news-score" id="sbpScore">0</span></div>
-<div class="news-row"><label>ЧСС за 1 минуту</label><select data-score id="hr">
-<option value="">—</option><option value="3">≤ 40</option><option value="1">41–50</option><option value="0">51–90</option><option value="1">91–110</option><option value="2">111–130</option><option value="3">≥ 131</option>
-</select><span class="news-score" id="hrScore">0</span></div>
-<div class="news-row"><label>Изменение сознания</label><select data-score id="conscious">
-<option value="">—</option><option value="0">Нет</option><option value="3">Есть</option>
-</select><span class="news-score" id="consciousScore">0</span></div>
-<div class="calc-result" id="newsTotal">Сумма баллов: 0</div></div></div>
+<!-- Калькулятор NEWS -->
+<button class="sub-btn" onclick="toggleSection('newsCalc')">Шкала NEWS</button>
 
-<button class="sub-btn" onclick="toggleSection('shocksCalc')">
-  Шкала ШОКС (ХСН)
-</button>
+<div id="newsCalc" class="subsections">
+  <div class="calc-box">
+    <h3 class="calc-title">Шкала NEWS</h3>
+
+    <div class="news-row">
+      <label>ЧДД за 1 минуту</label>
+      <select data-score id="rr">
+        <option value="">—</option>
+        <option value="3">≤ 8</option>
+        <option value="1">9–11</option>
+        <option value="0">12–20</option>
+        <option value="2">21–24</option>
+        <option value="3">≥ 25</option>
+      </select>
+      <span class="news-score" id="rrScore">0</span>
+    </div>
+
+    <div class="news-row">
+      <label>SpO₂</label>
+      <select data-score id="spo2">
+        <option value="">—</option>
+        <option value="3">≤ 91%</option>
+        <option value="2">92–93%</option>
+        <option value="1">94–95%</option>
+        <option value="0">≥ 96%</option>
+      </select>
+      <span class="news-score" id="spo2Score">0</span>
+    </div>
+
+    <div class="news-row">
+      <label>Необходимость кислорода</label>
+      <select data-score id="o2">
+        <option value="">—</option>
+        <option value="1">Да</option>
+        <option value="0">Нет</option>
+      </select>
+      <span class="news-score" id="o2Score">0</span>
+    </div>
+
+    <div class="news-row">
+      <label>Температура</label>
+      <select data-score id="temp">
+        <option value="">—</option>
+        <option value="3">≤ 35.0</option>
+        <option value="1">35.1–36.0</option>
+        <option value="0">36.1–38.0</option>
+        <option value="1">38.1–39.0</option>
+        <option value="2">≥ 39.1</option>
+      </select>
+      <span class="news-score" id="tempScore">0</span>
+    </div>
+
+    <div class="news-row">
+      <label>САД</label>
+      <select data-score id="sbp">
+        <option value="">—</option>
+        <option value="3">≤ 90</option>
+        <option value="2">91–100</option>
+        <option value="1">101–110</option>
+        <option value="0">111–219</option>
+        <option value="3">≥ 220</option>
+      </select>
+      <span class="news-score" id="sbpScore">0</span>
+    </div>
+
+    <div class="news-row">
+      <label>ЧСС за 1 минуту</label>
+      <select data-score id="hr">
+        <option value="">—</option>
+        <option value="3">≤ 40</option>
+        <option value="1">41–50</option>
+        <option value="0">51–90</option>
+        <option value="1">91–110</option>
+        <option value="2">111–130</option>
+        <option value="3">≥ 131</option>
+      </select>
+      <span class="news-score" id="hrScore">0</span>
+    </div>
+
+    <div class="news-row">
+      <label>Изменение сознания</label>
+      <select data-score id="conscious">
+        <option value="">—</option>
+        <option value="0">Нет</option>
+        <option value="3">Есть</option>
+      </select>
+      <span class="news-score" id="consciousScore">0</span>
+    </div>
+
+    <div class="calc-result" id="newsTotal">Сумма баллов: 0</div>
+  </div>
+</div>
+
+
+<!-- Калькулятор ШОКС -->
+<button class="sub-btn" onclick="toggleSection('shocksCalc')">Шкала ШОКС (ХСН)</button>
 
 <div id="shocksCalc" class="subsections">
   <div class="calc-box">
     <h3 class="calc-title">Шкала оценки клинического состояния (ШОКС)</h3>
 
-    <!-- 1. Одышка -->
     <div class="news-row">
       <label>Одышка</label>
-      <select class="calc-select" data-shocks id="dyspnea">
+      <select data-shocks id="dyspnea">
         <option value="">—</option>
         <option value="0">Нет</option>
         <option value="1">При нагрузке</option>
@@ -215,10 +285,9 @@
       <span class="news-score" id="dyspneaScore">0</span>
     </div>
 
-    <!-- 2. Масса тела -->
     <div class="news-row">
       <label>Изменение веса за последнюю неделю</label>
-      <select class="calc-select" data-shocks id="weight">
+      <select data-shocks id="weight">
         <option value="">—</option>
         <option value="0">Нет</option>
         <option value="1">Увеличился</option>
@@ -226,10 +295,9 @@
       <span class="news-score" id="weightScore">0</span>
     </div>
 
-    <!-- 3. Перебои -->
     <div class="news-row">
       <label>Жалобы на перебои в работе сердца</label>
-      <select class="calc-select" data-shocks id="arrhythmia">
+      <select data-shocks id="arrhythmia">
         <option value="">—</option>
         <option value="0">Нет</option>
         <option value="1">Есть</option>
@@ -237,10 +305,9 @@
       <span class="news-score" id="arrhythmiaScore">0</span>
     </div>
 
-    <!-- 4. Положение -->
     <div class="news-row">
       <label>Положение больного в постели</label>
-      <select class="calc-select" data-shocks id="position">
+      <select data-shocks id="position">
         <option value="">—</option>
         <option value="0">Горизонтально</option>
         <option value="1">С приподнятым изголовьем (2+ подушки)</option>
@@ -250,35 +317,32 @@
       <span class="news-score" id="positionScore">0</span>
     </div>
 
-    <!-- 5. Шейные вены -->
     <div class="news-row">
       <label>Набухшие шейные вены</label>
-      <select class="calc-select" data-shocks id="jugular">
+      <select data-shocks id="jugular">
         <option value="">—</option>
         <option value="0">Нет</option>
         <option value="1">Лежа</option>
-         <option value="2">Стоя</option>
+        <option value="2">Стоя</option>
       </select>
       <span class="news-score" id="jugularScore">0</span>
     </div>
 
-    <!-- 6. Хрипы -->
     <div class="news-row">
       <label>Хрипы в лёгких</label>
-      <select class="calc-select" data-shocks id="rales">
+      <select data-shocks id="rales">
         <option value="">—</option>
         <option value="0">Нет</option>
         <option value="1">Нижние отделы (до 1/3)</option>
         <option value="2">До лопаток (до 2/3)</option>
-        <option value="3">По всей поверхностью легких</option>
+        <option value="3">По всей поверхности лёгких</option>
       </select>
       <span class="news-score" id="ralesScore">0</span>
     </div>
 
-    <!-- 7. Ритм галопа -->
     <div class="news-row">
       <label>Наличие ритма галопа</label>
-      <select class="calc-select" data-shocks id="gallop">
+      <select data-shocks id="gallop">
         <option value="">—</option>
         <option value="0">Нет</option>
         <option value="1">Есть</option>
@@ -286,22 +350,20 @@
       <span class="news-score" id="gallopScore">0</span>
     </div>
 
-    <!-- 8. Печень -->
     <div class="news-row">
       <label>Печень</label>
-      <select class="calc-select" data-shocks id="liver">
+      <select data-shocks id="liver">
         <option value="">—</option>
         <option value="0">Не увеличена</option>
         <option value="1">Увеличена до 5 см</option>
-         <option value="2">Увеличена более 5 см</option>
+        <option value="2">Увеличена более 5 см</option>
       </select>
       <span class="news-score" id="liverScore">0</span>
     </div>
 
-    <!-- 9. Отеки -->
     <div class="news-row">
       <label>Отеки</label>
-      <select class="calc-select" data-shocks id="edema">
+      <select data-shocks id="edema">
         <option value="">—</option>
         <option value="0">Нет</option>
         <option value="1">Пастозность</option>
@@ -311,29 +373,22 @@
       <span class="news-score" id="edemaScore">0</span>
     </div>
 
-    <!-- 10. САД -->
     <div class="news-row">
       <label>Уровень САД</label>
-      <select class="calc-select" data-shocks id="sbpшокс">
+      <select data-shocks id="sbpшокс">
         <option value="">—</option>
         <option value="0">Более 120 мм.рт.ст.</option>
-        <option value="1">100-120 мм.рт.ст.</option>
-        <option value="2">&lt; Менее 100 мм.рт.ст.</option>
+        <option value="1">100–120 мм.рт.ст.</option>
+        <option value="2">Менее 100 мм.рт.ст.</option>
       </select>
       <span class="news-score" id="sbpшоксScore">0</span>
     </div>
 
-    <!-- Итоги -->
-    <div id="shocksTotal" class="calc-result">
-      Сумма баллов: 0
-    </div>
-
-    <div id="shocksClass" class="calc-result">
-      Функциональный класс: —
-    </div>
+    <div id="shocksTotal" class="calc-result">Сумма баллов: 0</div>
+    <div id="shocksClass" class="calc-result">Функциональный класс: —</div>
 
   </div>
-</div></div>
+</div>
 
 
 
