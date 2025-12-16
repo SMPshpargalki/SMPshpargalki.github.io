@@ -5,31 +5,26 @@ function updateSHOCKS() {
     const score = Number(select.value || 0);
     total += score;
 
-    const scoreSpan = document.getElementById(select.id + "Score");
-    if (scoreSpan) scoreSpan.textContent = score;
+    const scoreEl = document.getElementById(select.id + "Score");
+    if (scoreEl) scoreEl.textContent = score;
   });
 
-  // Сумма баллов
-  const totalEl = document.getElementById("shocksTotal");
-  if (totalEl) {
-    totalEl.textContent = "Сумма баллов: " + total;
-  }
+  // Сумма
+  document.getElementById("shocksTotal").textContent =
+    "Сумма баллов: " + total;
 
   // Функциональный класс
-  const classEl = document.getElementById("shocksClass");
-  if (classEl) {
-    let fk = "—";
+  let fk = "—";
+  if (total <= 3) fk = "I ФК";
+  else if (total <= 6) fk = "II ФК";
+  else if (total <= 9) fk = "III ФК";
+  else fk = "IV ФК";
 
-    if (total <= 3) fk = "I ФК";
-    else if (total <= 6) fk = "II ФК";
-    else if (total <= 9) fk = "III ФК";
-    else fk = "IV ФК";
-
-    classEl.textContent = "Функциональный класс: " + fk;
-  }
+  document.getElementById("shocksClass").textContent =
+    "Функциональный класс: " + fk;
 }
 
-// отслеживаем изменения ТОЛЬКО в ШОКС
+// реагируем только на ШОКС
 document.addEventListener("change", e => {
   if (e.target.hasAttribute("data-shocks")) {
     updateSHOCKS();
