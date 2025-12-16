@@ -1,32 +1,35 @@
-function updateSHOCKS() {
-  let total = 0;
+const shoxCalc = document.getElementById('shoxCalc');
+const selects = shoxCalc.querySelectorAll('.calc-select');
+const scores = shoxCalc.querySelectorAll('.calc-score');
+const totalSpan = document.getElementById('shoxTotal');
 
-  document.querySelectorAll("[data-shocks]").forEach(select => {
-    const score = Number(select.value || 0);
-    total += score;
+// создаём элемент для отображения ФК
+let fkSpan = document.createElement('div');
+fkSpan.id = 'shoxFK';
+fkSpan.style.marginTop = '4px';
+fkSpan.style.fontWeight = 'bold';
+shoxCalc.querySelector('.calc-total').appendChild(fkSpan);
 
-    const scoreEl = document.getElementById(select.id + "Score");
-    if (scoreEl) scoreEl.textContent = score;
-  });
+function updateTotal() {
+    let total = 0;
+    selects.forEach((s, i) => {
+        const value = parseInt(s.value) || 0;
+        scores[i].innerText = value;
+        total += value;
+    });
+    totalSpan.innerText = total;
 
-  // Сумма
-  document.getElementById("shocksTotal").textContent =
-    "Сумма баллов: " + total;
+    // определяем функциональный класс
+    let fk = '';
+    if (total <= 3) fk = '1 ФК';
+    else if (total <= 6) fk = '2 ФК';
+    else if (total <= 9) fk = '3 ФК';
+    else fk = '4 ФК';
 
-  // Функциональный класс
-  let fk = "—";
-  if (total <= 3) fk = "I ФК по NYHA";
-  else if (total <= 6) fk = "II ФК по NYHA";
-  else if (total <= 9) fk = "III ФК по NYHA";
-  else fk = "IV ФК по NYHA";
-
-  document.getElementById("shocksClass").textContent =
-    "Функциональный класс: " + fk;
+    fkSpan.innerText = `Функциональный класс: ${fk}`;
 }
 
-// реагируем только на ШОКС
-document.addEventListener("change", e => {
-  if (e.target.hasAttribute("data-shocks")) {
-    updateSHOCKS();
-  }
+// слушатели на все селекты
+selects.forEach(select => {
+    select.addEventListener('change', updateTotal);
 });
