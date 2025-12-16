@@ -429,6 +429,8 @@ h1{
 
 /* Баллы */
 .calc-section .calc-score {
+    width: 32px;          /* ← сдвигает влево и делает колонку стабильной */
+    min-width: 32px;
     font-size: 16px;
     font-weight: bold;
     text-align: center;
@@ -436,6 +438,8 @@ h1{
     display: flex;
     align-items: center;
     justify-content: center;
+    padding: 0;
+    margin: 0;
 }
 
 /* Итог */
