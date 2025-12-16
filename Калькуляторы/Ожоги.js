@@ -3,139 +3,33 @@
    ========================= */
 
 const burnsData = [
-  { label:"Голова", options:[
-    {text:"0–1 год", value:19},
-    {text:"1–4 года", value:17},
-    {text:"5–9 лет", value:13},
-    {text:"10–15 лет", value:10},
-    {text:"Взрослый", value:7}
-  ]},
-  { label:"Шея", options:[
-    {text:"0–1 год", value:2},
-    {text:"1–4 года", value:2},
-    {text:"5–9 лет", value:2},
-    {text:"10–15 лет", value:2},
-    {text:"Взрослый", value:2}
-  ]},
-  { label:"Грудь", options:[
-    {text:"0–1 год", value:13},
-    {text:"1–4 года", value:13},
-    {text:"5–9 лет", value:13},
-    {text:"10–15 лет", value:13},
-    {text:"Взрослый", value:13}
-  ]},
-  { label:"Спина", options:[
-    {text:"0–1 год", value:13},
-    {text:"1–4 года", value:13},
-    {text:"5–9 лет", value:13},
-    {text:"10–15 лет", value:13},
-    {text:"Взрослый", value:13}
-  ]},
-  { label:"Правая ягодица", options:[
-    {text:"0–1 год", value:2.5},
-    {text:"1–4 года", value:2.5},
-    {text:"5–9 лет", value:2.5},
-    {text:"10–15 лет", value:2.5},
-    {text:"Взрослый", value:2.5}
-  ]},
-  { label:"Левая ягодица", options:[
-    {text:"0–1 год", value:2.5},
-    {text:"1–4 года", value:2.5},
-    {text:"5–9 лет", value:2.5},
-    {text:"10–15 лет", value:2.5},
-    {text:"Взрослый", value:2.5}
-  ]},
-  { label:"Промежность", options:[
-    {text:"0–1 год", value:1},
-    {text:"1–4 года", value:1},
-    {text:"5–9 лет", value:1},
-    {text:"10–15 лет", value:1},
-    {text:"Взрослый", value:1}
-  ]},
-  { label:"Правое плечо", options:[
-    {text:"0–1 год", value:3},
-    {text:"1–4 года", value:3},
-    {text:"5–9 лет", value:3},
-    {text:"10–15 лет", value:3},
-    {text:"Взрослый", value:3}
-  ]},
-  { label:"Левое плечо", options:[
-    {text:"0–1 год", value:3},
-    {text:"1–4 года", value:3},
-    {text:"5–9 лет", value:3},
-    {text:"10–15 лет", value:3},
-    {text:"Взрослый", value:3}
-  ]},
-  { label:"Правое предплечье", options:[
-    {text:"0–1 год", value:4},
-    {text:"1–4 года", value:4},
-    {text:"5–9 лет", value:4},
-    {text:"10–15 лет", value:4},
-    {text:"Взрослый", value:4}
-  ]},
-  { label:"Левое предплечье", options:[
-    {text:"0–1 год", value:4},
-    {text:"1–4 года", value:4},
-    {text:"5–9 лет", value:4},
-    {text:"10–15 лет", value:4},
-    {text:"Взрослый", value:4}
-  ]},
-  { label:"Правая кисть", options:[
-    {text:"0–1 год", value:2.5},
-    {text:"1–4 года", value:2.5},
-    {text:"5–9 лет", value:2.5},
-    {text:"10–15 лет", value:2.5},
-    {text:"Взрослый", value:2.5}
-  ]},
-  { label:"Левая кисть", options:[
-    {text:"0–1 год", value:2.5},
-    {text:"1–4 года", value:2.5},
-    {text:"5–9 лет", value:2.5},
-    {text:"10–15 лет", value:2.5},
-    {text:"Взрослый", value:2.5}
-  ]},
-  { label:"Правое бедро", options:[
-    {text:"0–1 год", value:5.5},
-    {text:"1–4 года", value:6.5},
-    {text:"5–9 лет", value:8.5},
-    {text:"10–15 лет", value:8.5},
-    {text:"Взрослый", value:9.5}
-  ]},
-  { label:"Левое бедро", options:[
-    {text:"0–1 год", value:5.5},
-    {text:"1–4 года", value:6.5},
-    {text:"5–9 лет", value:8.5},
-    {text:"10–15 лет", value:8.5},
-    {text:"Взрослый", value:9.5}
-  ]},
-  { label:"Правая голень", options:[
-    {text:"0–1 год", value:5},
-    {text:"1–4 года", value:5},
-    {text:"5–9 лет", value:5.5},
-    {text:"10–15 лет", value:6},
-    {text:"Взрослый", value:7}
-  ]},
-  { label:"Левая голень", options:[
-    {text:"0–1 год", value:5},
-    {text:"1–4 года", value:5},
-    {text:"5–9 лет", value:5.5},
-    {text:"10–15 лет", value:6},
-    {text:"Взрослый", value:7}
-  ]},
-  { label:"Правая стопа", options:[
-    {text:"0–1 год", value:3.5},
-    {text:"1–4 года", value:3.5},
-    {text:"5–9 лет", value:3.5},
-    {text:"10–15 лет", value:3.5},
-    {text:"Взрослый", value:3.5}
-  ]},
-  { label:"Левая стопа", options:[
-    {text:"0–1 год", value:3.5},
-    {text:"1–4 года", value:3.5},
-    {text:"5–9 лет", value:3.5},
-    {text:"10–15 лет", value:3.5},
-    {text:"Взрослый", value:3.5}
-  ]}
+  {label:"Голова", values:[19,17,13,10,7]},
+  {label:"Шея", values:[2,2,2,2,2]},
+  {label:"Грудь", values:[13,13,13,13,13]},
+  {label:"Спина", values:[13,13,13,13,13]},
+  {label:"Правая ягодица", values:[2.5,2.5,2.5,2.5,2.5]},
+  {label:"Левая ягодица", values:[2.5,2.5,2.5,2.5,2.5]},
+  {label:"Промежность", values:[1,1,1,1,1]},
+  {label:"Правое плечо", values:[3,3,3,3,3]},
+  {label:"Левое плечо", values:[3,3,3,3,3]},
+  {label:"Правое предплечье", values:[4,4,4,4,4]},
+  {label:"Левое предплечье", values:[4,4,4,4,4]},
+  {label:"Правая кисть", values:[2.5,2.5,2.5,2.5,2.5]},
+  {label:"Левая кисть", values:[2.5,2.5,2.5,2.5,2.5]},
+  {label:"Правое бедро", values:[5.5,6.5,8.5,8.5,9.5]},
+  {label:"Левое бедро", values:[5.5,6.5,8.5,8.5,9.5]},
+  {label:"Правая голень", values:[5,5,5.5,6,7]},
+  {label:"Левая голень", values:[5,5,5.5,6,7]},
+  {label:"Правая стопа", values:[3.5,3.5,3.5,3.5,3.5]},
+  {label:"Левая стопа", values:[3.5,3.5,3.5,3.5,3.5]}
+];
+
+const ageLabels = [
+  "0–1 год",
+  "1–4 года",
+  "5–9 лет",
+  "10–15 лет",
+  "Взрослый"
 ];
 
 /* ОТРИСОВКА */
@@ -143,19 +37,21 @@ function renderBurnsCalc() {
   const container = document.getElementById("burnsRows");
   container.innerHTML = "";
 
-  burnsData.forEach((item, index) => {
+  burnsData.forEach((item, i) => {
     const row = document.createElement("div");
     row.className = "calc-row";
 
+    let options = `<option value="">—</option>`;
+    item.values.forEach((val, idx) => {
+      options += `<option value="${val}">${ageLabels[idx]}</option>`;
+    });
+
     row.innerHTML = `
       <div class="calc-label">${item.label}</div>
-      <select class="calc-select" data-index="${index}">
-        <option value="">—</option>
-        ${item.options.map(o =>
-          `<option value="${o.value}">${o.text}</option>`
-        ).join("")}
+      <select class="calc-select" data-i="${i}">
+        ${options}
       </select>
-      <div class="calc-points" id="burnsPoint${index}">0</div>
+      <div class="calc-points" id="burnsPoint${i}">0</div>
     `;
 
     container.appendChild(row);
@@ -171,14 +67,14 @@ function updateBurnsTotal() {
   let total = 0;
 
   burnsData.forEach((_, i) => {
-    const select = document.querySelector(`select[data-index="${i}"]`);
-    const value = parseFloat(select.value) || 0;
-    document.getElementById(`burnsPoint${i}`).textContent = value;
-    total += value;
+    const sel = document.querySelector(`select[data-i="${i}"]`);
+    const val = sel && sel.value !== "" ? parseFloat(sel.value) : 0;
+    document.getElementById(`burnsPoint${i}`).textContent = val;
+    total += val;
   });
 
   document.getElementById("burnsTotal").textContent =
-    total % 1 === 0 ? total : total.toFixed(1);
+    Number.isInteger(total) ? total : total.toFixed(1);
 }
 
 /* ИНИЦИАЛИЗАЦИЯ */
