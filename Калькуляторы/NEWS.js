@@ -1,18 +1,11 @@
 const newsData = [
-  {label:"Частота дыхания за 1 минуту", options:[
-    {text:"≤8", value:3},{text:"9–11", value:1},{text:"12–20", value:0},{text:"21–24", value:2},{text:"≥25", value:3}]},
-  {label:"Насыщение крови кислородом (SpO₂)", options:[
-    {text:"≤91 %", value:3},{text:"92–93 %", value:2},{text:"94–95 %", value:1},{text:"≥96 %", value:0}]},
-  {label:"Необходимость инсуффляции кислорода", options:[
-    {text:"Да", value:2},{text:"Нет", value:0}]},
-  {label:"Температура тела (°C)", options:[
-    {text:"≤35,0", value:3},{text:"35,1 – 36,0", value:1},{text:"36,1 – 38,0", value:0},{text:"38,1 – 39,0", value:1},{text:"≥39,1", value:2}]},
-  {label:"Систолическое АД", options:[
-    {text:"≤90", value:3},{text:"91 – 100", value:2},{text:"101 – 110", value:1},{text:"111 – 219", value:0},{text:"≥220", value:3}]},
-  {label:"Частота сердечных сокращений (ЧСС)", options:[
-    {text:"≤40", value:3},{text:"41 – 50", value:1},{text:"51 – 90", value:0},{text:"91 – 110", value:1},{text:"111 – 130", value:2},{text:"≥131", value:3}]},
-  {label:"Изменение уровня сознания", options:[{text:"Нет", value:0},{text:"Есть", value:3}]}
-];
+  {label:"Частота дыхания за 1 минуту", options:[{text:"≤8", value:3},{text:"9–11", value:1},{text:"12–20", value:0},{text:"21–24", value:2},{text:"≥25", value:3}]},
+  {label:"Насыщение крови кислородом (SpO₂)", options:[{text:"≤91 %", value:3},{text:"92–93 %", value:2},{text:"94–95 %", value:1},{text:"≥96 %", value:0}]},
+  {label:"Необходимость инсуффляции кислорода", options:[{text:"Да", value:2},{text:"Нет", value:0}]},
+  {label:"Температура тела (°C)", options:[{text:"≤35,0", value:3},{text:"35,1 – 36,0", value:1},{text:"36,1 – 38,0", value:0},{text:"38,1 – 39,0", value:1},{text:"≥39,1", value:2}]},
+  {label:"Систолическое АД", options:[{text:"≤90", value:3},{text:"91 – 100", value:2},{text:"101 – 110", value:1},{text:"111 – 219", value:0},{text:"≥220", value:3}]},
+  {label:"Частота сердечных сокращений (ЧСС)", options:[{text:"≤40", value:3},{text:"41 – 50", value:1},{text:"51 – 90", value:0},{text:"91 – 110", value:1},{text:"111 – 130", value:2},{text:"≥131", value:3}]},
+  {label:"Изменение уровня сознания", options:[{text:"Нет", value:0},{text:"Есть", value:3}]}];
 
 function generateNewsCalc(){
   const container = document.getElementById("newsRows");
