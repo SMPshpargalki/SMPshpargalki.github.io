@@ -263,18 +263,18 @@
 
     <!-- 2. Масса тела -->
     <div class="news-row">
-      <label>Изменение массы за неделю</label>
+      <label>Изменение веса за последнюю неделю</label>
       <select class="calc-select" data-shocks id="weight">
         <option value="">—</option>
         <option value="0">Нет</option>
-        <option value="1">Увеличилась</option>
+        <option value="1">Увеличился</option>
       </select>
       <span class="news-score" id="weightScore">0</span>
     </div>
 
     <!-- 3. Перебои -->
     <div class="news-row">
-      <label>Перебои в работе сердца</label>
+      <label>Жалобы на перебои в работе сердца</label>
       <select class="calc-select" data-shocks id="arrhythmia">
         <option value="">—</option>
         <option value="0">Нет</option>
@@ -285,12 +285,12 @@
 
     <!-- 4. Положение -->
     <div class="news-row">
-      <label>Положение в постели</label>
+      <label>Положение больного в постели</label>
       <select class="calc-select" data-shocks id="position">
         <option value="">—</option>
         <option value="0">Горизонтально</option>
-        <option value="1">С приподнятым изголовьем</option>
-        <option value="2">С удушьем</option>
+        <option value="1">С приподнятым изголовьем (2+ подушки)</option>
+        <option value="2">С приподнятым изголовьем (2+ подушки) плюс просыпается от удушья</option>
         <option value="3">Сидя</option>
       </select>
       <span class="news-score" id="positionScore">0</span>
@@ -302,7 +302,8 @@
       <select class="calc-select" data-shocks id="jugular">
         <option value="">—</option>
         <option value="0">Нет</option>
-        <option value="1">Есть</option>
+        <option value="1">Лежа</option>
+         <option value="2">Стоя</option>
       </select>
       <span class="news-score" id="jugularScore">0</span>
     </div>
@@ -313,16 +314,16 @@
       <select class="calc-select" data-shocks id="rales">
         <option value="">—</option>
         <option value="0">Нет</option>
-        <option value="1">Нижние отделы</option>
-        <option value="2">До лопаток</option>
-        <option value="3">По всей поверхности</option>
+        <option value="1">Нижние отделы (до 1/3)</option>
+        <option value="2">До лопаток (до 2/3)</option>
+        <option value="3">По всей поверхностью легких</option>
       </select>
       <span class="news-score" id="ralesScore">0</span>
     </div>
 
     <!-- 7. Ритм галопа -->
     <div class="news-row">
-      <label>Ритм галопа</label>
+      <label>Наличие ритма галопа</label>
       <select class="calc-select" data-shocks id="gallop">
         <option value="">—</option>
         <option value="0">Нет</option>
@@ -337,7 +338,8 @@
       <select class="calc-select" data-shocks id="liver">
         <option value="">—</option>
         <option value="0">Не увеличена</option>
-        <option value="1">Увеличена</option>
+        <option value="1">Увеличена до 5 см</option>
+         <option value="2">Увеличена более 5 см</option>
       </select>
       <span class="news-score" id="liverScore">0</span>
     </div>
@@ -360,9 +362,9 @@
       <label>Уровень САД</label>
       <select class="calc-select" data-shocks id="sbp">
         <option value="">—</option>
-        <option value="0">≥ 110 мм рт.ст.</option>
-        <option value="1">90–109 мм рт.ст.</option>
-        <option value="2">&lt; 90 мм рт.ст.</option>
+        <option value="0">>120 мм рт.ст.</option>
+        <option value="1">100-120 мм рт.ст.</option>
+        <option value="2"><100 мм рт.ст.</option>
       </select>
       <span class="news-score" id="sbpScore">0</span>
     </div>
