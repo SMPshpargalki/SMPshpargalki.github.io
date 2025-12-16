@@ -213,7 +213,28 @@
 <button class="red-btn" id="calcPreg">Рассчитать</button>
 <div id="pregResult" class="preg-result" style="margin-top: 15px;">
 <p id="pregWeeks"></p>
-<p id="pregDue"></p></div></div></div></div></div>
+<p id="pregDue"></p></div></div></div></div>
+
+<button class="sub-btn" onclick="toggleSection('shoxCalc')">Калькулятор ШОКС</button>
+<div id="shoxCalc" class="subsections calc-section">
+  <div class="calc-box">
+    <h3 class="calc-title">Калькулятор ШОКС</h3>
+    <div id="shoxRows"></div>
+    <div class="calc-total">Общий балл: <span id="shoxTotal">0</span></div>
+    <div id="shoxInfo" class="calc-info"></div>
+  </div>
+</div>
+
+<button class="sub-btn" onclick="toggleSection('newsCalc')">Калькулятор NEWS</button>
+<div id="newsCalc" class="subsections calc-section">
+  <div class="calc-box">
+    <h3 class="calc-title">Калькулятор NEWS</h3>
+    <div id="newsRows"></div>
+    <div class="calc-total">Общий балл: <span id="newsTotal">0</span></div>
+  </div>
+</div>
+
+</div>
       
 <!-- 4. МКБ-10 -->
 <button class="main-btn" onclick="toggleSection('MKB10')"><b>МКБ-10</b></button>
