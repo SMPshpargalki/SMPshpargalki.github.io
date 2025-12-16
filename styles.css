@@ -358,29 +358,34 @@ h1{
     margin: 0 auto; /* по центру колонки */
 }
 
-/* ===== ЕДИНЫЙ СТИЛЬ ДЛЯ ВСЕХ КАЛЬКУЛЯТОРОВ ВЫБОРА ===== */
-.calc-box {
-  max-width: 720px;
-  margin: 10px auto;
-  padding: 15px 20px;
-  background: var(--panel-bg, #f9f9f9);
-  border: 1px solid var(--panel-border, #ccc);
-  border-radius: 12px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-  font-family: Arial, sans-serif;
-}
-
-/* Заголовок калькулятора */
-.calc-title {
-  font-size: 20px;
-  font-weight: bold;
-  margin-bottom: 15px;
-  color: var(--text-color, #333);
-  text-align: center;
-}
-
-/* Ряды выбора — grid как у ШОКС */
+/* Калькулятор NEWS */
 .news-row {
+  display:grid;
+  grid-template-columns: 1fr 1fr 40px;
+  gap:10px;
+  align-items:center;
+  margin-bottom:12px;
+}
+
+.news-row label {
+  font-size:15px;
+  text-align:left;
+}
+
+.news-row select {
+  padding:8px;
+  border-radius:8px;
+  border:1px solid #ccc;
+}
+
+.news-score {
+  font-size:18px;
+  font-weight:bold;
+  text-align:center;
+}
+
+/* ===== ШКАЛА ШОКС ===== */
+#shocksCalc .news-row {
   display: grid;
   grid-template-columns: 1fr 140px 40px;
   align-items: center;
@@ -389,78 +394,39 @@ h1{
 }
 
 /* Название параметра */
-.news-row label {
+#shocksCalc .news-row label {
   font-size: 16px;
   line-height: 1.3;
   word-break: break-word;
 }
 
-/* Select — одинаковый размер для всех калькуляторов */
-.news-row select {
+/* Select — одинаковый размер как в NEWS */
+#shocksCalc .news-row select {
   width: 100%;
   height: 44px;
   font-size: 16px;
   padding: 6px 10px;
   border-radius: 10px;
-  border: 1px solid var(--panel-border, #aaa);
-  background: var(--panel-bg, #fff);
-  color: var(--text-color, #000);
+  border: 1px solid var(--panel-border);
+  background: var(--panel-bg);
+  color: var(--text-color);
 }
 
 /* Баллы справа */
-.news-score {
+#shocksCalc .news-score {
   text-align: center;
   font-size: 18px;
   font-weight: bold;
   min-width: 40px;
 }
 
-/* Итоговые блоки */
-.calc-result {
-  margin-top: 15px;
-  padding: 10px;
-  font-weight: bold;
-  text-align: center;
-  border-top: 1px solid var(--panel-border, #ccc);
-  color: var(--text-color, #222);
-}
-
-/* Кнопка открытия калькулятора */
-.sub-btn {
-  display: block;
-  width: 100%;
-  max-width: 720px;
-  margin: 10px auto;
-  padding: 8px 12px;
-  background: #e74c3c;
-  color: white;
-  font-size: 18px;
-  font-weight: bold;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-}
-
-.sub-btn:hover {
-  background: #c0392b;
-}
-
-/* Скрытие блоков */
-.subsections {
-  display: none;
-}
-
-/* Адаптив под телефон */
+/* Адаптация под телефон */
 @media (max-width: 480px) {
-  .news-row {
+  #shocksCalc .news-row {
     grid-template-columns: 1fr 120px 36px;
   }
 
-  .news-row label {
+  #shocksCalc .news-row label {
     font-size: 15px;
-  }
-
-  .news-row select {
-    height: 40px;
   }
 }
