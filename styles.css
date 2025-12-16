@@ -359,14 +359,14 @@ h1{
 }
 
 /* =========================
-   📊 Калькуляторы выбора — ТАБЛИЦА
+   📊 Калькуляторы выбора — ЖЁСТКАЯ СЕТКА
    ========================= */
 
 .calc-section {
     margin-top: 8px;
 }
 
-/* Основной контейнер */
+/* Контейнер калькулятора */
 .calc-section .calc-box {
     background: var(--panel-bg);
     padding: 14px;
@@ -382,10 +382,10 @@ h1{
     color: var(--text-color);
 }
 
-/* ОДНА СТРОКА */
+/* Одна строка — ВСЕГДА */
 .calc-section .calc-row {
     display: grid;
-    grid-template-columns: 45% 40% 15%;
+    grid-template-columns: 55% 30% 15%;
     border: 1px solid var(--panel-border);
     border-radius: 10px;
     overflow: hidden;
@@ -393,11 +393,12 @@ h1{
     background: var(--panel-sub-bg);
 }
 
-/* ЯЧЕЙКИ */
+/* Ячейки */
 .calc-section .calc-row > * {
     border-right: 1px solid var(--panel-border);
-    padding: 10px;
+    padding: 8px;
     box-sizing: border-box;
+    min-width: 0; /* критично для мобилок */
 }
 
 .calc-section .calc-row > *:last-child {
@@ -406,18 +407,20 @@ h1{
 
 /* Параметр */
 .calc-section .calc-row label {
-    font-size: 15px;
+    font-size: 14px;
+    line-height: 1.2;
     text-align: left;
     color: var(--text-color);
     display: flex;
     align-items: center;
+    word-break: break-word;
 }
 
 /* Селект */
 .calc-section .calc-row select {
     width: 100%;
-    padding: 8px;
-    font-size: 15px;
+    padding: 6px;
+    font-size: 14px;
     border-radius: 6px;
     border: 1px solid var(--panel-border);
     background: var(--panel-bg);
@@ -447,7 +450,7 @@ h1{
     text-align: center;
 }
 
-/* Инфо-блок */
+/* Инфо-блок (ФК и т.п.) */
 .calc-section .calc-info {
     margin-top: 10px;
     padding: 10px;
@@ -460,22 +463,18 @@ h1{
     background: var(--panel-bg);
 }
 
-/* 📱 МОБИЛЬНАЯ ВЕРСИЯ — НИЧЕГО НЕ СЪЕЗЖАЕТ */
+/* ❌ НИКАКИХ ПЕРЕСТРОЕНИЙ НА МОБИЛЕ */
 @media (max-width: 520px) {
     .calc-section .calc-row {
-        grid-template-columns: 100%;
+        grid-template-columns: 55% 30% 15%;
     }
 
-    .calc-section .calc-row > * {
-        border-right: none;
-        border-bottom: 1px solid var(--panel-border);
+    .calc-section .calc-row label {
+        font-size: 13px;
     }
 
-    .calc-section .calc-row > *:last-child {
-        border-bottom: none;
-    }
-
-    .calc-section .calc-score {
-        font-size: 18px;
+    .calc-section .calc-row select {
+        font-size: 13px;
+        padding: 5px;
     }
 }
