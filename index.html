@@ -23,6 +23,7 @@
 <script src="Калькуляторы/ГЛАЗГО.js" defer></script>
 <script src="Калькуляторы/ТЭЛА.js" defer></script>
 <script src="Калькуляторы/LAMS.js" defer></script>
+<script src="Калькуляторы/Ожоги.js" defer></script>
 
 </head>
 <body>
@@ -243,6 +244,23 @@
 
     <div class="calc-total">
       Общий балл: <span id="strokeTotal">0</span>
+    </div>
+  </div>
+</div>
+
+<!-- Калькулятор Ожогов -->
+<button class="sub-btn" onclick="toggleSection('burnCalc')">
+  Расчёт площади ожога
+</button>
+
+<div id="burnCalc" class="subsections calc-section">
+  <div class="calc-box">
+    <h3 class="calc-title">Расчёт площади ожогов</h3>
+
+    <div id="burnRows"></div>
+
+    <div class="calc-total">
+      Общая площадь (%): <span id="burnTotal">0</span>
     </div>
   </div>
 </div>
