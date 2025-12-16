@@ -359,53 +359,123 @@ h1{
 }
 
 /* =========================
-   📊 Калькуляторы выбора
+   📊 Калькуляторы выбора — ТАБЛИЦА
    ========================= */
 
+.calc-section {
+    margin-top: 8px;
+}
+
+/* Основной контейнер */
 .calc-section .calc-box {
-  padding: 15px;
-  border: 1px solid var(--panel-border);
-  border-radius: 12px;
-  margin-bottom: 20px;
-  background: var(--panel-sub-bg);
+    background: var(--panel-bg);
+    padding: 14px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px var(--shadow);
 }
 
-.calc-title {
-  font-size: 20px;
-  margin-bottom: 15px;
+/* Заголовок */
+.calc-section .calc-title {
+    font-size: 22px;
+    margin-bottom: 14px;
+    text-align: center;
+    color: var(--text-color);
 }
 
-.calc-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 10px;
+/* ОДНА СТРОКА */
+.calc-section .calc-row {
+    display: grid;
+    grid-template-columns: 45% 40% 15%;
+    border: 1px solid var(--panel-border);
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 8px;
+    background: var(--panel-sub-bg);
 }
 
-.calc-row label {
-  flex: 2;
+/* ЯЧЕЙКИ */
+.calc-section .calc-row > * {
+    border-right: 1px solid var(--panel-border);
+    padding: 10px;
+    box-sizing: border-box;
 }
 
-.calc-row select {
-  flex: 2;
-  padding: 5px;
-  font-size: 16px;
+.calc-section .calc-row > *:last-child {
+    border-right: none;
 }
 
-.calc-row .calc-score {
-  flex: 1;
-  text-align: center;
-  font-weight: bold;
+/* Параметр */
+.calc-section .calc-row label {
+    font-size: 15px;
+    text-align: left;
+    color: var(--text-color);
+    display: flex;
+    align-items: center;
 }
 
-.calc-total {
-  margin-top: 15px;
-  font-size: 18px;
-  font-weight: bold;
+/* Селект */
+.calc-section .calc-row select {
+    width: 100%;
+    padding: 8px;
+    font-size: 15px;
+    border-radius: 6px;
+    border: 1px solid var(--panel-border);
+    background: var(--panel-bg);
+    color: var(--text-color);
 }
 
-.calc-info {
-  margin-top: 10px;
-  font-size: 16px;
-  color: var(--btn-main);
+/* Баллы */
+.calc-section .calc-score {
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    color: var(--text-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Итог */
+.calc-section .calc-total {
+    margin-top: 12px;
+    padding: 12px;
+    background: var(--panel-sub-bg);
+    border: 1px solid var(--panel-border);
+    border-radius: 10px;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+}
+
+/* Инфо-блок */
+.calc-section .calc-info {
+    margin-top: 10px;
+    padding: 10px;
+    border-radius: 8px;
+    border: 2px solid var(--btn-main);
+    color: var(--btn-main);
+    font-size: 17px;
+    font-weight: bold;
+    text-align: center;
+    background: var(--panel-bg);
+}
+
+/* 📱 МОБИЛЬНАЯ ВЕРСИЯ — НИЧЕГО НЕ СЪЕЗЖАЕТ */
+@media (max-width: 520px) {
+    .calc-section .calc-row {
+        grid-template-columns: 100%;
+    }
+
+    .calc-section .calc-row > * {
+        border-right: none;
+        border-bottom: 1px solid var(--panel-border);
+    }
+
+    .calc-section .calc-row > *:last-child {
+        border-bottom: none;
+    }
+
+    .calc-section .calc-score {
+        font-size: 18px;
+    }
 }
