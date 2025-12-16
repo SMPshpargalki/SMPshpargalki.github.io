@@ -12,20 +12,33 @@
 <script src="скрипты/script.js" defer></script>
 
    <!-- Скрипты для шаблонов -->
-<script src="Шаблоны/Акушерство.js" defer></script><script src="Шаблоны/Анестезиология.js" defer></script><script src="Шаблоны/Инфекция.js" defer></script><script src="Шаблоны/Кардиология.js" defer></script><script src="Шаблоны/Констатация.js" defer></script><script src="Шаблоны/Неврология.js" defer></script><script src="Шаблоны/Оториноларингология.js" defer></script><script src="Шаблоны/Офтальмология.js" defer></script><script src="Шаблоны/Педиатрия.js" defer></script><script src="Шаблоны/Стоматология.js" defer></script><script src="Шаблоны/Терапия.js" defer></script><script src="Шаблоны/Токсикология.js" defer></script><script src="Шаблоны/Травматология.js" defer></script><script src="Шаблоны/Урология.js" defer></script><script src="Шаблоны/Хирургия.js" defer></script><script src="Шаблоны/Прочее.js" defer></script>
+<script src="Шаблоны/Акушерство.js" defer></script>
+<script src="Шаблоны/Анестезиология.js" defer></script>
+<script src="Шаблоны/Инфекция.js" defer></script>
+<script src="Шаблоны/Кардиология.js" defer></script>
+<script src="Шаблоны/Констатация.js" defer></script>
+<script src="Шаблоны/Неврология.js" defer></script>
+<script src="Шаблоны/Оториноларингология.js" defer></script>
+<script src="Шаблоны/Офтальмология.js" defer></script>
+<script src="Шаблоны/Педиатрия.js" defer></script>
+<script src="Шаблоны/Стоматология.js" defer></script>
+<script src="Шаблоны/Терапия.js" defer></script>
+<script src="Шаблоны/Токсикология.js" defer></script>
+<script src="Шаблоны/Травматология.js" defer></script>
+<script src="Шаблоны/Урология.js" defer></script>
+<script src="Шаблоны/Хирургия.js" defer></script>
+<script src="Шаблоны/Прочее.js" defer></script>
 
-   <!-- Скрипты для калькуляторов -->
-<script src="Калькуляторы/ДетскиеНормы.js" defer></script>
-<script src="Калькуляторы/ПрепаратыПедиатрия.js" defer></script>
-<script src="Калькуляторы/СрокБеременности.js" defer></script>
-<script src="Калькуляторы/NEWS.js" defer></script>
-<script src="Калькуляторы/ШОКС.js" defer></script>
+   <!-- Скрипт для калькулятора -->
+<script src="скрипты/ПрепаратыПедиатрия.js" defer></script>
    
 </head>
 <body>
    <!-- Заголовок -->
    <div class="header-bar"> 
-   <div class="logo"><img src="картинки/logo.png" alt="Логотип"></div>
+   <div class="logo">
+   <img src="картинки/logo.png" alt="Логотип">
+   </div>
    <h1>СМП Шпаргалки</h1>
    <div id="themeToggle" class="theme-btn">🌙</div></div>
     
@@ -43,37 +56,68 @@
 <div id="templates" class="subsections">
    
    <!-- Акушерство -->
-<button class="sub-btn" onclick="toggleSection('Акушерство')"><b>Акушерство и гинекология</b></button><div id="Акушерство" class="subsections"></div>
+<button class="sub-btn" onclick="toggleSection('Акушерство')"><b>Акушерство и гинекология</b></button>
+<div id="Акушерство" class="subsections"></div>
+
    <!-- Анестезиология -->
-<button class="sub-btn" onclick="toggleSection('Анестезиология')"><b>Анестезиология и реанимация</b></button><div id="Анестезиология" class="subsections"></div>
+<button class="sub-btn" onclick="toggleSection('Анестезиология')"><b>Анестезиология и реанимация</b></button>
+<div id="Анестезиология" class="subsections"></div>
+
    <!-- Инфекции -->
-<button class="sub-btn" onclick="toggleSection('Инфекция')"><b>Инфекционные заболевания</b></button><div id="Инфекция" class="subsections"></div>    
-      <!-- Кардиология -->
-<button class="sub-btn" onclick="toggleSection('Кардиология')"><b>Кардиология</b></button><div id="Кардиология" class="subsections"></div>
+<button class="sub-btn" onclick="toggleSection('Инфекция')"><b>Инфекционные заболевания</b></button>
+<div id="Инфекция" class="subsections"></div>    
+      
+   <!-- Кардиология -->
+<button class="sub-btn" onclick="toggleSection('Кардиология')"><b>Кардиология</b></button>
+<div id="Кардиология" class="subsections"></div>
+
    <!-- Констатация -->
-<button class="sub-btn" onclick="toggleSection('Констатация')"><b>Констатация</b></button><div id="Констатация" class="subsections"></div>
+<button class="sub-btn" onclick="toggleSection('Констатация')"><b>Констатация</b></button>
+<div id="Констатация" class="subsections"></div>
+
    <!-- Неврология -->
-<button class="sub-btn" onclick="toggleSection('Неврология')"><b>Неврология</b></button><div id="Неврология" class="subsections"></div>
+<button class="sub-btn" onclick="toggleSection('Неврология')"><b>Неврология</b></button>
+<div id="Неврология" class="subsections"></div>
+      
    <!-- Оториноларингология -->
-<button class="sub-btn" onclick="toggleSection('Оториноларингология')"><b>Оториноларингология</b></button><div id="Оториноларингология" class="subsections"></div>
+<button class="sub-btn" onclick="toggleSection('Оториноларингология')"><b>Оториноларингология</b></button>
+<div id="Оториноларингология" class="subsections"></div>
+      
    <!-- Офтальмология-->
-<button class="sub-btn" onclick="toggleSection('Офтальмология')"><b>Офтальмология</b></button><div id="Офтальмология" class="subsections"></div>
+<button class="sub-btn" onclick="toggleSection('Офтальмология')"><b>Офтальмология</b></button>
+<div id="Офтальмология" class="subsections"></div>
+      
    <!-- Педиатрия -->
-<button class="sub-btn" onclick="toggleSection('Педиатрия')"><b>Педиатрия</b></button><div id="Педиатрия" class="subsections"></div>
+<button class="sub-btn" onclick="toggleSection('Педиатрия')"><b>Педиатрия</b></button>
+<div id="Педиатрия" class="subsections"></div>
+      
    <!-- Стоматология -->
-<button class="sub-btn" onclick="toggleSection('Стоматология')"><b>Стоматология</b></button><div id="Стоматология" class="subsections"></div>
+<button class="sub-btn" onclick="toggleSection('Стоматология')"><b>Стоматология</b></button>
+<div id="Стоматология" class="subsections"></div>
+      
    <!-- Терапия -->
-<button class="sub-btn" onclick="toggleSection('Терапия')"><b>Терапия</b></button><div id="Терапия" class="subsections"></div>
+<button class="sub-btn" onclick="toggleSection('Терапия')"><b>Терапия</b></button>
+<div id="Терапия" class="subsections"></div>
+      
    <!-- Токсикология -->
-<button class="sub-btn" onclick="toggleSection('Токсикология')"><b>Токсикология</b></button><div id="Токсикология" class="subsections"></div>
+<button class="sub-btn" onclick="toggleSection('Токсикология')"><b>Токсикология</b></button>
+<div id="Токсикология" class="subsections"></div>
+      
    <!-- Травматология -->
-<button class="sub-btn" onclick="toggleSection('Травматология')"><b>Травматология</b></button><div id="Травматология" class="subsections"></div>
+<button class="sub-btn" onclick="toggleSection('Травматология')"><b>Травматология</b></button>
+<div id="Травматология" class="subsections"></div>
+      
    <!-- Урология -->
-<button class="sub-btn" onclick="toggleSection('Урология')"><b>Урология</b></button><div id="Урология" class="subsections"></div>
+<button class="sub-btn" onclick="toggleSection('Урология')"><b>Урология</b></button>
+<div id="Урология" class="subsections"></div>
+  
    <!-- Хиругия -->
-<button class="sub-btn" onclick="toggleSection('Хирургия')"><b>Хирургия</b></button><div id="Хирургия" class="subsections"></div>
+<button class="sub-btn" onclick="toggleSection('Хирургия')"><b>Хирургия</b></button>
+<div id="Хирургия" class="subsections"></div>
+      
    <!-- Прочее -->
-<button class="sub-btn" onclick="toggleSection('Прочее')"><b>Прочее</b></button><div id="Прочее" class="subsections"></div></div>
+<button class="sub-btn" onclick="toggleSection('Прочее')"><b>Прочее</b></button>
+<div id="Прочее" class="subsections"></div></div>
     
 <!-- 2. Шпаргалки -->
 <button class="main-btn" onclick="toggleSection('cheatsheets')"><b>Шпаргалки</b></button>
@@ -167,177 +211,8 @@
 <button class="red-btn" id="calcPreg">Рассчитать</button>
 <div id="pregResult" class="preg-result" style="margin-top: 15px;">
 <p id="pregWeeks"></p>
-<p id="pregDue"></p></div></div></div></div>
+<p id="pregDue"></p></div></div></div></div></div>
       
-<!-- Калькулятор NEWS -->
-<button class="sub-btn"onclick="toggleSection('newsCalc')">Шкала NEWS</button>
-<div id="newsCalc" class="subsections"><div class="calc-box"><h3 class="calc-title">Шкала NEWS</h3>
-<div class="news-row"><label>ЧДД за 1 минуту</label><select data-score id="rr">
-<option value="">—</option><option value="3">≤ 8</option><option value="1">9–11</option><option value="0">12–20</option><option value="2">21–24</option><option value="3">≥ 25</option>
-</select><span class="news-score" id="rrScore">0</span></div>
-<div class="news-row"><label>SpO₂</label><select data-score id="spo2">
-<option value="">—</option><option value="3">≤ 91%</option><option value="2">92–93%</option><option value="1">94–95%</option><option value="0">≥ 96%</option>
-</select><span class="news-score" id="spo2Score">0</span></div>
-<div class="news-row"><label>Необходимость кислорода</label><select data-score id="o2">
-<option value="">—</option><option value="1">Да</option><option value="0">Нет</option>
-</select><span class="news-score" id="o2Score">0</span></div>
-<div class="news-row"><label>Температура</label><select data-score id="temp">
-<option value="">—</option><option value="3">≤ 35.0</option><option value="1">35.1–36.0</option><option value="0">36.1–38.0</option><option value="1">38.1–39.0</option><option value="2">≥ 39.1</option>
-</select><span class="news-score" id="tempScore">0</span></div>
-<div class="news-row"><label>САД</label><select data-score id="sbp">
-<option value="">—</option><option value="3">≤ 90</option><option value="2">91–100</option><option value="1">101–110</option><option value="0">111–219</option><option value="3">≥ 220</option>
-</select><span class="news-score" id="sbpScore">0</span></div>
-<div class="news-row"><label>ЧСС за 1 минуту</label><select data-score id="hr">
-<option value="">—</option><option value="3">≤ 40</option><option value="1">41–50</option><option value="0">51–90</option><option value="1">91–110</option><option value="2">111–130</option><option value="3">≥ 131</option>
-</select><span class="news-score" id="hrScore">0</span></div>
-<div class="news-row"><label>Изменение сознания</label><select data-score id="conscious">
-<option value="">—</option><option value="0">Нет</option><option value="3">Есть</option>
-</select><span class="news-score" id="consciousScore">0</span></div>
-<div class="calc-result" id="newsTotal">Сумма баллов: 0</div></div></div>
-
-<button class="sub-btn" onclick="toggleSection('shocksCalc')">
-  Шкала ШОКС (ХСН)
-</button>
-
-<div id="shocksCalc" class="subsections">
-  <div class="calc-box">
-    <h3 class="calc-title">Шкала оценки клинического состояния (ШОКС)</h3>
-
-    <!-- 1. Одышка -->
-    <div class="news-row">
-      <label>Одышка</label>
-      <select class="calc-select" data-shocks id="dyspnea">
-        <option value="">—</option>
-        <option value="0">Нет</option>
-        <option value="1">При нагрузке</option>
-        <option value="2">В покое</option>
-      </select>
-      <span class="news-score" id="dyspneaScore">0</span>
-    </div>
-
-    <!-- 2. Масса тела -->
-    <div class="news-row">
-      <label>Изменение веса за последнюю неделю</label>
-      <select class="calc-select" data-shocks id="weight">
-        <option value="">—</option>
-        <option value="0">Нет</option>
-        <option value="1">Увеличился</option>
-      </select>
-      <span class="news-score" id="weightScore">0</span>
-    </div>
-
-    <!-- 3. Перебои -->
-    <div class="news-row">
-      <label>Жалобы на перебои в работе сердца</label>
-      <select class="calc-select" data-shocks id="arrhythmia">
-        <option value="">—</option>
-        <option value="0">Нет</option>
-        <option value="1">Есть</option>
-      </select>
-      <span class="news-score" id="arrhythmiaScore">0</span>
-    </div>
-
-    <!-- 4. Положение -->
-    <div class="news-row">
-      <label>Положение больного в постели</label>
-      <select class="calc-select" data-shocks id="position">
-        <option value="">—</option>
-        <option value="0">Горизонтально</option>
-        <option value="1">С приподнятым изголовьем (2+ подушки)</option>
-        <option value="2">С приподнятым изголовьем (2+ подушки) плюс просыпается от удушья</option>
-        <option value="3">Сидя</option>
-      </select>
-      <span class="news-score" id="positionScore">0</span>
-    </div>
-
-    <!-- 5. Шейные вены -->
-    <div class="news-row">
-      <label>Набухшие шейные вены</label>
-      <select class="calc-select" data-shocks id="jugular">
-        <option value="">—</option>
-        <option value="0">Нет</option>
-        <option value="1">Лежа</option>
-         <option value="2">Стоя</option>
-      </select>
-      <span class="news-score" id="jugularScore">0</span>
-    </div>
-
-    <!-- 6. Хрипы -->
-    <div class="news-row">
-      <label>Хрипы в лёгких</label>
-      <select class="calc-select" data-shocks id="rales">
-        <option value="">—</option>
-        <option value="0">Нет</option>
-        <option value="1">Нижние отделы (до 1/3)</option>
-        <option value="2">До лопаток (до 2/3)</option>
-        <option value="3">По всей поверхностью легких</option>
-      </select>
-      <span class="news-score" id="ralesScore">0</span>
-    </div>
-
-    <!-- 7. Ритм галопа -->
-    <div class="news-row">
-      <label>Наличие ритма галопа</label>
-      <select class="calc-select" data-shocks id="gallop">
-        <option value="">—</option>
-        <option value="0">Нет</option>
-        <option value="1">Есть</option>
-      </select>
-      <span class="news-score" id="gallopScore">0</span>
-    </div>
-
-    <!-- 8. Печень -->
-    <div class="news-row">
-      <label>Печень</label>
-      <select class="calc-select" data-shocks id="liver">
-        <option value="">—</option>
-        <option value="0">Не увеличена</option>
-        <option value="1">Увеличена до 5 см</option>
-         <option value="2">Увеличена более 5 см</option>
-      </select>
-      <span class="news-score" id="liverScore">0</span>
-    </div>
-
-    <!-- 9. Отеки -->
-    <div class="news-row">
-      <label>Отеки</label>
-      <select class="calc-select" data-shocks id="edema">
-        <option value="">—</option>
-        <option value="0">Нет</option>
-        <option value="1">Пастозность</option>
-        <option value="2">Отеки</option>
-        <option value="3">Анасарка</option>
-      </select>
-      <span class="news-score" id="edemaScore">0</span>
-    </div>
-
-    <!-- 10. САД -->
-    <div class="news-row">
-      <label>Уровень САД</label>
-      <select class="calc-select" data-shocks id="sbpшокс">
-        <option value="">—</option>
-        <option value="0">Более 120 мм.рт.ст.</option>
-        <option value="1">100-120 мм.рт.ст.</option>
-        <option value="2">&lt; Менее 100 мм.рт.ст.</option>
-      </select>
-      <span class="news-score" id="sbpшоксScore">0</span>
-    </div>
-
-    <!-- Итоги -->
-    <div id="shocksTotal" class="calc-result">
-      Сумма баллов: 0
-    </div>
-
-    <div id="shocksClass" class="calc-result">
-      Функциональный класс: —
-    </div>
-
-  </div>
-</div></div>
-
-
-
-
 <!-- 4. МКБ-10 -->
 <button class="main-btn" onclick="toggleSection('MKB10')"><b>МКБ-10</b></button>
 <div id="MKB10" class="subsections">
@@ -348,8 +223,13 @@
 <button class="main-btn" onclick="toggleSection('thankYou')"><b>Сказать спасибо</b></button>
 <div id="thankYou" class="text-block">
 Здравствуй, коллега!
-Здесь ты можешь отблагодарить админа за проделанную работу. 
-На реализацию этого проекта, было потрачено куча личного времени и нервов 😅
+Здесь ты можешь отблагодарить админа 
+<b>Канала СМП Шпаргалки</b>
+<b>МедЧата</b>
+<b>Бота СМП помощник</b>
+за проделанную работу.
+Поддержка, добавление новых файлов и шаблонов - очень непростая работа.
+А на реализацию этого проекта, было потрачено куча личного времени и нервов 😅
 Тем не менее, я стараюсь ☺️
 И мне было бы очень приятно за вашу благодарность на сбер☺️
 Спасибо 🫶
