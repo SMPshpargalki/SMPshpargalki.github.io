@@ -358,50 +358,71 @@ h1{
     margin: 0 auto; /* по центру колонки */
 }
 
+/* =========================
+   📊 Калькуляторы выбора
+   ========================= */
+
+.calc-section {
+    margin-top: 8px;
+}
+
+/* Основной контейнер */
 .calc-section .calc-box {
-  padding: 15px;
-  border: 1px solid var(--panel-border);
-  border-radius: 12px;
-  margin-bottom: 20px;
-  background: var(--panel-sub-bg);
+    background: var(--panel-bg);
+    padding: 16px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px var(--shadow);
 }
 
-.calc-title {
-  font-size: 20px;
-  margin-bottom: 15px;
+/* Заголовок калькулятора */
+.calc-section .calc-title {
+    font-size: 22px;
+    margin-bottom: 16px;
+    text-align: center;
+    color: var(--text-color);
 }
 
-.calc-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 10px;
+/* Одна строка параметра */
+.calc-section .calc-row {
+    display: grid;
+    grid-template-columns: 1.6fr 2fr 0.6fr;
+    gap: 8px;
+    align-items: center;
+    margin-bottom: 10px;
 }
 
-.calc-row label {
-  flex: 2;
+/* Название параметра */
+.calc-section .calc-row label {
+    font-size: 15px;
+    text-align: left;
+    color: var(--text-color);
 }
 
-.calc-row select {
-  flex: 2;
-  padding: 5px;
-  font-size: 16px;
+/* Селект */
+.calc-section .calc-row select {
+    padding: 10px;
+    font-size: 15px;
+    border-radius: 8px;
+    border: 1px solid var(--panel-border);
+    background: var(--panel-sub-bg);
+    color: var(--text-color);
 }
 
-.calc-row .calc-score {
-  flex: 1;
-  text-align: center;
-  font-weight: bold;
+/* Баллы */
+.calc-section .calc-score {
+    background: var(--panel-sub-bg);
+    border-radius: 8px;
+    padding: 10px 0;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    color: var(--text-color);
+    border: 1px solid var(--panel-border);
 }
 
-.calc-total {
-  margin-top: 15px;
-  font-size: 18px;
-  font-weight: bold;
-}
-
-.calc-info {
-  margin-top: 10px;
-  font-size: 16px;
-  color: var(--btn-main);
-}
+/* Итоговый балл */
+.calc-section .calc-total {
+    margin-top: 14px;
+    padding: 12px;
+    background: var(--panel-sub-bg);
+    border
