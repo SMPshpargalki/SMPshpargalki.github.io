@@ -35,10 +35,10 @@ function generateShoxCalc(){
       document.getElementById("shoxTotal").textContent = total;
 
       let info = "";
-      if(total <= 3) info="I ФК";
-      else if(total <= 6) info="II ФК";
-      else if(total <= 9) info="III ФК";
-      else info="IV ФК";
+      if(total <= 3) info="I ФК по NYHA";
+      else if(total <= 6) info="II ФК по NYHA";
+      else if(total <= 9) info="III ФК по NYHA";
+      else info="IV ФК по NYHA";
       document.getElementById("shoxInfo").textContent = info;
     });
 
