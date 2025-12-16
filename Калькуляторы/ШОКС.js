@@ -15,10 +15,10 @@ function updateSHOCKS() {
 
   // Функциональный класс
   let fk = "—";
-  if (total <= 3) fk = "I ФК";
-  else if (total <= 6) fk = "II ФК";
-  else if (total <= 9) fk = "III ФК";
-  else fk = "IV ФК";
+  if (total <= 3) fk = "I ФК по NYHA";
+  else if (total <= 6) fk = "II ФК по NYHA";
+  else if (total <= 9) fk = "III ФК по NYHA";
+  else fk = "IV ФК по NYHA";
 
   document.getElementById("shocksClass").textContent =
     "Функциональный класс: " + fk;
