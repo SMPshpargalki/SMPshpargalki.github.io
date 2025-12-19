@@ -1,48 +1,107 @@
-// Имя кэша
-const CACHE_NAME = "smp-shpargalki-cache-v1";
+const CACHE_NAME = "smp-shpargalki-v2";
 
-// Список файлов для кэширования
-const urlsToCache = [
-  "/",
-  "/index.html",
-  "/styles.css",
-  "/manifest.json",
-  "/картинки/logo.png"
+// ВСЕ ФАЙЛЫ, КОТОРЫЕ НУЖНЫ ДЛЯ ОФФЛАЙН-РАБОТЫ
+const FILES_TO_CACHE = [
+  "./",
+  "./index.html",
+  "./styles.css",
+  "./manifest.json",
+
+  // ===== ОСНОВНЫЕ СКРИПТЫ =====
+  "./скрипты/script.js",
+  "./скрипты/theme.js",
+
+  // ===== КАЛЬКУЛЯТОРЫ =====
+  "./Калькуляторы/ПрепаратыПедиатрия.js",
+  "./Калькуляторы/СрокБеременности.js",
+  "./Калькуляторы/ДетскиеНормы.js",
+  "./Калькуляторы/NEWS.js",
+  "./Калькуляторы/ШОКС.js",
+  "./Калькуляторы/ГЛАЗГО.js",
+  "./Калькуляторы/ТЭЛА.js",
+  "./Калькуляторы/LAMS.js",
+
+  // ===== ШАБЛОНЫ =====
+  "./Шаблоны/Акушерство.js",
+  "./Шаблоны/Анестезиология.js",
+  "./Шаблоны/Инфекция.js",
+  "./Шаблоны/Кардиология.js",
+  "./Шаблоны/Констатация.js",
+  "./Шаблоны/Неврология.js",
+  "./Шаблоны/Оториноларингология.js",
+  "./Шаблоны/Офтальмология.js",
+  "./Шаблоны/Педиатрия.js",
+  "./Шаблоны/Стоматология.js",
+  "./Шаблоны/Терапия.js",
+  "./Шаблоны/Токсикология.js",
+  "./Шаблоны/Травматология.js",
+  "./Шаблоны/Урология.js",
+  "./Шаблоны/Хирургия.js",
+  "./Шаблоны/Прочее.js",
+
+  // ===== КАРТИНКИ (КРИТИЧНЫЕ) =====
+  "./картинки/logo.png",
+  "./картинки/БаннерДоброПожаловать.jpg",
+  "./картинки/Диазепам.jpg",
+  "./картинки/Кетамин.jpg",
+  "./картинки/Морфин.jpg",
+  "./картинки/Фентанил.jpg",
+  "./картинки/Беспризорный.jpg"
 ];
 
-// Установка service worker
-self.addEventListener("install", (event) => {
-  // Ожидаем установки и кэшируем файлы
+// =======================
+// INSTALL
+// =======================
+self.addEventListener("install", event => {
   event.waitUntil(
-    caches.open(CACHE_NAME).then((cache) => {
-      console.log("Кэширование файлов...");
-      return cache.addAll(urlsToCache);
+    caches.open(CACHE_NAME).then(cache => {
+      console.log("📦 Кеширование файлов");
+      return cache.addAll(FILES_TO_CACHE);
     })
   );
+  self.skipWaiting();
 });
 
-// Слушатель для перехвата запросов
-self.addEventListener("fetch", (event) => {
-  event.respondWith(
-    caches.match(event.request).then((response) => {
-      // Если ресурс в кэше, возвращаем его, иначе загружаем с сервера
-      return response || fetch(event.request);
-    })
-  );
-});
-
-// Удаление старых кэшей при активации
-self.addEventListener("activate", (event) => {
-  const cacheWhitelist = [CACHE_NAME];
+// =======================
+// ACTIVATE
+// =======================
+self.addEventListener("activate", event => {
   event.waitUntil(
-    caches.keys().then((cacheNames) => {
-      return Promise.all(
-        cacheNames.map((cacheName) => {
-          if (!cacheWhitelist.includes(cacheName)) {
-            return caches.delete(cacheName);
+    caches.keys().then(keys =>
+      Promise.all(
+        keys.map(key => {
+          if (key !== CACHE_NAME) {
+            console.log("🗑 Удалён старый кеш:", key);
+            return caches.delete(key);
           }
         })
-      );
+      )
+    )
+  );
+  self.clients.claim();
+});
+
+// =======================
+// FETCH (offline-first)
+// =======================
+self.addEventListener("fetch", event => {
+  event.respondWith(
+    caches.match(event.request).then(cached => {
+      if (cached) return cached;
+
+      return fetch(event.request)
+        .then(response => {
+          return caches.open(CACHE_NAME).then(cache => {
+            cache.put(event.request, response.clone());
+            return response;
+          });
+        })
+        .catch(() => {
+          // если пользователь оффлайн и это навигация
+          if (event.request.mode === "navigate") {
+            return caches.match("./index.html");
+          }
+        });
     })
   );
 });
