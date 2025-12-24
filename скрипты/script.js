@@ -78,6 +78,7 @@ if ("serviceWorker" in navigator) {
 /* ===== ПОИСК ТОЛЬКО ПО ШАБЛОНАМ КАРТ ВЫЗОВОВ ===== */
 
 const searchInput = document.getElementById('searchInput');
+const clearBtn = document.getElementById("clearSearch");
 const templatesSection = document.getElementById('templates');
 const mainButtons = document.querySelectorAll('.main-btn');
 
@@ -85,7 +86,7 @@ const mainButtons = document.querySelectorAll('.main-btn');
 function show(el){ if(el) el.style.display = 'block'; }
 function hide(el){ if(el) el.style.display = 'none'; }
 
-// все элементы поиска ТОЛЬКО внутри шаблонов
+// элементы поиска ТОЛЬКО внутри шаблонов
 function getTemplateItems(){
     return templatesSection.querySelectorAll('.sub-btn, .child-btn, .text-block');
 }
@@ -93,24 +94,27 @@ function getTemplateItems(){
 searchInput.addEventListener('input', function(){
     const q = this.value.trim().toLowerCase();
 
-    // если поиск пустой — вернуть дефолт
-    if(q === ''){
-        // показать все main кнопки
-        mainButtons.forEach(show);
+    /* ❌ КРЕСТИК */
+    clearBtn.style.display = q.length > 0 ? "block" : "none";
 
-        // скрыть всё как при загрузке
-        document.querySelectorAll('.subsections, .text-block').forEach(hide);
+    /* 🔴 ВСЕГДА: при любом вводе — СВЕРНУТЬ ВСЁ */
+    document.querySelectorAll('.subsections, .text-block').forEach(hide);
+
+    // ===== ПУСТОЙ ПОИСК → НАЧАЛЬНОЕ СОСТОЯНИЕ =====
+    if(q === ''){
+        mainButtons.forEach(show);
         return;
     }
 
-    // 🔴 скрываем ВСЕ главные разделы
+    // ===== ПОИСК =====
+
+    // скрываем все главные разделы
     mainButtons.forEach(hide);
 
-    // 🟢 показываем ТОЛЬКО шаблоны
+    // показываем кнопку и раздел "Шаблоны карт вызовов"
+    const templatesBtn = document.querySelector('[onclick="toggleSection(\'templates\')"]');
+    if(templatesBtn) show(templatesBtn);
     show(templatesSection);
-    document
-        .querySelector('[onclick="toggleSection(\'templates\')"]')
-        ?.style && (document.querySelector('[onclick="toggleSection(\'templates\')"]').style.display = 'block');
 
     // фильтрация элементов внутри шаблонов
     const items = getTemplateItems();
@@ -120,7 +124,7 @@ searchInput.addEventListener('input', function(){
         text.includes(q) ? show(el) : hide(el);
     });
 
-    // автоматически раскрываем родительские подразделы
+    // раскрываем родительские подразделы найденных элементов
     items.forEach(el => {
         if(el.style.display === 'block'){
             let p = el.parentElement;
@@ -133,7 +137,7 @@ searchInput.addEventListener('input', function(){
         }
     });
 
-    // скрыть пустые подразделы
+    // скрываем пустые подразделы
     templatesSection.querySelectorAll('.subsections').forEach(sec => {
         const hasVisible = Array.from(
             sec.querySelectorAll('.sub-btn, .child-btn, .text-block')
@@ -143,18 +147,12 @@ searchInput.addEventListener('input', function(){
     });
 });
 
-/* ===== КРЕСТИК ОЧИСТКИ ПОИСКА ===== */
-
-const clearBtn = document.getElementById("clearSearch");
-
-searchInput.addEventListener("input", () => {
-    clearBtn.style.display = searchInput.value.length > 0 ? "block" : "none";
-});
+/* ===== КРЕСТИК ОЧИСТКИ ===== */
 
 clearBtn.addEventListener("click", () => {
     searchInput.value = "";
     clearBtn.style.display = "none";
 
-    // перезапускаем поиск → возврат к начальному состоянию
+    // возврат к начальному состоянию
     searchInput.dispatchEvent(new Event("input"));
 });
