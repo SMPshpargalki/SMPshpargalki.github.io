@@ -75,125 +75,70 @@ if ("serviceWorker" in navigator) {
     navigator.serviceWorker.register("sw.js");
 }
 
-/* --- Умный поиск + автопоказ раздела по клику --- */
-const searchInput = document.getElementById('searchInput');
+/* ===== ПОИСК ТОЛЬКО ПО ШАБЛОНАМ КАРТ ВЫЗОВОВ ===== */
 
-// Функции показа/скрытия элементов
+const searchInput = document.getElementById('searchInput');
+const templatesSection = document.getElementById('templates');
+const mainButtons = document.querySelectorAll('.main-btn');
+
+// утилиты
 function show(el){ if(el) el.style.display = 'block'; }
 function hide(el){ if(el) el.style.display = 'none'; }
 
-// Возвращает id цели из строки onclick типа: toggleSection('obstetrics')
-function parseToggleTargetFromOnclick(str){
-    const m = /toggleSection\(['"]([^'"]+)['"]\)/.exec(str || '');
-    return m ? m[1] : null;
+// все элементы поиска ТОЛЬКО внутри шаблонов
+function getTemplateItems(){
+    return templatesSection.querySelectorAll('.sub-btn, .child-btn, .text-block');
 }
 
-// При вводе - фильтруем кнопки и автоматически раскрываем нужные заголовки
 searchInput.addEventListener('input', function(){
     const q = this.value.trim().toLowerCase();
-    // Все кнопки (включая main/sub/child)
-    const allButtons = document.querySelectorAll('.main-btn, .sub-btn, .child-btn');
-    
+
+    // если поиск пустой — вернуть дефолт
     if(q === ''){
-        // Пустой поиск — вернуть начальное состояние
-        allButtons.forEach(b => b.style.display = 'block');
-        // скрываем все разделы
-        document.querySelectorAll('.subsections, .text-block').forEach(s => s.style.display = 'none');
+        // показать все main кнопки
+        mainButtons.forEach(show);
+
+        // скрыть всё как при загрузке
+        document.querySelectorAll('.subsections, .text-block').forEach(hide);
         return;
     }
-    
-    // Пройдемся по кнопкам и пометим соответствия
-    allButtons.forEach(btn => {
-        const text = (btn.innerText || '').toLowerCase();
-        if(text.includes(q)){
-            btn.style.display = 'block';
-        } else {
-            btn.style.display = 'none';
-        }
+
+    // 🔴 скрываем ВСЕ главные разделы
+    mainButtons.forEach(hide);
+
+    // 🟢 показываем ТОЛЬКО шаблоны
+    show(templatesSection);
+    document
+        .querySelector('[onclick="toggleSection(\'templates\')"]')
+        ?.style && (document.querySelector('[onclick="toggleSection(\'templates\')"]').style.display = 'block');
+
+    // фильтрация элементов внутри шаблонов
+    const items = getTemplateItems();
+
+    items.forEach(el => {
+        const text = el.innerText.toLowerCase();
+        text.includes(q) ? show(el) : hide(el);
     });
-    
-    // Скрыть все секции
-    document.querySelectorAll('.subsections, .text-block').forEach(s => s.style.display = 'none');
-    
-    // Для каждой видимой кнопки — показать её родителей
-    document.querySelectorAll('.main-btn, .sub-btn, .child-btn').forEach(btn => {
-        if(btn.style.display === 'block'){
-            // показать контейнеры-родители (секции) вверх по дереву
-            let p = btn.parentElement;
+
+    // автоматически раскрываем родительские подразделы
+    items.forEach(el => {
+        if(el.style.display === 'block'){
+            let p = el.parentElement;
             while(p){
-                if(p.classList && p.classList.contains('subsections')){
-                    p.style.display = 'block';
+                if(p.classList?.contains('subsections')){
+                    show(p);
                 }
                 p = p.parentElement;
             }
         }
     });
-    
-    // Скрыть пустые контейнеры
-    document.querySelectorAll('.subsections').forEach(sec => {
-        const hasVisibleChild = Array.from(sec.querySelectorAll('.main-btn, .sub-btn, .child-btn')).some(b => b.style.display === 'block');
-        if(!hasVisibleChild){
-            sec.style.display = 'none';
-        }
+
+    // скрыть пустые подразделы
+    templatesSection.querySelectorAll('.subsections').forEach(sec => {
+        const hasVisible = Array.from(
+            sec.querySelectorAll('.sub-btn, .child-btn, .text-block')
+        ).some(el => el.style.display === 'block');
+
+        if(!hasVisible) hide(sec);
     });
-});
-
-// Поведение клика по кнопкам, которые вызывают toggleSection('id')
-document.querySelectorAll('[onclick]').forEach(el => {
-    const onclickAttr = el.getAttribute('onclick') || '';
-    const targetId = parseToggleTargetFromOnclick(onclickAttr);
-    if(targetId){
-        el.addEventListener('click', (e) => {
-            // Если поле поиска пустое, просто позволяем стандартному onclick работать
-            const q = (searchInput.value || '').trim();
-            if(q === ''){
-                return;
-            }
-            
-            // Если есть поисковый запрос — при клике раскроем ВСЕ дочерние элементы целевого раздела
-            e.preventDefault();
-            e.stopPropagation();
-            
-            // Сначала используем вашу логику: скрыть всё, показать цепочку предков и сам раздел
-            document.querySelectorAll('.subsections, .text-block').forEach(s => s.style.display = 'none');
-            const elTarget = document.getElementById(targetId);
-            if(!elTarget) return;
-            
-            // Показать цепочку предков
-            let p = elTarget.parentElement;
-            const ancestors = [];
-            while(p){
-                if(p.classList && p.classList.contains('subsections') && p.id){
-                    ancestors.push(p.id);
-                }
-                p = p.parentElement;
-            }
-            ancestors.reverse().forEach(aid => {
-                const block = document.getElementById(aid);
-                if(block) block.style.display = 'block';
-            });
-            
-            // Показать сам раздел и **всех** его потомков
-            function showRecursive(node){
-                if(!node) return;
-                node.style.display = 'block';
-                node.querySelectorAll('.subsections, .text-block, .child-btn, .sub-btn').forEach(ch => ch.style.display = 'block');
-            }
-            showRecursive(elTarget);
-        });
-    }
-});
-
-// Очистка поиска
-const input = document.getElementById("searchInput");
-const clearBtn = document.getElementById("clearSearch");
-
-input.addEventListener("input", () => {
-    clearBtn.style.display = input.value.length > 0 ? "block" : "none";
-});
-
-clearBtn.addEventListener("click", () => {
-    input.value = "";
-    clearBtn.style.display = "none";
-    input.dispatchEvent(new Event("input"));  // перезапуск поиска
 });
