@@ -142,3 +142,19 @@ searchInput.addEventListener('input', function(){
         if(!hasVisible) hide(sec);
     });
 });
+
+/* ===== КРЕСТИК ОЧИСТКИ ПОИСКА ===== */
+
+const clearBtn = document.getElementById("clearSearch");
+
+searchInput.addEventListener("input", () => {
+    clearBtn.style.display = searchInput.value.length > 0 ? "block" : "none";
+});
+
+clearBtn.addEventListener("click", () => {
+    searchInput.value = "";
+    clearBtn.style.display = "none";
+
+    // перезапускаем поиск → возврат к начальному состоянию
+    searchInput.dispatchEvent(new Event("input"));
+});
