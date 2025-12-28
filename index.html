@@ -310,13 +310,12 @@
 <h3 class="calc-title">Шкала моторного дефицита LAMS</h3>
 <div id="strokeRows"></div><div class="calc-total">Общий балл: <span id="strokeTotal">0</span></div></div></div>
  
-   <!-- Калькулятор ожогов -->
+<!-- Калькулятор ожогов с интерактивным SVG и суммированием процентов -->
 <button class="sub-btn" onclick="toggleSection('burnsCalc')">Калькулятор ожогов</button>
 <div id="burnsCalc" class="subsections calc-section">
   <div class="calc-box">
     <h3 class="calc-title">Калькулятор ожогов</h3>
 
-    <!-- Выбор возраста -->
     <div class="calc-row">
       <label for="burnAgeSelect">Выберите возраст:</label>
       <select id="burnAgeSelect" class="calc-select">
@@ -329,18 +328,18 @@
       </select>
     </div>
 
-    <!-- Кнопки фронт/спина -->
     <div class="calc-row" style="margin-top:10px;">
       <button id="frontViewBtn" class="red-btn" type="button">Спереди</button>
       <button id="backViewBtn" class="red-btn" type="button">Сзади</button>
     </div>
 
-    <!-- SVG человечек -->
     <div id="burnSvgContainer" style="margin-top:15px; text-align:center;"></div>
 
-    <!-- Результат -->
-    <div id="burnResult" class="calc-result" style="margin-top:15px;">Выберите зоны ожога на человечке.
-    </div></div></div>
+    <div id="burnResult" class="calc-result" style="margin-top:15px;">
+      Общий процент ожогов: <span id="burnTotal">0</span>%
+    </div>
+  </div>
+</div>
    
 </div>
   
