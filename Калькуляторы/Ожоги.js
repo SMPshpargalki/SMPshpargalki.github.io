@@ -53,48 +53,46 @@ function renderBurnSVG(){
   container.innerHTML="";
   const svgNS="http://www.w3.org/2000/svg";
   const svg=document.createElementNS(svgNS,"svg");
-
-  const scale = 1.2; // увеличиваем человечка
-  svg.setAttribute("width", 200*scale);
-  svg.setAttribute("height", 350*scale); // меньше высота для телефона
+  svg.setAttribute("width","200");
+  svg.setAttribute("height","400");
 
   const shapes = currentView==="front"?[
-    {id:"head_front", type:"ellipse", cx:100*scale, cy:30*scale, rx:25*scale, ry:20*scale},
-    {id:"neck_front", type:"rect", x:90*scale, y:55*scale, w:20*scale, h:15*scale, rx:8*scale, ry:8*scale},
-    {id:"chest_front", type:"rect", x:75*scale, y:70*scale, w:50*scale, h:40*scale, rx:15*scale, ry:15*scale},
-    {id:"abdomen", type:"rect", x:75*scale, y:110*scale, w:50*scale, h:40*scale, rx:15*scale, ry:15*scale},
-    {id:"r_shoulder_front", type:"rect", x:135*scale, y:70*scale, w:18*scale, h:35*scale, rx:10*scale, ry:10*scale},
-    {id:"l_shoulder_front", type:"rect", x:47*scale, y:70*scale, w:18*scale, h:35*scale, rx:10*scale, ry:10*scale},
-    {id:"r_forearm_front", type:"rect", x:135*scale, y:105*scale, w:18*scale, h:35*scale, rx:8*scale, ry:8*scale},
-    {id:"l_forearm_front", type:"rect", x:47*scale, y:105*scale, w:18*scale, h:35*scale, rx:8*scale, ry:8*scale},
-    {id:"r_hand_front", type:"ellipse", cx:144*scale, cy:140*scale, rx:7*scale, ry:7*scale},
-    {id:"l_hand_front", type:"ellipse", cx:56*scale, cy:140*scale, rx:7*scale, ry:7*scale},
-    {id:"r_thigh_front", type:"rect", x:80*scale, y:150*scale, w:15*scale, h:35*scale, rx:8*scale, ry:8*scale},
-    {id:"l_thigh_front", type:"rect", x:105*scale, y:150*scale, w:15*scale, h:35*scale, rx:8*scale, ry:8*scale},
-    {id:"r_calf_front", type:"rect", x:80*scale, y:185*scale, w:15*scale, h:35*scale, rx:8*scale, ry:8*scale},
-    {id:"l_calf_front", type:"rect", x:105*scale, y:185*scale, w:15*scale, h:35*scale, rx:8*scale, ry:8*scale},
-    {id:"r_foot", type:"ellipse", cx:87*scale, cy:220*scale, rx:7*scale, ry:5*scale},
-    {id:"l_foot", type:"ellipse", cx:113*scale, cy:220*scale, rx:7*scale, ry:5*scale},
-    {id:"perineum", type:"circle", cx:100*scale, cy:145*scale, r:5*scale}
+    {id:"head_front", type:"ellipse", cx:100, cy:30, rx:25, ry:20},
+    {id:"neck_front", type:"rect", x:90, y:55, w:20, h:15, rx:8, ry:8},
+    {id:"chest_front", type:"rect", x:75, y:70, w:50, h:40, rx:15, ry:15},
+    {id:"abdomen", type:"rect", x:75, y:110, w:50, h:40, rx:15, ry:15},
+    {id:"r_shoulder_front", type:"rect", x:130, y:70, w:15, h:35, rx:10, ry:10},
+    {id:"l_shoulder_front", type:"rect", x:55, y:70, w:15, h:35, rx:10, ry:10},
+    {id:"r_forearm_front", type:"rect", x:130, y:105, w:15, h:35, rx:8, ry:8},
+    {id:"l_forearm_front", type:"rect", x:55, y:105, w:15, h:35, rx:8, ry:8},
+    {id:"r_hand_front", type:"ellipse", cx:137, cy:140, rx:7, ry:7},
+    {id:"l_hand_front", type:"ellipse", cx:63, cy:140, rx:7, ry:7},
+    {id:"r_thigh_front", type:"rect", x:85, y:150, w:15, h:35, rx:8, ry:8},
+    {id:"l_thigh_front", type:"rect", x:100, y:150, w:15, h:35, rx:8, ry:8},
+    {id:"r_calf_front", type:"rect", x:85, y:185, w:15, h:35, rx:8, ry:8},
+    {id:"l_calf_front", type:"rect", x:100, y:185, w:15, h:35, rx:8, ry:8},
+    {id:"r_foot", type:"ellipse", cx:92, cy:220, rx:7, ry:5},
+    {id:"l_foot", type:"ellipse", cx:108, cy:220, rx:7, ry:5},
+    {id:"perineum", type:"circle", cx:100, cy:145, r:5}
   ]:[
-    {id:"head_back", type:"ellipse", cx:100*scale, cy:30*scale, rx:25*scale, ry:20*scale},
-    {id:"neck_back", type:"rect", x:90*scale, y:55*scale, w:20*scale, h:15*scale, rx:8*scale, ry:8*scale},
-    {id:"chest_back", type:"rect", x:75*scale, y:70*scale, w:50*scale, h:40*scale, rx:15*scale, ry:15*scale},
-    {id:"back", type:"rect", x:75*scale, y:110*scale, w:50*scale, h:40*scale, rx:15*scale, ry:15*scale},
-    {id:"r_shoulder_back", type:"rect", x:135*scale, y:70*scale, w:18*scale, h:35*scale, rx:10*scale, ry:10*scale},
-    {id:"l_shoulder_back", type:"rect", x:47*scale, y:70*scale, w:18*scale, h:35*scale, rx:10*scale, ry:10*scale},
-    {id:"r_forearm_back", type:"rect", x:135*scale, y:105*scale, w:18*scale, h:35*scale, rx:8*scale, ry:8*scale},
-    {id:"l_forearm_back", type:"rect", x:47*scale, y:105*scale, w:18*scale, h:35*scale, rx:8*scale, ry:8*scale},
-    {id:"r_hand_back", type:"ellipse", cx:144*scale, cy:140*scale, rx:7*scale, ry:7*scale},
-    {id:"l_hand_back", type:"ellipse", cx:56*scale, cy:140*scale, rx:7*scale, ry:7*scale},
-    {id:"r_thigh_back", type:"rect", x:80*scale, y:150*scale, w:15*scale, h:35*scale, rx:8*scale, ry:8*scale},
-    {id:"l_thigh_back", type:"rect", x:105*scale, y:150*scale, w:15*scale, h:35*scale, rx:8*scale, ry:8*scale},
-    {id:"r_calf_back", type:"rect", x:80*scale, y:185*scale, w:15*scale, h:35*scale, rx:8*scale, ry:8*scale},
-    {id:"l_calf_back", type:"rect", x:105*scale, y:185*scale, w:15*scale, h:35*scale, rx:8*scale, ry:8*scale},
-    {id:"r_foot", type:"ellipse", cx:87*scale, cy:220*scale, rx:7*scale, ry:5*scale},
-    {id:"l_foot", type:"ellipse", cx:113*scale, cy:220*scale, rx:7*scale, ry:5*scale},
-    {id:"right_butt", type:"ellipse", cx:115*scale, cy:145*scale, rx:8*scale, ry:6*scale},
-    {id:"left_butt", type:"ellipse", cx:85*scale, cy:145*scale, rx:8*scale, ry:6*scale}
+    {id:"head_back", type:"ellipse", cx:100, cy:30, rx:25, ry:20},
+    {id:"neck_back", type:"rect", x:90, y:55, w:20, h:15, rx:8, ry:8},
+    {id:"chest_back", type:"rect", x:75, y:70, w:50, h:40, rx:15, ry:15},
+    {id:"back", type:"rect", x:75, y:110, w:50, h:40, rx:15, ry:15},
+    {id:"r_shoulder_back", type:"rect", x:130, y:70, w:15, h:35, rx:10, ry:10},
+    {id:"l_shoulder_back", type:"rect", x:55, y:70, w:15, h:35, rx:10, ry:10},
+    {id:"r_forearm_back", type:"rect", x:130, y:105, w:15, h:35, rx:8, ry:8},
+    {id:"l_forearm_back", type:"rect", x:55, y:105, w:15, h:35, rx:8, ry:8},
+    {id:"r_hand_back", type:"ellipse", cx:137, cy:140, rx:7, ry:7},
+    {id:"l_hand_back", type:"ellipse", cx:63, cy:140, rx:7, ry:7},
+    {id:"r_thigh_back", type:"rect", x:85, y:150, w:15, h:35, rx:8, ry:8},
+    {id:"l_thigh_back", type:"rect", x:100, y:150, w:15, h:35, rx:8, ry:8},
+    {id:"r_calf_back", type:"rect", x:85, y:185, w:15, h:35, rx:8, ry:8},
+    {id:"l_calf_back", type:"rect", x:100, y:185, w:15, h:35, rx:8, ry:8},
+    {id:"r_foot", type:"ellipse", cx:92, cy:220, rx:7, ry:5},
+    {id:"l_foot", type:"ellipse", cx:108, cy:220, rx:7, ry:5},
+    {id:"right_butt", type:"ellipse", cx:115, cy:145, rx:8, ry:6},
+    {id:"left_butt", type:"ellipse", cx:85, cy:145, rx:8, ry:6}
   ];
 
   shapes.forEach(s=>{
