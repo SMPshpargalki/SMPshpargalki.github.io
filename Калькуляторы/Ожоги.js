@@ -37,12 +37,12 @@ document.getElementById("burnAgeSelect").addEventListener("change", e=>{
   updateTotal();
 });
 
-document.getElementById("frontViewBtn").addEventListener("click",()=>{
+document.getElementById("frontViewBtn").addEventListener("click", ()=>{
   currentView="front";
   renderBurnSVG();
 });
 
-document.getElementById("backViewBtn").addEventListener("click",()=>{
+document.getElementById("backViewBtn").addEventListener("click", ()=>{
   currentView="back";
   renderBurnSVG();
 });
@@ -52,9 +52,10 @@ function renderBurnSVG(){
   const container=document.getElementById("burnSvgContainer");
   container.innerHTML="";
   const svgNS="http://www.w3.org/2000/svg";
+  const scale = 2.5; // масштаб увеличения
   const svg=document.createElementNS(svgNS,"svg");
-  svg.setAttribute("width","200");
-  svg.setAttribute("height","400");
+  svg.setAttribute("width", 200*scale);
+  svg.setAttribute("height", 400*scale);
 
   const shapes = currentView==="front"?[
     {id:"head_front", type:"ellipse", cx:100, cy:30, rx:25, ry:20},
@@ -67,12 +68,12 @@ function renderBurnSVG(){
     {id:"l_forearm_front", type:"rect", x:55, y:105, w:15, h:35, rx:8, ry:8},
     {id:"r_hand_front", type:"ellipse", cx:137, cy:140, rx:7, ry:7},
     {id:"l_hand_front", type:"ellipse", cx:63, cy:140, rx:7, ry:7},
-    {id:"r_thigh_front", type:"rect", x:85, y:150, w:15, h:35, rx:8, ry:8},
-    {id:"l_thigh_front", type:"rect", x:100, y:150, w:15, h:35, rx:8, ry:8},
-    {id:"r_calf_front", type:"rect", x:85, y:185, w:15, h:35, rx:8, ry:8},
-    {id:"l_calf_front", type:"rect", x:100, y:185, w:15, h:35, rx:8, ry:8},
-    {id:"r_foot", type:"ellipse", cx:92, cy:220, rx:7, ry:5},
-    {id:"l_foot", type:"ellipse", cx:108, cy:220, rx:7, ry:5},
+    {id:"r_thigh_front", type:"rect", x:75, y:150, w:15, h:35, rx:8, ry:8}, // ноги разнесены
+    {id:"l_thigh_front", type:"rect", x:110, y:150, w:15, h:35, rx:8, ry:8},
+    {id:"r_calf_front", type:"rect", x:75, y:185, w:15, h:35, rx:8, ry:8},
+    {id:"l_calf_front", type:"rect", x:110, y:185, w:15, h:35, rx:8, ry:8},
+    {id:"r_foot", type:"ellipse", cx:82, cy:220, rx:7, ry:5},
+    {id:"l_foot", type:"ellipse", cx:118, cy:220, rx:7, ry:5},
     {id:"perineum", type:"circle", cx:100, cy:145, r:5}
   ]:[
     {id:"head_back", type:"ellipse", cx:100, cy:30, rx:25, ry:20},
@@ -85,12 +86,12 @@ function renderBurnSVG(){
     {id:"l_forearm_back", type:"rect", x:55, y:105, w:15, h:35, rx:8, ry:8},
     {id:"r_hand_back", type:"ellipse", cx:137, cy:140, rx:7, ry:7},
     {id:"l_hand_back", type:"ellipse", cx:63, cy:140, rx:7, ry:7},
-    {id:"r_thigh_back", type:"rect", x:85, y:150, w:15, h:35, rx:8, ry:8},
-    {id:"l_thigh_back", type:"rect", x:100, y:150, w:15, h:35, rx:8, ry:8},
-    {id:"r_calf_back", type:"rect", x:85, y:185, w:15, h:35, rx:8, ry:8},
-    {id:"l_calf_back", type:"rect", x:100, y:185, w:15, h:35, rx:8, ry:8},
-    {id:"r_foot", type:"ellipse", cx:92, cy:220, rx:7, ry:5},
-    {id:"l_foot", type:"ellipse", cx:108, cy:220, rx:7, ry:5},
+    {id:"r_thigh_back", type:"rect", x:75, y:150, w:15, h:35, rx:8, ry:8},
+    {id:"l_thigh_back", type:"rect", x:110, y:150, w:15, h:35, rx:8, ry:8},
+    {id:"r_calf_back", type:"rect", x:75, y:185, w:15, h:35, rx:8, ry:8},
+    {id:"l_calf_back", type:"rect", x:110, y:185, w:15, h:35, rx:8, ry:8},
+    {id:"r_foot", type:"ellipse", cx:82, cy:220, rx:7, ry:5},
+    {id:"l_foot", type:"ellipse", cx:118, cy:220, rx:7, ry:5},
     {id:"right_butt", type:"ellipse", cx:115, cy:145, rx:8, ry:6},
     {id:"left_butt", type:"ellipse", cx:85, cy:145, rx:8, ry:6}
   ];
@@ -99,28 +100,28 @@ function renderBurnSVG(){
     let el;
     if(s.type==="rect"){
       el=document.createElementNS(svgNS,"rect");
-      el.setAttribute("x",s.x);
-      el.setAttribute("y",s.y);
-      el.setAttribute("width",s.w);
-      el.setAttribute("height",s.h);
-      el.setAttribute("rx",s.rx||0);
-      el.setAttribute("ry",s.ry||0);
+      el.setAttribute("x", s.x*scale);
+      el.setAttribute("y", s.y*scale);
+      el.setAttribute("width", s.w*scale);
+      el.setAttribute("height", s.h*scale);
+      el.setAttribute("rx", (s.rx||0)*scale);
+      el.setAttribute("ry", (s.ry||0)*scale);
     } else if(s.type==="ellipse"){
       el=document.createElementNS(svgNS,"ellipse");
-      el.setAttribute("cx",s.cx);
-      el.setAttribute("cy",s.cy);
-      el.setAttribute("rx",s.rx);
-      el.setAttribute("ry",s.ry);
+      el.setAttribute("cx", s.cx*scale);
+      el.setAttribute("cy", s.cy*scale);
+      el.setAttribute("rx", s.rx*scale);
+      el.setAttribute("ry", s.ry*scale);
     } else if(s.type==="circle"){
       el=document.createElementNS(svgNS,"circle");
-      el.setAttribute("cx",s.cx);
-      el.setAttribute("cy",s.cy);
-      el.setAttribute("r",s.r);
+      el.setAttribute("cx", s.cx*scale);
+      el.setAttribute("cy", s.cy*scale);
+      el.setAttribute("r", s.r*scale);
     }
     el.setAttribute("stroke","#000");
     el.setAttribute("fill", selectedZones.has(s.id) ? "#f00" : "#ccc");
     el.style.cursor="pointer";
-    el.addEventListener("click",()=>{
+    el.addEventListener("click", ()=>{
       if(selectedZones.has(s.id)) selectedZones.delete(s.id);
       else selectedZones.add(s.id);
       renderBurnSVG();
