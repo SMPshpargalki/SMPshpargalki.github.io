@@ -412,13 +412,23 @@
   </div>
 </div>
 
-<script src="скрипты/theme.js"></script>
+<script>
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", () => {
+    navigator.serviceWorker
+      .register("./service-worker.js")
+      .then(reg => {
+        console.log("SW зарегистрирован:", reg.scope);
 
-<script>if ("serviceWorker" in navigator) {
-window.addEventListener("load", () => {
-navigator.serviceWorker.register("service-worker.js")
-.then(reg => console.log("SW зарегистрирован:", reg.scope))
-.catch(err => console.error("SW ошибка:", err));});}</script>
+        // 🔄 когда активируется новая версия — перезагружаем приложение
+        navigator.serviceWorker.addEventListener("controllerchange", () => {
+          window.location.reload();
+        });
+      })
+      .catch(err => console.error("SW ошибка:", err));
+  });
+}
+</script>
 
 </body>
 </html>
