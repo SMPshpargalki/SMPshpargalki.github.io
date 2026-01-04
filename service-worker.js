@@ -1,6 +1,6 @@
-const CACHE_NAME = "smp-shpargalki-v5";
+const CACHE_NAME = "smp-shpargalki-v6";
 
-// ВСЕ ФАЙЛЫ, КОТОРЫЕ НУЖНЫ ДЛЯ ОФФЛАЙН-РАБОТЫ
+// ===== ФАЙЛЫ ДЛЯ ОФФЛАЙНА =====
 const FILES_TO_CACHE = [
   "./",
   "./index.html",
@@ -38,7 +38,7 @@ const FILES_TO_CACHE = [
   "./Шаблоны/Урология.js",
   "./Шаблоны/Хирургия.js",
   "./Шаблоны/Прочее.js",
- 
+
   // ===== КАРТИНКИ =====
   "./картинки/logo.png",
   "./картинки/БаннерДоброПожаловать.jpg",
@@ -53,13 +53,12 @@ const FILES_TO_CACHE = [
 // INSTALL
 // =======================
 self.addEventListener("install", event => {
+  self.skipWaiting();
   event.waitUntil(
     caches.open(CACHE_NAME).then(cache => {
-      console.log("📦 Кеширование файлов");
       return cache.addAll(FILES_TO_CACHE);
     })
   );
-  self.skipWaiting();
 });
 
 // =======================
@@ -71,7 +70,6 @@ self.addEventListener("activate", event => {
       Promise.all(
         keys.map(key => {
           if (key !== CACHE_NAME) {
-            console.log("🗑 Удалён старый кеш:", key);
             return caches.delete(key);
           }
         })
@@ -82,26 +80,64 @@ self.addEventListener("activate", event => {
 });
 
 // =======================
-// FETCH (offline-first)
+// FETCH
 // =======================
 self.addEventListener("fetch", event => {
-  event.respondWith(
-    caches.match(event.request).then(cached => {
-      if (cached) return cached;
 
-      return fetch(event.request)
+  // ===== HTML — ВСЕГДА С СЕРВЕРА (если онлайн)
+  if (event.request.mode === "navigate") {
+    event.respondWith(
+      fetch(event.request)
         .then(response => {
-          return caches.open(CACHE_NAME).then(cache => {
-            cache.put(event.request, response.clone());
-            return response;
+          const copy = response.clone();
+          caches.open(CACHE_NAME).then(cache => {
+            cache.put(event.request, copy);
           });
+          return response;
         })
-        .catch(() => {
-          // если пользователь оффлайн и это навигация
-          if (event.request.mode === "navigate") {
-            return caches.match("./index.html");
-          }
-        });
-    })
-  );
+        .catch(() => caches.match("./index.html"))
+    );
+    return;
+  }
+
+  // ===== JS / CSS — STALE WHILE REVALIDATE
+  if (
+    event.request.destination === "script" ||
+    event.request.destination === "style"
+  ) {
+    event.respondWith(
+      caches.match(event.request).then(cached => {
+        const fetchPromise = fetch(event.request)
+          .then(response => {
+            caches.open(CACHE_NAME).then(cache => {
+              cache.put(event.request, response.clone());
+            });
+            return response;
+          })
+          .catch(() => cached);
+
+        return cached || fetchPromise;
+      })
+    );
+    return;
+  }
+
+  // ===== КАРТИНКИ — CACHE FIRST
+  if (event.request.destination === "image") {
+    event.respondWith(
+      caches.match(event.request).then(cached => {
+        return (
+          cached ||
+          fetch(event.request).then(response => {
+            caches.open(CACHE_NAME).then(cache => {
+              cache.put(event.request, response.clone());
+            });
+            return response;
+          })
+        );
+      })
+    );
+    return;
+  }
+
 });
