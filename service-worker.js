@@ -1,4 +1,4 @@
-const CACHE_NAME = "smp-shpargalki-v7";
+const CACHE_NAME = "smp-shpargalki-v8";
 
 // ===== ФАЙЛЫ ДЛЯ ОФФЛАЙНА =====
 const FILES_TO_CACHE = [
